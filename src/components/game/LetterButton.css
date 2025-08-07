@@ -1,0 +1,32 @@
+.letter_button-container {
+    margin: 2% ;
+}
+
+.letter_button {
+    font: 1.5rem 'Nunito-Bold', serif;
+    border: solid black;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    color: black;
+}
+
+.letter_button:disabled {
+    background-color: #ccc;
+    color: #666;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.letter_button:hover {
+    border: solid orange;
+    transform: translateY(-.1rem);
+}
+
+.letter_button:active {
+    box-shadow: inset 0 0 .1em rgba(0, 0, 0, .3);
+    transform: translateY(.05rem);
+}
