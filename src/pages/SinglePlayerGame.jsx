@@ -5,6 +5,8 @@ import LetterButton from '../components/game/LetterButton'
 import PostGameMenu from '../components/game/PostGameMenu'
 import BookDisplay from '../components/game/BookDisplay'
 
+import './SinglePlayerGame.css'
+
 const SinglePlayerGame = () => {
     const [answer, setAnswer] = useState('AHAS')
     const [question, setQuestion] = useState('Bastong hindi mahawakan, sinturong walang mapaggamit-gamitan.')

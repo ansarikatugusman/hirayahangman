@@ -1,5 +1,5 @@
 .single_player_game {
     display: grid;
-    place-content: center;
-    row-gap: 100px;
+    place-content: center;  
+    height: 100%;
 }
