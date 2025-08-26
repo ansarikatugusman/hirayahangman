@@ -33,7 +33,7 @@ const Bugtong = () => {
         {enteredPortal && <AdventureGame name='BUGTONG' handleActivePortal={handleActivePortal} handleEnteredPortal={handleEnteredPortal} handleLevelSolved={handleLevelSolved} style={{ position: 'fixed' }} />}
         <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} shadows camera={{ position: [0, 0, 10], fov: 30 }}>
             <Suspense fallback={null}>
-                <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.png' handleEnteredPortal={handleEnteredPortal} active={active} setActive={setActive} handleActivePortal={handleActivePortal} />
+                <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.jpg' handleEnteredPortal={handleEnteredPortal} active={active} setActive={setActive} handleActivePortal={handleActivePortal} />
             </Suspense>
             
         </Canvas>
