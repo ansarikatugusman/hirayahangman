@@ -9,7 +9,7 @@ const BookDisplay = ({ pictures, cover, back }) => {
 	return (
 		<div className='book_display center'>
       		<Loader />
-      		<Canvas style={{ width:'340px',  height: '340px' }} shadows camera={{
+      		<Canvas style={{ width:'330px',  height: '330px' }} shadows camera={{
           		position: [-0.5, 1, window.innerWidth > 340 ? 4 : 9],
           		fov: 35,
         	}}>
