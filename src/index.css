@@ -1,44 +1,83 @@
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: url(../fonts/Nunito-Regular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'Nunito-Bold';
+	src: url(../fonts/Nunito-Bold.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'CabinSketch-Regular';
+	src: url(../fonts/CabinSketch-Regular.ttf) format('truetype');
+}
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  	box-sizing: border-box;
+  	margin: 0;
+  	padding: 0;
 }
 
 html {
-  font-family: 'Open Sans', Avenir, Arial, sans-serif;
-  font-size: 100%;
-  color-scheme: light dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  	font-family: Nunito-Regular, serif;
+  	font-size: 100%;
+  	font-synthesis: none;
+ 	text-rendering: optimizeLegibility;
+ 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+  	-ms-text-size-adjust: 100%;
 }
 
 body {
-  display: flex;
-  place-items: center;
-  width: 100vw;
-  height: 100vh;
-  background: #f8d794 
+  	display: flex;
+  	place-content: center;
+  	width: 100vw;
+  	height: 100vh;
+  	background: #f8d794 
 }
 
 button {
-  border-radius: 15px;
-  border: 2px solid transparent;
-  cursor: pointer;
+	font-family: 'Nunito-Bold', serif;
+  	cursor: pointer;
 }
 
 #root {
-  min-width: 320px;
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
+  	margin: auto;
+  	text-align: center;
+	margin-left: 1%;
 }
 
 .center {
-  text-align: center;
-  display: flex;
-  place-items: center;
+  	text-align: center;
+  	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+	align-items: center;
+}
+
+.ohp {
+	width: 100%;
+	height: 100%;
+}
+
+.ohpw {
+	width: 100%;
+}
+
+.ohph {
+	height: 100%;
+}
+
+.ohpv {
+	width: 100%;
+  	height: 100vh;
+}
+
+.link_href {
+	color: black;
+	text-decoration: none;
 }
 
 .svg-bg {
@@ -49,50 +88,78 @@ button {
 }
 
 .out-top {
-  fill: #bbce95;
-  stroke: black;
-  stroke-width: 0.5;
+  	fill: #bbce95;
+  	stroke: black;
+  	stroke-width: 0.5;
 }
 
 .in-top {
-  fill: #bb6830;
-  stroke: black;
-  stroke-width: 1;
+  	fill: #bb6830;
+  	stroke: black;
+  	stroke-width: 1;
 }
 
 .out-bottom {
-  fill: #809076;
-  stroke: black;
-  stroke-width: 0.5;
+  	fill: #809076;
+  	stroke: black;
+  	stroke-width: 0.5;
 }
 
 .in-bottom {
-  fill: #bb6830;
-  stroke: black;
-  stroke-width: 1;
+  	fill: #bb6830;
+  	stroke: black;
+  	stroke-width: 1;
 }
 
 @keyframes rotate {
-	  0% {
-      transform: rotate(0deg);
+	0% {
+      	transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+      	transform: rotate(360deg);
     }
-  }
-  .out-top {
+}
+
+.out-top {
     animation: rotate 20s linear infinite;
     transform-origin: 13px 25px;
-  }
-  .in-top {
+}
+.in-top {
     animation: rotate 10s linear infinite;
     transform-origin: 13px 25px;
-  }
-  .out-bottom {
+}
+.out-bottom {
     animation: rotate 25s linear infinite;
     transform-origin: 84px 93px;
-  }
-  .in-bottom {
+}
+.in-bottom {
     animation: rotate 15s linear infinite;
     transform-origin: 84px 93px;
-  }
+}
+
+@keyframes scale {
+    0%{
+        scale: 0%;
+    }   
+    100%{
+        scale: 100%;
+    }
+}
+
+@keyframes fadeIn {
+	0% { 
+		opacity: 0; 
+	}
+	100% {
+		opacity: 1; 
+	}
+}
+
+.scale {
+	animation: scale 0.4s ease-out;
+}
+
+.scale_after {
+	animation: scale 0.4s 0.4s ease-out;
+    animation-fill-mode: backwards;
+}

@@ -1,0 +1,24 @@
+.home {
+    width: 100%;
+}
+
+.logo-container {
+    height: 50%;
+}
+
+.image_logo{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.home_buttons-container {
+    height: 40%;
+}
+
+@media screen and (min-width: 550px ) {
+    .image_logo{
+        width: 615px;
+        height: 103%;
+    }
+}

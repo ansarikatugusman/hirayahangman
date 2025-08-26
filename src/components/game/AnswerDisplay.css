@@ -1,0 +1,44 @@
+.answer_display-container {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    overflow: hidden ;
+}
+
+.answer_display-wrapper {
+    position: absolute;
+}
+
+#parchment {
+    position: absolute;
+    min-width: 325px;
+    width: 50%;
+    height: 60%;
+    /* center page with absolute position */
+    
+	
+	box-shadow: 2px 3px 20px black, 0 0 125px #8f5922 inset;
+	background: #fffef0;
+    filter: url(#wavy2);
+}
+
+#contain {
+    position: relative;
+ 	display: flex;
+    flex-direction: column;
+	width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.answer_display {
+    font: 3rem 'CabinSketch-Regular', serif;
+    color: black;
+    border-bottom: 5px solid black;
+    display: inline-flex;
+    place-content: center;
+    margin: 0 7.5px;
+    height: 3.25rem;
+    width: 1.5rem;
+    text-align: justify;
+}

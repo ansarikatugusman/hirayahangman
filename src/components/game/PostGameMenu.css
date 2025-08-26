@@ -1,0 +1,47 @@
+.post-game_menu-container {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.post-game_menu {
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    font-size: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.90);
+    color: white;
+    border: 2px solid white;
+    border-radius: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 5;
+}
+
+.post-game_menu p {
+    width: 100%;
+    margin: 2rem;
+}
+
+.post-game_menu button {
+    width: 9rem;
+    margin: auto;
+    border: 2px solid white;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.post-game_menu button:hover{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}

@@ -1,0 +1,15 @@
+.question_display-container {
+    min-width: 325px;
+    width: 50%;
+    height: 12.5%;
+    padding: 1rem;
+    background: #ede9e8;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin: 1% 0% 0% 0%;
+}
+
+.question_display {
+    font: 1rem 'Nunito-Bold', serif;
+    color: black;
+}

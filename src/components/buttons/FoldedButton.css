@@ -1,0 +1,30 @@
+.folded_button{
+    padding: 25px 25px;
+    position: relative;
+    font: 'Nunito-Bold', serif;
+    background: #f8ea69;
+    border: none;
+    border-top-left-radius: 250px 15px;
+    border-bottom-left-radius: 20px 115px;
+    border-bottom-right-radius: 105px 15px;
+    box-shadow: 0 7px 2px -2px rgba(0, 0, 0, 0.2);
+    transition: all ease .5s;
+}
+
+.folded_button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 25px 25px 0;
+    border-color: #ddd rgba(250, 250, 250, 0.1);
+    background: #f0f0d8;
+    transition: all ease .5s;
+}
+
+.folded_button:hover:before {
+    border-width: 0 50px 50px 0;
+    border-color: #eee rgba(250, 250, 250, 0);
+    background: #f0f0d8;
+}

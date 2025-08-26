@@ -1,0 +1,45 @@
+.app {
+    position: relative;
+    width: 97.5vw;
+	height: 98vh;
+    z-index: 0;
+    margin: 0 auto;
+    background: #f0f0d8;
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2), 0 0.5rem 1.25rem 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+}
+.app:before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 32.5px;
+    background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
+    background-size: 30px 30px;
+    border-right: 3px solid #D44147;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+.app-content {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    bottom: 5px;
+    left: 32.5px;
+    background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
+    background-size: 30px 30px;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.red_line {
+    content: '';
+    position: relative;
+    top: 0; bottom: 0; left: 0;
+    width: 60px;
+    background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
+    background-size: 30px 30px;
+    border-right: 3px solid #D44147;
+    box-sizing: border-box;
+}

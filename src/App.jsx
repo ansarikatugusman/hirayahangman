@@ -1,11 +1,30 @@
-import { useState } from 'react'
-import hirayahangman_logo from '/hirayahangman-white_outline.svg'
+import { Routes, Route } from 'react-router'
+import Dashboard from './Dashboard'
+import Home from './pages/Home'
+import Play from './pages/Play'
+import Adventure from './pages/Adventure'
+import Bugtong from './pages/Bugtong'
+
 import './App.css'
 
 const App = () => {
-  return (
-    <img style={{width: '50%', height:'50%'}} src={hirayahangman_logo} alt='logo' />
-  )
+    return (
+        <div className='app center'>
+            <div className='app-content'>
+                <Routes>
+                    <Route path='/' element={<Dashboard />}>
+                        <Route index element={<Home />}/>
+                        <Route path='play' element={<Play />}/>
+
+                        <Route path='adventure' element={<Adventure />}>
+                            <Route path='bugtong' element={<Bugtong />}/>
+                        </Route>
+                    </Route>
+                    <Route path='game' element={<Bugtong />}/>
+                </Routes>
+            </div>
+        </div>
+    )
 }
 
 export default App
