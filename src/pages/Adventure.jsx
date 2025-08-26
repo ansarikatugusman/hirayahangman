@@ -7,7 +7,7 @@ const Adventure = () => {
     return (
         <div className='adventure-container center ohpw'>
             <div className='bugtong_button-container'>
-                <Link className='link_href' to='bugtong'>
+                <Link className='link_href' to='adventure/bugtong'>
                     <FoldedButton text='BUGTONG' fontsize='150%' scale={true} />
                 </Link>
             </div>

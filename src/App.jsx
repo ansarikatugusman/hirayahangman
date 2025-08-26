@@ -3,7 +3,7 @@ import Dashboard from './Dashboard'
 import Home from './pages/Home'
 import Play from './pages/Play'
 import Adventure from './pages/Adventure'
-import SinglePlayerGame from './pages/SinglePlayerGame'
+import Bugtong from './pages/Bugtong'
 
 import './App.css'
 
@@ -15,9 +15,12 @@ const App = () => {
                     <Route path='/' element={<Dashboard />}>
                         <Route index element={<Home />}/>
                         <Route path='play' element={<Play />}/>
-                        <Route path='adventure' element={<Adventure />}/>
+
+                        <Route path='adventure' element={<Adventure />}>
+                            <Route path='bugtong' element={<Bugtong />}/>
+                        </Route>
                     </Route>
-                    <Route path='game' element={<SinglePlayerGame />}/>
+                    <Route path='game' element={<Bugtong />}/>
                 </Routes>
             </div>
         </div>

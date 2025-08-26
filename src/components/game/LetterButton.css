@@ -1,5 +1,7 @@
 .letter_button-container {
     margin: 2% ;
+    width: 75%;
+    height: 10%;
 }
 
 .letter_button {

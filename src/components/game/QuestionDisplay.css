@@ -1,5 +1,7 @@
 .question_display-container {
-    width: 75%;
+    min-width: 325px;
+    width: 50%;
+    height: 12.5%;
     padding: 1rem;
     background: #ede9e8;
     border: 2px solid black;

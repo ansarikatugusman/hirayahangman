@@ -1,14 +1,26 @@
+import { useRef } from 'react'
+
 import './PostGameMenu.css'
 
-const PostGameMenu = ({ answer, setGameFinished }) => {
+const PostGameMenu = ({ answer, name, handleActivePortal, handleEnteredPortal, reset}) => {
+    const modal = useRef()
+
     return (
-        <dialog className='post-game_menu center' open>
-            <p>The answer is <strong>{answer}</strong>!</p>
-            <p>Thank you for playing!</p>
-            <form method="dialog">
-                <button onClick={() => setGameFinished(false)}>PLAY AGAIN</button>
-            </form>
-        </dialog>
+        <>
+            <div className='post-game_menu-container'>
+            
+        </div>
+        <dialog className='post-game_menu center' ref={modal}>
+                <p>The answer is <strong>{answer}</strong>!</p>
+                    <button onClick={() => {
+                        handleActivePortal(name)
+                        handleEnteredPortal()
+                        handleLevelSolved()
+                        reset()
+                        modal.current.close()
+                    }}>PLAY AGAIN</button>
+            </dialog>
+        </>
     )
 }
 
