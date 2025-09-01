@@ -14,9 +14,6 @@
     min-width: 325px;
     width: 50%;
     height: 60%;
-    /* center page with absolute position */
-    
-	
 	box-shadow: 2px 3px 20px black, 0 0 125px #8f5922 inset;
 	background: #fffef0;
     filter: url(#wavy2);

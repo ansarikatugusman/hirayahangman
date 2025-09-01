@@ -71,7 +71,7 @@ const AdventureGame = ({ style, name, handleActivePortal, handleEnteredPortal, h
             <BookDisplay pictures={pictures} cover={cover} back={back} />
             <QuestionDisplay question={question} />
             <LetterButton answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} /> 
-            {gameFinished && <PostGameMenu  answer={answer} name={name} handleActivePortal={handleActivePortal} handleEnteredPortal={handleEnteredPortal} reset={reset}/>}
+            {gameFinished && <PostGameMenu  answer={answer} name={name} handleActivePortal={handleActivePortal} handleEnteredPortal={handleEnteredPortal} handleLevelSolved={handleLevelSolved} reset={reset}/>}
         </ div>
     )
 }
