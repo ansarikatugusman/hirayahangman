@@ -27,7 +27,6 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, gameS
                         position-x={x}
                         position-y={y}
                         position-z={z}
-                        
                     >
                         <div className='bugtong_book-container center'>
                             <div 
@@ -38,8 +37,15 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, gameS
                                     <span>COMPLETED</span>
                                 </div> 
                             </div>
-                            <div className='bugtong_book_image-wrapper center' >
+                            <div
+                                className='bugtong_book_image-wrapper center'
+                                onClick={(e) => {
+                                    gameStarted()
+                                    handleCurrentItem(e);
+                                }}
+                                style={{ pointerEvents: books[`bugtongBook${i+1}`] === true ? 'none' : '' }}>
                                 <img
+                                id={Object.keys(books)[i]}
                                     className='bugtong_book_image'
                                     src={books[`bugtongBook${i+1}`] === true ? BugtongBookClosed : BugtongBookOpen}
                                 />
