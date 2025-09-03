@@ -2,7 +2,7 @@ import { useRef } from 'react'
 
 import './PostGameMenu.css'
 
-const PostGameMenu = ({ answer, name, handleActivePortal, handleEnteredPortal, handleLevelSolved, reset}) => {
+const PostGameMenu = ({ answer, name, handleActivePortal, gameStarted, handleLevelSolved, reset}) => {
     const modal = useRef()
 
     return (
@@ -13,8 +13,7 @@ const PostGameMenu = ({ answer, name, handleActivePortal, handleEnteredPortal, h
         <dialog className='post-game_menu center' ref={modal}>
                 <p>The answer is <strong>{answer}</strong>!</p>
                     <button onClick={() => {
-                        handleActivePortal(name)
-                        handleEnteredPortal()
+                        gameStarted()
                         handleLevelSolved()
                         reset()
                         modal.current.close()

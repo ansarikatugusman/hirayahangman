@@ -16,8 +16,6 @@ const LetterButton = ({ answer, correctLetters, setCorrectLetters, wrongLetters,
     const handleGuessButton = (e) => {
         if (answer.includes(e.target.value) && !correctLetters.includes(e.target.value)) {
             setCorrectLetters( correctLetters => [...correctLetters, e.target.value] )
-            console.log(e.target.value)
-            console.log(correctLetters)
         } else if (!answer.includes(e.target.value) && !wrongLetters.includes(e.target.value)) {
             setWrongLetters( wrongLetters => [...wrongLetters, e.target.value] )
         }
@@ -29,6 +27,10 @@ const LetterButton = ({ answer, correctLetters, setCorrectLetters, wrongLetters,
         } else if (e.target.value) {
             handleGuessButton(e)
         }
+        console.log(e.target.id)
+        console.log(e.target.value)
+        console.log(correctLetters)
+        console.log(wrongLetters)
     }
     
     return (
@@ -38,7 +40,6 @@ const LetterButton = ({ answer, correctLetters, setCorrectLetters, wrongLetters,
                     <button 
                         className='letter_button'
                         value={letter}
-                        
                         disabled={correctLetters.includes(letter) || wrongLetters.includes(letter)}
                     >
                         <span 

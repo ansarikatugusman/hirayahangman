@@ -1,0 +1,77 @@
+.bugtong_book-container {
+    width: 300px;
+}
+
+.bugtong_book_completed-wrapper {
+	position: relative;
+	z-index: 1;
+	width: 200px;
+}
+
+.bugtong_book_completed-wrapper .bugtong_book_completed {
+	width: 100%;
+    height: 36px;
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.7);
+    line-height: 1.5;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	transform: skew(0, -15deg);
+}
+
+.bugtong_book_completed-wrapper .bugtong_book_completed:after,
+.bugtong_book_completed-wrapper .bugtong_book_completed:first-child:before {
+	position: absolute;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 200px;
+	border-radius: 4px;
+	background: rgba(180,180,180,0.8);
+	content: '';
+	transform: skew(0, 15deg);
+}
+
+.bugtong_book_completed-wrapper .bugtong_book_completed:first-child:before {
+	top: -5px;
+	right: 0;
+	left: auto;
+}
+
+.bugtong_book_completed-wrapper .bugtong_book_completed:first-child:before,
+.bugtong_book_completed-wrapper .bugtong_book_completed:last-child:after {
+	width: 0;
+	height: 0;
+	border-width: 19px;
+	border-style: solid;
+	border-color: rgba(180,180,180,0.8) rgba(180,180,180,0.8) transparent transparent;
+	background: transparent;
+}
+
+.bugtong_book_completed-wrapper .bugtong_book_completed:last-child:after {
+	top: 4px;
+	border-color: transparent transparent rgba(180,180,180,0.8) rgba(180,180,180,0.8);
+}
+
+.bugtong_book_completed-wrapper span {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	background: rgba(255,255,255,0.9);
+    font: 'Nunito-Bold', serif;
+	text-shadow: 1px 1px 0 #444;
+}
+
+.bugtong_book_image {
+    width: 250px;
+    cursor: pointer;
+    
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.bugtong_book_image:hover {
+    animation-play-state: paused;
+}
+

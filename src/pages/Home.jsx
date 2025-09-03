@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 import logo from '/hirayahangman-white_outline.svg'
-import FoldedButton from '../components/buttons/FoldedButton'
+import SketchedButton from '../components/buttons/SketchedButton'
 
 import './Home.css'
 
@@ -12,7 +12,7 @@ const Home = () => {
             </div>
             <div className='home_buttons-container center ohpw'>
                 <Link className='link_href' to='/play'>
-                    <FoldedButton text='PLAY' scale_after={true} />
+                    <SketchedButton text='PLAY' width='250px' fontsize='200%' scale_after={true} />
                 </Link>
             </div>
         </>

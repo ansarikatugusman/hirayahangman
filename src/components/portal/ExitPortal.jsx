@@ -1,0 +1,23 @@
+import { Html } from '@react-three/drei'
+import SketchedButton from '../buttons/SketchedButton'
+
+import './ExitPortal.css'
+
+const ExitPortal = ({ name, handleActivePortal }) => {
+
+    const onClickExitPortal = () => {
+        handleActivePortal(name)
+    }
+
+    return (
+        <Html
+            style={{ position: 'absolute', top: '-47.5vh', right: '47.5vw' }}
+        >
+            <div className='exit_portal-container'>
+                <SketchedButton text='GO BACK' width='150px' onClickHandler={onClickExitPortal}  />
+            </div>
+        </Html>
+    )
+}
+
+export default ExitPortal

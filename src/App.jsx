@@ -1,15 +1,24 @@
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router'
 import Dashboard from './Dashboard'
 import Home from './pages/Home'
 import Play from './pages/Play'
 import Adventure from './pages/Adventure'
 import Bugtong from './pages/Bugtong'
-import AnchorButton from './components/buttons/AnchorButton'
 import Testing from './pages/Testing'
+import BugtongBooks from './components/portal/BugtongBooks'
+import SketchedButton from './components/buttons/SketchedButton'
 
 import './App.css'
 
 const App = () => {
+
+    const bugtongBooks = { bugtongBook1: false, bugtongBook2: false, bugtongBook3: false, bugtongBook4:false, bugtongBook5: false, bugtongBook6: false, bugtongBook7: false, bugtongBook8: false, bugtongBook9: false, bugtongBook10: false}
+
+    useEffect(() => {
+        localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
+    }, [])
+
     return (
         <div className='app center'>
             <div className='app-content'>
@@ -23,7 +32,7 @@ const App = () => {
                             <Route path='bugtong' element={<Bugtong />}/>
                         </Route>
 
-                        <Route path='testing' element={<AnchorButton />}/>
+                        <Route path='testing' element={<SketchedButton text='TESTING' width='250px' fontsize='150%' />}/>
                     </Route>
                     <Route path='game' element={<Bugtong />}/>
                 </Routes>
