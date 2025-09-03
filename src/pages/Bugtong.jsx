@@ -1,56 +1,61 @@
 import { Loader } from '@react-three/drei'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useState } from 'react'
 import { Link } from 'react-router'
-import Portal from '../components/Portal'
 import AdventureGame from './AdventureGame'
-import FoldedButton from '../components/buttons/FoldedButton'
+import Portal from '../components/Portal'
+import BugtongBooks from '../components/portal/BugtongBooks'
+import SketchedButton from '../components/buttons/SketchedButton'
 
 import './Bugtong.css'
 
 const Bugtong = () => {
     const [active, setActive] = useState(null)
-    const [enteredPortal, setEnteredPortal] = useState(false)
-    const [levelsSolved, setLevelsSolved] = useState(0)
+    const [gameStart, setGameStart] = useState(false)   
+    const [bugtongBooks, setBugtongBooks] = useState({})
+    const [currentItem, setCurrentItem] = useState('')
 
-    const handleEnteredPortal = () => {
-        setEnteredPortal(!enteredPortal)
-        console.log(enteredPortal)
-    } 
+    useEffect(() => {
+        const data = localStorage.getItem('bugtongBooks')
+        setBugtongBooks(JSON.parse(data))
+    }, [gameStart])
 
     const handleActivePortal = (name) => {
 		setActive(active === name ? null : name)
 	}	
 
+    const handleCurrentItem = (e) => {
+        setCurrentItem(e.target.id)
+        console.log(currentItem)
+    }
+    
+    const gameStarted = () => {
+        setGameStart(current => !current )
+    } 
+
     const handleLevelSolved = () => {
-        setLevelsSolved((prevState) => prevState + 1)
+        let bugtongBooks = JSON.parse(localStorage.getItem('bugtongBooks'))
+        console.log(bugtongBooks) 
+        let newBugtongBooks = {...bugtongBooks, [currentItem]: true}
+        console.log(newBugtongBooks)
+        localStorage.setItem('bugtongBooks', JSON.stringify(newBugtongBooks))
     }
 
     return (
         <>
         <Loader />
-        {enteredPortal && <AdventureGame name='BUGTONG' handleActivePortal={handleActivePortal} handleEnteredPortal={handleEnteredPortal} handleLevelSolved={handleLevelSolved} style={{ position: 'fixed' }} />}
+        {gameStart && <AdventureGame name='BUGTONG' handleActivePortal={handleActivePortal} gameStarted={gameStarted} handleLevelSolved={handleLevelSolved} style={{ position: 'fixed' }} />}
         <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} shadows camera={{ position: [0, 0, 10], fov: 30 }}>
             <Suspense fallback={null}>
-                <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.jpg' handleEnteredPortal={handleEnteredPortal} active={active} setActive={setActive} handleActivePortal={handleActivePortal} />
+                <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.jpg' active={active}  handleActivePortal={handleActivePortal} handleCurrentItem={handleCurrentItem} currentItem={currentItem} gameStart={gameStart} gameStarted={gameStarted} Books={BugtongBooks} books={bugtongBooks} />
             </Suspense>
-            
         </Canvas>
-        <div>
-            <p style={{ fontSize: '1.5rem' }}>
-                Solved
-            </p>
-            <p style={{ fontSize: '2rem' }}>
-                {levelsSolved === 10 ? 10 : levelsSolved} / 10
-            </p>
-        </div>
-        {!enteredPortal && 
+        {!active && 
         <Link className='link_href bugtong_return_button' to='../'>
-            <FoldedButton text='HOME' fontsize='150%' scale={true} />
+            <SketchedButton text='HOME' width='200px' height='75px' fontsize='150%' scale={true} />
         </Link>}
-        </>
-        
+        </> 
     )
 }
 

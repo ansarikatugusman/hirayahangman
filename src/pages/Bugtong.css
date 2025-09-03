@@ -1,6 +1,6 @@
 .bugtong_return_button {
     position: fixed;
-    bottom: -2.5%;
-    left: 50%;
+    bottom: 0vh;
+    left: 50vw;
     transform: translate(-50%, -50%);
 }

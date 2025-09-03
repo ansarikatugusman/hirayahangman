@@ -9,7 +9,7 @@ import BugtongWordBank from '../utils/BugtongWordBank'
 
 import './AdventureGame.css'
 
-const AdventureGame = ({ style, name, handleActivePortal, handleEnteredPortal, handleLevelSolved }) => {
+const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLevelSolved }) => {
     const [answer, setAnswer] = useState('')
     const [question, setQuestion] = useState('')
     const [pictures, setPictures] = useState([])
@@ -71,7 +71,7 @@ const AdventureGame = ({ style, name, handleActivePortal, handleEnteredPortal, h
             <BookDisplay pictures={pictures} cover={cover} back={back} />
             <QuestionDisplay question={question} />
             <LetterButton answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} /> 
-            {gameFinished && <PostGameMenu  answer={answer} name={name} handleActivePortal={handleActivePortal} handleEnteredPortal={handleEnteredPortal} reset={reset}/>}
+            {gameFinished && <PostGameMenu  answer={answer} name={name} handleActivePortal={handleActivePortal} gameStarted={gameStarted} handleLevelSolved={handleLevelSolved} reset={reset}/>}
         </ div>
     )
 }

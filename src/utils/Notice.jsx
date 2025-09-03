@@ -22,7 +22,7 @@ const Notice = () => {
                 <br/><br/>
                 <p>Your feedback helps us make this better, so feel free to look around and let us know what you think!</p>
                 <br/><br/>
-                <p>Kindly submit your feedback through our <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqlaKw-gRxicIyZRMBu7acImsQlLP4xNj3phyBm5Sgadbs4w/viewform">Google Form</a> </p>
+                
 
                 <button onClick={() => {
                     setVisible(false)

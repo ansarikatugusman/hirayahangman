@@ -6,14 +6,14 @@ import {
   	Text,
   	useCursor,
   	useTexture,
-  	Html
 } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { easing } from "maath";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import ExitPortal from "./portal/ExitPortal";
 
-const Portal = ({ name, texture, handleEnteredPortal, active, setActive, handleActivePortal }) => {
+const Portal = ({ name, texture, active, handleActivePortal, handleCurrentItem, gameStart, gameStarted, Books, books }) => {
   	
   	const [hovered, setHovered] = useState(null);
   	useCursor(hovered);
@@ -33,9 +33,9 @@ const Portal = ({ name, texture, handleEnteredPortal, active, setActive, handleA
       		const targetPosition = new THREE.Vector3();
       		scene.getObjectByName(active).getWorldPosition(targetPosition);
       		controlsRef.current.setLookAt(
+        		-0.57,
         		0,
-        		0,
-        		5,
+        		2.5,
         		targetPosition.x,
         		targetPosition.y,
         		targetPosition.z,
@@ -47,7 +47,7 @@ const Portal = ({ name, texture, handleEnteredPortal, active, setActive, handleA
   	}, [active]);
 
   	return (
-    	<group>
+    	<>
       		<ambientLight intensity={0.5} />
       		<Environment preset="sunset" />
       		<CameraControls 
@@ -56,8 +56,8 @@ const Portal = ({ name, texture, handleEnteredPortal, active, setActive, handleA
         		maxPolarAngle={Math.PI / 2}
         		minPolarAngle={Math.PI / 6}
       		/>
-
-      		<group style='width: 1000px' >
+			{active && !gameStart && <ExitPortal name={name} handleActivePortal={handleActivePortal} />}
+			{active && !gameStart && <Books handleCurrentItem={handleCurrentItem} gameStarted={gameStarted} books={books} />}
       			<Text
         			font="fonts/CabinSketch-Regular.ttf"
         			fontSize={0.3}
@@ -72,24 +72,27 @@ const Portal = ({ name, texture, handleEnteredPortal, active, setActive, handleA
         			name={name}
         			args={[2, 3, 0.1]}
         			onClick={() => {
-						handleActivePortal(name)
-						handleEnteredPortal()
+						if (!active) {
+							handleActivePortal(name)
 						}
-					}
-        			onPointerEnter={() => setHovered(name)}
+					}}
+        			onPointerEnter={() =>{
+						if (!active) {
+							setHovered(name)
+						}
+					}}
         			onPointerLeave={() => setHovered(null)}
       			>
         			<MeshPortalMaterial ref={portalMaterial} side={THREE.DoubleSide}>
           				<ambientLight intensity={1} />
           				<Environment preset="sunset" />
           					<mesh>
-            					<sphereGeometry args={[5, 64, 64]} />
+            					<sphereGeometry args={[10, 64, 64]} />
             					<meshStandardMaterial map={map} side={THREE.BackSide} />
           					</mesh>
         			</MeshPortalMaterial>
         		</RoundedBox>
-    		</group>
-    	</group>
+    		</>
   	);
 };
 
