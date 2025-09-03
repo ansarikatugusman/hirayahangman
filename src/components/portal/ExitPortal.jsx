@@ -13,8 +13,8 @@ const ExitPortal = ({ name, handleActivePortal }) => {
         <Html
             style={{ position: 'absolute', top: '-47.5vh', right: '47.5vw' }}
         >
-            <div className='exit_portal-container'>
-                <SketchedButton text='GO BACK' width='150px' onClickHandler={onClickExitPortal}  />
+            <div className='exit_portal-container' onClick={() => onClickExitPortal()}>
+                <SketchedButton text='GO BACK' width='150px' onClick={() => onClickExitPortal()}  />
             </div>
         </Html>
     )
