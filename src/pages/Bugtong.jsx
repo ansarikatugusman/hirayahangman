@@ -1,4 +1,3 @@
-import { Loader } from '@react-three/drei'
 import { Suspense, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useState } from 'react'
@@ -44,7 +43,6 @@ const Bugtong = () => {
 
     return (
         <>
-        <Loader />
         {gameStart && <AdventureGame name='BUGTONG' handleActivePortal={handleActivePortal} gameStarted={gameStarted} handleLevelSolved={handleLevelSolved} style={{ position: 'fixed' }} />}
         <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} shadows camera={{ position: [0, 0, 10], fov: 30 }}>
             <Suspense fallback={null}>

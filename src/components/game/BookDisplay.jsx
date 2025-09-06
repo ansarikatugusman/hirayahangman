@@ -1,4 +1,3 @@
-import { Loader } from '@react-three/drei'
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment, Float, OrbitControls } from '@react-three/drei'
@@ -8,7 +7,6 @@ const BookDisplay = ({ pictures, cover, back }) => {
 
 	return (
 		<div className='book_display center'>
-      		<Loader />
       		<Canvas style={{ width:'320px',  height: '280px' }} shadows camera={{
           		position: [-0.5, 1, window.innerWidth > 330 ? 4 : 9],
           		fov: 35,

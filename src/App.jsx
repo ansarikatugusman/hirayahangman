@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route } from 'react-router'
+import { Loader } from '@react-three/drei'
 import Dashboard from './Dashboard'
 import Home from './pages/Home'
 import Play from './pages/Play'
@@ -20,24 +21,26 @@ const App = () => {
     }, [])
 
     return (
-        <div className='app center'>
-            <div className='app-content'>
-                <Routes>
-                    <Route path='/' element={<Dashboard />}>
-                        <Route index element={<Home />}/>
-                        <Route path='play' element={<Play />}/>
-                        
+        <>
+            <Loader />
+            <div className='app center'>
+                <div className='app-content'>
+                    <Routes>
+                        <Route path='/' element={<Dashboard />}>
+                            <Route index element={<Home />}/>
+                            <Route path='play' element={<Play />}/>
 
-                        <Route path='adventure' element={<Adventure />}>
-                            <Route path='bugtong' element={<Bugtong />}/>
+                            <Route path='adventure' element={<Adventure />}>
+                                <Route path='bugtong' element={<Bugtong />}/>
+                            </Route>
+
+                            <Route path='testing' element={<SketchedButton text='TESTING' width='250px' fontsize='150%' />}/>
                         </Route>
-
-                        <Route path='testing' element={<SketchedButton text='TESTING' width='250px' fontsize='150%' />}/>
-                    </Route>
-                    <Route path='game' element={<Bugtong />}/>
-                </Routes>
+                        <Route path='game' element={<Bugtong />}/>
+                    </Routes>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
