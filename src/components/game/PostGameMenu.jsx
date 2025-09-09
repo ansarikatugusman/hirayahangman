@@ -2,7 +2,7 @@ import { useRef } from 'react'
 
 import './PostGameMenu.css'
 
-const PostGameMenu = ({ answer, name, handleActivePortal, gameStarted, handleLevelSolved, reset}) => {
+const PostGameMenu = ({ answer, levelSolved, exitLevel, handlePuzzleEnded, levelEnded}) => {
     const modal = useRef()
 
     return (
@@ -11,14 +11,18 @@ const PostGameMenu = ({ answer, name, handleActivePortal, gameStarted, handleLev
             
         </div>
         <dialog className='post-game_menu center' ref={modal}>
-                <p>The answer is <strong>{answer}</strong>!</p>
-                    <button onClick={() => {
-                        gameStarted()
-                        handleLevelSolved()
-                        reset()
-                        modal.current.close()
-                    }}>PLAY AGAIN</button>
-            </dialog>
+            {levelSolved ? <p>The answer is <strong>{answer}</strong>!</p>
+                : <p>Try Again</p> }
+                <button onClick={() => {
+                    if (levelSolved) {
+                        handlePuzzleEnded()
+                        levelEnded()
+                    } else {
+                        exitLevel()
+                    }
+                    modal.current.close()
+                }}>'PLAY AGAIN'</button>
+        </dialog>
         </>
     )
 }

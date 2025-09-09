@@ -1,15 +1,17 @@
 import { useState, useEffect, use } from 'react'
+import UtilityDisplay from '../components/game/UtilityDisplay'
 import AnswerDisplay from '../components/game/AnswerDisplay'
 import BookDisplay from '../components/game/BookDisplay'
 import QuestionDisplay from '../components/game/QuestionDisplay'
-import LetterButton from '../components/game/LetterButton'
+import LettersDisplay from '../components/game/LettersDisplay'
 import PostGameMenu from '../components/game/PostGameMenu'
 
 import BugtongWordBank from '../utils/BugtongWordBank'
 
 import './AdventureGame.css'
 
-const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLevelSolved }) => {
+const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved }) => {
+    const [lives, setLives] = useState(3)
     const [answer, setAnswer] = useState('')
     const [question, setQuestion] = useState('')
     const [pictures, setPictures] = useState([])
@@ -18,8 +20,15 @@ const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLev
     const [displayBook, setDisplayBook] = useState(false)
     const [correctLetters, setCorrectLetters] = useState([])
     const [wrongLetters, setWrongLetters] = useState([])
-    const [stageWon, setStageWon] = useState(false)
-    const [gameFinished, setGameFinished] = useState(false)
+    const [puzzleEnded, setPuzzleEnded] = useState(false)
+
+    const addLife = () => {
+        setLives(prevLives => prevLives + 1)
+    }
+
+    const subtractLife = () => {
+        setLives(prevLives => prevLives - 1)
+    }
 
     const generateBugtong = () => {
         let bugtong = BugtongWordBank.easy[Math.floor(Math.random() * BugtongWordBank.easy.length)]        
@@ -31,13 +40,6 @@ const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLev
         console.log(bugtong)
     }
 
-    const reset = () => {
-        setCorrectLetters([])
-        setWrongLetters([])
-        setStageWon(false)
-        setGameFinished(true)
-    }
-
     const openDisplayBook = () => {
         setDisplayBook(true)
     }
@@ -46,14 +48,26 @@ const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLev
         setDisplayBook(false)
     }
 
+    const exitLevel = () => {
+        levelIsNotSolved()
+        levelEnded()
+    }
+
+    const handlePuzzleEnded = () => {
+        setPuzzleEnded(true)
+    }
+
     useEffect(generateBugtong, [])
 
     useEffect(() => {
         if (correctLetters.length && answer.split('').every(letter => correctLetters.includes(letter))) {
+            levelIsSolved()
             handleLevelSolved()
-            reset()
+            handlePuzzleEnded(true)
         }
-        if (wrongLetters.length === 5) reset()
+        if (wrongLetters.length === 3) { 
+            handlePuzzleEnded(true)
+        }
     }, [correctLetters, wrongLetters])
 
     useEffect(() => {
@@ -75,12 +89,13 @@ const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLev
     }, [answer, correctLetters, wrongLetters]);
 
     return (
-        <div className='adventure_game center' style={style}>
+        <div className='adventure_game center'>
+            <UtilityDisplay lives={lives} exitLevel={exitLevel} levelIsNotSolved={levelIsNotSolved} handlePuzzleEnded={handlePuzzleEnded}/>
             <AnswerDisplay answer={answer} correctLetters={correctLetters} />
             <BookDisplay pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} />
             <QuestionDisplay question={question} />
-            <LetterButton answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} /> 
-            {gameFinished && <PostGameMenu  answer={answer} name={name} handleActivePortal={handleActivePortal} gameStarted={gameStarted} handleLevelSolved={handleLevelSolved} reset={reset}/>}
+            <LettersDisplay subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> 
+            {puzzleEnded && <PostGameMenu  answer={answer} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded}/>}
         </ div>
     )
 }

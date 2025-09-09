@@ -73,6 +73,7 @@
     animation: floating 5s ease-in-out infinite;
     will-change: transform;
     backface-visibility: hidden;
+	filter: drop-shadow(5px 5px 5px #222);
 }
 
 .bugtong_book_image:hover {

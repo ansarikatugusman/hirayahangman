@@ -11,27 +11,40 @@ import './Bugtong.css'
 
 const Bugtong = () => {
     const [active, setActive] = useState(null)
-    const [gameStart, setGameStart] = useState(false)   
+    const [levelStart, setLevelStart] = useState(false)   
     const [bugtongBooks, setBugtongBooks] = useState({})
     const [currentItem, setCurrentItem] = useState('')
+    const [levelSolved, setLevelSolved] = useState(false)
 
     useEffect(() => {
         const data = localStorage.getItem('bugtongBooks')
         setBugtongBooks(JSON.parse(data))
-    }, [gameStart])
+    }, [levelStart])
 
     const handleActivePortal = (name) => {
 		setActive(active === name ? null : name)
 	}	
 
+    const levelStarted = () => {
+        setLevelStart(true)
+    }
+
+    const levelEnded = () => {
+        setLevelStart(false)
+    }
+    
     const handleCurrentItem = (e) => {
         setCurrentItem(e.target.id)
         console.log(currentItem)
     }
-    
-    const gameStarted = () => {
-        setGameStart(current => !current )
-    } 
+
+    const levelIsSolved = () => {
+        setLevelSolved(true)
+    }
+
+    const levelIsNotSolved = () => {
+        setLevelSolved(false)
+    }
 
     const handleLevelSolved = () => {
         let bugtongBooks = JSON.parse(localStorage.getItem('bugtongBooks'))
@@ -43,10 +56,10 @@ const Bugtong = () => {
 
     return (
         <>
-        {gameStart && <AdventureGame name='BUGTONG' handleActivePortal={handleActivePortal} gameStarted={gameStarted} handleLevelSolved={handleLevelSolved} />}
+        {levelStart && <AdventureGame levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
         <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} shadows camera={{ position: [0, 0, 10], fov: 30 }}>
             <Suspense fallback={null}>
-                <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.jpg' active={active}  handleActivePortal={handleActivePortal} handleCurrentItem={handleCurrentItem} currentItem={currentItem} gameStart={gameStart} gameStarted={gameStarted} Books={BugtongBooks} books={bugtongBooks} />
+                <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.jpg' active={active}  handleActivePortal={handleActivePortal} handleCurrentItem={handleCurrentItem} currentItem={currentItem} levelStart={levelStart} levelStarted={levelStarted} Books={BugtongBooks} books={bugtongBooks} />
             </Suspense>
         </Canvas>
         {!active && 

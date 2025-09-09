@@ -217,7 +217,7 @@ const BugtongWordBank = {
             ]
         },
         {
-            question: "Ako'y may kaigiban, kasama sa kung saan-saan.",
+            question: "Ako'y may kaibigan, kasama sa kung saan-saan.",
             answer: "ANINO",
             pictures: [
                 'bg-1-19-01',

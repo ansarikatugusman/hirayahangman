@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import { Html } from '@react-three/drei'
-import BugtongBookOpen from '../../assets/books/bugtong_book_open.png'
-import BugtongBookClosed from '../../assets/books/bugtong_book_closed.png'
+import BugtongBookOpen from '../../assets/images/bugtong_book_open.png'
+import BugtongBookClosed from '../../assets/images/bugtong_book_closed.png'
 
 import './BugtongBooks.css'
 
-const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, gameStarted, books, currentItem  }) => {
+const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, levelStarted, books, currentItem  }) => {
 
     const bugtongBooks = useMemo(() => {
         let bugtong_books = []
@@ -40,7 +40,7 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, gameS
                             <div
                                 className='bugtong_book_image-wrapper center'
                                 onClick={(e) => {
-                                    gameStarted()
+                                    levelStarted()
                                     handleCurrentItem(e);
                                 }}
                                 style={{ pointerEvents: books[`bugtongBook${i+1}`] === true ? 'none' : '' }}>
@@ -88,7 +88,7 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, gameS
                             <div
                                 className='bugtong_book_image-wrapper center'
                                 onClick={(e) => {
-                                    gameStarted()
+                                    levelStarted()
                                     handleCurrentItem(e);
                                 }}
                                 style={{ pointerEvents: books[`bugtongBook${i+1}`] === true ? 'none' : '' }}>
@@ -101,13 +101,11 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, gameS
                         </div>
                     </Html>
                 )
-            
             }
-            
         }
 
         return bugtong_books
-    }, [books, handleCurrentItem, gameStarted, currentItem])
+    }, [books, handleCurrentItem, levelStarted, currentItem])
     
     return (
         <>

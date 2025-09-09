@@ -1,23 +1,28 @@
-import './LetterButton.css'
+import './LettersDisplay.css'
 
 const alphabets = 'ABKDEGHILMNOPRSTUWY'
 
-// Make a button for each letter.
-const LetterButton = ({ answer, correctLetters, setCorrectLetters, wrongLetters, setWrongLetters }) => {
+const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetters, wrongLetters, setWrongLetters, levelIsSolved, levelIsNotSolved }) => {
 
     const handleGuessSpan = (e) => {
         if (answer.includes(e.target.id) && !correctLetters.includes(e.target.id)) {
             setCorrectLetters( correctLetters => [...correctLetters, e.target.id] )
+            levelIsSolved()
         } else if (!answer.includes(e.target.id) && !wrongLetters.includes(e.target.id)) {
             setWrongLetters( wrongLetters => [...wrongLetters, e.target.id] )
+            levelIsNotSolved()
+            subtractLife()
         }
     }
 
     const handleGuessButton = (e) => {
         if (answer.includes(e.target.value) && !correctLetters.includes(e.target.value)) {
             setCorrectLetters( correctLetters => [...correctLetters, e.target.value] )
+            levelIsSolved()
         } else if (!answer.includes(e.target.value) && !wrongLetters.includes(e.target.value)) {
             setWrongLetters( wrongLetters => [...wrongLetters, e.target.value] )
+            levelIsNotSolved()
+            subtractLife()
         }
     }
 
@@ -34,9 +39,9 @@ const LetterButton = ({ answer, correctLetters, setCorrectLetters, wrongLetters,
     }
     
     return (
-        <div className='letter_button-container center'>
+        <div className='letters_display-container center'>
             {alphabets.split('').map( letter => (
-                <div className='letter_button-wrapper center' key={letter} onClick={handleGuess}>
+                <div className='letters_display-wrapper center' key={letter} onClick={handleGuess}>
                     <button 
                         className='letter_button'
                         value={letter}
@@ -55,4 +60,4 @@ const LetterButton = ({ answer, correctLetters, setCorrectLetters, wrongLetters,
     )
 }
 
-export default LetterButton
+export default LettersDisplay

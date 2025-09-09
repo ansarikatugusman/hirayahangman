@@ -34,8 +34,9 @@ const App = () => {
                                 <Route path='bugtong' element={<Bugtong />}/>
                             </Route>
 
-                            <Route path='testing' element={<SketchedButton text='TESTING' width='250px' fontsize='150%' />}/>
+                            
                         </Route>
+                        <Route path='testing' element={<></>}/>
                         <Route path='game' element={<Bugtong />}/>
                     </Routes>
                 </div>
