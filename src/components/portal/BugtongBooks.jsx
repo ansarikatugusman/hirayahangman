@@ -22,13 +22,13 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, gameS
             if (i === numberOfBooks - 1) {
                 bugtong_books.push(
                     <Html
-                        className='bugtong_book-wrapper center'
+                        className='bugtong_book-container center'
                         key={i}
                         position-x={x}
                         position-y={y}
                         position-z={z}
                     >
-                        <div className='bugtong_book-container center'>
+                        <div className='bugtong_book-wrapper center'>
                             <div 
                                 className='bugtong_book_completed-wrapper center'
                                 style={{ visibility: books[`bugtongBook${i+1}`] === true ? 'visible' : 'hidden' }}

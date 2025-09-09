@@ -7,7 +7,7 @@ const PostGameMenu = ({ answer, name, handleActivePortal, gameStarted, handleLev
 
     return (
         <>
-            <div className='post-game_menu-container'>
+        <div className='modal'>
             
         </div>
         <dialog className='post-game_menu center' ref={modal}>

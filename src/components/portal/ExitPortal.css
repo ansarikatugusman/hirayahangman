@@ -1,5 +1,5 @@
 .exit_portal-container {
     height: 40px;
     position: fixed;
-    
+    animation: fadeIn 0.25s 0.25s linear backwards;
 }

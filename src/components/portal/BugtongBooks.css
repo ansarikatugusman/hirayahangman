@@ -1,4 +1,8 @@
 .bugtong_book-container {
+	animation: fadeIn 0.25s 0.25s linear backwards;
+}
+
+.bugtong_book-wrapper {
     width: 300px;
 }
 
@@ -73,5 +77,6 @@
 
 .bugtong_book_image:hover {
     animation-play-state: paused;
+	scale: 1.2;
 }
 

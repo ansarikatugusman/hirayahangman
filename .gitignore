@@ -13,6 +13,7 @@ dist-ssr
 *.local
 
 eslint.config.js
+z-index.txt
 
 # Editor directories and files
 .vscode/*

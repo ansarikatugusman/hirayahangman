@@ -80,6 +80,17 @@ button {
 	text-decoration: none;
 }
 
+.modal {
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 110vw; 
+    height: 100vh; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
 .svg-bg {
     position: fixed;
     width: 100vw;

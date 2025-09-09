@@ -43,7 +43,7 @@ const Bugtong = () => {
 
     return (
         <>
-        {gameStart && <AdventureGame name='BUGTONG' handleActivePortal={handleActivePortal} gameStarted={gameStarted} handleLevelSolved={handleLevelSolved} style={{ position: 'fixed' }} />}
+        {gameStart && <AdventureGame name='BUGTONG' handleActivePortal={handleActivePortal} gameStarted={gameStarted} handleLevelSolved={handleLevelSolved} />}
         <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} shadows camera={{ position: [0, 0, 10], fov: 30 }}>
             <Suspense fallback={null}>
                 <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.jpg' active={active}  handleActivePortal={handleActivePortal} handleCurrentItem={handleCurrentItem} currentItem={currentItem} gameStart={gameStart} gameStarted={gameStarted} Books={BugtongBooks} books={bugtongBooks} />

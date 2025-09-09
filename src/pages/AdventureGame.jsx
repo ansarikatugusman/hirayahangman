@@ -1,9 +1,9 @@
 import { useState, useEffect, use } from 'react'
 import AnswerDisplay from '../components/game/AnswerDisplay'
+import BookDisplay from '../components/game/BookDisplay'
 import QuestionDisplay from '../components/game/QuestionDisplay'
 import LetterButton from '../components/game/LetterButton'
 import PostGameMenu from '../components/game/PostGameMenu'
-import BookDisplay from '../components/game/BookDisplay'
 
 import BugtongWordBank from '../utils/BugtongWordBank'
 
@@ -15,6 +15,7 @@ const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLev
     const [pictures, setPictures] = useState([])
     const [cover, setCover] = useState('')
     const [back, setBack] = useState('')
+    const [displayBook, setDisplayBook] = useState(false)
     const [correctLetters, setCorrectLetters] = useState([])
     const [wrongLetters, setWrongLetters] = useState([])
     const [stageWon, setStageWon] = useState(false)
@@ -35,6 +36,14 @@ const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLev
         setWrongLetters([])
         setStageWon(false)
         setGameFinished(true)
+    }
+
+    const openDisplayBook = () => {
+        setDisplayBook(true)
+    }
+
+    const closeDisplayBook = () => {
+        setDisplayBook(false)
     }
 
     useEffect(generateBugtong, [])
@@ -68,7 +77,7 @@ const AdventureGame = ({ style, name, handleActivePortal, gameStarted, handleLev
     return (
         <div className='adventure_game center' style={style}>
             <AnswerDisplay answer={answer} correctLetters={correctLetters} />
-            <BookDisplay pictures={pictures} cover={cover} back={back} />
+            <BookDisplay pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} />
             <QuestionDisplay question={question} />
             <LetterButton answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} /> 
             {gameFinished && <PostGameMenu  answer={answer} name={name} handleActivePortal={handleActivePortal} gameStarted={gameStarted} handleLevelSolved={handleLevelSolved} reset={reset}/>}

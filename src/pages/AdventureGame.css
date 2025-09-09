@@ -1,8 +1,18 @@
 .adventure_game {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
     top: 50%;
-    left: 48%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 3;
+    z-index: 5;
     flex-direction: column;
-    animation: fadeIn 1s 1s ease-in backwards;
+    row-gap: 1rem;
+    animation: fadeIn 0.25s 0.25s linear backwards;
+}
+
+@media screen and (min-width: 550px)  {
+    .adventure_game {
+        width: 60vw;
+    }
 }

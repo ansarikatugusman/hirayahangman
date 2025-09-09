@@ -1,9 +1,9 @@
 .letter_button-container {
-    margin: 2%;
     min-width: 344px;
     width: 75%;
-    height: 10%;
-    gap: 5px;
+    height: 24%;
+    gap: 7px;
+    align-content: flex-start;
 }
 
 .letter_button-wrapper {
