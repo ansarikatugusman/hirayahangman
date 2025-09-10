@@ -13,6 +13,7 @@ const Bugtong = () => {
     const [active, setActive] = useState(null)
     const [levelStart, setLevelStart] = useState(false)   
     const [bugtongBooks, setBugtongBooks] = useState({})
+    const [items, setItems] = useState({})
     const [currentItem, setCurrentItem] = useState('')
     const [levelSolved, setLevelSolved] = useState(false)
 
@@ -20,6 +21,11 @@ const Bugtong = () => {
         const booksData = localStorage.getItem('bugtongBooks')
         setBugtongBooks(JSON.parse(booksData))
     }, [levelStart])
+
+    useEffect(() => {
+        const itemsData = localStorage.getItem('items')
+        setItems(JSON.parse(itemsData))
+    }, [])
 
     const handleActivePortal = (name) => {
 		setActive(active === name ? null : name)
@@ -56,7 +62,7 @@ const Bugtong = () => {
 
     return (
         <>
-        {levelStart && <AdventureGame levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
+        {levelStart && <AdventureGame items={items} levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
         <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} shadows camera={{ position: [0, 0, 10], fov: 30 }}>
             <Suspense fallback={null}>
                 <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.jpg' active={active}  handleActivePortal={handleActivePortal} handleCurrentItem={handleCurrentItem} currentItem={currentItem} levelStart={levelStart} levelStarted={levelStarted} Books={BugtongBooks} books={bugtongBooks} />

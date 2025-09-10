@@ -29,8 +29,8 @@ const App = () => {
 
     const items = {
         item1: 3,
-        item2: 3,
-        item3: 3
+        item2: 4,
+        item3: 5
     }
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const App = () => {
 
     return (
         <>
-            <Loader />
+            <Loader dataStyles={{ font:'5rem' }}/>
             <div className='app center'>
                 <div className='app-content'>
                     <Routes>

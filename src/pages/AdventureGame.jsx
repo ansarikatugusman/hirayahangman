@@ -11,9 +11,8 @@ import BugtongWordBank from '../utils/BugtongWordBank'
 
 import './AdventureGame.css'
 
-const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved }) => {
+const AdventureGame = ({ items, levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved }) => {
     const [lives, setLives] = useState(3)
-    const [items, setItems] = useState({})
     const [answer, setAnswer] = useState('')
     const [question, setQuestion] = useState('')
     const [pictures, setPictures] = useState([])
@@ -62,12 +61,6 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
     useEffect(generateBugtong, [])
 
     useEffect(() => {
-        const itemsData = localStorage.getItem('items')
-        setItems(JSON.parse(itemsData))
-        console.log(itemsData)
-    }, [])
-
-    useEffect(() => {
         if (correctLetters.length && answer.split('').every(letter => correctLetters.includes(letter))) {
             levelIsSolved()
             handleLevelSolved()
@@ -102,7 +95,7 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
             <AnswerDisplay answer={answer} correctLetters={correctLetters} />
             <BookDisplay pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} />
             <QuestionDisplay question={question} />
-            <ItemsDisplay items={items} setItems={setItems}/>
+            <ItemsDisplay items={items} />
             <LettersDisplay subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> 
             {puzzleEnded && <PostGameMenu  answer={answer} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded}/>}
         </ div>
