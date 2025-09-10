@@ -47,7 +47,10 @@ const UtilityDisplay = ({ lives, exitLevel, levelIsNotSolved, handlePuzzleEnded 
                     isSmoothColorTransition={true}
                     colors={['#004777', '#008000', '#ffff00', '#ffa500', '#ff0000']}
                     colorsTime={[15, 10, 5, 2.5, 0]}
-                    
+                    onComplete={() => {
+                        levelIsNotSolved()
+                        handlePuzzleEnded()
+                    }}
                 >
                     {renderTime}
                 </CountdownCircleTimer>
