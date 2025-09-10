@@ -17,8 +17,8 @@ const Bugtong = () => {
     const [levelSolved, setLevelSolved] = useState(false)
 
     useEffect(() => {
-        const data = localStorage.getItem('bugtongBooks')
-        setBugtongBooks(JSON.parse(data))
+        const booksData = localStorage.getItem('bugtongBooks')
+        setBugtongBooks(JSON.parse(booksData))
     }, [levelStart])
 
     const handleActivePortal = (name) => {

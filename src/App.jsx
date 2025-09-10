@@ -14,10 +14,28 @@ import './App.css'
 
 const App = () => {
 
-    const bugtongBooks = { bugtongBook1: false, bugtongBook2: false, bugtongBook3: false, bugtongBook4:false, bugtongBook5: false, bugtongBook6: false, bugtongBook7: false, bugtongBook8: false, bugtongBook9: false, bugtongBook10: false}
+    const bugtongBooks = { 
+        bugtongBook1: false, 
+        bugtongBook2: false, 
+        bugtongBook3: false, 
+        bugtongBook4: false, 
+        bugtongBook5: false, 
+        bugtongBook6: false, 
+        bugtongBook7: false, 
+        bugtongBook8: false, 
+        bugtongBook9: false, 
+        bugtongBook10: false
+    }
+
+    const items = {
+        item1: 3,
+        item2: 3,
+        item3: 3
+    }
 
     useEffect(() => {
         localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
+        localStorage.setItem('items', JSON.stringify(items))
     }, [])
 
     return (
@@ -36,7 +54,7 @@ const App = () => {
 
                             
                         </Route>
-                        <Route path='testing' element={<></>}/>
+                        <Route path='testing' element={<Testing />}/>
                         <Route path='game' element={<Bugtong />}/>
                     </Routes>
                 </div>

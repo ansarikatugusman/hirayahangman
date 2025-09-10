@@ -5,36 +5,32 @@ import Life from '../../assets/images/life.png'
 
 import './UtilityDisplay.css'
 
-export let timeLeft
-
-const renderTime = ({ remainingTime }) => {
-    if (remainingTime === 0) {
-    }
-    timeLeft = remainingTime
-
-    return (
-        <div className="time_left-wrapper center">
-            <div className="time_left center">{remainingTime}</div>
-        </div>
-    )
-}
-
 const UtilityDisplay = ({ lives, exitLevel, levelIsNotSolved, handlePuzzleEnded }) => {
     const livesRef = useRef()
     const [pastLives, setPastLives] = useState(lives)
 
+    const renderTime = ({ remainingTime }) => {
+        if (remainingTime === 0) {
+        }
+    
+        return (
+            <div className="time_left-wrapper center">
+                <div className="time_left center">{remainingTime}</div>
+            </div>
+        )
+    }
+
     useEffect(() => {
-        if (pastLives > lives) {
-            livesRef.current.style.animation = 'animateSubtractLife 0.5s'
-            setPastLives(pastLives => --pastLives)
-        } else if (pastLives < lives) {
+        if (pastLives < lives) {
             livesRef.current.style.animation = 'animateAddLife 0.5s'
             setPastLives(pastLives => ++pastLives)
+        } else if (pastLives > lives) {
+            livesRef.current.style.animation = 'animateSubtractLife 0.5s'
+            setPastLives(pastLives => --pastLives)
         }
-
         setTimeout(() => {
             livesRef.current.style.animation = 'none'
-        }, [100])
+        }, [200])
     }, [lives])
 
     return (
@@ -47,14 +43,11 @@ const UtilityDisplay = ({ lives, exitLevel, levelIsNotSolved, handlePuzzleEnded 
                     size={65}
                     strokeWidth={7.5}
                     isPlaying={true}
-                    duration={30.25}
+                    duration={30.2}
                     isSmoothColorTransition={true}
                     colors={['#004777', '#008000', '#ffff00', '#ffa500', '#ff0000']}
                     colorsTime={[15, 10, 5, 2.5, 0]}
-                    onComplete={() => {
-                        levelIsNotSolved()
-                        handlePuzzleEnded()
-                    }}
+                    
                 >
                     {renderTime}
                 </CountdownCircleTimer>

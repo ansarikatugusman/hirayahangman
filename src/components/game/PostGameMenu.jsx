@@ -21,7 +21,7 @@ const PostGameMenu = ({ answer, levelSolved, exitLevel, handlePuzzleEnded, level
                         exitLevel()
                     }
                     modal.current.close()
-                }}>'PLAY AGAIN'</button>
+                }}>PLAY AGAIN</button>
         </dialog>
         </>
     )

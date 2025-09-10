@@ -1,7 +1,7 @@
 .letters_display-container {
     min-width: 344px;
     width: 75%;
-    height: 24%;
+    height: auto;
     gap: 7px;
     align-content: flex-start;
 }
