@@ -12,7 +12,7 @@ const ItemsDisplay = ({ items, setItems }) => {
         })) 
     }, [])
     return (
-        <div className='items_display-container'>
+        <div className='items_display-container center'>
             { Object.values(Items).map((value, index) => {
                 let src = `/images/${value['game_icon']}`
                 return (

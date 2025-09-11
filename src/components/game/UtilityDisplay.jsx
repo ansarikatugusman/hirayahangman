@@ -43,12 +43,13 @@ const UtilityDisplay = ({ lives, exitLevel, levelIsNotSolved, handlePuzzleEnded 
                     size={65}
                     strokeWidth={7.5}
                     isPlaying={true}
-                    duration={30.2}
+                    duration={99.2}
                     isSmoothColorTransition={true}
                     colors={['#004777', '#008000', '#ffff00', '#ffa500', '#ff0000']}
                     colorsTime={[15, 10, 5, 2.5, 0]}
                     onComplete={() => {
-                        
+                        levelIsNotSolved()
+                        handlePuzzleEnded()
                     }}
                 >
                     {renderTime}
