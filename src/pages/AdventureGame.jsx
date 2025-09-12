@@ -49,7 +49,15 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
     }
 
     const hint = () => {
-        const x = answer.split('')
+        let openCorrectLetters = []
+        
+        answer.split('').forEach(letter => {
+            if (answer.includes(letter) && !correctLetters.includes(letter)) {
+                openCorrectLetters.push(letter)
+            }
+        })
+        
+        setCorrectLetters( correctLetters => [...correctLetters, openCorrectLetters[Math.floor(Math.random() * openCorrectLetters.length)]] )
     }
 
     const generateBugtong = () => {
@@ -97,7 +105,7 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
     const useItem3 = () => {
         // Magnifying Glass
         if (item3 >= 1) {
-            
+            hint()
             let updatedItemQuantity = item3 - 1
             setItem3(prevItemQuantity => prevItemQuantity - 1 )
             let items = JSON.parse(localStorage.getItem('items'))

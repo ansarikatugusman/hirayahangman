@@ -28,7 +28,7 @@ const ItemsDisplay = ({ item1, item2, item3, useItem1, useItem2, useItem3 }) => 
                     <p className='item_quantity'> {item2} </p>
                 </div>
             </div>
-            <div className='items_display-wrapper' onClick={useItem3} style={{ visibility: 'hidden'}} >
+            <div className='items_display-wrapper' onClick={useItem3}  >
                 <img className='item' src={MagnifyingGlass} />
                 <div className='item_quantity-wrapper center'>
                     <p className='item_quantity'> {item3} </p>
