@@ -5,7 +5,7 @@ import Life from '../../assets/images/life.png'
 
 import './UtilityDisplay.css'
 
-const UtilityDisplay = ({ lives, exitLevel, levelIsNotSolved, handlePuzzleEnded }) => {
+const UtilityDisplay = ({ timeIsPlaying, lives, exitLevel, levelIsNotSolved, handlePuzzleEnded }) => {
     const livesRef = useRef()
     const [pastLives, setPastLives] = useState(lives)
 
@@ -42,7 +42,7 @@ const UtilityDisplay = ({ lives, exitLevel, levelIsNotSolved, handlePuzzleEnded 
                 <CountdownCircleTimer 
                     size={65}
                     strokeWidth={7.5}
-                    isPlaying={true}
+                    isPlaying={timeIsPlaying}
                     duration={99.2}
                     isSmoothColorTransition={true}
                     colors={['#004777', '#008000', '#ffff00', '#ffa500', '#ff0000']}

@@ -1,27 +1,39 @@
 import { useEffect } from 'react'
 import Items from '../../utils/Items'
+import HealtPlus from '../../assets/images/health_plus-game.svg'
+import TimeShield from '../../assets/images/time_shield-game.svg'
+import MagnifyingGlass from '../../assets/images/magnifying_glass-game.svg'
 
 import './ItemsDisplay.css'
 
-const ItemsDisplay = ({ items, setItems }) => {
+const ItemsDisplay = ({ item1, item2, item3, useItem1, useItem2, useItem3 }) => {
 
     useEffect(() => {
         Object.values(Items).map(((index, i) => {
             console.log(index['game_icon'])
-            console.log(items[`item${i+1}`])
+            
         })) 
     }, [])
     return (
         <div className='items_display-container center'>
-            { Object.values(Items).map((value, index) => {
-                let src = `/images/${value['game_icon']}`
-                return (
-                    <div className='items_display-wrapper' key={index}>
-                        <img width={'64px'} src={src} />
-                        <p> {items[`item${index+1}`]} </p>
-                    </div>
-                )
-            }) }
+            <div className='items_display-wrapper' onClick={useItem1} >
+                <img className='item' src={HealtPlus} />
+                <div className='item_quantity-wrapper center'>
+                    <p className='item_quantity'> {item1} </p>
+                </div>
+            </div>
+            <div className='items_display-wrapper' onClick={useItem2} >
+                <img className='item' src={TimeShield} />
+                <div className='item_quantity-wrapper center'>
+                    <p className='item_quantity'> {item2} </p>
+                </div>
+            </div>
+            <div className='items_display-wrapper' onClick={useItem3} style={{ visibility: 'hidden'}} >
+                <img className='item' src={MagnifyingGlass} />
+                <div className='item_quantity-wrapper center'>
+                    <p className='item_quantity'> {item3} </p>
+                </div>
+            </div>
         </div>
     )
 }
