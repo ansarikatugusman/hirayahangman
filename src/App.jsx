@@ -40,7 +40,21 @@ const App = () => {
 
     return (
         <>
-            <Loader dataStyles={{ font:'5rem' }}/>
+            <Loader
+                dataStyles={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    fontSize: '1.75rem', 
+                    fontFamily: 'CabinSketch-Regular, sans-serif'
+                }}
+                containerStyles={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)'
+                }}
+                barStyles={{
+                    height: '0.5rem',
+                }}
+            />
+
             <div className='app center'>
                 <div className='app-content'>
                     <Routes>

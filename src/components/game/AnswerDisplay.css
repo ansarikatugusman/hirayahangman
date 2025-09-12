@@ -3,6 +3,7 @@
     width: 100%;
     height: 20%;
     overflow: hidden ;
+    font: 3rem 'CabinSketch-Regular', serif;
 }
 
 .answer_display-wrapper {
@@ -29,7 +30,6 @@
 }
 
 .answer_display {
-    font: 3rem 'CabinSketch-Regular', serif;
     color: black;
     border-bottom: 5px solid black;
     display: inline-flex;
