@@ -34,8 +34,6 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
         setItem3(JSON.parse(itemsData)['item3'])
     }, [])
 
-    useEffect
-
     const stopTime = () => {
         setTimeIsPlaying(false)
     }
@@ -58,6 +56,7 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
         })
         
         setCorrectLetters( correctLetters => [...correctLetters, openCorrectLetters[Math.floor(Math.random() * openCorrectLetters.length)]] )
+        levelIsSolved()
     }
 
     const generateBugtong = () => {
@@ -142,9 +141,11 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
             if (keyCode >= 65 && keyCode <= 90) {
                 const letter = key.toUpperCase()
                 if (answer.includes(letter)) {
-                    setCorrectLetters(correctLetters => [...correctLetters, letter]);
+                    setCorrectLetters(correctLetters => [...correctLetters, letter])
+                    levelIsSolved()
                 } else {
-                    setWrongLetters(wrongLetters => [...wrongLetters, letter]); 
+                    setWrongLetters(wrongLetters => [...wrongLetters, letter])
+                    levelIsNotSolved()
                 }
                 console.log(letter)
             }

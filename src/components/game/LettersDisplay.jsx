@@ -7,8 +7,10 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
     const handleGuessSpan = (e) => {
         if (answer.includes(e.target.id) && !correctLetters.includes(e.target.id)) {
             setCorrectLetters( correctLetters => [...correctLetters, e.target.id] )
+            levelIsSolved()
         } else if (!answer.includes(e.target.id) && !wrongLetters.includes(e.target.id)) {
             setWrongLetters( wrongLetters => [...wrongLetters, e.target.id] )
+            levelIsNotSolved()
             subtractLife()
         }
     }
@@ -16,8 +18,10 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
     const handleGuessButton = (e) => {
         if (answer.includes(e.target.value) && !correctLetters.includes(e.target.value)) {
             setCorrectLetters( correctLetters => [...correctLetters, e.target.value] )
+            levelIsSolved()
         } else if (!answer.includes(e.target.value) && !wrongLetters.includes(e.target.value)) {
             setWrongLetters( wrongLetters => [...wrongLetters, e.target.value] )
+            levelIsNotSolved()
             subtractLife()
         }
     }
