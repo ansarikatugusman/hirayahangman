@@ -32,7 +32,7 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
         setItem1(JSON.parse(itemsData)['item1'])
         setItem2(JSON.parse(itemsData)['item2'])
         setItem3(JSON.parse(itemsData)['item3'])
-    }, [])
+    }, [item1, item2, item3])
 
     const stopTime = () => {
         setTimeIsPlaying(false)

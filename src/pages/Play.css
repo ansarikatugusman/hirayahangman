@@ -1,7 +1,7 @@
 .play_buttons-container {
     height: 90%;
     flex-direction: column;
-    gap: 10%;
+    gap: 7.5%;
 }
 
 .adventure_button-container {

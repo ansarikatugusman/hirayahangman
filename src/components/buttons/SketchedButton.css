@@ -20,7 +20,7 @@
 .sketch_button {
     border: 0.5px solid black;
     position: relative;
-    font: 1rem 'Nunito-Bold', serif;
+    font: 1rem -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
     text-transform: uppercase;
     color: black;
     padding-bottom: 3px;

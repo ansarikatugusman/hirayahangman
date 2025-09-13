@@ -1,9 +1,12 @@
 import { Outlet } from 'react-router'
 import Notice from './utils/Notice'
+import Gold from './assets/images/gold.png'
 
 import './Dashboard.css'
+import { useState, useEffect } from 'react'
 
-const Dashboard = () => {
+const Dashboard = ({ playerGold }) => {
+
     return (
         <div className="dashboard center ohp">
             <Notice />
@@ -19,14 +22,15 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className='player_coins-container center ohph' style={{visibility: 'hidden'}}>
-                    <div className='player_coins-wrapper'>
-                        <div className="player_coins-pin">
+                <div className='player_gold-container center ohph' >
+                    <div className='player_gold-wrapper'>
+                        <div className="player_gold-pin">
                             <div className="shadow"></div>
                             <div className="metal"></div>
                             <div className="bottom-circle"></div>
                         </div>
-                        <p className='player_coins'>100000</p>
+                        <img className='player_gold_icon' src={Gold} />
+                        <p className='player_gold'>{playerGold}</p>
                     </div>
                 </div>
             </div>

@@ -114,21 +114,21 @@
     );
 }
 
-.player_coins-container {
+.player_gold-container {
     width: 50%;
     justify-content: right;
     animation: scale 0.5s 0.5s ease-out;
     animation-fill-mode: backwards;
 }
 
-.player_coins-wrapper {
+.player_gold-wrapper {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 150px;
     height: 50px;
-    font: 1.2rem 'Nunito-Bold', serif;
+    font: 1.1rem 'Nunito-Bold', serif;
     background: linear-gradient(
         135deg,
         #e5c93d,
@@ -140,9 +140,14 @@
     transform-origin: top right;
 }
 
-.player_coins-pin {
+.player_gold-pin {
     position: absolute;
-    right: 5px;
-    width: 30px;
-    height: 25px;
+    right: 0px;
+    width: 25px;
+    height: 20px;
+}
+
+.player_gold_icon {
+    width: 60px;
+    height: 60px;
 }

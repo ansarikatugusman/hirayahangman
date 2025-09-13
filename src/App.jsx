@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router'
 import { Loader } from '@react-three/drei'
 import Dashboard from './Dashboard'
@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Play from './pages/Play'
 import Adventure from './pages/Adventure'
 import Bugtong from './pages/Bugtong'
+import Shop from './pages/Shop'
 import Testing from './pages/Testing'
 import BugtongBooks from './components/portal/BugtongBooks'
 import SketchedButton from './components/buttons/SketchedButton'
@@ -13,6 +14,11 @@ import SketchedButton from './components/buttons/SketchedButton'
 import './App.css'
 
 const App = () => {
+    const [playerGold, setPlayerGold] = useState()
+
+    useEffect(() => {
+        setPlayerGold(localStorage.getItem('gold'))
+    }, [playerGold])
 
     const bugtongBooks = { 
         bugtongBook1: false, 
@@ -33,9 +39,12 @@ const App = () => {
         item3: 5
     }
 
+    const gold = 1000
+
     useEffect(() => {
         localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
         localStorage.setItem('items', JSON.stringify(items))
+        localStorage.setItem('gold', gold)
     }, [])
 
     return (
@@ -48,7 +57,8 @@ const App = () => {
                     fontFamily: 'CabinSketch-Regular, sans-serif'
                 }}
                 containerStyles={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)'
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    height: '100vh'
                 }}
                 barStyles={{
                     height: '0.5rem',
@@ -58,15 +68,14 @@ const App = () => {
             <div className='app center'>
                 <div className='app-content'>
                     <Routes>
-                        <Route path='/' element={<Dashboard />}>
+                        <Route path='/' element={<Dashboard playerGold={playerGold} />}>
                             <Route index element={<Home />}/>
                             <Route path='play' element={<Play />}/>
 
                             <Route path='adventure' element={<Adventure />}>
                                 <Route path='bugtong' element={<Bugtong />}/>
                             </Route>
-
-                            
+                            <Route path='shop' element={<Shop setPlayerGold={setPlayerGold} />}/>
                         </Route>
                         <Route path='testing' element={<Testing />}/>
                         <Route path='game' element={<Bugtong />}/>

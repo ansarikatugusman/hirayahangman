@@ -1,24 +1,24 @@
 const Items = {
     item01: {
         name: 'Health Plus',
-        description: '',
+        description: 'Adds 1 life.',
         game_icon: 'health_plus-game.svg',
         shop_icon: 'health_plus-shop.svg',
-        price: 0,
+        price: 75,
     },
     item02: {
         name: 'Time Shield',
-        description: '',
+        description: 'Stops the countdown timer completely.',
         game_icon: 'time_shield-game.svg',
         shop_icon: 'time_shield-shop.svg',
-        price: 0,
+        price: 125,
     },
     item03: {
         name: 'Magnifying Glass',
-        description: '',
+        description: 'Enters a correct letter',
         game_icon: 'magnifying_glass-game.svg',
         shop_icon: 'magnifying_glass-shop.svg',
-        price: 0,
+        price: 100,
     },
 }
 
