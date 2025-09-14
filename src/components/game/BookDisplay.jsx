@@ -10,7 +10,7 @@ const BookDisplay = ({ pictures, cover, back, displayBook, openDisplayBook, clos
 
 	return (
 		<div className='book_display-container center' >
-			<div className='book_display-wrapper center'>
+			<div className='book_display-wrapper center' onClick={openDisplayBook}>
 				<SketchedButton text='HINT BOOK' width='150px' onClickHandler={openDisplayBook} />
 			</div>
 			<div className='modal' style={{ display: displayBook ? 'block' : 'none' }}>

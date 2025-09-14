@@ -35,15 +35,17 @@ const UtilityDisplay = ({ timeIsPlaying, lives, exitLevel, levelIsNotSolved, han
 
     return (
         <div className='utility_display-container center'>
-            <div className='exit_button-wrapper center'>
-                <SketchedButton text='EXIT' width='100px' onClickHandler={() => exitLevel()} />
+            <div className='exit_button-wrapper center' onClick={exitLevel}>
+                <div className='exit_button center' onClick={exitLevel}>
+                    <SketchedButton text='EXIT' width='100px' onClickHandler={exitLevel} />
+                </div>
             </div>
             <div className='countdown_timer-wrapper center'>
                 <CountdownCircleTimer 
                     size={65}
                     strokeWidth={7.5}
                     isPlaying={timeIsPlaying}
-                    duration={99.2}
+                    duration={60.2}
                     isSmoothColorTransition={true}
                     colors={['#004777', '#008000', '#ffff00', '#ffa500', '#ff0000']}
                     colorsTime={[15, 10, 5, 2.5, 0]}

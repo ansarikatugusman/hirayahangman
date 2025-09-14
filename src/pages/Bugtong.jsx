@@ -66,8 +66,10 @@ const Bugtong = ({ setPlayerGold }) => {
             </Suspense>
         </Canvas>
         {!active && 
-        <Link className='link_href bugtong_return_button' to='../'>
-            <SketchedButton text='HOME' width='200px' height='75px' fontsize='150%' scale={true} />
+        <Link className='link_href' to='../'>
+            <div className='bugtong_return_button center'>
+                <SketchedButton text='HOME' width='200px' fontsize='150%' scale={true} />
+            </div>
         </Link>}
         </> 
     )

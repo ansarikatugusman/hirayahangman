@@ -15,7 +15,7 @@ const Items = {
     },
     item03: {
         name: 'Magnifying Glass',
-        description: 'Enters a correct letter',
+        description: 'Enters a correct letter.',
         game_icon: 'magnifying_glass-game.svg',
         shop_icon: 'magnifying_glass-shop.svg',
         price: 100,

@@ -7,7 +7,6 @@ import TimeShield from '../assets/images/time_shield-shop.svg'
 import MagnifyingGlass from '../assets/images/magnifying_glass-shop.svg'
 
 import './Shop.css'
-import { useEffect } from 'react'
 
 const Shop = ({ setPlayerGold }) => {
 

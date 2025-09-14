@@ -10,11 +10,9 @@ const ExitPortal = ({ name, handleActivePortal }) => {
     }
 
     return (
-        <Html
-            style={{ position: 'absolute', top: '-47.5vh', right: '47.5vw' }}
-        >
+        <Html style={{ position: 'absolute', top: '-47.5vh', left: '-47.5vw' }} >
             <div className='exit_portal-container' onClick={() => onClickExitPortal()}>
-                <SketchedButton text='GO BACK' width='150px' onClickHandler={onClickExitPortal}  />
+                <SketchedButton text='GO BACK' width='125px' onClickHandler={onClickExitPortal}  />
             </div>
         </Html>
     )

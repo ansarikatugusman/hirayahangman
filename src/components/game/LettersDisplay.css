@@ -7,8 +7,8 @@
 }
 
 .letters_display-wrapper {
-    width: 42.5px;
-    height: 42.5px;
+    width: 43px;
+    height: 43px;
 }
 
 .letter_button span {
@@ -16,7 +16,7 @@
     display: block;
     padding: 5px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 1px solid black;
     cursor: pointer;
 }
 
@@ -25,13 +25,13 @@
 }
 
 .letter_button:active {
-    top: 4px;
+    top: 1.25px;
     padding-bottom: 0px;
     box-shadow: 0 1px 0 black;
 }
 
 .letter_button:disabled {
-    top: 4px;
+    top: 3px;
     padding-bottom: 0px;
     box-shadow: 0 1px 0 black;
     opacity: 0.6;
@@ -44,7 +44,7 @@
     width: 42.5px;
     float: left;
     font: 1.25rem 'Nunito-Bold', serif;
-    padding-bottom: 3px;
+    padding-bottom: 3.25px;
     border: 0.5px solid black;
     border-radius: 50%;
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.6);
