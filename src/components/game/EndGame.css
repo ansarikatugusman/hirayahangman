@@ -1,0 +1,111 @@
+
+/*
+.end_game {
+    width: 75%;
+    height: 50%;
+    text-align: center;
+    font-size: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.90);
+    color: white;
+    border: 2px solid white;
+    border-radius: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 12;
+}
+    */
+
+.end_game {
+    width: 300px;
+    height: 500px;
+    border: 3px solid #333333;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    background: #f0f0f0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 12;
+}
+
+.end_game-back {
+    width: 299px;
+    height: 499px;
+    border: 3px solid black;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
+    border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+    background: #f0f0f0;
+    z-index: 11;
+}
+
+.end_game_content-wrapper {
+    flex-direction: column;
+}
+
+.end_game_message-wrapper {
+    font: 1.5rem 'Nunito-Bold', serif;
+    height: 70px;
+}
+
+.end_game_remarks-wrapper {
+    height: 70px;
+    font-size: 1.1rem;
+}
+
+.end_game_remarks_chest_empty-wrapper {
+    gap: 5px;
+    font: 1.25rem 'Nunito-Bold', serif;
+    animation: scale 0.2s ease-in-out;
+}
+
+.end_game_gold_icon {
+    width: 60px;
+    height: 60px;
+}
+
+.chest_wrapper {
+    height: 130px;
+}
+
+.chest {
+    width: 128px;
+    cursor: pointer;
+    transition: all 0.3s;;
+}
+
+.chest:hover {
+    width: 140px;
+}
+
+.chest:active {
+    width: 128px;
+}
+
+.chest_empty {
+    width: 128px;
+    cursor: default;
+    pointer-events: none;
+}
+
+.end_game_stats-wrapper {
+    height: 170px;
+}
+
+.end_game_stats_chest_open-wrapper {
+    text-decoration: underline;
+}
+
+.end_game_exit_button-wrapper {
+    height: 40px;
+}
+
+.end_game_exit_button {
+    width: 9.05rem;
+    height: 38px;
+    border-radius: 5px;
+    cursor: pointer;
+}

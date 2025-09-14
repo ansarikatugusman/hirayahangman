@@ -1,0 +1,90 @@
+import { useState, useRef } from 'react'
+import SketchedButton from '../buttons/SketchedButton'
+import Gold from '../../assets/images/gold.png'
+import ChestClosed from '../../assets/images/chest_closed.png'
+import ChestOpen from '../../assets/images/chest_open.png'
+import ChestEmpty from '../../assets/images/chest_empty.png'
+
+import './EndGame.css'
+
+const EndGame = ({ answer, levelSolved, exitLevel, handlePuzzleEnded, levelEnded}) => {
+    const [chestEmpty, setEmpty] = useState(false)
+    const modal = useRef()
+
+    const collectChest = () => {
+        setEmpty(true)
+        let player_gold = localStorage.getItem('gold')
+        localStorage.setItem('gold', +player_gold + 100)
+        setPlayerGold(prevGold => prevGold+ 100)
+    }
+
+    const onExitHandler = () => {
+        if (levelSolved) {
+            handlePuzzleEnded()
+            levelEnded()
+        } else {
+            exitLevel()
+            }
+        modal.current.close()
+    }
+
+    return (
+        <div className='end_game-container modal'>
+            <dialog className='end_game center' ref={modal}>
+                <div className='end_game_content-wrapper center ohp' style={{ display: levelSolved ? 'none' : 'flex' }}>
+                    <div className='end_game_message-wrapper ohpw center'>
+                        <p>Try Again</p>
+                    </div>
+                    <div className='end_game_remarks-wrapper ohpw center'>
+                        <p>Solve the level to get the reward from the chest.</p>
+                    </div>
+                    <div className='chest_wrapper ohpw center'>
+                        <img className='chest_empty' src={ChestClosed} onClick={collectChest} />
+                    </div>
+                    <div className='end_game_stats-wrapper ohpw center' >
+
+                    </div>
+                    <div className='end_game_exit_button-wrapper ohpw center'>
+                        <div className='end_game_exit_button wrapper center' onClick={onExitHandler}>
+                            <SketchedButton width='9rem' text='EXIT' onClickHandler={onExitHandler} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className='end_game_content-wrapper center ohp' style={{ display: levelSolved ? 'flex' : 'none' }}>
+                    <div className='end_game_message-wrapper ohpw center'>
+                        <p>Well Done!</p>
+                    </div>
+                    <div className='end_game_remarks-wrapper ohpw center'>
+                        <div className='end_game_remarks_chest_open-wrapper ohpw center' style={{ display: chestEmpty ? 'none' : 'flex' }}>
+                            <p>The answer is {answer}.</p>
+                        </div>
+                        <div className='end_game_remarks_chest_empty-wrapper ohpw center' style={{ display: chestEmpty ? 'flex' : 'none' }}>
+                            <img className='end_game_gold_icon' src={Gold}/>
+                            <p>100</p>
+                        </div>
+                    </div>
+                    <div className='chest_wrapper ohpw center'>
+                        <img className={`${chestEmpty ? 'chest_empty' : 'chest'}`} src={!chestEmpty ? ChestOpen : ChestEmpty} onClick={collectChest} />
+                    </div>
+                    <div className='end_game_stats-wrapper ohpw center' >
+                        <div className='end_game_stats_chest_open-wrapper center' style={{ display: chestEmpty ? 'none' : 'flex' }}>
+                            <p>Click the chest to claim reward.</p>
+                        </div>
+
+                        <div style={{ display: chestEmpty ? 'flex' : 'none' }}>
+                        </div>
+                    </div>
+                    <div className='end_game_exit_button-wrapper ohpw center'>
+                        <div className='end_game_exit_button wrapper center' style={{ display: chestEmpty ? 'flex' : 'none' }} onClick={onExitHandler}>
+                            <SketchedButton width='9rem' text='EXIT' onClickHandler={onExitHandler} />
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+            <div className='end_game-back'></div>
+        </div>
+    )
+}
+
+export default EndGame

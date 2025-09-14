@@ -1,11 +1,15 @@
+import { useEffect } from 'react'
 import { Outlet } from 'react-router'
 import Notice from './utils/Notice'
 import Gold from './assets/images/gold.png'
 
 import './Dashboard.css'
-import { useState, useEffect } from 'react'
 
-const Dashboard = ({ playerGold }) => {
+const Dashboard = ({ playerGold, setPlayerGold }) => {
+
+    useEffect(() => {
+            setPlayerGold(localStorage.getItem('gold'))
+    }, [])
 
     return (
         <div className="dashboard center ohp">

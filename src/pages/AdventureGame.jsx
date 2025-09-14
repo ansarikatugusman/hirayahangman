@@ -5,13 +5,13 @@ import BookDisplay from '../components/game/BookDisplay'
 import QuestionDisplay from '../components/game/QuestionDisplay'
 import ItemsDisplay from '../components/game/ItemsDisplay'
 import LettersDisplay from '../components/game/LettersDisplay'
-import PostGameMenu from '../components/game/PostGameMenu'
+import EndGame from '../components/game/EndGame'
 
 import BugtongWordBank from '../utils/BugtongWordBank'
 
 import './AdventureGame.css'
 
-const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved }) => {
+const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved }) => {
     const [timeIsPlaying, setTimeIsPlaying] = useState(true)
     const [lives, setLives] = useState(3)
     const [answer, setAnswer] = useState('')
@@ -129,9 +129,11 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
             levelIsSolved()
             handleLevelSolved()
             handlePuzzleEnded(true)
+            stopTime()
         }
         if (wrongLetters.length === 3) { 
             handlePuzzleEnded(true)
+            stopTime()
         }
     }, [correctLetters, wrongLetters])
 
@@ -158,16 +160,15 @@ const AdventureGame = ({ levelEnded, levelSolved, levelIsSolved, levelIsNotSolve
     return (
         <Suspense fallback={<div className='modal'></div>}>
             <div className='adventure_game center'>
-            <UtilityDisplay timeIsPlaying={timeIsPlaying} lives={lives} exitLevel={exitLevel} levelIsNotSolved={levelIsNotSolved} handlePuzzleEnded={handlePuzzleEnded}/>
-            <AnswerDisplay answer={answer} correctLetters={correctLetters} />
-            <BookDisplay pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} />
-            <QuestionDisplay question={question} />
-            <ItemsDisplay item1={item1} item2={item2} item3={item3} useItem1={useItem1} useItem2={useItem2} useItem3={useItem3} />
-            <LettersDisplay subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> 
-            {puzzleEnded && <PostGameMenu  answer={answer} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded}/>}
-        </ div>
+                <UtilityDisplay timeIsPlaying={timeIsPlaying} lives={lives} exitLevel={exitLevel} levelIsNotSolved={levelIsNotSolved} handlePuzzleEnded={handlePuzzleEnded}/>
+                <AnswerDisplay answer={answer} correctLetters={correctLetters} />
+                <BookDisplay pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} />
+                <QuestionDisplay question={question} />
+                <ItemsDisplay item1={item1} item2={item2} item3={item3} useItem1={useItem1} useItem2={useItem2} useItem3={useItem3} />
+                <LettersDisplay subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> 
+                {puzzleEnded && <EndGame  answer={answer} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded} setPlayerGold={setPlayerGold} />}
+            </ div>
         </Suspense>
-        
     )
 }
 

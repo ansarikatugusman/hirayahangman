@@ -42,9 +42,12 @@ const App = () => {
     const gold = 1000
 
     useEffect(() => {
-        localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
-        localStorage.setItem('items', JSON.stringify(items))
-        localStorage.setItem('gold', gold)
+        if (!localStorage.getItem('token')) {
+            localStorage.setItem('token', true)
+            localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
+            localStorage.setItem('items', JSON.stringify(items))
+            localStorage.setItem('gold', gold)
+        }
     }, [])
 
     return (
@@ -68,7 +71,7 @@ const App = () => {
             <div className='app center'>
                 <div className='app-content'>
                     <Routes>
-                        <Route path='/' element={<Dashboard playerGold={playerGold} />}>
+                        <Route path='/' element={<Dashboard playerGold={playerGold} setPlayerGold={setPlayerGold} />}>
                             <Route index element={<Home />}/>
                             <Route path='play' element={<Play />}/>
 
@@ -78,7 +81,7 @@ const App = () => {
                             <Route path='shop' element={<Shop setPlayerGold={setPlayerGold} />}/>
                         </Route>
                         <Route path='testing' element={<Testing />}/>
-                        <Route path='game' element={<Bugtong />}/>
+                        <Route path='game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
                     </Routes>
                 </div>
             </div>

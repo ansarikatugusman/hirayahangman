@@ -9,7 +9,7 @@ import SketchedButton from '../components/buttons/SketchedButton'
 
 import './Bugtong.css'
 
-const Bugtong = () => {
+const Bugtong = ({ setPlayerGold }) => {
     const [active, setActive] = useState(null)
     const [levelStart, setLevelStart] = useState(false)   
     const [bugtongBooks, setBugtongBooks] = useState({})
@@ -59,7 +59,7 @@ const Bugtong = () => {
 
     return (
         <>
-        {levelStart && <AdventureGame levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
+        {levelStart && <AdventureGame setPlayerGold={setPlayerGold} levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
         <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} shadows camera={{ position: [0, 0, 10], fov: 30 }}>
             <Suspense fallback={null}>
                 <Portal className='bugtong_portal center' name='BUGTONG' texture='textures/bugtong_bg.jpg' active={active}  handleActivePortal={handleActivePortal} handleCurrentItem={handleCurrentItem} currentItem={currentItem} levelStart={levelStart} levelStarted={levelStarted} Books={BugtongBooks} books={bugtongBooks} />
