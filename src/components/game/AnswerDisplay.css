@@ -38,4 +38,5 @@
     height: 3.25rem;
     width: 1.5rem;
     text-align: justify;
+    z-index: 2;
 }
