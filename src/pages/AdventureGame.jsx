@@ -24,8 +24,10 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
     const [item2, setItem2] = useState()
     const [item3, setItem3] = useState()
     const [item4, setItem4] = useState()
+    const [item5, setItem5] = useState()
     const [correctLetters, setCorrectLetters] = useState([])
     const [wrongLetters, setWrongLetters] = useState([])
+    const [openWrongLetters, setOpenWrongLetters] = useState([])
     const [puzzleEnded, setPuzzleEnded] = useState(false)
 
     useEffect(() => {
@@ -34,7 +36,8 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
         setItem2(JSON.parse(itemsData)['item2'])
         setItem3(JSON.parse(itemsData)['item3'])
         setItem4(JSON.parse(itemsData)['item4'])
-    }, [item1, item2, item3, item4])
+        setItem5(JSON.parse(itemsData)['item5'])
+    }, [item1, item2, item3, item4, item5])
 
     const stopTime = () => {
         setTimeIsPlaying(false)
@@ -57,8 +60,27 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
             }
         })
         
-        setCorrectLetters( correctLetters => [...correctLetters, openCorrectLetters[Math.floor(Math.random() * openCorrectLetters.length)]] )
+        setCorrectLetters(correctLetters => [...correctLetters, openCorrectLetters[Math.floor(Math.random() * openCorrectLetters.length)]])
         levelIsSolved()
+    }
+
+    const remove = () => {
+        let removedWrongLetters = []
+        let letters = 'ABKDEGHILMNOPRSTUWY'
+
+        letters.split('').forEach(letter => {
+            if (!answer.includes(letter) && !wrongLetters.includes(letter)) {
+                removedWrongLetters.push(letter)
+            }
+        })
+
+        if (removedWrongLetters.length >= 1) {
+            setWrongLetters(wrongLetters => [...wrongLetters, removedWrongLetters[Math.floor(Math.random() * removedWrongLetters.length)]])
+            setOpenWrongLetters(removedWrongLetters)
+        } else {
+            setOpenWrongLetters([])
+        }
+
     }
 
     const generateBugtong = () => {
@@ -68,10 +90,22 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
         setPictures(bugtong.pictures)
         setCover(BugtongWordBank.cover)
         setBack(BugtongWordBank.back)
+        resetCorrectAndWrongLetters()
+    }
+
+    const resetCorrectAndWrongLetters = () => {
+        let wrongLettersArray = []
+        let letters = 'ABKDEGHILMNOPRSTUWY'
+
+        letters.split('').forEach(letter => {
+            if (!answer.includes(letter) && !wrongLetters.includes(letter)) {
+                wrongLettersArray.push(letter)
+            }
+        })
+
         setCorrectLetters([])
         setWrongLetters([])
-        console.log(bugtong.pictures)
-        //console.log(bugtong)
+        setOpenWrongLetters(wrongLettersArray)
     }
 
     const openDisplayBook = () => {
@@ -130,6 +164,19 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
         }
     }
 
+    const useItem5 = () => {
+        // Cross Mark
+        if (item5 >= 1 && openWrongLetters.length >= 2) {
+            remove()
+            let updatedItemQuantity = item5 - 1
+            setItem5(prevItemQuantity => prevItemQuantity - 1 )
+            let items = JSON.parse(localStorage.getItem('items'))
+            let updatedItems = {...items, item5: updatedItemQuantity}
+            localStorage.setItem('items', JSON.stringify(updatedItems))
+            console.log(openWrongLetters)
+        }
+    }
+
     const exitLevel = () => {
         levelIsNotSolved()
         levelEnded()
@@ -148,11 +195,11 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
             handlePuzzleEnded(true)
             stopTime()
         }
-        if (wrongLetters.length === 3) { 
+        if (lives <= 0) { 
             handlePuzzleEnded(true)
             stopTime()
         }
-    }, [correctLetters, wrongLetters])
+    }, [correctLetters, lives])
 
     useEffect(() => {
         const handleKeydown = event => {
@@ -181,7 +228,7 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
                 <AnswerDisplay answer={answer} correctLetters={correctLetters} />
                 <BookDisplay pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} />
                 <QuestionDisplay question={question} />
-                <ItemsDisplay item1={item1} item2={item2} item3={item3} item4={item4} useItem1={useItem1} useItem2={useItem2} useItem3={useItem3} useItem4={useItem4} />
+                <ItemsDisplay item1={item1} item2={item2} item3={item3} item4={item4} item5={item5} useItem1={useItem1} useItem2={useItem2} useItem3={useItem3} useItem4={useItem4} useItem5={useItem5} />
                 <LettersDisplay subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> 
                 {puzzleEnded && <EndGame  answer={answer} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded} setPlayerGold={setPlayerGold} />}
             </ div>

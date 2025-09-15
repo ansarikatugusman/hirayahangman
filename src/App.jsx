@@ -38,6 +38,7 @@ const App = () => {
         item2: 4,
         item3: 5,
         item4: 0,
+        item5: 0
     }
 
     const gold = 1000

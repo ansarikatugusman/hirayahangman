@@ -4,10 +4,11 @@ import HealtPlus from '../../assets/images/health_plus-game.svg'
 import TimeShield from '../../assets/images/time_shield-game.svg'
 import MagnifyingGlass from '../../assets/images/magnifying_glass-game.svg'
 import Randomizer from '../../assets/images/randomizer-game.svg'
+import CrossMark from '../../assets/images/cross_mark-game.svg'
 
 import './ItemsDisplay.css'
 
-const ItemsDisplay = ({ item1, item2, item3, item4, useItem1, useItem2, useItem3, useItem4 }) => {
+const ItemsDisplay = ({ item1, item2, item3, item4, item5, useItem1, useItem2, useItem3, useItem4, useItem5 }) => {
 
     return (
         <div className='items_display-container center'>
@@ -33,6 +34,12 @@ const ItemsDisplay = ({ item1, item2, item3, item4, useItem1, useItem2, useItem3
                 <img className='item' src={Randomizer} />
                 <div className='item_quantity-wrapper center'>
                     <p className='item_quantity'> {item4} </p>
+                </div>
+            </div>
+            <div className='items_display-wrapper' onClick={useItem5} style={{ display: item5 ? 'block' : 'none' }}  >
+                <img className='item' src={CrossMark} />
+                <div className='item_quantity-wrapper center'>
+                    <p className='item_quantity'> {item5} </p>
                 </div>
             </div>
         </div>

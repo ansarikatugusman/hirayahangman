@@ -6,6 +6,7 @@ import HealthPlus from '../assets/images/health_plus-shop.svg'
 import TimeShield from '../assets/images/time_shield-shop.svg'
 import MagnifyingGlass from '../assets/images/magnifying_glass-shop.svg'
 import Randomizer from '../assets/images/randomizer-shop.svg'
+import CrossMark from '../assets/images/cross_mark-shop.svg'
 
 import './Shop.css'
 
@@ -68,7 +69,17 @@ const Shop = ({ setPlayerGold }) => {
     }
 
     const buyItem5 = () => {
-        
+        let player_gold = localStorage.getItem('gold')
+        if(player_gold > Items.item05.price) {
+            localStorage.setItem('gold', player_gold - 50)
+            const data = localStorage.getItem('items')
+            const itemsData = JSON.parse(data)
+            let updatedItemQuantity = itemsData['item5'] + 1
+            let items = JSON.parse(localStorage.getItem('items'))
+            let updatedItems = {...items, item5: updatedItemQuantity}
+            localStorage.setItem('items', JSON.stringify(updatedItems))
+            setPlayerGold(prevGold => prevGold - 50)
+        }
     }
 
     return (
@@ -181,6 +192,34 @@ const Shop = ({ setPlayerGold }) => {
                             </div>
                         </div>
                         <button className='item4_button item_button' onClick={buyItem4}>
+                            BUY
+                        </button>
+                    </div>
+                </div>
+
+                <div className='item5-container shop_item'>
+                    <div className='item5_image-wrapper item_image-wrapper'>
+                        <img className='item5_image item_image' src={CrossMark} />
+                    </div>
+                    <div className='item5_name-wrapper item_name-wrapper center'>
+                        <div className='item5_name item_name'>
+                            {Items.item05.name}
+                        </div>
+                    </div>
+                    <div className='item5_description-wrapper item_description-wrapper center'>
+                        <div className='item5_description item_description'>
+                            {Items.item05.description}
+                        </div>
+                    </div>
+                    <hr className='item_divider' ></hr>
+                    <div className='item5_price-container item_price-container center'>
+                        <div className='item5_price-wrapper item_price-wrapper center'>
+                            <img className='gold_icon' src={Gold}  />
+                            <div className='item5_price item_price'>
+                                {Items.item05.price}
+                            </div>
+                        </div>
+                        <button className='item5_button item_button' onClick={buyItem5}>
                             BUY
                         </button>
                     </div>

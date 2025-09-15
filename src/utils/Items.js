@@ -27,6 +27,13 @@ const Items = {
         shop_icon: 'randomizer-shop.svg',
         price: 50,
     },
+    item05: {
+        name: 'Cross Mark',
+        description: 'Disables a wrong letter.',
+        game_icon: 'cross_mark-game.svg',
+        shop_icon: 'cross_mark-shop.svg',
+        price: 50,
+    },
 }
 
 export default Items
