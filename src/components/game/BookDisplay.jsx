@@ -1,12 +1,14 @@
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Environment, Float, OrbitControls } from '@react-three/drei'
+import { Environment, Float, Html, OrbitControls } from '@react-three/drei'
 import SketchedButton from '../buttons/SketchedButton'
 import Book from '../Book'
 
 import './BookDisplay.css'
 
 const BookDisplay = ({ pictures, cover, back, displayBook, openDisplayBook, closeDisplayBook }) => {
+
+
 
 	return (
 		<div className='book_display-container center' >
@@ -18,7 +20,7 @@ const BookDisplay = ({ pictures, cover, back, displayBook, openDisplayBook, clos
 			<div className='close' style={{ display: displayBook ? 'block' : 'none' }} >
 				<SketchedButton text='CLOSE' width='120px' onClickHandler={closeDisplayBook} />
 			</div>
-      		<Canvas style={{ width: '100vw',  height: '100vh', position: 'absolute', zIndex:'12', visibility: displayBook ? 'visible' : 'hidden' }} shadows camera={{
+      		{displayBook && <Canvas style={{ width: '100vw',  height: '100vh', position: 'absolute', zIndex:'12',  }} shadows camera={{
           		position: [-0.5, 1.5, window.innerWidth > 550 ? 6.25 : 9.5],
           		fov: 35,
         	}}>
@@ -48,7 +50,7 @@ const BookDisplay = ({ pictures, cover, back, displayBook, openDisplayBook, clos
 						</mesh>
           			</Suspense>
         		</group>
-      		</Canvas>
+      		</Canvas>}
     	</ div>
 	)
 }

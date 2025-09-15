@@ -23,6 +23,7 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
     const [item1, setItem1] = useState()
     const [item2, setItem2] = useState()
     const [item3, setItem3] = useState()
+    const [item4, setItem4] = useState()
     const [correctLetters, setCorrectLetters] = useState([])
     const [wrongLetters, setWrongLetters] = useState([])
     const [puzzleEnded, setPuzzleEnded] = useState(false)
@@ -32,7 +33,8 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
         setItem1(JSON.parse(itemsData)['item1'])
         setItem2(JSON.parse(itemsData)['item2'])
         setItem3(JSON.parse(itemsData)['item3'])
-    }, [item1, item2, item3])
+        setItem4(JSON.parse(itemsData)['item4'])
+    }, [item1, item2, item3, item4])
 
     const stopTime = () => {
         setTimeIsPlaying(false)
@@ -66,6 +68,9 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
         setPictures(bugtong.pictures)
         setCover(BugtongWordBank.cover)
         setBack(BugtongWordBank.back)
+        setCorrectLetters([])
+        setWrongLetters([])
+        console.log(bugtong.pictures)
         //console.log(bugtong)
     }
 
@@ -109,6 +114,18 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
             setItem3(prevItemQuantity => prevItemQuantity - 1 )
             let items = JSON.parse(localStorage.getItem('items'))
             let updatedItems = {...items, item3: updatedItemQuantity}
+            localStorage.setItem('items', JSON.stringify(updatedItems))
+        }
+    }
+
+    const useItem4 = () => {
+        // Randomizer
+        if (item4 >= 1) {
+            generateBugtong()
+            let updatedItemQuantity = item4 - 1
+            setItem4(prevItemQuantity => prevItemQuantity - 1 )
+            let items = JSON.parse(localStorage.getItem('items'))
+            let updatedItems = {...items, item4: updatedItemQuantity}
             localStorage.setItem('items', JSON.stringify(updatedItems))
         }
     }
@@ -160,11 +177,11 @@ const AdventureGame = ({ setPlayerGold, levelEnded, levelSolved, levelIsSolved, 
     return (
         <Suspense fallback={<div className='modal'></div>}>
             <div className='adventure_game center'>
-                <UtilityDisplay timeIsPlaying={timeIsPlaying} lives={lives} exitLevel={exitLevel} levelIsNotSolved={levelIsNotSolved} handlePuzzleEnded={handlePuzzleEnded}/>
+                <UtilityDisplay timeIsPlaying={timeIsPlaying} lives={lives} exitLevel={exitLevel} levelIsNotSolved={levelIsNotSolved} closeDisplayBook={closeDisplayBook} handlePuzzleEnded={handlePuzzleEnded}/>
                 <AnswerDisplay answer={answer} correctLetters={correctLetters} />
                 <BookDisplay pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} />
                 <QuestionDisplay question={question} />
-                <ItemsDisplay item1={item1} item2={item2} item3={item3} useItem1={useItem1} useItem2={useItem2} useItem3={useItem3} />
+                <ItemsDisplay item1={item1} item2={item2} item3={item3} item4={item4} useItem1={useItem1} useItem2={useItem2} useItem3={useItem3} useItem4={useItem4} />
                 <LettersDisplay subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> 
                 {puzzleEnded && <EndGame  answer={answer} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded} setPlayerGold={setPlayerGold} />}
             </ div>

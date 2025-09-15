@@ -5,7 +5,7 @@ import Life from '../../assets/images/life.png'
 
 import './UtilityDisplay.css'
 
-const UtilityDisplay = ({ timeIsPlaying, lives, exitLevel, levelIsNotSolved, handlePuzzleEnded }) => {
+const UtilityDisplay = ({ timeIsPlaying, lives, exitLevel, levelIsNotSolved, closeDisplayBook, handlePuzzleEnded }) => {
     const livesRef = useRef()
     const [pastLives, setPastLives] = useState(lives)
 
@@ -50,6 +50,7 @@ const UtilityDisplay = ({ timeIsPlaying, lives, exitLevel, levelIsNotSolved, han
                     colors={['#004777', '#008000', '#ffff00', '#ffa500', '#ff0000']}
                     colorsTime={[15, 10, 5, 2.5, 0]}
                     onComplete={() => {
+                        closeDisplayBook()
                         levelIsNotSolved()
                         handlePuzzleEnded()
                     }}

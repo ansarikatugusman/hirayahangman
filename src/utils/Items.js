@@ -20,6 +20,13 @@ const Items = {
         shop_icon: 'magnifying_glass-shop.svg',
         price: 100,
     },
+    item04: {
+        name: 'Randomizer',
+        description: 'Replaces the current word puzzle.',
+        game_icon: 'randomizer-game.svg',
+        shop_icon: 'randomizer-shop.svg',
+        price: 50,
+    },
 }
 
 export default Items

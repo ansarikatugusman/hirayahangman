@@ -5,6 +5,7 @@ import Gold from '../assets/images/gold.png'
 import HealthPlus from '../assets/images/health_plus-shop.svg'
 import TimeShield from '../assets/images/time_shield-shop.svg'
 import MagnifyingGlass from '../assets/images/magnifying_glass-shop.svg'
+import Randomizer from '../assets/images/randomizer-shop.svg'
 
 import './Shop.css'
 
@@ -53,7 +54,17 @@ const Shop = ({ setPlayerGold }) => {
     }
 
     const buyItem4 = () => {
-        
+        let player_gold = localStorage.getItem('gold')
+        if(player_gold > Items.item04.price) {
+            localStorage.setItem('gold', player_gold - 50)
+            const data = localStorage.getItem('items')
+            const itemsData = JSON.parse(data)
+            let updatedItemQuantity = itemsData['item4'] + 1
+            let items = JSON.parse(localStorage.getItem('items'))
+            let updatedItems = {...items, item4: updatedItemQuantity}
+            localStorage.setItem('items', JSON.stringify(updatedItems))
+            setPlayerGold(prevGold => prevGold - 50)
+        }
     }
 
     const buyItem5 = () => {
@@ -64,144 +75,116 @@ const Shop = ({ setPlayerGold }) => {
         <div className='shop-container center'>
             <div className='items-container center'>
                 <div className='item1-container shop_item'>
-                <div className='item1_image-wrapper item_image-wrapper'>
-                    <img className='item1_image item_image' src={HealthPlus} />
-                </div>
-                <div className='item1_name-wrapper item_name-wrapper center'>
-                    <div className='item1_name item_name'>
-                        {Items.item01.name}
+                    <div className='item1_image-wrapper item_image-wrapper'>
+                        <img className='item1_image item_image' src={HealthPlus} />
                     </div>
-                </div>
-                <div className='item1_description-wrapper item_description-wrapper center'>
-                    <div className='item1_description item_description'>
-                        {Items.item01.description}
-                    </div>
-                </div>
-                <hr className='item_divider' ></hr>
-                <div className='item1_price-container item_price-container center'>
-                    <div className='item1_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
-                        <div className='item1_price item_price'>
-                            {Items.item01.price}
+                    <div className='item1_name-wrapper item_name-wrapper center'>
+                        <div className='item1_name item_name'>
+                            {Items.item01.name}
                         </div>
                     </div>
-                    <button className='item1_button item_button' onClick={buyItem1}>
-                        BUY
-                    </button>
+                    <div className='item1_description-wrapper item_description-wrapper center'>
+                        <div className='item1_description item_description'>
+                            {Items.item01.description}
+                        </div>
+                    </div>
+                    <hr className='item_divider' ></hr>
+                    <div className='item1_price-container item_price-container center'>
+                        <div className='item1_price-wrapper item_price-wrapper center'>
+                            <img className='gold_icon' src={Gold}  />
+                            <div className='item1_price item_price'>
+                                {Items.item01.price}
+                            </div>
+                        </div>
+                        <button className='item1_button item_button' onClick={buyItem1}>
+                            BUY
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div className='item2-container shop_item'>
-                <div className='item2_image-wrapper item_image-wrapper'>
-                    <img className='item2_image item_image' src={TimeShield} />
-                </div>
-                <div className='item2_name-wrapper item_name-wrapper center'>
-                    <div className='item2_name item_name'>
-                        {Items.item02.name}
+                <div className='item2-container shop_item'>
+                    <div className='item2_image-wrapper item_image-wrapper'>
+                        <img className='item2_image item_image' src={TimeShield} />
                     </div>
-                </div>
-                <div className='item2_description-wrapper item_description-wrapper center'>
-                    <div className='item2_description item_description'>
-                        {Items.item02.description}
-                    </div>
-                </div>
-                <hr className='item_divider' ></hr>
-                <div className='item2_price-container item_price-container center'>
-                    <div className='item2_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
-                        <div className='item2_price item_price'>
-                            {Items.item02.price}
+                    <div className='item2_name-wrapper item_name-wrapper center'>
+                        <div className='item2_name item_name'>
+                            {Items.item02.name}
                         </div>
                     </div>
-                    <button className='item2_button item_button' onClick={buyItem2}>
-                        BUY
-                    </button>
+                    <div className='item2_description-wrapper item_description-wrapper center'>
+                        <div className='item2_description item_description'>
+                            {Items.item02.description}
+                        </div>
+                    </div>
+                    <hr className='item_divider' ></hr>
+                    <div className='item2_price-container item_price-container center'>
+                        <div className='item2_price-wrapper item_price-wrapper center'>
+                            <img className='gold_icon' src={Gold}  />
+                            <div className='item2_price item_price'>
+                                {Items.item02.price}
+                            </div>
+                        </div>
+                        <button className='item2_button item_button' onClick={buyItem2}>
+                            BUY
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div className='item3-container shop_item'>
-                <div className='item3_image-wrapper item_image-wrapper'>
-                    <img className='item3_image item_image' src={MagnifyingGlass} />
-                </div>
-                <div className='item3_name-wrapper item_name-wrapper center'>
-                    <div className='item3_name item_name'>
-                        {Items.item03.name}
+                <div className='item3-container shop_item'>
+                    <div className='item3_image-wrapper item_image-wrapper'>
+                        <img className='item3_image item_image' src={MagnifyingGlass} />
                     </div>
-                </div>
-                <div className='item3_description-wrapper item_description-wrapper center'>
-                    <div className='item3_description item_description'>
-                        {Items.item03.description}
-                    </div>
-                </div>
-                <hr className='item_divider' ></hr>
-                <div className='item3_price-container item_price-container center'>
-                    <div className='item3_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
-                        <div className='item3_price item_price'>
-                            {Items.item03.price}
+                    <div className='item3_name-wrapper item_name-wrapper center'>
+                        <div className='item3_name item_name'>
+                            {Items.item03.name}
                         </div>
                     </div>
-                    <button className='item3_button item_button' onClick={buyItem3}>
-                        BUY
-                    </button>
+                    <div className='item3_description-wrapper item_description-wrapper center'>
+                        <div className='item3_description item_description'>
+                            {Items.item03.description}
+                        </div>
+                    </div>
+                    <hr className='item_divider' ></hr>
+                    <div className='item3_price-container item_price-container center'>
+                        <div className='item3_price-wrapper item_price-wrapper center'>
+                            <img className='gold_icon' src={Gold}  />
+                            <div className='item3_price item_price'>
+                                {Items.item03.price}
+                            </div>
+                        </div>
+                        <button className='item3_button item_button' onClick={buyItem3}>
+                            BUY
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div className='item1-container shop_item' style={{ display: 'none' }}>
-                <div className='item1_image-wrapper item_image-wrapper'>
-                    <img className='item1_image item_image' src={HealthPlus} />
-                </div>
-                <div className='item1_name-wrapper item_name-wrapper center'>
-                    <div className='item1_name item_name'>
-                        {Items.item01.name}
+                <div className='item4-container shop_item'>
+                    <div className='item4_image-wrapper item_image-wrapper'>
+                        <img className='item4_image item_image' src={Randomizer} />
                     </div>
-                </div>
-                <div className='item1_description-wrapper item_description-wrapper center'>
-                    <div className='item1_description item_description'>
-                        {Items.item01.description}
-                    </div>
-                </div>
-                <hr className='item_divider' ></hr>
-                <div className='item1_price-container item_price-container center'>
-                    <div className='item1_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
-                        <div className='item1_price item_price'>
-                            {Items.item01.price}
+                    <div className='item4_name-wrapper item_name-wrapper center'>
+                        <div className='item4_name item_name'>
+                            {Items.item04.name}
                         </div>
                     </div>
-                    <button className='item1_button item_button' onClick={buyItem1}>
-                        BUY
-                    </button>
-                </div>
-            </div>
-
-            <div className='item1-container shop_item' style={{ display: 'none' }}>
-                <div className='item1_image-wrapper item_image-wrapper'>
-                    <img className='item1_image item_image' src={HealthPlus} />
-                </div>
-                <div className='item1_name-wrapper item_name-wrapper center'>
-                    <div className='item1_name item_name'>
-                        {Items.item01.name}
-                    </div>
-                </div>
-                <div className='item1_description-wrapper item_description-wrapper center'>
-                    <div className='item1_description item_description'>
-                        {Items.item01.description}
-                    </div>
-                </div>
-                <hr className='item_divider' ></hr>
-                <div className='item1_price-container item_price-container center'>
-                    <div className='item1_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
-                        <div className='item1_price item_price'>
-                            {Items.item01.price}
+                    <div className='item4_description-wrapper item_description-wrapper center'>
+                        <div className='item4_description item_description'>
+                            {Items.item04.description}
                         </div>
                     </div>
-                    <button className='item1_button item_button' onClick={buyItem1}>
-                        BUY
-                    </button>
+                    <hr className='item_divider' ></hr>
+                    <div className='item4_price-container item_price-container center'>
+                        <div className='item4_price-wrapper item_price-wrapper center'>
+                            <img className='gold_icon' src={Gold}  />
+                            <div className='item4_price item_price'>
+                                {Items.item04.price}
+                            </div>
+                        </div>
+                        <button className='item4_button item_button' onClick={buyItem4}>
+                            BUY
+                        </button>
+                    </div>
                 </div>
-            </div>
 
             </div>
             

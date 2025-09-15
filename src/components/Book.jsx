@@ -382,9 +382,9 @@ const Page = ({ number, front, back, pages, page, opened, bookClosed, ...props }
 }
 
 const Book = ({ pictures, cover, back, ...props }) => {
-  	const [page] = useAtom(pageAtom)
+  	const [page, setPage] = useAtom(pageAtom)
   	const [delayedPage, setDelayedPage] = useState(page)
-	
+
 	const pages = [
 		{
 			front: cover,
