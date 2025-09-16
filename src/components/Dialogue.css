@@ -3,19 +3,19 @@
     align-items: end;
 }
 
-.dialouge_character-wrapper {
+.dialogue_character-wrapper {
     position: fixed;
     width: 50%;
 }
 
-.dialouge_character {
+.dialogue_character {
     position: fixed;
     width: 700px;
     left: -200px;
     bottom: -7.5%;
 }
 
-.dialouge_text-wrapper {
+.dialogue_text-wrapper {
     font: 1rem 'Nunito-Regular', serif;
     width: 90%;
     height: 20%;
@@ -29,7 +29,7 @@
     transform: rotate(1deg);
 }
 
-.dialouge_text {
+.dialogue_text {
     height: 85%;
     transform: rotate(-1deg);
 }
@@ -44,13 +44,13 @@
 }
 
 @media screen and (min-width: 550px) {
-    .dialouge_character{
+    .dialogue_character{
         width: 50%;
         left: -125px;
         bottom: -10%;
     }
 
-    .dialouge_text-wrapper {
+    .dialogue_text-wrapper {
         font: 1rem 'Nunito-Regular', serif;
         width: 75%;
         height: 20%;
@@ -58,7 +58,7 @@
 }
 
 @media screen and (min-width: 600px) and (max-width: 1050px) and (min-height: 750px) and  (max-height: 1400px) {
-    .dialouge_character{
+    .dialogue_character{
         width: 1100px;
         left: -300px;
         bottom: -10%;

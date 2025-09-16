@@ -15,15 +15,15 @@ const Notice = () => {
           let pop1_status = localStorage.getItem('pop1_status');
           if(!pop1_status){
             setVisible(true);
-            localStorage.setItem('pop2_status', 1);
+            localStorage.setItem('pop1_status', 1);
           }
-          localStorage.removeItem('pop_status')
+          localStorage.removeItem('pop2_status')
         },[])
 
         if(!visible) return null;
 
     return (
-        <Dialogue dialouge={message} />
+        <Dialogue dialogue={message} />
     )
 }
 

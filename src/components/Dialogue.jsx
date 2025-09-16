@@ -3,28 +3,28 @@ import Hiraya from '../assets/images/hiraya.png'
 
 import './Dialogue.css'
 
-const Dialogue = ({ dialouge }) => {
+const Dialogue = ({ dialogue }) => {
     const [visible, setVisible] = useState(true)
-    const [dialougePage, setDialougePage] = useState(0)
+    const [dialoguePage, setDialoguePage] = useState(0)
     const [currentText, setCurrentText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        if (currentIndex < dialouge[dialougePage].length) {
+        if (currentIndex < dialogue[dialoguePage].length) {
             const timeout = setTimeout(() => {
-            setCurrentText(prevText => prevText + dialouge[dialougePage][currentIndex]);
+            setCurrentText(prevText => prevText + dialogue[dialoguePage][currentIndex]);
             setCurrentIndex(prevIndex => prevIndex + 1);
         }, 20);
 
             return () => clearTimeout(timeout);
         }
-    }, [currentIndex, dialougePage]);
+    }, [currentIndex, dialoguePage]);
 
     const onClickHandler = () => {
-        if (dialouge.length - 1 === dialougePage) {
+        if (dialogue.length - 1 === dialoguePage) {
             setVisible(false)
         } else {
-            setDialougePage((prevPage) => prevPage + 1)
+            setDialoguePage((prevPage) => prevPage + 1)
             setCurrentText('')
             setCurrentIndex(0)
         }
@@ -32,12 +32,12 @@ const Dialogue = ({ dialouge }) => {
 
     return (
         <div className='dialogue-container modal center' style={{ display: visible ? 'flex' : 'none' }} onClick={onClickHandler} >
-            <div className='dialouge_character-wrapper ohph'>
-                <img className='dialouge_character' src={Hiraya} />
+            <div className='dialogue_character-wrapper ohph'>
+                <img className='dialogue_character' src={Hiraya} />
             </div>
-            <div className='dialouge_text-wrapper ohpw center' >
-                <div className='dialouge_text ohpw center'>
-                    <p className='dialouge_text-p'>
+            <div className='dialogue_text-wrapper ohpw center' >
+                <div className='dialogue_text ohpw center'>
+                    <p className='dialogue_text-p'>
                         {currentText}
                     </p>
                 </div>
