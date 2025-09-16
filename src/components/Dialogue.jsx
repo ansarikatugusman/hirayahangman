@@ -1,23 +1,18 @@
 import { useState, useEffect } from 'react'
 import Hiraya from '../assets/images/hiraya.png'
 
-import './Testing.css'
+import './Dialogue.css'
 
-const Testing = ({ dialouge }) => {
+const Dialogue = ({ dialouge }) => {
     const [visible, setVisible] = useState(true)
     const [dialougePage, setDialougePage] = useState(0)
     const [currentText, setCurrentText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const x = [
-        `Thank you for visiting Hiraya Hangman. We're currently in pilot testing, and we're excited to have you try things out.`,
-        `More feautures will be implemented in the following month. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`
-    ]
-
     useEffect(() => {
-        if (currentIndex < x[dialougePage].length) {
+        if (currentIndex < dialouge[dialougePage].length) {
             const timeout = setTimeout(() => {
-            setCurrentText(prevText => prevText + x[dialougePage][currentIndex]);
+            setCurrentText(prevText => prevText + dialouge[dialougePage][currentIndex]);
             setCurrentIndex(prevIndex => prevIndex + 1);
         }, 20);
 
@@ -26,7 +21,7 @@ const Testing = ({ dialouge }) => {
     }, [currentIndex, dialougePage]);
 
     const onClickHandler = () => {
-        if (x.length - 1 === dialougePage) {
+        if (dialouge.length - 1 === dialougePage) {
             setVisible(false)
         } else {
             setDialougePage((prevPage) => prevPage + 1)
@@ -56,4 +51,4 @@ const Testing = ({ dialouge }) => {
     )
 }
 
-export default Testing
+export default Dialogue

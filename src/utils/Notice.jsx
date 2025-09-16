@@ -1,37 +1,28 @@
 import { useState, useEffect } from 'react'
+import Dialogue from '../components/Dialogue'
+
+
 import './Notice.css'
 
 const Notice = () => {
     const [visible, setVisible] = useState(false)
+    const message = [
+        `Thank you for visiting Hiraya Hangman. We're currently in pilot testing, and we're excited to have you try things out.`,
+        `More feautures will be implemented in the following month. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`
+    ]
 
     useEffect(()=>{
-          let pop_status = localStorage.getItem('pop_status');
-          if(!pop_status){
+          let pop2_status = localStorage.getItem('pop2_status');
+          if(!pop2_status){
             setVisible(true);
-            localStorage.setItem('pop_status', 1);
+            localStorage.setItem('pop2_status', 1);
           }
         },[])
+
         if(!visible) return null;
 
     return (
-        <div className='notice-container' style={{ display: open ? 'block' : 'none'}}>
-            <div className="notice">
-            <   h2>Hiraya Hangman Pilot Testing</h2>
-                <br/><br/>
-                <p>Thanks for visiting Hiraya Hangman. We're currently in pilot testing, and we're excited to have you try things out. Features like in-game items, in-game currency, achievements, leaderboards, shops, and more will be implemented in the following months.</p>
-                <br/><br/>
-                <p>Your feedback helps us make this better, so feel free to look around and let us know what you think!</p>
-                <br/><br/>
-                
-
-                <button onClick={() => {
-                    setVisible(false)
-                }}>
-                    CLOSE
-                </button>
-            </div>
-        </div>
-        
+        <Dialogue dialouge={message} />
     )
 }
 
