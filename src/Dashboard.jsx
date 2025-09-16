@@ -8,7 +8,8 @@ import './Dashboard.css'
 
 const Dashboard = ({ playerGold, setPlayerGold }) => {
     const [message, setMessage] = useState([' '])
-
+    const [noticeRead, setNoticeRead] = useState(0)
+ 
     useEffect(() => {
         setPlayerGold(localStorage.getItem('gold'))
         chooseMessage()
@@ -33,8 +34,11 @@ const Dashboard = ({ playerGold, setPlayerGold }) => {
 
     return (
         <div className="dashboard center ohp">
-            <Dialogue dialogue={message} />
-            <Notice />
+            <Notice setNoticeRead={setNoticeRead} />
+            <div style={{display: noticeRead === 2 ? 'flex' : 'none' }}>
+                <Dialogue dialogue={message}/>
+            </div>
+            
             <div className='player_info-container ohpw'>
                 <div className='player_name-container center ohph'>
                     <div className='player_name-wrapper'>

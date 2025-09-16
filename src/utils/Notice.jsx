@@ -4,11 +4,11 @@ import Dialogue from '../components/Dialogue'
 
 import './Notice.css'
 
-const Notice = () => {
+const Notice = ({ setNoticeRead }) => {
     const [visible, setVisible] = useState(false)
     const message = [
         `Thank you for visiting Hiraya Hangman. We're currently in pilot testing, and we're excited to have you try things out.`,
-        `More feautures will be implemented in the following month. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`
+        `More features will be implemented in the following month. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`
     ]
 
     useEffect(()=>{
@@ -17,13 +17,17 @@ const Notice = () => {
             setVisible(true);
             localStorage.setItem('pop1_status', 1);
           }
+          localStorage.removeItem('pop_status')
           localStorage.removeItem('pop2_status')
         },[])
 
         if(!visible) return null;
 
     return (
-        <Dialogue dialogue={message} />
+        <div onClick={() => setNoticeRead(prevNum => prevNum + 1)}>
+            <Dialogue dialogue={message} />
+        </div>
+        
     )
 }
 

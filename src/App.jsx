@@ -44,9 +44,9 @@ const App = () => {
     const gold = 1000
 
     useEffect(() => {
-        if (!localStorage.getItem('token0')) {
-            localStorage.removeItem('token1')
-            localStorage.setItem('token0', true)
+        if (!localStorage.getItem('token1')) {
+            localStorage.removeItem('token0')
+            localStorage.setItem('token1', true)
             localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
             localStorage.setItem('items', JSON.stringify(items))
             localStorage.setItem('gold', gold)
