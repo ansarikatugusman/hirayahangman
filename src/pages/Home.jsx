@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 import logo from '/hirayahangman-white_outline.svg'
 import SketchedButton from '../components/buttons/SketchedButton'
+import Dialogue from '../components/Dialogue'
 
 import './Home.css'
 
