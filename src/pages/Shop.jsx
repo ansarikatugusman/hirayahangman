@@ -14,7 +14,7 @@ const Shop = ({ setPlayerGold }) => {
 
     const buyItem1 = () => {
         let player_gold = localStorage.getItem('gold')
-        if(player_gold > Items.item01.price) {
+        if(player_gold >= Items.item01.price) {
             localStorage.setItem('gold', player_gold - 75)
             const data = localStorage.getItem('items')
             const itemsData = JSON.parse(data)
@@ -28,7 +28,7 @@ const Shop = ({ setPlayerGold }) => {
 
     const buyItem2 = () => {
         let player_gold = localStorage.getItem('gold')
-        if(player_gold > Items.item02.price) {
+        if(player_gold >= Items.item02.price) {
             localStorage.setItem('gold', player_gold - 125)
             const data = localStorage.getItem('items')
             const itemsData = JSON.parse(data)
@@ -42,7 +42,7 @@ const Shop = ({ setPlayerGold }) => {
 
     const buyItem3 = () => {
         let player_gold = localStorage.getItem('gold')
-        if(player_gold > Items.item03.price) {
+        if(player_gold >= Items.item03.price) {
             localStorage.setItem('gold', player_gold - 100)
             const data = localStorage.getItem('items')
             const itemsData = JSON.parse(data)
@@ -56,7 +56,7 @@ const Shop = ({ setPlayerGold }) => {
 
     const buyItem4 = () => {
         let player_gold = localStorage.getItem('gold')
-        if(player_gold > Items.item04.price) {
+        if(player_gold >= Items.item04.price) {
             localStorage.setItem('gold', player_gold - 50)
             const data = localStorage.getItem('items')
             const itemsData = JSON.parse(data)
@@ -70,7 +70,7 @@ const Shop = ({ setPlayerGold }) => {
 
     const buyItem5 = () => {
         let player_gold = localStorage.getItem('gold')
-        if(player_gold > Items.item05.price) {
+        if(player_gold >= Items.item05.price) {
             localStorage.setItem('gold', player_gold - 50)
             const data = localStorage.getItem('items')
             const itemsData = JSON.parse(data)

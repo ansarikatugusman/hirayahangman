@@ -12,11 +12,12 @@ const Notice = () => {
     ]
 
     useEffect(()=>{
-          let pop2_status = localStorage.getItem('pop2_status');
-          if(!pop2_status){
+          let pop1_status = localStorage.getItem('pop1_status');
+          if(!pop1_status){
             setVisible(true);
             localStorage.setItem('pop2_status', 1);
           }
+          localStorage.removeItem('pop_status')
         },[])
 
         if(!visible) return null;
