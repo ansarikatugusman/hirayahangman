@@ -15,7 +15,6 @@ const EndGame = ({ answer, levelSolved, exitLevel, handlePuzzleEnded, levelEnded
         setEmpty(true)
         let player_gold = localStorage.getItem('gold')
         localStorage.setItem('gold', +player_gold + 100)
-        setPlayerGold(prevGold => prevGold+ 100)
     }
 
     const onExitHandler = () => {
