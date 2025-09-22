@@ -3,8 +3,8 @@
     height: 11%;
     padding: 0rem 2rem;
     position: relative;
-    flex-direction: column;
-    flex-wrap: wrap;
+    justify-content:space-evenly;
+    flex-wrap: nowrap;
     gap: 1rem;
     overflow-x: auto;
     -ms-overflow-style: none;
@@ -55,6 +55,6 @@
 
 @media screen and (min-width: 550px)  {
     .items_display-container {
-        flex-direction: row;
+        justify-content: center;
     }
 }
