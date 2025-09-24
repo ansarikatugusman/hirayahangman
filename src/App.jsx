@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from 'react'
-import { Routes, Route, useNavigate } from 'react-router'
+import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router'
 import { Loader } from '@react-three/drei'
-import { AuthContext } from './context/AuthContext'
+import AuthContext from './context/AuthContext'
+import useAuth from './hooks/useAuth'
 import LandingPage from './pages/LandingPage'
 import Register from './pages/Register'
 import Login from './pages/Login'
@@ -19,37 +20,8 @@ import SketchedButton from './components/buttons/SketchedButton'
 import './App.css'
 
 const App = () => {
-    const navigate = useNavigate()
-
-    const [id, setId] = useState()
-    const [name, setName] = useState()
-    const [loggedIn, setLoggedIn] = useState(false)
+    const { id, token, login, logout } = useAuth()
     const [playerGold, setPlayerGold] = useState()
-
-    const getId = (id) => {
-        setId(id)
-    }
-
-    const getName = (name) => {
-        setName(name)
-    }
-
-    const login = (name, id) => {
-        setName(name)
-        setToken(id)
-        setLoggedIn(true)
-    }
-
-    const logout = useCallback(() => {
-        setName(null)
-        setId(null)
-        setLoggedIn(false)
-        navigate('/')
-    }, [navigate])
-
-    useEffect(() => {
-        setPlayerGold(localStorage.getItem('gold'))
-    }, [playerGold])
 
     const bugtongBooks = { 
         bugtongBook1: false, 
@@ -75,9 +47,13 @@ const App = () => {
     const gold = 1000
 
     useEffect(() => {
-        if (!localStorage.getItem('token0')) {
-            localStorage.removeItem('token1')
-            localStorage.setItem('token0', true)
+        setPlayerGold(localStorage.getItem('gold'))
+    }, [playerGold])
+
+    useEffect(() => {
+        if (!localStorage.getItem('token1')) {
+            localStorage.removeItem('token0')
+            localStorage.setItem('token1', true)
             localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
             localStorage.setItem('items', JSON.stringify(items))
             localStorage.setItem('gold', gold)
@@ -86,7 +62,7 @@ const App = () => {
 
     let routes
 
-    if (loggedIn === true) {
+    if (token) {
         routes = (
             <Routes>
                 <Route path='/' element={<Dashboard playerGold={playerGold} setPlayerGold={setPlayerGold} />}>
@@ -99,17 +75,17 @@ const App = () => {
 
                     <Route path='shop' element={<Shop setPlayerGold={setPlayerGold} />}/>
                 </Route>
-                <Route path='testing' element={<Testing />}/>
-                <Route path='game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
+                <Route path='/testing' element={<Testing />}/>
+                <Route path='/game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
             </Routes>
         )
     } else {
         routes = (
             <Routes>
                 <Route path='/' element={<LandingPage />} />
-                <Route path='register' element={<Register />}/>
-                <Route path='login' element={<Login />}/>
-                <Route path='testing' element={<Testing />}/>
+                <Route path='/register' element={<Register />}/>
+                <Route path='/login' element={<Login />}/>
+                <Route path='/testing' element={<Testing />}/>
             </Routes>
         )
     }
@@ -131,24 +107,10 @@ const App = () => {
                     height: '0.5rem',
                 }}
             />
-            <AuthContext.Provider value={{ id: id, getId: getId, name: name, getName: getName, login: login, logout: logout }}>
+            <AuthContext.Provider value={{ id: id, login: login, logout: logout }}>
                 <div className='app center'>
                     <div className='app-content'>
-                        <Routes>
-                            <Route path='/' element={<Dashboard playerGold={playerGold} setPlayerGold={setPlayerGold} />}>
-                                <Route index element={<Home />}/>
-                                <Route path='play' element={<Play />}/>
-
-                                <Route path='adventure' element={<Adventure />}>
-                                    <Route path='bugtong' element={<Bugtong />}/>
-                                </Route>
-                                <Route path='shop' element={<Shop setPlayerGold={setPlayerGold} />}/>
-                            </Route>
-                            <Route path='testing' element={<Login />}/>
-                            <Route path='game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
-                            <Route path='register' element={<Register />}/>
-                            <Route path='login' element={<Login />}/>
-                        </Routes>
+                        {routes}
                     </div>
                 </div>
             </AuthContext.Provider>

@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router'
-import { AuthContext } from '../context/AuthContext'
-import { useHttpRequest } from '../hooks/useHttpRequest'
+import AuthContext from '../context/AuthContext'
+import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
 import SketchedButton from '../components/buttons/SketchedButton'
 
@@ -33,7 +33,7 @@ const Register = () => {
         e.preventDefault()
 
         try {
-            const data = await fetchRequest(`http://localhost:5000/api/register`, 
+            const data = await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/register`, 
                 'POST',
                 { 'Content-Type': 'application/json' },
                 JSON.stringify({
@@ -43,7 +43,7 @@ const Register = () => {
                 })
             )
 
-            auth.login(data.id, data.name)
+            auth.login(data.id, data.token)
             navigate('/')
         } catch (err) { }
     }
