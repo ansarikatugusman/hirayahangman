@@ -1,5 +1,7 @@
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router'
+import { GoogleLogin } from '@react-oauth/google'
+import { jwtDecode } from 'jwt-decode'
 import AuthContext from '../context/AuthContext'
 import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
@@ -33,7 +35,6 @@ const Login = () => {
                 { 'Content-Type': 'application/json',},
                 JSON.stringify({
                     email: email, 
-                    password: password
                 })
             )
 
@@ -54,6 +55,24 @@ const Login = () => {
                         <SketchedButton className='login_button' text='LOGIN' width='100%' fontsize='1rem' />
                     </div>
                 </form>
+                <GoogleLogin onSuccess={async (credentials) => {
+                    let userCredentials = credentials.credential
+                    //let c = credentials.credential
+                    //console.log(jwtDecode(c).email)
+                    //console.log(jwtDecode(c))
+                    try {
+                        const data = await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/login`, 
+                            'POST',
+                            { 'Content-Type': 'application/json' },
+                            JSON.stringify({
+                                email: jwtDecode(userCredentials).email, 
+                            })
+                        )
+
+                        auth.login(data.id, data.token)
+                        navigate('/')
+                    } catch (err) { }
+                }} />
             </div>
         </div>
     )
