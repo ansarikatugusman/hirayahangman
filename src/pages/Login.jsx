@@ -68,9 +68,8 @@ const Login = () => {
                                 email: jwtDecode(userCredentials).email, 
                             })
                         )
-
-                        auth.login(data.id, data.token)
                         navigate('/')
+                        auth.login(data.id, data.token)
                     } catch (err) { }
                 }} />
             </div>

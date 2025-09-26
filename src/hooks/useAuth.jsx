@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { googleLogout } from '@react-oauth/google';
 
 let logoutTimer
 
@@ -21,6 +22,7 @@ const useAuth = () => {
         setToken(null)
         setExpiration(null)
         localStorage.removeItem('token')
+        googleLogout();
     }, [])
 
     useEffect(() => {

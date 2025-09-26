@@ -1,12 +1,5 @@
-.sign_in-container {
-    height: 10%;
-    padding: 0 15px;
-    flex-direction: row;
-    gap: 10px;
-}
-
 .landing_page_content-container {
-    height: 90%;
+    height: 100%;
 }
 
 .landing_page_image-wrapper {

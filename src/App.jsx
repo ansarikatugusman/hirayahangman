@@ -51,9 +51,9 @@ const App = () => {
     }, [playerGold])
 
     useEffect(() => {
-        if (!localStorage.getItem('token1')) {
-            localStorage.removeItem('token0')
-            localStorage.setItem('token1', true)
+        if (!localStorage.getItem('token0')) {
+            localStorage.removeItem('token1')
+            localStorage.setItem('token0', true)
             localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
             localStorage.setItem('items', JSON.stringify(items))
             localStorage.setItem('gold', gold)
@@ -77,15 +77,15 @@ const App = () => {
                 </Route>
                 <Route path='/testing' element={<Testing />}/>
                 <Route path='/game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
+                <Route path='*' element={<Play />} />
             </Routes>
         )
     } else {
         routes = (
             <Routes>
                 <Route path='/' element={<LandingPage />} />
-                <Route path='/register' element={<Register />}/>
-                <Route path='/login' element={<Login />}/>
                 <Route path='/testing' element={<Testing />}/>
+                <Route path='*' element={<LandingPage />} />
             </Routes>
         )
     }
@@ -107,7 +107,7 @@ const App = () => {
                     height: '0.5rem',
                 }}
             />
-            <AuthContext.Provider value={{ id: id, login: login, logout: logout }}>
+            <AuthContext.Provider value={{ id: id, token: token, login: login, logout: logout }}>
                 <div className='app center'>
                     <div className='app-content'>
                         {routes}
