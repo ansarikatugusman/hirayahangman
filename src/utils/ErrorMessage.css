@@ -1,0 +1,38 @@
+.error_message-container {
+    font: 1rem 'Nunito-Bold', serif;
+}
+
+.error_message {
+    width: 300px;
+    height: 200px;
+    border: 3px solid #333333;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    background: #f0f0f0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 12;
+}
+
+.error_message-back {
+    width: 299px;
+    height: 202px;
+    border: 3px solid black;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
+    border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+    background: #f0f0f0;
+    z-index: 11;
+}
+
+.error {
+    height: 100px;
+    padding: 5px 10px;
+}
+
+.error_okay {
+    width: 79px;
+    height: 38px;
+}

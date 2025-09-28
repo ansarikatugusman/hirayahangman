@@ -10,6 +10,8 @@
 
 .home_buttons-container {
     height: 42.5%;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 @media screen and (min-width: 550px ) {

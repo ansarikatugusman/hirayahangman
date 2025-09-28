@@ -1,5 +1,9 @@
-import { Link } from 'react-router'
-import SketchedButton from '../components/buttons/SketchedButton'
+import { useState, useEffect, useContext } from 'react'
+import ShopHeader from '../components/shop/ShopHeader'
+import AuthContext from '../context/AuthContext'
+import useHttpRequest from '../hooks/useHttpRequest'
+import Loading from '../utils/Loading'
+import ErrorMessage from '../utils/ErrorMessage'
 import Items from '../utils/Items'
 import Gold from '../assets/images/gold.png'
 import HealthPlus from '../assets/images/items/health_plus-shop.svg'
@@ -10,80 +14,108 @@ import CrossMark from '../assets/images/items/cross_mark-shop.svg'
 
 import './Shop.css'
 
-const Shop = ({ setPlayerGold }) => {
+const Shop = () => {
+    const [gold, setGold] = useState(0)
+    const [showError, setShowError] = useState(false)
+    const {loading, error, fetchRequest} = useHttpRequest()
 
-    const buyItem1 = () => {
-        let player_gold = localStorage.getItem('gold')
-        if(player_gold >= Items.item01.price) {
-            localStorage.setItem('gold', player_gold - 75)
-            const data = localStorage.getItem('items')
-            const itemsData = JSON.parse(data)
-            let updatedItemQuantity = itemsData['item1'] + 1
-            let items = JSON.parse(localStorage.getItem('items'))
-            let updatedItems = {...items, item1: updatedItemQuantity}
-            localStorage.setItem('items', JSON.stringify(updatedItems))
-            setPlayerGold(prevGold => prevGold - 75)
+    const auth = useContext(AuthContext)
+
+    useEffect(() => {
+        const getUserShopInfo = async () => {
+            try {
+                const data = await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/user/shopInfo/`, 
+                'GET', 
+                {Authorization: 'Bearer ' + auth.token}
+                )
+                setGold(data.user.gold)
+            } catch (err) {
+                setShowError(true)
+            }
+        }
+        getUserShopInfo()
+    }, [auth.id, auth.token, fetchRequest])
+
+    const buyItem1 = async () => {
+        try {
+            await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item1`,
+            'PATCH',
+            { 'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + auth.token },
+            JSON.stringify({
+                price: 75})
+            )
+            setGold(prevGold => prevGold - 75)
+        } catch (err) {
+            setShowError(true)
         }
     }
 
-    const buyItem2 = () => {
-        let player_gold = localStorage.getItem('gold')
-        if(player_gold >= Items.item02.price) {
-            localStorage.setItem('gold', player_gold - 125)
-            const data = localStorage.getItem('items')
-            const itemsData = JSON.parse(data)
-            let updatedItemQuantity = itemsData['item2'] + 1
-            let items = JSON.parse(localStorage.getItem('items'))
-            let updatedItems = {...items, item2: updatedItemQuantity}
-            localStorage.setItem('items', JSON.stringify(updatedItems))
-            setPlayerGold(prevGold => prevGold - 125)
+    const buyItem2 = async () => {
+        try {
+            await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item2`,
+            'PATCH',
+            { 'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + auth.token },
+            JSON.stringify({
+                price: 125})
+            )
+            setGold(prevGold => prevGold - 125)
+        } catch (err) {
+            setShowError(true)
         }
     }
 
-    const buyItem3 = () => {
-        let player_gold = localStorage.getItem('gold')
-        if(player_gold >= Items.item03.price) {
-            localStorage.setItem('gold', player_gold - 100)
-            const data = localStorage.getItem('items')
-            const itemsData = JSON.parse(data)
-            let updatedItemQuantity = itemsData['item3'] + 1
-            let items = JSON.parse(localStorage.getItem('items'))
-            let updatedItems = {...items, item3: updatedItemQuantity}
-            localStorage.setItem('items', JSON.stringify(updatedItems))
-            setPlayerGold(prevGold => prevGold - 100)
+    const buyItem3 = async () => {
+        try {
+            await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item3`,
+            'PATCH',
+            { 'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + auth.token },
+            JSON.stringify({
+                price: 100})
+            )
+            setGold(prevGold => prevGold - 100)
+        } catch (err) {
+            setShowError(true)
         }
     }
 
-    const buyItem4 = () => {
-        let player_gold = localStorage.getItem('gold')
-        if(player_gold >= Items.item04.price) {
-            localStorage.setItem('gold', player_gold - 50)
-            const data = localStorage.getItem('items')
-            const itemsData = JSON.parse(data)
-            let updatedItemQuantity = itemsData['item4'] + 1
-            let items = JSON.parse(localStorage.getItem('items'))
-            let updatedItems = {...items, item4: updatedItemQuantity}
-            localStorage.setItem('items', JSON.stringify(updatedItems))
-            setPlayerGold(prevGold => prevGold - 50)
+    const buyItem4 = async () => {
+        try {
+            await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item4`,
+            'PATCH',
+            { 'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + auth.token },
+            JSON.stringify({
+                price: 50})
+            )
+            setGold(prevGold => prevGold - 50)
+        } catch (err) {
+            setShowError(true)
         }
     }
 
-    const buyItem5 = () => {
-        let player_gold = localStorage.getItem('gold')
-        if(player_gold >= Items.item05.price) {
-            localStorage.setItem('gold', player_gold - 50)
-            const data = localStorage.getItem('items')
-            const itemsData = JSON.parse(data)
-            let updatedItemQuantity = itemsData['item5'] + 1
-            let items = JSON.parse(localStorage.getItem('items'))
-            let updatedItems = {...items, item5: updatedItemQuantity}
-            localStorage.setItem('items', JSON.stringify(updatedItems))
-            setPlayerGold(prevGold => prevGold - 50)
+    const buyItem5 = async () => {
+        try {
+            await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item5`,
+            'PATCH',
+            { 'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + auth.token },
+            JSON.stringify({
+                price: 50})
+            )
+            setGold(prevGold => prevGold - 50)
+        } catch (err) {
+            setShowError(true)
         }
     }
 
     return (
         <div className='shop-container center'>
+            {loading && <Loading />}
+            {showError && <ErrorMessage error={error} setShowError={setShowError} />}
+            <ShopHeader gold={gold} />
             <div className='items-container center'>
                 <div className='item1-container shop_item'>
                     <div className='item1_image-wrapper item_image-wrapper'>
@@ -224,15 +256,6 @@ const Shop = ({ setPlayerGold }) => {
                         </button>
                     </div>
                 </div>
-
-            </div>
-            
-            <div className='navigational_button-container center'>
-                <Link className='link_href' to='/'>
-                    <div className='return_button-container'>
-                        <SketchedButton text='RETURN' width='175px' fontsize='125%' />
-                    </div>
-                </Link>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import Crown from '../../assets/images/crown.png'
 
 import './PlayerInfo.css'
 
-const PlayerInfo = ({ name='Player', crowns=100, avatar='character' }) => {
+const PlayerInfo = ({ name, avatar, crowns }) => {
     return (
         <div className='player_info-container ohpw center' > 
             <div className='player-container'>

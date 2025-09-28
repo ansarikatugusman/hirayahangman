@@ -37,21 +37,7 @@ const Testing = ({ dialouge }) => {
 
     return (
         <div className='dialogue-container modal center' style={{ display: visible ? 'flex' : 'none' }} onClick={onClickHandler} >
-            <div className='dialouge_character-wrapper ohph'>
-                <img className='dialouge_character' src={Hiraya} />
-            </div>
-            <div className='dialouge_text-wrapper ohpw center' >
-                <div className='dialouge_text ohpw center'>
-                    <p className='dialouge_text-p'>
-                        {currentText}
-                    </p>
-                </div>
-                <div className='dialogue_continue ohpw center'>
-                    <p>
-                        Click anywhere to continue
-                    </p>
-                </div>
-            </div>
+            
         </div>
     )
 }

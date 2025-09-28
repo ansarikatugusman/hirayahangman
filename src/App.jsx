@@ -4,18 +4,13 @@ import { Loader } from '@react-three/drei'
 import AuthContext from './context/AuthContext'
 import useAuth from './hooks/useAuth'
 import LandingPage from './pages/LandingPage'
-import Register from './pages/Register'
-import Login from './pages/Login'
-import PlayerInfo from './components/home/PlayerInfo'
+import ShopHeader from './components/shop/ShopHeader'
 import Home from './pages/Home'
 import Play from './pages/Play'
-import Adventure from './pages/Adventure'
 import Bugtong from './pages/Bugtong'
 import Shop from './pages/Shop'
 import Testing from './pages/Testing'
-import Loading from './utils/Loading'
-import BugtongBooks from './components/portal/BugtongBooks'
-import SketchedButton from './components/buttons/SketchedButton'
+import ErrorMessage from './utils/ErrorMessage'
 
 import './App.css'
 
@@ -68,7 +63,7 @@ const App = () => {
                 <Route index element={<Home />} />
                 <Route path='/shop' element={<Shop />}/>
                 <Route path='/bugtong' element={<Bugtong />}/>
-                <Route path='/testing' element={<PlayerInfo />}/>
+                <Route path='/testing' element={<ErrorMessage />}/>
                 <Route path='/game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
                 <Route path='*' element={<Play />} />
             </Routes>
@@ -77,7 +72,7 @@ const App = () => {
         routes = (
             <Routes>
                 <Route path='/' element={<LandingPage />} />
-                <Route path='/testing' element={<PlayerInfo />}/>
+                <Route path='/testing' element={<Testing/>}/>
                 <Route path='*' element={<LandingPage />} />
             </Routes>
         )
@@ -113,8 +108,6 @@ const App = () => {
                     <feDisplacementMap in='SourceGraphic' scale='20'></feDisplacementMap>
                 </filter>
                 </svg>
-
-                
             </AuthContext.Provider>
         </>
     )
