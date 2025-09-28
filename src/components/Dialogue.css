@@ -22,13 +22,13 @@
 .dialogue_character {
     position: fixed;
     width: 700px;
-    left: -200px;
+    left: -225px;
     bottom: -7.5%;
 }
 
 .dialogue_text-wrapper {
     font: 1rem 'Nunito-Regular', serif;
-    width: 85%;
+    width: 92.5%;
     height: 20%;
     margin-bottom: 10px;
     padding: 7.5px;
@@ -57,13 +57,13 @@
 @media screen and (min-width: 550px) {
     .dialogue_character{
         width: 50%;
-        left: -125px;
+        left: -150px;
         bottom: -10%;
     }
 
     .dialogue_text-wrapper {
         font: 1rem 'Nunito-Regular', serif;
-        width: 75%;
+        width: 82.5%;
         height: 20%;
     }
 }
@@ -71,7 +71,7 @@
 @media screen and (min-width: 600px) and (max-width: 1050px) and (min-height: 750px) and  (max-height: 1400px) {
     .dialogue_character{
         width: 1100px;
-        left: -300px;
+        left: -325px;
         bottom: -10%;
     }
 }

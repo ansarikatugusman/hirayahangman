@@ -1,9 +1,5 @@
-.home {
-    width: 100%;
-}
-
 .logo-container {
-    height: 50%;
+    height: 40%;
 }
 
 .image_logo{
@@ -13,12 +9,12 @@
 }
 
 .home_buttons-container {
-    height: 40%;
+    height: 42.5%;
 }
 
 @media screen and (min-width: 550px ) {
     .image_logo{
-        width: 615px;
+        width: 500px;
         height: 103%;
     }
 }

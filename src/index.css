@@ -86,8 +86,8 @@ button {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 110vw; 
-    height: 100vh; 
+    width: 102vw; 
+    height: 101vh; 
     background-color: rgba(0,0,0,0.5); 
 }
 
@@ -95,7 +95,7 @@ button {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    z-index: -100;
+    z-index: -10;
 }
 
 .out-top {

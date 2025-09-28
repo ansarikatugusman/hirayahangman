@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import Items from '../../utils/Items'
-import HealtPlus from '../../assets/images/health_plus-game.svg'
-import TimeShield from '../../assets/images/time_shield-game.svg'
-import MagnifyingGlass from '../../assets/images/magnifying_glass-game.svg'
-import Randomizer from '../../assets/images/randomizer-game.svg'
-import CrossMark from '../../assets/images/cross_mark-game.svg'
+import HealtPlus from '../../assets/images/items/health_plus-game.svg'
+import TimeShield from '../../assets/images/items/time_shield-game.svg'
+import MagnifyingGlass from '../../assets/images/items/magnifying_glass-game.svg'
+import Randomizer from '../../assets/images/items/randomizer-game.svg'
+import CrossMark from '../../assets/images/items/cross_mark-game.svg'
 
 import './ItemsDisplay.css'
 

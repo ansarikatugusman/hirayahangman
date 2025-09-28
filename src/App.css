@@ -1,45 +1,28 @@
 .app {
+    width: 97.5%;
+    height: 98%;
+    padding: 0.25rem 1rem;
+    position: absolute;
+    background-size: 30px 30px;
+}
+
+.app_parchment {
     position: relative;
     width: 97.5vw;
 	height: 98vh;
-    z-index: 0;
+    z-index: -2;
     margin: 0 auto;
-    background: #f0f0d8;
-    border-radius: 10px;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2), 0 0.5rem 1.25rem 0 rgba(0, 0, 0, 0.19);
-    overflow: hidden;
-}
-.app:before {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0; left: 0;
-    width: 32.5px;
-    background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
-    background-size: 30px 30px;
-    border-right: 3px solid #D44147;
-    box-sizing: border-box;
-    z-index: -1;
+    display: flex;
+    top: -5px;
+    left: -3px;
+    box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    background: #fffef0;
+    filter: url(#wavy2);
 }
 
-.app-content {
+.filter {
+    display: none;
     position: absolute;
-    top: 5px;
-    right: 0;
-    bottom: 5px;
-    left: 32.5px;
-    background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
-    background-size: 30px 30px;
-    z-index: -1;
-    overflow: hidden;
+    z-index: -2;
 }
 
-.red_line {
-    content: '';
-    position: relative;
-    top: 0; bottom: 0; left: 0;
-    width: 60px;
-    background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
-    background-size: 30px 30px;
-    border-right: 3px solid #D44147;
-    box-sizing: border-box;
-}

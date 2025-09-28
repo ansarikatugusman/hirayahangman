@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
-import logo from '/hirayahangman-white_outline.svg'
+import PlayerInfo from '../components/home/PlayerInfo'
 import SketchedButton from '../components/buttons/SketchedButton'
+import logo from '/hirayahangman-white_outline.svg'
 import Dialogue from '../components/Dialogue'
 
 import './Home.css'
 
 const Home = () => {
     return (
-        <>
-            <div className='logo-container ohpw'>
+        <div className='home-container ohp'>
+            <PlayerInfo />
+            <div className='logo-container ohpw center'>
                 <img className='image_logo scale' src={logo} alt='logo' />
             </div>
             <div className='home_buttons-container center ohpw'>
@@ -17,7 +19,7 @@ const Home = () => {
                     <SketchedButton text='PLAY' width='250px' fontsize='200%' scale_after={true} />
                 </Link>
             </div>
-        </>
+        </div>
     )
 }
 

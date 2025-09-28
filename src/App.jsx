@@ -6,7 +6,7 @@ import useAuth from './hooks/useAuth'
 import LandingPage from './pages/LandingPage'
 import Register from './pages/Register'
 import Login from './pages/Login'
-import Dashboard from './Dashboard'
+import PlayerInfo from './components/home/PlayerInfo'
 import Home from './pages/Home'
 import Play from './pages/Play'
 import Adventure from './pages/Adventure'
@@ -65,17 +65,10 @@ const App = () => {
     if (token) {
         routes = (
             <Routes>
-                <Route path='/' element={<Dashboard playerGold={playerGold} setPlayerGold={setPlayerGold} />}>
-                    <Route index element={<Home />}/>
-                    <Route path='play' element={<Play />}/>
-
-                    <Route path='adventure' element={<Adventure />}>
-                        <Route path='bugtong' element={<Bugtong />}/>
-                    </Route>
-
-                    <Route path='shop' element={<Shop setPlayerGold={setPlayerGold} />}/>
-                </Route>
-                <Route path='/testing' element={<Testing />}/>
+                <Route index element={<Home />} />
+                <Route path='/shop' element={<Shop />}/>
+                <Route path='/bugtong' element={<Bugtong />}/>
+                <Route path='/testing' element={<PlayerInfo />}/>
                 <Route path='/game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
                 <Route path='*' element={<Play />} />
             </Routes>
@@ -84,7 +77,7 @@ const App = () => {
         routes = (
             <Routes>
                 <Route path='/' element={<LandingPage />} />
-                <Route path='/testing' element={<Testing />}/>
+                <Route path='/testing' element={<PlayerInfo />}/>
                 <Route path='*' element={<LandingPage />} />
             </Routes>
         )
@@ -108,11 +101,20 @@ const App = () => {
                 }}
             />
             <AuthContext.Provider value={{ id: id, token: token, login: login, logout: logout }}>
-                <div className='app center'>
-                    <div className='app-content'>
-                        {routes}
-                    </div>
+                <div className='app'>
+                    {routes}
                 </div>
+
+                <div className='app_parchment'>
+                </div>
+                <svg className='filter'>
+                <filter id='wavy2'>
+                    <feTurbulence x='0' y='0' baseFrequency='0.02' numOctaves='2' seed='8'></feTurbulence>
+                    <feDisplacementMap in='SourceGraphic' scale='20'></feDisplacementMap>
+                </filter>
+                </svg>
+
+                
             </AuthContext.Provider>
         </>
     )
