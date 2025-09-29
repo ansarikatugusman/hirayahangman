@@ -15,25 +15,13 @@ const SignIn = () => {
 
     const auth = useContext(AuthContext)
 
-    const googleSignIn = async (authResult) => {
-        const data = await fetchRequest(
-            `${import.meta.env.VITE_BACKEND_URL}/signin`, 
-            'POST',
-            { 'Content-Type': 'application/json' },
-            JSON.stringify({
-                name: jwtDecode(userCredentials).given_name,
-                email: jwtDecode(userCredentials).email
-            })
-        )
-    }
-
-    const googlesignIn = useGoogleLogin({
+    const googleSignIn = useGoogleLogin({
         onSuccess: async ({ code }) => {
             let tokens
             let user
 
             try {
-                    tokens = await fetchRequest(
+                tokens = await fetchRequest(
                     `${import.meta.env.VITE_BACKEND_URL}/googleAuth`, 
                     'POST',
                     { 'Content-Type': 'application/json' },
@@ -101,12 +89,10 @@ const SignIn = () => {
             <GoogleLogin 
                 onSuccess={credentialResponse => signIn(credentialResponse)}
                 onError={() => console.log('Sign in failed.') }
+                ux_mode='redirect'
                 useOneTap
                 shape='pill'
             />
-            <div onClick={googlesignIn}>
-                Login
-            </div>
         </div>
     )
 }
