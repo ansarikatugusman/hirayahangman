@@ -88,7 +88,6 @@ const SignIn = () => {
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             <GoogleLogin 
                 onSuccess={credentialResponse => signIn(credentialResponse)}
-                onError={() => console.log('Sign in failed.') }
                 useOneTap
                 shape='pill'
             />
