@@ -89,7 +89,6 @@ const SignIn = () => {
             <GoogleLogin 
                 onSuccess={credentialResponse => signIn(credentialResponse)}
                 onError={() => console.log('Sign in failed.') }
-                ux_mode='redirect'
                 useOneTap
                 shape='pill'
             />
