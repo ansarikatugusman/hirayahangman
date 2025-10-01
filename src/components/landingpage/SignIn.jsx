@@ -63,7 +63,6 @@ const SignIn = () => {
 
     const signIn = async (credentialResponse) => {
         let userCredentials = credentialResponse.credential
-        console.log(userCredentials)
         navigate('/')
         try {
             const data = await fetchRequest(
