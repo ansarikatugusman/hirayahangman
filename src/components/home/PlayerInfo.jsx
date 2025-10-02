@@ -1,4 +1,3 @@
-import GetAvatarURL from '../../utils/GetAvatarURL'
 import Crown from '../../assets/images/crown.png'
 
 import './PlayerInfo.css'
@@ -10,7 +9,7 @@ const PlayerInfo = ({ name, avatar, crowns }) => {
                 <div className='tape-section'></div>
                 <div className='player-wrapper ohp center'>
                     <div className='player_avatar-wrapper ohph center'>
-                        <img className='player_avatar' src={GetAvatarURL(avatar)} alt='avatar' />
+                        <img className='player_avatar' src={`./avatars/${avatar}.svg`} alt='avatar' />
                     </div>
                     <div className='player_name_and_crowns-container ohph'>
                         <div className='player_name-wrapper center'>
