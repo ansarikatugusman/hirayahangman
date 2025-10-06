@@ -4,6 +4,8 @@ import { Loader } from '@react-three/drei'
 import AuthContext from './context/AuthContext'
 import useAuth from './hooks/useAuth'
 import LandingPage from './pages/LandingPage'
+import Register from './pages/Register'
+import Login from './pages/Login'
 import ShopHeader from './components/shop/ShopHeader'
 import Home from './pages/Home'
 import Play from './pages/Play'
@@ -72,6 +74,8 @@ const App = () => {
         routes = (
             <Routes>
                 <Route path='/' element={<LandingPage />} />
+                <Route path='/register' element={<Register />} />
+                <Route path='/login' element={<Login />} />
                 <Route path='/testing' element={<Testing/>}/>
                 <Route path='*' element={<LandingPage />} />
             </Routes>

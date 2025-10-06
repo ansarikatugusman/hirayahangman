@@ -44,7 +44,7 @@ const Login = () => {
     }
 
     return (
-        <div className='login_form-container ohpv center' >
+        <div className='login_form-container ohp center' >
             {loading && <Loading />}
             <div className='login_form-wrapper'>
                 <form className='login_form' >
@@ -55,23 +55,6 @@ const Login = () => {
                         <SketchedButton className='login_button' text='LOGIN' width='100%' fontsize='1rem' />
                     </div>
                 </form>
-                <GoogleLogin onSuccess={async (credentials) => {
-                    let userCredentials = credentials.credential
-                    //let c = credentials.credential
-                    //console.log(jwtDecode(c).email)
-                    //console.log(jwtDecode(c))
-                    try {
-                        const data = await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/login`, 
-                            'POST',
-                            { 'Content-Type': 'application/json' },
-                            JSON.stringify({
-                                email: jwtDecode(userCredentials).email, 
-                            })
-                        )
-                        navigate('/')
-                        auth.login(data.id, data.token)
-                    } catch (err) { }
-                }} />
             </div>
         </div>
     )

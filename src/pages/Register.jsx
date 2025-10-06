@@ -1,7 +1,5 @@
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router'
-import { GoogleLogin } from '@react-oauth/google'
-import { jwtDecode } from 'jwt-decode'
 import AuthContext from '../context/AuthContext'
 import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
@@ -51,7 +49,7 @@ const Register = () => {
     }
 
     return (
-        <div className='register_form-container ohpv center' >
+        <div className='register_form-container ohp center' >
             {loading && <Loading />}
             <div className='register_form-wrapper'>
                 <form className='register_form' >
@@ -63,25 +61,6 @@ const Register = () => {
                         <SketchedButton className='register_button' text='REGISTER' width='100%' fontsize='1rem' />
                     </div>
                 </form>
-                <GoogleLogin onSuccess={async (credentials) => {
-                    let userCredentials = credentials.credential
-                    //let c = credentials.credential
-                    //console.log(jwtDecode(c).email)
-                    //console.log(jwtDecode(c))
-                    try {
-                        const data = await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/register`, 
-                            'POST',
-                            { 'Content-Type': 'application/json' },
-                            JSON.stringify({
-                                name: jwtDecode(userCredentials).given_name, 
-                                email: jwtDecode(userCredentials).email, 
-                            })
-                        )
-
-                        auth.login(data.id, data.token)
-                        navigate('/')
-                    } catch (err) { }
-                }} />
             </div>
         </div>
     )
