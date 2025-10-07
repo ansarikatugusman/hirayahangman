@@ -91,6 +91,64 @@ button {
     background-color: rgba(0,0,0,0.5); 
 }
 
+.menu {
+	width: 80%;
+    height: 80%;
+    position: relative;
+    background:#fcfee6;
+    border: solid black;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 3% 95% 3% 95%/95% 4% 92% 2.5%;
+    transform: rotate(-0.85deg);
+}
+
+.menu_content {
+	width: 92%;
+    height: 92%;
+    transform: rotate(0.85deg);
+}	
+
+.menu_icon-wrapper {
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu_icon-wrapper p {
+    font: 0.5rem 'Nunito-Bold', serif;
+}
+
+.menu_icon {
+	width: 60px;
+	height: 60px;
+}
+
+.menu_icon:hover {
+	scale: 1.1;
+}
+
+.menu_icon:active {
+	scale: 1;
+}
+
+.close_button_menu {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0%;
+    right: -1.5%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.icon:hover {
+    scale: 1.25;
+}
+
+.icon:active {
+    scale: 1;
+}
+
 .svg-bg {
     position: fixed;
     width: 100vw;

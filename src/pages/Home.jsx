@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router'
-import PlayerInfo from '../components/home/PlayerInfo'
-import SketchedButton from '../components/buttons/SketchedButton'
+import TopMenuIcons from '../components/home/TopMenuIcons'
+import BottomMenuIcons from '../components/home/BottomMenuIcons'
 import AuthContext from '../context/AuthContext'
 import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
@@ -19,6 +19,7 @@ const Home = () => {
 
     const auth = useContext(AuthContext)
 
+    /*
     useEffect(() => {
         const getUserHomeInfo = async () => {
             try {
@@ -35,23 +36,17 @@ const Home = () => {
         }
         getUserHomeInfo()
     }, [auth.id, auth.token, fetchRequest])
+    */
 
     return (
         <div className='home-container ohp'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            <PlayerInfo name={name} avatar={avatar} crowns={crowns} />
+            <TopMenuIcons />
             <div className='logo-container ohpw center'>
                 <img className='image_logo scale' src={logo} alt='logo' />
             </div>
-            <div className='home_buttons-container center ohpw'>
-                <Link className='link_href' to='/game'>
-                    <SketchedButton text='PLAY' width='250px' fontsize='200%' scale_after={true} />
-                </Link>
-                <Link className='link_href' to='/shop'>
-                    <SketchedButton text='SHOP' width='250px' fontsize='200%' scale_after={true} />
-                </Link>
-            </div>
+            <BottomMenuIcons />
         </div>
     )
 }

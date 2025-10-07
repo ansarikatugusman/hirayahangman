@@ -11,7 +11,6 @@ const useAuth = () => {
     const login = useCallback((id, token, tokenExpiration) => {
         setId(id)
         setToken(token)
-
         const expiration = tokenExpiration || new Date(new Date().getTime() + 1000 * 60 * 720)
         setExpiration(expiration)
         localStorage.setItem('token', JSON.stringify({id: id, token: token, expiration: expiration.toISOString()}))
@@ -30,7 +29,7 @@ const useAuth = () => {
         if (userToken && userToken.token && new Date(userToken.expiration) > new Date()) {
             login(userToken.id, userToken.token, new Date(userToken.expiration))
         }
-    }, [])
+    }, [login])
 
     useEffect(() => {
         if (token && expiration) {
