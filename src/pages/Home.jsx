@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router'
+import { useState, useContext } from 'react'
 import TopMenuIcons from '../components/home/TopMenuIcons'
 import BottomMenuIcons from '../components/home/BottomMenuIcons'
+import Store from '../menus/Store'
 import AuthContext from '../context/AuthContext'
 import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
@@ -11,6 +11,7 @@ import logo from '/hirayahangman-white_outline.svg'
 import './Home.css'
 
 const Home = () => {
+    const [storeMenuOpen, setStoreMenuOpen] = useState(false)
     const [name, setName] = useState('Player')
     const [avatar, setAvatar] = useState('character')
     const [crowns, setCrowns] = useState(100)
@@ -18,6 +19,11 @@ const Home = () => {
     const {loading, error, fetchRequest} = useHttpRequest()
 
     const auth = useContext(AuthContext)
+
+    const openStoreMenu = () => setStoreMenuOpen(true)
+
+    const closeStoreMenu = () => setStoreMenuOpen(false)
+    
 
     /*
     useEffect(() => {
@@ -42,11 +48,14 @@ const Home = () => {
         <div className='home-container ohp'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            <TopMenuIcons />
+            <TopMenuIcons 
+                openStoreMenu={openStoreMenu}
+            />
             <div className='logo-container ohpw center'>
                 <img className='image_logo scale' src={logo} alt='logo' />
             </div>
             <BottomMenuIcons />
+            {storeMenuOpen && <Store closeStoreMenu={closeStoreMenu} />}
         </div>
     )
 }

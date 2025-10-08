@@ -1,13 +1,14 @@
-.shop_header-container {
-    height: 80px;
-    padding: 10px 10px;
-    justify-content: space-between;
-    font: 1rem 'Nunito-Bold', serif;
+.store-container {
+    height: 100%;
 }
 
-.return_button-wrapper {
-    width: 101px;
-    height: 38px;
+.store_navigation {
+    height: 150px;
+}
+
+.store_navigation_gold-container {
+    height: 60px;
+    justify-content: start;
 }
 
 .player_gold-container {
@@ -69,5 +70,14 @@
 
 .player_gold {
     width: 58px;
+    font: 1rem 'Nunito-Bold', serif;
     justify-content: start;
+}
+
+.store_navigation_buttons-container {
+    gap: 1rem;
+}
+
+.store_content {
+    height: 75%;
 }

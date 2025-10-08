@@ -17,14 +17,20 @@
     top: 0;
     right: 0;
     border-style: solid;
-    border-width: 0 25px 25px 0;
-    border-color: #ddd rgba(250, 250, 250, 0.1);
-    background: #f0f0d8;
-    transition: all ease .5s;
+    border-width: 0 10px 10px 0;
+    border-color: #ffffff rgba(250, 250, 250, 0.1);
+    background: #fcfee6;
+    transition: all ease-in-out .5s;
 }
 
 .folded_button:hover:before {
-    border-width: 0 50px 50px 0;
-    border-color: #eee rgba(250, 250, 250, 0);
-    background: #f0f0d8;
+    border-width: 0 20px 20px 0;
+    border-color: #ffffff rgba(250, 250, 250, 0);
+    background: #fcfed0;
+}
+
+.folded_button_active::before {
+    border-width: 0 20px 20px 0;
+    border-color: #ffffff rgba(250, 250, 250, 0);
+    background: #fcfed0;
 }

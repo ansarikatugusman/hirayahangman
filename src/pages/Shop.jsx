@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react'
-import ShopHeader from '../components/shop/ShopHeader'
 import AuthContext from '../context/AuthContext'
 import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
@@ -11,8 +10,6 @@ import TimeShield from '../assets/images/items/time_shield-shop.svg'
 import MagnifyingGlass from '../assets/images/items/magnifying_glass-shop.svg'
 import Randomizer from '../assets/images/items/randomizer-shop.svg'
 import CrossMark from '../assets/images/items/cross_mark-shop.svg'
-
-import './Shop.css'
 
 const Shop = () => {
     const [gold, setGold] = useState(0)
