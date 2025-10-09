@@ -1,0 +1,21 @@
+.profile {
+    gap: 1rem;
+}
+
+.player_information {
+    gap: 1rem;
+    justify-content: space-evenly;
+}
+
+.player_stats {
+    height: 80%;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@media screen and (min-width: 1100px ) {
+    .player_information {
+        flex-direction: row;
+    }
+}

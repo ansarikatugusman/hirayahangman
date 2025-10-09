@@ -1,0 +1,75 @@
+.edit_profile_details-wrapper {
+    width: 100%;
+    height: 160px;
+    font: 1rem 'Nunito-Bold', serif;
+    gap: 9px;
+}
+
+.edit_profile_details {
+    height: 91px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.edit_profile_avatar-wrapper {
+    width: 70px; 
+}
+
+.edit_profile_avatar {
+    width: 64px; 
+}
+
+.edit_profile_name-wrapper {
+    height: 21px;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+.edit_profile_name_change {
+    gap: 1rem;
+}
+
+.edit_profile_new_name-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: static;
+    max-width: 240px;
+}
+
+.edit_profile_new_name-wrapper .edit_profile_new_name_label {
+    font-size: 0.75rem;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    background: #e8e8e8;
+    width: fit-content;
+}
+
+.edit_profile_new_name-wrapper .edit_profile_new_name {
+    padding: 11px 10px;
+    font-size: 0.75rem;
+    border: 2px black solid;
+    border-radius: 5px;
+    background: #e8e8e8;
+}
+
+.edit_profile_new_name-wrapper .edit_profile_new_name:focus {
+    outline: none;
+}
+
+.edit_profile_save {
+    font-size: 0.9rem;
+    gap: 5px;
+    padding-top: 12.5px;
+    cursor: pointer;
+}
+
+.edit_profile_save_icon {
+    width: 18px;
+}
+
+.avatars-container {
+    height: 300px;
+}

@@ -92,8 +92,8 @@ button {
 }
 
 .menu {
-	width: 80%;
-	max-width: 1200px;
+	width: 85%;
+	max-width: 1000px;
     height: 80%;
 	max-height: 1000px;
     position: relative;
@@ -105,8 +105,8 @@ button {
 }
 
 .menu_content {
-	width: 92%;
-    height: 92%;
+	width: 95%;
+    height: 93%;
     transform: rotate(0.85deg);
 }	
 

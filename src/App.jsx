@@ -10,9 +10,8 @@ import Profile from './menus/Profile'
 import Home from './pages/Home'
 import Play from './pages/Play'
 import Bugtong from './pages/Bugtong'
-import Shop from './pages/Shop'
 import Testing from './pages/Testing'
-import ErrorMessage from './utils/ErrorMessage'
+import SketchyLongWrapper from './components/wrappers/SketchyLongWrapper'
 
 import './App.css'
 
@@ -63,9 +62,8 @@ const App = () => {
         routes = (
             <Routes>
                 <Route index element={<Home />} />
-                <Route path='/shop' element={<Shop />}/>
                 <Route path='/bugtong' element={<Bugtong />}/>
-                <Route path='/testing' element={<Profile />}/>
+                <Route path='/testing' element={<SketchyLongWrapper />}/>
                 <Route path='/game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
                 <Route path='*' element={<Play />} />
             </Routes>

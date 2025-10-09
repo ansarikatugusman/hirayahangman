@@ -42,7 +42,7 @@ const Store = ({ closeStoreMenu }) => {
     useEffect(() => {
         const getUserShopInfo = async () => {
             try {
-                const data = await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/user/shopInfo/`, 
+                const data = await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/user/shop`, 
                 'GET', 
                 {Authorization: 'Bearer ' + auth.token}
                 )

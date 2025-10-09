@@ -5,12 +5,12 @@ import Leaderboards from '../../assets/images/icons/leaderboards.png'
 
 import './TopMenuIcons.css'
 
-const MenuIcons = ({ openStoreMenu }) => {
+const MenuIcons = ({ openProfileMenu, openStoreMenu }) => {
     return (
         <div className='top_menu_icons-container ohpw center scale_after'>
             <div className='menu_icons-wrapper center'>
                 <div className='menu_icon-wrapper center'>
-                    <img className='menu_icon' src={Profile} />
+                    <img className='menu_icon' src={Profile} onClick={openProfileMenu} />
                     <p>PROFILE</p>
                 </div>
                 <div className='menu_icon-wrapper center' onClick={openStoreMenu}>

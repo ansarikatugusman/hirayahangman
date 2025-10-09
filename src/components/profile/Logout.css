@@ -1,0 +1,13 @@
+.logout_message {
+    height: 100px;
+    padding: 5px 10px;
+}
+
+.logout_dialog_buttons {
+    gap: 2rem;
+}
+
+.logout_dialog_button {
+    width: 71px;
+    height: 38px;
+}

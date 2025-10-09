@@ -5,11 +5,11 @@ import Loading from '../../utils/Loading'
 import ErrorMessage from '../../utils/ErrorMessage'
 import Items from '../../utils/Items'
 import Gold from '../../assets/images/gold.png'
-import HealthPlus from '../../assets/images/items/health_plus-shop.svg'
-import TimeShield from '../../assets/images/items/time_shield-shop.svg'
-import MagnifyingGlass from '../../assets/images/items/magnifying_glass-shop.svg'
-import Randomizer from '../../assets/images/items/randomizer-shop.svg'
-import CrossMark from '../../assets/images/items/cross_mark-shop.svg'
+import HealthPlus from '../../assets/images/items/health_plus-store.svg'
+import TimeShield from '../../assets/images/items/time_shield-store.svg'
+import MagnifyingGlass from '../../assets/images/items/magnifying_glass-store.svg'
+import Randomizer from '../../assets/images/items/randomizer-store.svg'
+import CrossMark from '../../assets/images/items/cross_mark-store.svg'
 
 import './StoreItems.css'
 
@@ -23,11 +23,13 @@ const StoreItems = ({ setGold }) => {
         try {
             await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item1`,
             'PATCH',
-            { 'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + auth.token },
+            {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + auth.token 
+            },
             JSON.stringify({
-                price: 75})
-            )
+                price: 75
+            }))
             setGold(prevGold => prevGold - 75)
         } catch (err) {
             setShowError(true)
@@ -38,11 +40,13 @@ const StoreItems = ({ setGold }) => {
         try {
             await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item2`,
             'PATCH',
-            { 'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + auth.token },
+            {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + auth.token 
+            },
             JSON.stringify({
-                price: 125})
-            )
+                price: 125
+            }))
             setGold(prevGold => prevGold - 125)
         } catch (err) {
             setShowError(true)
@@ -53,11 +57,13 @@ const StoreItems = ({ setGold }) => {
         try {
             await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item3`,
             'PATCH',
-            { 'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + auth.token },
+            {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + auth.token 
+            },
             JSON.stringify({
-                price: 100})
-            )
+                price: 100
+            }))
             setGold(prevGold => prevGold - 100)
         } catch (err) {
             setShowError(true)
@@ -68,11 +74,13 @@ const StoreItems = ({ setGold }) => {
         try {
             await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item4`,
             'PATCH',
-            { 'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + auth.token },
+            {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + auth.token 
+            },
             JSON.stringify({
-                price: 50})
-            )
+                price: 50
+            }))
             setGold(prevGold => prevGold - 50)
         } catch (err) {
             setShowError(true)
@@ -83,11 +91,13 @@ const StoreItems = ({ setGold }) => {
         try {
             await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/buyItem/item5`,
             'PATCH',
-            { 'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + auth.token },
+            {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + auth.token 
+            },
             JSON.stringify({
-                price: 50})
-            )
+                price: 50
+            }))
             setGold(prevGold => prevGold - 50)
         } catch (err) {
             setShowError(true)

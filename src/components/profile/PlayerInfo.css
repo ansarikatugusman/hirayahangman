@@ -1,9 +1,7 @@
 .player_info-container {
     height: 100px;
-    justify-content: center;
+    gap: 0.5rem;
     font: 1rem 'Nunito-Bold', serif;
-    animation: scale 0.5s 0.5s ease-out;
-    animation-fill-mode: backwards;
 }
 
 .player-container {
@@ -43,6 +41,7 @@
         51%,
         rgba(236, 178, 186, 0)
     );
+    z-index: 0;
 }
 
 .tape-section {
@@ -72,8 +71,8 @@
 
 .tape-section:last-of-type::after {
   transform: rotate(-45deg);
-  right: -15px;
-  top: -8px;
+  right: -13px;
+  top: -7px;
 }
 
 .tape-section:first-of-type::before {
@@ -83,8 +82,8 @@
 
 .tape-section:first-of-type::after {
   transform: rotate(45deg);
-  right: -18px;
-  top: 0px;
+  right: -16px;
+  top: -2px;
 }
 
 .tape-section:last-of-type::before {
@@ -98,7 +97,7 @@
 }
 
 .player_avatar {
-    width: 64px;
+    width: 64px; 
 }
 
 .player_name_and_crowns-container {
@@ -106,7 +105,9 @@
 }
 
 .player_name-wrapper {
+    line-height: 2.25rem;
     height: 37.5px;
+    overflow: hidden;
 }
 
 .player_crowns-wrapper {
@@ -119,9 +120,24 @@
     width: 32px;
 }
 
-@media screen and (min-width: 550px ) {
-    .player_info-container {
-        width: 100%;
-        justify-content: start;
-    }
+.player_info_options {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.player_info_option {
+    width: 62px;
+    justify-content: left;
+    gap: 5px;
+    font-size: 0.6rem;
+    cursor: pointer;
+}
+
+.edit_icon {
+    width: 15px;
+}
+
+
+.logout_icon {
+    width: 14px;
 }
