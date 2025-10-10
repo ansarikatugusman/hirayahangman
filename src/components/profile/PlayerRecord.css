@@ -24,10 +24,16 @@
 
 .personal_record_icon-wrapper {
     width: 100%;
+    height: 46px;
+}
+
+.personal_record_icon_book {
+    width: 100%;
 }
 
 .personal_record_icon {
     width: 45px;
+    height: 45px;
 }
 
 .personal_record_title-wrapper {

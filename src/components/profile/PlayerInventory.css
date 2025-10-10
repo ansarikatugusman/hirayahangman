@@ -1,0 +1,37 @@
+.player_inventory-container {
+    width: 90%;
+    background: #FBFBF9;
+    border: 2px solid #323232;
+    box-shadow: 4px 4px #323232;
+    border-radius: 5px;
+    display: flex;
+    padding: 10px;
+    gap: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
+}
+
+.player_inventory {
+    gap: 2.5rem;
+}
+
+.inventory_item {
+    position: relative;
+}
+
+.inventory_item_icon {
+    width: 64px;
+    height: 64px;
+}
+
+.inventory_item_quantity-wrapper {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    bottom: 4.55px;
+    right: 4.5px;
+}
+
+.inventory_item_quantity {
+    color: white;
+    font: 0.75rem 'Nunito-Bold', serif;
+}

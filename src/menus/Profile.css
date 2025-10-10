@@ -1,5 +1,9 @@
 .profile {
+    padding-bottom: 5px;
     gap: 1rem;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .player_information {
@@ -8,10 +12,7 @@
 }
 
 .player_stats {
-    height: 80%;
-    overflow: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    gap: 2.5rem;
 }
 
 @media screen and (min-width: 1100px ) {

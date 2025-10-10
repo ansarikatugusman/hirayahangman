@@ -8,7 +8,7 @@ import Save from '../../assets/images/icons/save.svg'
 
 import './EditProfile.css'
 
-const EditProfile = ({ name, avatar, setName, setAvatar, closeEditProfileDialog }) => {
+const EditProfile = ({ name, avatar, avatars, setName, setAvatar, closeEditProfileDialog }) => {
     const [newName, setNewName] = useState(name)
     const [newAvatar, setNewAvatar] = useState(avatar)
     const [showError, setShowError] = useState(false)
@@ -18,8 +18,15 @@ const EditProfile = ({ name, avatar, setName, setAvatar, closeEditProfileDialog 
 
     const onNameChange = (e) => setNewName(e.target.value)
 
+    const onAvatarChange = (avatar) => setNewAvatar(avatar) 
+
+    const avatarCollection = avatars.map( avatar =>
+        <div className='avatar_collection-wrapper center' key={avatar}>
+            <img className='edit_profile_avatar' src={`./avatars/${avatar}.svg`} alt='avatar' onClick={() => onAvatarChange(avatar)} />
+        </div>
+    )
+
     const onSave = async () => {
-        
         try {
             await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/editProfile`,
             'PATCH',
@@ -68,7 +75,7 @@ const EditProfile = ({ name, avatar, setName, setAvatar, closeEditProfileDialog 
                 </div>
 
                 <div className='avatars-container ohpw center'>
-
+                    {avatarCollection}
                 </div>
             </div>
         </SketchyLongWrapper>
