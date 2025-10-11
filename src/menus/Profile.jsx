@@ -65,7 +65,6 @@ const Profile = ({ closeProfileMenu }) => {
                 setTotalGoldSpent(data.user.totalGoldSpent)
                 setTotalItemsUsed(data.user.totalItemsUsed)
                 setHighestCrown(data.user.highestCrown)
-                //setLeaderboardRank(data.user.leaderboardRank)
                 setAverageTime(data.user.averageTime)
                 setBugtongBooksSolved(data.user.bugtongBooksSolved)
                 setSawikainBooksSolved(data.user.sawikainBooksSolved)
@@ -81,7 +80,8 @@ const Profile = ({ closeProfileMenu }) => {
         const getLeaderboardRank = async () => {
             try {
                 const data = await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/leaderboards/crowns/${auth.id}`, 
-                    'GET'
+                    'GET',
+                    {Authorization: 'Bearer ' + auth.token}
                 )
                 setLeaderboardRank(data.leaderboardRank)
             } catch (err) {

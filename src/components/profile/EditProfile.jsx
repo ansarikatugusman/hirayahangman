@@ -22,7 +22,7 @@ const EditProfile = ({ name, avatar, avatars, setName, setAvatar, closeEditProfi
 
     const avatarCollection = avatars.map( avatar =>
         <div className='avatar_collection-wrapper center' key={avatar}>
-            <img className='edit_profile_avatar' src={`./avatars/${avatar}.svg`} alt='avatar' onClick={() => onAvatarChange(avatar)} />
+            <img className='edit_profile_collection_avatar' src={`./avatars/${avatar}.svg`} alt='avatar' onClick={() => onAvatarChange(avatar)} />
         </div>
     )
 
@@ -47,7 +47,7 @@ const EditProfile = ({ name, avatar, avatars, setName, setAvatar, closeEditProfi
     }
 
     return (
-        <SketchyLongWrapper onCloseHandler={closeEditProfileDialog}>
+        <SketchyLongWrapper showCloseButton={true} onCloseHandler={closeEditProfileDialog}>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             <div className='edit_profile-container ohp center'>

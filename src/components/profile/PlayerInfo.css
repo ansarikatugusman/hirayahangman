@@ -70,26 +70,26 @@
 }
 
 .tape-section:last-of-type::after {
-  transform: rotate(-45deg);
-  right: -13px;
-  top: -7px;
+    transform: rotate(-45deg);
+    right: -13px;
+    top: -7px;
 }
 
 .tape-section:first-of-type::before {
-  transform: rotate(-45deg);
-  left: -15px;
+    transform: rotate(-45deg);
+    left: -15px;
 }
 
 .tape-section:first-of-type::after {
-  transform: rotate(45deg);
-  right: -16px;
-  top: -2px;
+    transform: rotate(45deg);
+    right: -16px;
+    top: -2px;
 }
 
 .tape-section:last-of-type::before {
-  transform: rotate(45deg);
-  left: -16px;
-  bottom: 0px;
+    transform: rotate(45deg);
+    left: -16px;
+    bottom: 0px;
 }
 
 .player_avatar-wrapper {
@@ -136,7 +136,6 @@
 .edit_icon {
     width: 15px;
 }
-
 
 .logout_icon {
     width: 14px;

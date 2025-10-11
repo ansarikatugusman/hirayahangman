@@ -1,0 +1,122 @@
+.leaderboard {
+    height: 450px;
+    font: 1rem 'Nunito-Bold', serif;
+}
+
+.leaderboard_title-wrapper {
+    height: 40px;
+    font: 1.25rem 'Nunito-Bold', serif;
+}
+
+.leaderboard_players-wrapper {
+    height: 410px;
+    gap: 5px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.top_3_players {
+    height: 250px;
+    gap: 5px;
+}
+
+.top_3_player {
+    width: 90px;
+    align-content: end;
+}
+
+.top_player_details {
+    height: 125px;
+}
+
+.leaderboard_player_avatar-wrapper {
+    width: 70px;
+    height: 70px;
+}
+
+.leaderboard_player_avatar {
+    width: 64px;
+    height: 64px;
+}
+
+.leaderboard_top_player_name-wrapper {
+    height: 22px;
+    overflow: hidden;
+}
+
+.leaderboard_player_name {
+    font: 1rem 'Nunito-Bold', serif;
+}
+
+.leaderboard_players {
+    height: 150px;
+}
+
+.leaderboard_player_crowns-wrapper {
+    width: 80px;
+    justify-content: start;
+    gap: 2.5px;
+}
+
+.leaderboard_player_crowns_icon {
+    width: 32px;
+}
+
+.top_player_rank_1 {
+    height: 125px;
+    font-size: 1.75rem;
+    background-color: #C9B037;
+    border: 2px #AF9500 solid;
+    border-radius: 1rem;
+}
+
+.top_player_rank_2 {
+    height: 100px;
+    font-size: 1.5rem;
+    background-color: #D7D7D7;
+    border: 2px #B4B4B4 solid;
+    border-radius: 1rem;
+}
+
+.top_player_rank_3 {
+    height: 75px;
+    font-size: 1.25rem;
+    background-color: #AD8A56;
+    border: 2px #6A3805 solid;
+    border-radius: 1rem;
+}
+
+.leaderboard_players {
+    padding-bottom: 10px;
+    gap: 10px;
+}
+
+.leaderboard_player {
+    width: 90%;
+    height: 75px;
+    background: #FBFBF9;
+    border: 2px solid #323232;
+    box-shadow: 4px 4px #323232;
+    border-radius: 5px;
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
+}
+
+.leaderboard_player_rank {
+    width: 30px;
+}
+
+.leaderboard_player_name-wrapper {
+    width: 80px;
+    overflow: hidden;
+}
+
+.player_rank-container {
+    height: 40px;
+    font: 1rem 'Nunito-Bold', serif;
+}
+
+.player_rank {
+    width: 180px;
+}

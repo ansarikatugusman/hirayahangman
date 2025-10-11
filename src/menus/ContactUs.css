@@ -1,0 +1,19 @@
+.contact_us_header-wrapper {
+    gap: 1rem;
+}
+
+.contact_us_header {
+    font: 1.25rem 'Nunito-Bold', serif;
+}
+
+.contact_us_email-wrapper {
+    gap: 5px;
+}
+
+.contact_us_email_icon {
+    width: 20px;
+}
+
+.contact_us_emails {
+    font: 0.9rem 'Nunito-Regular', serif;
+}

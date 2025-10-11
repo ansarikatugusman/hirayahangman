@@ -5,7 +5,7 @@ import ContactUs from '../../assets/images/icons/contact_us.png'
 
 import './BottomMenuIcons.css'
 
-const BottomMenuIcons = () => {
+const BottomMenuIcons = ({ openContactUsMenu }) => {
     const navigate = useNavigate()
 
     const onClickPlayHandler = () => navigate('/game')
@@ -21,7 +21,7 @@ const BottomMenuIcons = () => {
                     <img className='menu_icon' src={Credits} />
                     <p>CREDITS</p>
                 </div>
-                <div className='menu_icon-wrapper center'>
+                <div className='menu_icon-wrapper center' onClick={openContactUsMenu}>
                     <img className='menu_icon' src={ContactUs} />
                     <p>CONTACT US</p>
                 </div>
