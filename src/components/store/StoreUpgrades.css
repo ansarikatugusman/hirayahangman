@@ -1,21 +1,21 @@
-.store_items-container {
+.store_upgrades-container {
     height: 90%;
     padding: 0.5rem;
     flex-direction: row;
-    column-gap: 3.5rem;
-    row-gap: 3.5rem;
+    column-gap: 2.5rem;
+    row-gap: 2.5rem;
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-.store_items-container::-webkit-scrollbar {
+.store_upgrades-container::-webkit-scrollbar {
     display: none;
 }
 
-.store_item {
+.store_upgrade {
     width: 230px;
-    height: 300px;
+    height: 310px;
     background: #FBFBF9;
     border: 2px solid #323232;
     box-shadow: 4px 4px #323232;
@@ -28,53 +28,63 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
 }
 
-.store_item:last-child {
+.store_upgrade:last-child {
     justify-content: flex-end;
 }
 
-.item_image-wrapper {
+.upgrade_image-wrapper {
     width: 100%;
     height: 100px;
 }
 
-.item_image {
+.upgrade_image {
     width: 96px;
 }
 
-.item_name-wrapper {
+.upgrade_description-wrapper {
     width: 100%;
-    height: 30px;
+    height: 42px;
 }
 
-.item_name {
-    font-size: 20px;
+.upgrade_description {
+    font-size: 1rem;
     text-align: center;
     color: #323232;
 }
 
-.item_description-wrapper {
-    width: 100%;
-    height: 40px;
+.upgrade_description_highlight {
+    font: 1.2rem 'Nunito-Bold', serif;
+    text-decoration: underline;
 }
 
-.item_description {
+.upgrade_next-wrapper {
+    width: 100%;
+    height: 42px;
+}
+
+.upgrade_next {
     font-size: 14px;
     color: #666666;
 }
 
-.item_divider {
+.upgrade_divider {
     width: 100%;
     border: 2px solid #323232;
     border-radius: 50px;
 }
 
-.item_price-container {
+.upgrade_price-container {
     height: 42.5px;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.item_price-wrapper {
+.upgrade_maxed {
+    font-size: 14px;
+    color: #666666;
+}
+
+.upgrade_price-wrapper {
     height: 100%;
     column-gap: 8px;
 }
@@ -83,30 +93,30 @@
     width: 42px;
 }
 
-.item_price {
+.upgrade_price {
     font-size: 1rem;
     color: #323232;
 }
 
-.item_price span {
+.upgrade_price span {
     font-size: 1rem;
     color: #666666;
 }
 
-.item_button {
+.upgrade_button {
     height: 35px;
     background: #FCFBFC;
     border: 2px solid #323232;
     border-radius: 5px;
-    padding: 0 15px;
-    font-size: 1rem;
+    padding: 0 10px;
+    font-size: 0.8rem;
     transition: all 0.3s;
 }
 
-.item_button:hover {
+.upgrade_button:hover {
     border: 2px solid #2D8CF0;
 }
 
-.item_button:active {
+.upgrade_button:active {
     transform: translateY(3px);
 }

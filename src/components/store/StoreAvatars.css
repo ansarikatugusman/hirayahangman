@@ -1,21 +1,21 @@
-.store_items-container {
+.store_avatars-container {
     height: 90%;
     padding: 0.5rem;
     flex-direction: row;
-    column-gap: 3.5rem;
-    row-gap: 3.5rem;
+    column-gap: 2rem;
+    row-gap: 2rem;
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-.store_items-container::-webkit-scrollbar {
+.store_avatars-container::-webkit-scrollbar {
     display: none;
 }
 
-.store_item {
-    width: 230px;
-    height: 300px;
+.store_avatar {
+    width: 125px;
+    height: 165px;
     background: #FBFBF9;
     border: 2px solid #323232;
     box-shadow: 4px 4px #323232;
@@ -23,90 +23,82 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 20px;
-    gap: 10px;
+    padding: 7.5px;
+    gap: 5px;
     font-family: -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
 }
 
-.store_item:last-child {
-    justify-content: flex-end;
-}
-
-.item_image-wrapper {
+.avatar_image-wrapper {
     width: 100%;
-    height: 100px;
+    height: 70px;
 }
 
-.item_image {
-    width: 96px;
+.avatar_image {
+    width: 64px;
 }
 
-.item_name-wrapper {
+.avatar_name-wrapper {
     width: 100%;
     height: 30px;
 }
 
-.item_name {
-    font-size: 20px;
+.avatar_name {
+    font-size: 1rem;
+    font-weight: 500;
     text-align: center;
     color: #323232;
 }
 
-.item_description-wrapper {
-    width: 100%;
-    height: 40px;
-}
-
-.item_description {
-    font-size: 14px;
-    color: #666666;
-}
-
-.item_divider {
+.avatar_divider {
     width: 100%;
     border: 2px solid #323232;
     border-radius: 50px;
 }
 
-.item_price-container {
-    height: 42.5px;
+.avatar_price-container {
+    height: 28px;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.item_price-wrapper {
+.avatar_owned { 
+    font-size: 14px;
+    color: #666666;
+}
+
+.avatar_price-wrapper {
     height: 100%;
-    column-gap: 8px;
+    column-gap: 3px;
 }
 
 .gold_icon {
-    width: 42px;
+    width: 30px;
 }
 
-.item_price {
-    font-size: 1rem;
+.avatar_price {
+    font-size: 0.75rem;
     color: #323232;
 }
 
-.item_price span {
+.avatar_price span {
     font-size: 1rem;
     color: #666666;
 }
 
-.item_button {
-    height: 35px;
+.avatar_button {
+    height: 25px;
     background: #FCFBFC;
     border: 2px solid #323232;
     border-radius: 5px;
-    padding: 0 15px;
-    font-size: 1rem;
+    padding: 0 5px;
+    font-size: 0.75rem;
     transition: all 0.3s;
 }
 
-.item_button:hover {
+.avatar_button:hover {
     border: 2px solid #2D8CF0;
 }
 
-.item_button:active {
+.avatar_button:active {
     transform: translateY(3px);
 }

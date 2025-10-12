@@ -105,10 +105,10 @@ const StoreItems = ({ setGold }) => {
     }
 
     return (
-        <div className='items-container center'>
+        <div className='store_items-container center'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            <div className='item1-container shop_item'>
+            <div className='item1-container store_item'>
                 <div className='item1_image-wrapper item_image-wrapper'>
                     <img className='item1_image item_image' src={HealthPlus} />
                 </div>
@@ -136,7 +136,7 @@ const StoreItems = ({ setGold }) => {
                 </div>
             </div>
 
-            <div className='item2-container shop_item'>
+            <div className='item2-container store_item'>
                 <div className='item2_image-wrapper item_image-wrapper'>
                     <img className='item2_image item_image' src={TimeShield} />
                 </div>
@@ -164,7 +164,7 @@ const StoreItems = ({ setGold }) => {
                 </div>
             </div>
 
-            <div className='item3-container shop_item'>
+            <div className='item3-container store_item'>
                 <div className='item3_image-wrapper item_image-wrapper'>
                     <img className='item3_image item_image' src={MagnifyingGlass} />
                 </div>
@@ -192,7 +192,7 @@ const StoreItems = ({ setGold }) => {
                 </div>
             </div>
 
-            <div className='item4-container shop_item'>
+            <div className='item4-container store_item'>
                 <div className='item4_image-wrapper item_image-wrapper'>
                     <img className='item4_image item_image' src={Randomizer} />
                 </div>
@@ -220,7 +220,7 @@ const StoreItems = ({ setGold }) => {
                 </div>
             </div>
 
-            <div className='item5-container shop_item'>
+            <div className='item5-container store_item'>
                 <div className='item5_image-wrapper item_image-wrapper'>
                     <img className='item5_image item_image' src={CrossMark} />
                 </div>

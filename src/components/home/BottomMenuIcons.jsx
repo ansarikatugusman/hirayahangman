@@ -5,7 +5,7 @@ import ContactUs from '../../assets/images/icons/contact_us.png'
 
 import './BottomMenuIcons.css'
 
-const BottomMenuIcons = ({ openContactUsMenu }) => {
+const BottomMenuIcons = ({ openContactUsMenu, openMessage }) => {
     const navigate = useNavigate()
 
     const onClickPlayHandler = () => navigate('/game')
@@ -13,7 +13,7 @@ const BottomMenuIcons = ({ openContactUsMenu }) => {
     return (
         <div className='bottom_menu_icons-container ohpw center scale_after'>
             <div className='bottom_menu_play_button-wrapper center'>
-                <SketchedButton text='PLAY' width='225px' fontsize='200%' onClickHandler={onClickPlayHandler} />
+                <SketchedButton text='PLAY' width='225px' fontsize='200%' onClickHandler={openMessage} />
             </div>
             
             <div className='bottom_menu_icons-wrapper center'>

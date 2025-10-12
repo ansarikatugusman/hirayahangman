@@ -5,6 +5,8 @@ import Loading from '../utils/Loading'
 import ErrorMessage from '../utils/ErrorMessage'
 import FoldedButton from '../components/buttons/FoldedButton'
 import StoreItems from '../components/store/StoreItems'
+import StoreUpgrades from '../components/store/StoreUpgrades'
+import StoreAvatars from '../components/store/StoreAvatars'
 import Close from '../assets/images/icons/close.png'
 import Gold from '../assets/images/gold.png'
 
@@ -13,6 +15,10 @@ import './Store.css'
 
 const Store = ({ closeStoreMenu }) => {
     const [gold, setGold] = useState(0)
+    const [playerUpgrade1, setPlayerUpgrade1] = useState(1)
+    const [playerUpgrade2, setPlayerUpgrade2] = useState(1)
+    const [playerUpgrade3, setPlayerUpgrade3] = useState(1)
+    const [playerAvatars, setPlayeAvatars] = useState([])
     const [itemsActive, setItemsActive] = useState(true)
     const [upgradesActive, setUpgradesActive] = useState(false)
     const [avatarsActive, setAvatarsActive] = useState(false)
@@ -47,12 +53,16 @@ const Store = ({ closeStoreMenu }) => {
                 {Authorization: 'Bearer ' + auth.token}
                 )
                 setGold(data.user.gold)
+                setPlayerUpgrade1(data.user.upgrade1)
+                setPlayerUpgrade2(data.user.upgrade2)
+                setPlayerUpgrade3(data.user.upgrade3)
+                setPlayeAvatars(data.user.avatars)
             } catch (err) {
                 setShowError(true)
             }
         }
         getUserShopInfo()
-    }, [auth.id, auth.token, fetchRequest])
+    }, [auth.id, auth.token, fetchRequest, gold])
 
     return (
         <div className='store-container center modal'>
@@ -81,6 +91,8 @@ const Store = ({ closeStoreMenu }) => {
                     </div>
                     <div className='store_content ohpw center'>
                         {itemsActive &&<StoreItems setGold={setGold} />}
+                        {upgradesActive && <StoreUpgrades setGold={setGold} playerUpgrade1={playerUpgrade1} playerUpgrade2={playerUpgrade2} playerUpgrade3={playerUpgrade3} />}
+                        {avatarsActive && <StoreAvatars setGold={setGold} playerAvatars={playerAvatars} />}
                     </div>
                 </div>
             </div>

@@ -10,67 +10,64 @@ import './Leaderboard.css'
 
 const Leaderboard = ({ closeLeaderboardMenu }) => {
 
-    const dummyRank1 = {
-        name: 'Juan Cruz',
-        avatar: '0001_character',
-        crowns: 500
-    }
-
-    const dummyRank2 = {
-        name: 'Melchor Catalan',
-        avatar: '0003_paper_clip',
-        crowns: 400
-    }
-
-    const dummyRank3 = {
-        name: '',
-        avatar: '0004_paper_plane',
-        crowns: 0
-    }
-
     const dummyPlayers = [
         {
-            name: 'Reyna McGuire',
-            avatar: '0004_paper_plane',
-            crowns: 2950
-        },
-        {
-            name: 'Casey Macias',
+            name: 'Player 1',
             avatar: '0001_character',
-            crowns: 2500
+            crowns: 0
         },
         {
-            name: 'Adley Marsh',
-            avatar: '0005_brain',
-            crowns: 2400
-        },
-        {
-            name: 'Bo Booker',
-            avatar: '0002_open_book',
-            crowns: 230
-        },
-        {
-            name: 'Nataly Shaffer',
-            avatar: '0003_paper_clip',
-            crowns: 220
-        },
-        {
-            name: 'Dexter Patrick',
+            name: 'Player 2',
             avatar: '0001_character',
-            crowns: 195
+            crowns: 0
         },
         {
-            name: 'Lyra Patrick',
-            avatar: '0003_paper_clip',
-            crowns: 150
+            name: 'Player 3',
+            avatar: '0001_character',
+            crowns: 0
         },
+        {
+            name: 'Player 4',
+            avatar: '0001_character',
+            crowns: 0
+        },
+        {
+            name: 'Player 5',
+            avatar: '0001_character',
+            crowns: 0
+        },
+        {
+            name: 'Player 6',
+            avatar: '0001_character',
+            crowns: 0
+        },
+        {
+            name: 'Player 7',
+            avatar: '0001_character',
+            crowns: 0
+        },
+        {
+            name: 'Player 8',
+            avatar: '0001_character',
+            crowns: 0
+        },
+        {
+            name: 'Player 9',
+            avatar: '0001_character',
+            crowns: 0
+        },
+        {
+            name: 'Player 10',
+            avatar: '0001_character',
+            crowns: 0
+        }
     ]
 
     const [playerRank, setPlayerRank] = useState('Unranked')
     const [playerCrowns, setPlayerCrowns] = useState(0)
-    const [rank1Player, setRank1Player] = useState(dummyRank1)
-    const [rank2Player, setRank2Player] = useState(dummyRank2)
-    const [rank3Player, setRank3Player] = useState(dummyRank3)
+    const [rank1Player, setRank1Player] = useState()
+    const [rank2Player, setRank2Player] = useState()
+    const [rank3Player, setRank3Player] = useState()
     const [topPlayers, setTopPlayers] = useState(dummyPlayers)
     const [showError, setShowError] = useState(false)
     const {loading, error, fetchRequest} = useHttpRequest()
@@ -125,8 +122,8 @@ const Leaderboard = ({ closeLeaderboardMenu }) => {
                     </div>
                 </div>
                 <div className='leaderboard_player_crowns-wrapper center'>
-                    <img className='leaderboard_player_crowns_icon' src={Crown} />
-                    <div className='leaderboard_player_crowns'>{player.crowns}</div>
+                    {<img className='leaderboard_player_crowns_icon' src={Crown} />}
+                    {<div className='leaderboard_player_crowns'>{player.crowns}</div>}
                 </div>
             </div>
         )
@@ -202,7 +199,7 @@ const Leaderboard = ({ closeLeaderboardMenu }) => {
                             </div>
                         </div>
                         <div className='leaderboard_players ohpw center'>
-                            {leaderboardTopPlayers}
+                            {topPlayers && leaderboardTopPlayers}
                             <div className='ohpw' style={{height: '1px'}}></div>
                         </div>
                     </div>
