@@ -3,6 +3,7 @@ import TopMenuIcons from '../components/home/TopMenuIcons'
 import BottomMenuIcons from '../components/home/BottomMenuIcons'
 import Profile from '../menus/Profile'
 import Store from '../menus/Store'
+import Achievements from '../menus/Achievements'
 import Leaderboard from '../menus/Leaderboard'
 import ContactUs from '../menus/ContactUs'
 import Message from '../utils/Message'
@@ -17,6 +18,7 @@ import './Home.css'
 const Home = () => {
     const [profileMenuOpen, setProfileMenuOpen] = useState(false)
     const [storeMenuOpen, setStoreMenuOpen] = useState(false)
+    const [achievementsMenuOpen, setAchievementsMenuOpen] = useState(false)
     const [leaderboardMenuOpen, setLeaderboardMenuOpen] = useState(false)
     const [contactUsMenuOpen, setContactUsMenuOpen] = useState(false)
     const [showMessage, setShowMessage] = useState(false)
@@ -30,6 +32,10 @@ const Home = () => {
     const openStoreMenu = () => setStoreMenuOpen(true)
 
     const closeStoreMenu = () => setStoreMenuOpen(false)
+
+    const openAchievementsMenu = () => setAchievementsMenuOpen(true)
+
+    const closeAchievementsMenu = () => setAchievementsMenuOpen(false)
 
     const openLeaderboardMenu = () => setLeaderboardMenuOpen(true)
 
@@ -50,6 +56,7 @@ const Home = () => {
             <TopMenuIcons 
                 openProfileMenu={openProfileMenu}
                 openStoreMenu={openStoreMenu}
+                openAchievementsMenu={openAchievementsMenu}
                 openLeaderboardMenu={openLeaderboardMenu}
             />
             <div className='logo-container ohpw center'>
@@ -61,6 +68,7 @@ const Home = () => {
             />
             {profileMenuOpen && <Profile closeProfileMenu={closeProfileMenu} />}
             {storeMenuOpen && <Store closeStoreMenu={closeStoreMenu} />}
+            {achievementsMenuOpen && <Achievements closeAchievementsMenu={closeAchievementsMenu} />}
             {leaderboardMenuOpen && <Leaderboard closeLeaderboardMenu={closeLeaderboardMenu} />}
             {contactUsMenuOpen && <ContactUs closeContactUsMenu={closeContactUsMenu} />}
             {showMessage && <Message closeMessage={closeMessage} />}

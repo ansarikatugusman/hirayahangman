@@ -5,7 +5,7 @@ import Leaderboard from '../../assets/images/icons/leaderboard.png'
 
 import './TopMenuIcons.css'
 
-const MenuIcons = ({ openProfileMenu, openStoreMenu, openLeaderboardMenu }) => {
+const MenuIcons = ({ openProfileMenu, openStoreMenu, openAchievementsMenu, openLeaderboardMenu }) => {
     return (
         <div className='top_menu_icons-container ohpw center scale_after'>
             <div className='menu_icons-wrapper center'>
@@ -17,7 +17,7 @@ const MenuIcons = ({ openProfileMenu, openStoreMenu, openLeaderboardMenu }) => {
                     <img className='menu_icon' src={Store} />
                     <p>STORE</p>
                 </div>
-                <div className='menu_icon-wrapper center' >
+                <div className='menu_icon-wrapper center' onClick={openAchievementsMenu}>
                     <img className='menu_icon' src={Achievements} />
                     <p>ACHIEVEMENTS</p>
                 </div>

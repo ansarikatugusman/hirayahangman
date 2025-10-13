@@ -93,7 +93,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
                 <hr className='upgrade_divider' ></hr>
                 <div className='upgrade1_price-container upgrade_price-container center'>
                     {StoreUpgradesList.upgrade1[playerUpgrade1].price === 'Maxed' && 
-                        <div className='upgrade1_maxed ohpw center'>MAXED</div>
+                        <div className='upgrade1_maxed upgrade_maxed ohpw center'>MAXED</div>
                     }
                     {StoreUpgradesList.upgrade1[playerUpgrade1].price !== 'Maxed' && 
                         <div className='upgrade1_price-wrapper upgrade_price-wrapper center'>
@@ -136,7 +136,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
                 <hr className='upgrade_divider' ></hr>
                 <div className='upgrade2_price-container upgrade_price-container center'>
                     {StoreUpgradesList.upgrade2[playerUpgrade2].price === 'Maxed' && 
-                        <div className='upgrade2_maxed ohpw center'>MAXED</div>
+                        <div className='upgrade2_maxed upgrade_maxed ohpw center'>MAXED</div>
                     }
                     {StoreUpgradesList.upgrade2[playerUpgrade2].price !== 'Maxed' && 
                         <div className='upgrade2_price-wrapper upgrade_price-wrapper center'>

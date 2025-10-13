@@ -1,0 +1,47 @@
+.achievements_title-wrapper {
+    height: 50px;
+    font: 1.25rem 'Nunito-Bold', serif;
+}
+
+.achievements-wrapper {
+    height: 445px;
+    gap: 15px;
+    padding-bottom: 10px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.achievement {
+    width: 90%;
+    height: 80px;
+    background: #FBFBF9;
+    border: 2px solid #323232;
+    box-shadow: 4px 4px #323232;
+    border-radius: 5px;
+    flex-direction: column;
+    gap: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
+}
+
+.achievement_incomplete {
+    opacity: 0.5;
+}
+
+.achievement_icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background-image: url(../assets/images/frame18.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.achievement_icon {
+    width:  64px;
+}
+
+.achievement_description-wrapper {
+    width: 185px;
+    padding-right: 5px;
+}
