@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router'
 import SignIn from '../components/landingpage/SignIn'
-import logo from '/hirayahangman-white_outline.svg'
+import logo from '../assets/images/hiyasngsalita_tagline-white-outline.png'
 
 import './LandingPage.css'
 

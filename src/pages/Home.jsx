@@ -10,7 +10,7 @@ import AuthContext from '../context/AuthContext'
 import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
 import ErrorMessage from '../utils/ErrorMessage'
-import logo from '/hirayahangman-white_outline.svg'
+import logo from '../assets/images/hiyasngsalita_tagline-white-outline.png'
 
 import './Home.css'
 

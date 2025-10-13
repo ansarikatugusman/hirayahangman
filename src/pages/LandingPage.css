@@ -3,17 +3,10 @@
 }
 
 .image_logo {
-    width: 100%;
+    width: 80%;
     height: 80%;
 }
 
 @media screen and (min-width: 550px) {
-    .sign_in-container {
-        justify-content: right;
-    }
-
-    .image_logo{
-        width: 500px;
-        height: 103%;
-    }
+    
 }
