@@ -9,7 +9,7 @@ const Message = ({ closeMessage }) => {
                 MAINTENANCE
             </div>
             <div>
-                The game is currently under maintenance until October 15, 2025.
+                Wala munang maglalaro. Salamat sa pag-intindi.
             </div>
         </SketchySmallWrapper>
     )
