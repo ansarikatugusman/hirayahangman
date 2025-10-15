@@ -1,0 +1,13 @@
+.play_select_buttons-container {
+    height: 90%;
+    flex-direction: column;
+    gap: 7.5%;
+}
+
+.adventure_button-container {
+    height: 60px;
+}
+
+.return_button-container {
+    height: 60px;
+}

@@ -1,45 +1,39 @@
-import { useState, useEffect } from 'react'
-import Hiraya from '../assets/images/hiraya.png'
 
-import './Testing.css'
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
-const Testing = ({ dialouge }) => {
-    const [visible, setVisible] = useState(true)
-    const [dialougePage, setDialougePage] = useState(0)
-    const [currentText, setCurrentText] = useState('');
-    const [currentIndex, setCurrentIndex] = useState(0);
+const Testing = () => {
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
 
-    const x = [
-        `Thank you for visiting Hiraya Hangman. We're currently in pilot testing, and we're excited to have you try things out.`,
-        `More feautures will be implemented in the following month. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`
-    ]
+  if (!browserSupportsSpeechRecognition) {
+    return <span>Browser doesn't support speech recognition.</span>;
+  }
 
-    useEffect(() => {
-        if (currentIndex < x[dialougePage].length) {
-            const timeout = setTimeout(() => {
-            setCurrentText(prevText => prevText + x[dialougePage][currentIndex]);
-            setCurrentIndex(prevIndex => prevIndex + 1);
-        }, 20);
+const handleOnRecord = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+    const recognition = new SpeechRecognition()
 
-            return () => clearTimeout(timeout);
-        }
-    }, [currentIndex, dialougePage]);
-
-    const onClickHandler = () => {
-        if (x.length - 1 === dialougePage) {
-            setVisible(false)
-        } else {
-            setDialougePage((prevPage) => prevPage + 1)
-            setCurrentText('')
-            setCurrentIndex(0)
-        }
+    recognition.onresult = async(e) => {
+        const transcript = e.results[0][0].transcript
+        console.log(transcript)
+        set
     }
 
-    return (
-        <div className='dialogue-container modal center' style={{ display: visible ? 'flex' : 'none' }} onClick={onClickHandler} >
-            
-        </div>
-    )
+    recognition.start()
 }
 
-export default Testing
+  return (
+    <div>
+      <p>Microphone: {listening ? 'on' : 'off'}</p>
+      <button onClick={SpeechRecognition.startListening}>Start</button>
+      <button onClick={SpeechRecognition.stopListening}>Stop</button>
+      <button onClick={resetTranscript}>Reset</button>
+      <p>{transcript}</p>
+    </div>
+  );
+};
+export default Testing;

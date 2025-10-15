@@ -1,13 +1,7 @@
-.play_buttons-container {
-    height: 90%;
-    flex-direction: column;
-    gap: 7.5%;
-}
-
-.adventure_button-container {
-    height: 60px;
-}
-
-.return_button-container {
-    height: 60px;
+.bugtong_return_button {
+    height: 50px;
+    position: fixed;
+    bottom: 0vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
 }

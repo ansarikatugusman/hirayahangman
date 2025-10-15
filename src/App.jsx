@@ -8,8 +8,8 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Profile from './menus/Profile'
 import Home from './pages/Home'
+import PlaySelect from './pages/PlaySelect'
 import Play from './pages/Play'
-import Bugtong from './pages/Bugtong'
 import Testing from './pages/Testing'
 import SketchyLongWrapper from './components/wrappers/SketchyLongWrapper'
 
@@ -18,19 +18,6 @@ import './App.css'
 const App = () => {
     const { id, token, login, logout } = useAuth()
     const [playerGold, setPlayerGold] = useState()
-
-    const bugtongBooks = { 
-        bugtongBook1: false, 
-        bugtongBook2: false, 
-        bugtongBook3: false, 
-        bugtongBook4: false, 
-        bugtongBook5: false, 
-        bugtongBook6: false, 
-        bugtongBook7: false, 
-        bugtongBook8: false, 
-        bugtongBook9: false, 
-        bugtongBook10: false
-    }
 
     const items = {
         item1: 3,
@@ -50,7 +37,6 @@ const App = () => {
         if (!localStorage.getItem('token1')) {
             localStorage.removeItem('token0')
             localStorage.setItem('token1', true)
-            localStorage.setItem('bugtongBooks', JSON.stringify(bugtongBooks))
             localStorage.setItem('items', JSON.stringify(items))
             localStorage.setItem('gold', gold)
         }
@@ -62,9 +48,8 @@ const App = () => {
         routes = (
             <Routes>
                 <Route index element={<Home />} />
-                <Route path='/bugtong' element={<Bugtong />}/>
-                <Route path='/testing' element={<SketchyLongWrapper />}/>
-                <Route path='/game' element={<Bugtong setPlayerGold={setPlayerGold} />}/>
+                <Route path='/testing' element={<Testing />}/>
+                <Route path='/testplay' element={<Play setPlayerGold={setPlayerGold} />}/>
                 <Route path='*' element={<Play />} />
             </Routes>
         )
@@ -74,7 +59,7 @@ const App = () => {
                 <Route path='/' element={<LandingPage />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/testing' element={<Testing/ >}/>
+                <Route path='/testing' element={<Testing />}/>
                 <Route path='*' element={<LandingPage />} />
             </Routes>
         )

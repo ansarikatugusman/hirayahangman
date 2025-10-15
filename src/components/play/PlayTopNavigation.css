@@ -1,0 +1,31 @@
+.play_top_navigation-container {
+    height: 100px;
+    position: fixed;
+    top: 10vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.play_top_navigation-wrapper {
+    width: 300px;
+    flex-direction: column;
+}
+
+.arrow_left-wrapper {
+    width: 100px;
+}
+
+.home-wrapper {
+    width: 100px;
+}
+
+.arrow_right-wrapper {
+    width: 100px;
+    visibility: hidden;
+}
+
+.arrow_inactive {
+    width: 100px;
+    cursor: default;
+}

@@ -8,12 +8,12 @@ import './BottomMenuIcons.css'
 const BottomMenuIcons = ({ openContactUsMenu, openMessage }) => {
     const navigate = useNavigate()
 
-    const onClickPlayHandler = () => navigate('/game')
+    const onClickPlayHandler = () => navigate('/play')
 
     return (
         <div className='bottom_menu_icons-container ohpw center scale_after'>
             <div className='bottom_menu_play_button-wrapper center'>
-                <SketchedButton text='PLAY' width='225px' fontsize='200%' onClickHandler={openMessage} />
+                <SketchedButton text='PLAY' width='225px' fontsize='200%' onClickHandler={onClickPlayHandler} />
             </div>
             
             <div className='bottom_menu_icons-wrapper center'>
