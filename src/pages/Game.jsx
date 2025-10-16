@@ -165,26 +165,45 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         let easySawikain = SawikainWordBank.easy
         let mediumSawikain = SawikainWordBank.medium
         let hardSawikain = SawikainWordBank.hard
+        let allSawikain = [...easySawikain, ...mediumSawikain, ...hardSawikain]
         const availableEasySawikain = easySawikain.filter(sawikain => !sawikainBooksSolved.includes(sawikain.item_code))
         const availableMediumSawikain = mediumSawikain.filter(sawikain => !sawikainBooksSolved.includes(sawikain.item_code))
         const availableHardSawikain = hardSawikain.filter(sawikain => !sawikainBooksSolved.includes(sawikain.item_code))
         if (crowns < 149) {
-            if (availableEasySawikain.length === 0) {
-                sawikain = SawikainWordBank.easy[Math.floor(Math.random() * SawikainWordBank.easy.length)]
-            } else {
+            if (availableEasySawikain.length >= 1) {
                 sawikain = availableEasySawikain[Math.floor(Math.random() * availableEasySawikain.length)]
-            }
-        } else if (crowns < 349) {
-            if (availableMediumSawikain.length === 0) {
+            } else if (availableEasySawikain.length <= 0) {
+                sawikain = SawikainWordBank.easy[Math.floor(Math.random() * SawikainWordBank.easy.length)]
+            } else if (availableMediumSawikain.length <= 0) {
                 sawikain = SawikainWordBank.medium[Math.floor(Math.random() * SawikainWordBank.medium.length)]
-            } else {
-                sawikain = availableMediumSawikain[Math.floor(Math.random() * availableMediumSawikain.length)]
-            }
-        } else {
-            if (availableHardSawikain.length === 0) {
+            } else if (availableHardSawikain.length <= 0) {
                 sawikain = SawikainWordBank.hard[Math.floor(Math.random() * SawikainWordBank.hard.length)]
             } else {
+                sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
+            }
+        } else if (crowns < 349) {
+            if (availableMediumSawikain.length >= 1) {
+                sawikain = availableMediumSawikain[Math.floor(Math.random() * availableMediumSawikain.length)]
+            } else if (availableMediumSawikain.length <= 0) {
+                sawikain = SawikainWordBank.medium[Math.floor(Math.random() * SawikainWordBank.medium.length)]
+            } else if (availableEasySawikain.length <= 0) {
+                sawikain = SawikainWordBank.easy[Math.floor(Math.random() * SawikainWordBank.easy.length)]
+            } else if (availableHardSawikain.length <= 0) {
+                sawikain = SawikainWordBank.hard[Math.floor(Math.random() * SawikainWordBank.hard.length)]
+            } else {
+                sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
+            }
+        } else {
+            if (availableHardSawikain.length >= 1) {
                 sawikain = availableHardSawikain[Math.floor(Math.random() * availableHardSawikain.length)]
+            } else if (availableHardSawikain.length <= 0) {
+                sawikain = SawikainWordBank.hard[Math.floor(Math.random() * SawikainWordBank.hard.length)]
+            } else if (availableMediumSawikain.length <= 0) {
+                sawikain = SawikainWordBank.medium[Math.floor(Math.random() * SawikainWordBank.medium.length)]
+            } else if (availableEasySawikain.length <= 0) {
+                sawikain = SawikainWordBank.easy[Math.floor(Math.random() * SawikainWordBank.easy.length)]
+            } else {
+                sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
             }
         }
             
@@ -289,7 +308,8 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         else if (crowns < 349) crownsPenalty = -15
         else if (crowns < 449) crownsPenalty = -21
         else if (crowns < 549) crownsPenalty = -26
-        else crownsPenalty = -30
+        else if (crowns < 649) crownsPenalty = -30
+        else crownsPenalty = -35
 
         return crownsPenalty
     }
@@ -323,11 +343,13 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
     const crownsReward = () => {
         let baseReward
         let timeUsed = (55 + (upgrade2 * 5)) - remainingTimeLeft
-        if (crowns < 149) baseReward = 30
-        else if (crowns < 249) baseReward = 26
-        else if (crowns < 349) baseReward = 21
-        else if (crowns < 449) baseReward = 15
-        else if (crowns < 549) baseReward = 12
+        if (crowns < 149) baseReward = 35
+        else if (crowns < 249) baseReward = 29
+        else if (crowns < 349) baseReward = 24
+        else if (crowns < 449) baseReward = 20
+        else if (crowns < 549) baseReward = 17
+        else if (crowns < 649) baseReward = 15
+        else if (crowns < 749) baseReward = 13
         else baseReward = 9
 
         return Math.round(baseReward - (timeUsed / 3) - itemsUsed)
