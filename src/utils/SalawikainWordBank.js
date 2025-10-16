@@ -95,7 +95,7 @@ const SalawikainWordBank = {
         {
             item_code: 'sl-2-004',
             question: 'Tayo ang gumagawa ng ating kinabukasan',
-            answer: 'BAWAT ISA SA ATIN AY ARKITEKTO NG ATING KAPALARAN.',
+            answer: 'BAWAT ISA SA ATIN AY ARKITEKTO NG ATING KAPALARAN',
         },
         {
             item_code: 'sl-2-005',
@@ -124,7 +124,7 @@ const SalawikainWordBank = {
         },
         {
             item_code: 'sw-2-010',
-            question: 'Ang tahimik ay madalas matalino.',
+            question: 'Ang tahimik ay madalas matalino',
             answer: 'ANG TAONG TAHIMIK, KAPAG NAG-IISIP AY MALALIM',
         },
         {

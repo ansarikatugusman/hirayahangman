@@ -19,7 +19,7 @@ import SalawikainWordBank from '../utils/SalawikainWordBank'
 
 import './Game.css'
 
-const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainPortalActive, sawikainBooksSolved, salawikainPortalActive, salawikainBooksSolved, levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved }) => {
+const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainPortalActive, sawikainBooksSolved, salawikainPortalActive, salawikainBooksSolved, levelStart, levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved}) => {
     const [item1, setItem1] = useState()
     const [item2, setItem2] = useState()
     const [item3, setItem3] = useState()
@@ -79,10 +79,6 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
     const onClickStart = () => [
         setStartGame(true)
     ]
-
-    const onClickExit = () => {
-        exitLevel()
-    }
 
     const stopTime = () => {
         setTimeIsPlaying(false)
@@ -378,29 +374,31 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
 
     useEffect(() => {
         const handleKeydown = event => {
-            const { key, keyCode } = event;
-            if (keyCode >= 65 && keyCode <= 90) {
+            const { key, keyCode } = event
+            if (keyCode >= 65 && keyCode <= 90 && !puzzleEnded && startGame) {
                 const letter = key.toUpperCase()
-                if (answer.includes(letter)) {
-                    setCorrectLetters(correctLetters => [...correctLetters, letter])
+                if (answer.includes(letter) && !puzzleEnded) {
                     levelIsSolved()
+                    setCorrectLetters(correctLetters => [...correctLetters, letter])    
                 } else {
                     setWrongLetters(wrongLetters => [...wrongLetters, letter])
                     levelIsNotSolved()
-                    subtractLife()
+                    if (lives >= 1) subtractLife()
                 }
             }
         }
-        window.addEventListener('keydown', handleKeydown);
+        window.addEventListener('keydown', handleKeydown)
+        console.log(correctLetters)
+        console.log(wrongLetters)
 
-        return () => window.removeEventListener('keydown', handleKeydown);
-    }, [answer, correctLetters, wrongLetters]);
+        return () => window.removeEventListener('keydown', handleKeydown)
+    }, [answer, correctLetters, wrongLetters, startGame, puzzleEnded]);
 
     return (
         <div className='game center'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            {!startGame && <StartGame onClickStart={onClickStart} onClickExit={onClickExit} />}
+            {!startGame && <StartGame onClickStart={onClickStart} exitLevel={exitLevel} />}
 
             {startGame && <UtilityDisplay timeIsPlaying={timeIsPlaying} timeDuration={timeDuration} lives={lives} exitLevel={exitLevel} setRemainingTimeLeft={setRemainingTimeLeft} levelIsNotSolved={levelIsNotSolved} closeDisplayBook={closeDisplayBook} handlePuzzleEnded={handlePuzzleEnded} onClickExitGame={onClickExitGame}/>}
 

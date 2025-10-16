@@ -48,6 +48,21 @@ const ShopAvatarsList = [
         name: 'Pharaoh',
         icon: '0015_pharaoh',
         price: 500
+    },
+    {
+        name: 'Processor',
+        icon: '0016_processor',
+        price: 500
+    },
+    {
+        name: 'Candy Canes',
+        icon: '0017_candy_canes',
+        price: 500
+    },
+    {
+        name: 'Sherlock Holmes',
+        icon: '0018_sherlock_holmes',
+        price: 500
     }
 ]
 

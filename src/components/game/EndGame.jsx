@@ -14,8 +14,6 @@ const EndGame = ({ answer, gameCompleted, onFailGame, crownsPenalty, goldReward,
 
     const collectChest = () => {
         setEmpty(true)
-        let player_gold = localStorage.getItem('gold')
-        localStorage.setItem('gold', +player_gold + 100)
     }
 
     useEffect(() => {
@@ -81,7 +79,7 @@ const EndGame = ({ answer, gameCompleted, onFailGame, crownsPenalty, goldReward,
                     <div className='end_game_results-wrapper ohpw center' >
                          <div className='end_game_results_crown_penalty-wrapper ohpw center' style={{ display: chestEmpty ? 'flex' : 'none' }}>
                             <img className='end_game_crown_icon' src={Crown}/>
-                            <p>+{crownsReward()}</p>
+                            <p>{crownsReward() > 0 ? `+${crownsReward()}`: crownsReward()}</p>
                         </div>
                         <div className='end_game_results_chest_open-wrapper center' style={{ display: chestEmpty ? 'none' : 'flex' }}>
                             <p>Click the chest to claim reward.</p>

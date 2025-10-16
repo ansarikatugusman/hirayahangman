@@ -96,7 +96,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
                     <hr className='personal_record_divider' ></hr>
                     <div className='personal_record_detail-wrapper center'>
                         <div className='personal_record_detail'>
-                            {averageTime[0] > 0 ? `${averageTime[0]} seconds` : 'No record' }
+                            {averageTime[0] > 0 ? `${averageTime[0].toFixed(2)} seconds` : 'No record' }
                         </div>
                     </div>
                 </div>

@@ -20,6 +20,8 @@
 
 .personal_record {
     width: 90px;
+    height: 125px;
+    gap: 0px;
 }
 
 .personal_record_icon-wrapper {
@@ -54,8 +56,7 @@
 }
 
 .personal_record_detail-wrapper {
-    height: 100%;
-    margin-top: 5px;
+    height: 37px;
 }
 
 .personal_record_detail {
