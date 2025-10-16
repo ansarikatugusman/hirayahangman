@@ -7,8 +7,8 @@ import './Notice.css'
 const Notice = ({ setNoticeRead }) => {
     const [visible, setVisible] = useState(false)
     const message = [
-        `Thank you for visiting Hiraya Hangman. We're currently in pilot testing, and we're excited to have you try things out.`,
-        `More features will be implemented in the following month. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`
+        `Thank you for visiting Hiyas ng Salita. We're currently testing our web app, and we're excited to have you try things out.`,
+        `More contents will be implemented in the following weeks. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`
     ]
 
     useEffect(()=>{

@@ -5,7 +5,7 @@ import Life from '../../assets/images/life.png'
 
 import './UtilityDisplay.css'
 
-const UtilityDisplay = ({ timeIsPlaying, lives, exitLevel, levelIsNotSolved, closeDisplayBook, handlePuzzleEnded }) => {
+const UtilityDisplay = ({ timeIsPlaying, timeDuration, lives, setRemainingTimeLeft, exitLevel, levelIsNotSolved, closeDisplayBook, handlePuzzleEnded, onClickExitGame }) => {
     const livesRef = useRef()
     const [pastLives, setPastLives] = useState(lives)
 
@@ -35,9 +35,9 @@ const UtilityDisplay = ({ timeIsPlaying, lives, exitLevel, levelIsNotSolved, clo
 
     return (
         <div className='utility_display-container center'>
-            <div className='exit_button-wrapper center' onClick={exitLevel}>
-                <div className='exit_button center' onClick={exitLevel}>
-                    <SketchedButton text='EXIT' width='100px' onClickHandler={exitLevel} />
+            <div className='exit_button-wrapper center' onClick={onClickExitGame}>
+                <div className='exit_button center' onClick={onClickExitGame}>
+                    <SketchedButton text='EXIT' width='100px' onClickHandler={onClickExitGame} />
                 </div>
             </div>
             <div className='countdown_timer-wrapper center'>
@@ -45,15 +45,17 @@ const UtilityDisplay = ({ timeIsPlaying, lives, exitLevel, levelIsNotSolved, clo
                     size={65}
                     strokeWidth={7.5}
                     isPlaying={timeIsPlaying}
-                    duration={60.2}
+                    duration={timeDuration}
                     isSmoothColorTransition={true}
                     colors={['#004777', '#008000', '#ffff00', '#ffa500', '#ff0000']}
                     colorsTime={[15, 10, 5, 2.5, 0]}
+                    onUpdate={(remainingTime) => setRemainingTimeLeft(remainingTime)}
                     onComplete={() => {
                         closeDisplayBook()
                         levelIsNotSolved()
                         handlePuzzleEnded()
                     }}
+                    
                 >
                     {renderTime}
                 </CountdownCircleTimer>

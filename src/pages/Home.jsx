@@ -7,6 +7,7 @@ import Achievements from '../menus/Achievements'
 import Leaderboard from '../menus/Leaderboard'
 import ContactUs from '../menus/ContactUs'
 import Message from '../utils/Message'
+import Notice from '../utils/Notice'
 import AuthContext from '../context/AuthContext'
 import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
@@ -53,6 +54,7 @@ const Home = () => {
         <div className='home-container ohp'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
+            <Notice />
             <TopMenuIcons 
                 openProfileMenu={openProfileMenu}
                 openStoreMenu={openStoreMenu}

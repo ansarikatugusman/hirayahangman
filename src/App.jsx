@@ -6,39 +6,19 @@ import useAuth from './hooks/useAuth'
 import LandingPage from './pages/LandingPage'
 import Register from './pages/Register'
 import Login from './pages/Login'
-import Profile from './menus/Profile'
 import Home from './pages/Home'
-import PlaySelect from './pages/PlaySelect'
 import Play from './pages/Play'
 import Testing from './pages/Testing'
-import SketchyLongWrapper from './components/wrappers/SketchyLongWrapper'
 
 import './App.css'
 
 const App = () => {
     const { id, token, login, logout } = useAuth()
-    const [playerGold, setPlayerGold] = useState()
-
-    const items = {
-        item1: 3,
-        item2: 4,
-        item3: 5,
-        item4: 0,
-        item5: 0
-    }
-
-    const gold = 1000
-
-    useEffect(() => {
-        setPlayerGold(localStorage.getItem('gold'))
-    }, [playerGold])
 
     useEffect(() => {
         if (!localStorage.getItem('token1')) {
             localStorage.removeItem('token0')
             localStorage.setItem('token1', true)
-            localStorage.setItem('items', JSON.stringify(items))
-            localStorage.setItem('gold', gold)
         }
     }, [])
 
@@ -49,8 +29,8 @@ const App = () => {
             <Routes>
                 <Route index element={<Home />} />
                 <Route path='/testing' element={<Testing />}/>
-                <Route path='/testplay' element={<Play setPlayerGold={setPlayerGold} />}/>
-                <Route path='*' element={<Play />} />
+                <Route path='/play' element={<Play />}/>
+                <Route path='*' element={<Home />} />
             </Routes>
         )
     } else {

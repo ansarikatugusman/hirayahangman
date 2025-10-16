@@ -42,7 +42,7 @@ const AchievementsList = {
     listo: {
         name: 'Listo',
         icon: 'listo.png',
-        description: 'Have an average time of 10 seconds.'
+        description: 'Have an average time of 10 seconds or less.'
     },
     maalam: {
         name: 'Maalam',

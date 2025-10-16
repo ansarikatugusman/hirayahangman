@@ -6,18 +6,16 @@ import Book from '../Book'
 
 import './BookDisplay.css'
 
-const BookDisplay = ({ pictures, cover, back, displayBook, openDisplayBook, closeDisplayBook }) => {
-
-
+const BookDisplay = ({ pictures, cover, back, displayBook, openDisplayBook, closeDisplayBook, salawikainPortalActive }) => {
 
 	return (
-		<div className='book_display-container center' >
+		<div className='book_display-container center' style={{visibility: salawikainPortalActive ? 'hidden' : 'visible'}} >
 			<div className='book_display-wrapper center' onClick={openDisplayBook}>
 				<SketchedButton text='HINT BOOK' width='150px' onClickHandler={openDisplayBook} />
 			</div>
-			<div className='modal' style={{ display: displayBook ? 'block' : 'none' }}>
+			<div className='modal' style={{ visibility: displayBook ? 'visible' : 'hidden' }}>
 			</div>
-			<div className='close' style={{ display: displayBook ? 'block' : 'none' }} >
+			<div className='close' style={{ visibility: displayBook ? 'visible' : 'hidden' }} >
 				<SketchedButton text='CLOSE' width='120px' onClickHandler={closeDisplayBook} />
 			</div>
       		{displayBook && <Canvas style={{ width: '100vw',  height: '100vh', position: 'absolute', zIndex:'12',  }} shadows camera={{

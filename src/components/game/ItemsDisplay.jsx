@@ -10,7 +10,7 @@ import CrossMark from '../../assets/images/items/cross_mark-game.svg'
 
 import './ItemsDisplay.css'
 
-const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, setItem3, setItem4, setItem5, addLife, stopTime, timeIsPlaying, hint, generateGame, remove, openWrongLetters }) => {
+const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, setItem3, setItem4, setItem5, addLife, stopTime, timeIsPlaying, hint, generateGame, remove, openWrongLetters, onItemUse }) => {
     const [showError, setShowError] = useState(false)
     const {loading, error, fetchRequest} = useHttpRequest()
 
@@ -31,6 +31,7 @@ const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, s
             }
             addLife()
             setItem1(prevItemQuantity => prevItemQuantity - 1 )
+            onItemUse()
         }
     }
 
@@ -49,6 +50,7 @@ const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, s
             }
             stopTime()
             setItem2(prevItemQuantity => prevItemQuantity - 1 )
+            onItemUse()
         }
     }
 
@@ -67,6 +69,7 @@ const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, s
             }
             hint()
             setItem3(prevItemQuantity => prevItemQuantity - 1 )
+            onItemUse()
         }
     }
 
@@ -85,6 +88,7 @@ const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, s
             }
             generateGame()
             setItem4(prevItemQuantity => prevItemQuantity - 1 )
+            onItemUse()
         }
     }
 
@@ -103,6 +107,7 @@ const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, s
             }
             remove()
             setItem5(prevItemQuantity => prevItemQuantity - 1 )
+            onItemUse()
         }
     }
 

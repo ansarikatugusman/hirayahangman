@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import ExitPortal from "./portal/ExitPortal";
 
-const Portal = ({ name, texture, active, handleActivePortal, handleCurrentItem, levelStart, levelStarted, BooksDisplay, books }) => {
+const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved }) => {
   	
   	const [hovered, setHovered] = useState(null);
   	useCursor(hovered);
@@ -57,7 +57,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentItem, 
         		minPolarAngle={Math.PI / 2}
       		/>
 			{active && !levelStart && <ExitPortal name={name} handleActivePortal={handleActivePortal} />}
-			{active && !levelStart && <BooksDisplay handleCurrentItem={handleCurrentItem} levelStarted={levelStarted} books={books} />}
+			{active && !levelStart && <BooksDisplay handleCurrentBook={handleCurrentBook} levelStarted={levelStarted} books={books} booksSolved={booksSolved} />}
       			<Text
         			font="fonts/CabinSketch-Regular.ttf"
         			fontSize={0.3}

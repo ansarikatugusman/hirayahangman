@@ -1,11 +1,15 @@
 import { useMemo } from 'react'
 import { Html } from '@react-three/drei'
-import BugtongBookOpen from '../../assets/images/bugtong_book_open.png'
-import BugtongBookClosed from '../../assets/images/bugtong_book_closed.png'
+import BugtongWordBank from '../../utils/BugtongWordBank'
+import Book1Open from '../../assets/images/book1_open.png'
+import Book1Closed from '../../assets/images/book1_closed.png'
+import Book2Open from '../../assets/images/book2_open.png'
+import Book2Closed from '../../assets/images/book2_closed.png'
 
 import './BugtongBooks.css'
 
-const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, levelStarted, books, currentItem  }) => {
+const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, levelStarted, books, currentBook, booksSolved }) => {
+    const totalBugtongBooks = BugtongWordBank.easy.length + BugtongWordBank.medium.length + BugtongWordBank.hard.length
 
     const bugtongBooks = useMemo(() => {
         let bugtong_books = []
@@ -16,58 +20,44 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, level
             const x = Math.sin(angle) * radius
             const y = 0.5
             const z = Math.cos(angle) * radius
-            
-            //console.log(books[`bugtongBook${i+1}`])
 
             if (i === numberOfBooks - 1) {
                 bugtong_books.push(
                     <Html
-                        className='bugtong_book-container center'
+                        className='center'
                         key={i}
                         position-x={x}
                         position-y={y}
                         position-z={z}
                     >
-                        <div className='bugtong_book-wrapper center'>
-                            <div 
-                                className='bugtong_book_completed-wrapper center'
-                                style={{ visibility: books[`bugtongBook${i+1}`] === true ? 'visible' : 'hidden' }}
-                            >
-                                <div className='bugtong_book_completed'>
-                                    <span>COMPLETED</span>
-                                </div> 
-                            </div>
+                        <div className='bugtong_book-container center' 
+                            style={{ pointerEvents: booksSolved.length === totalBugtongBooks ? 'none' : '' }}
+                        >
                             <div
                                 className='bugtong_book_image-wrapper center'
                                 onClick={(e) => {
                                     levelStarted()
-                                    handleCurrentItem(e);
+                                    handleCurrentBook(e);
                                 }}
-                                style={{ pointerEvents: books[`bugtongBook${i+1}`] === true ? 'none' : '' }}>
+                                style={{ pointerEvents: booksSolved.length >= 10 ? '' : 'none' }}>
                                 <img
-                                id={Object.keys(books)[i]}
+                                id='last_book'
                                     className='bugtong_book_image'
-                                    src={books[`bugtongBook${i+1}`] === true ? BugtongBookClosed : BugtongBookOpen}
+                                    src={booksSolved.length >= 10 ? Book2Open : Book2Closed}
                                 />
+                            </div>
+                            <div 
+                                className='bugtong_book_completed-wrapper center'
+                                style={{ visibility: booksSolved.length >= 10 ? 'visible' : 'hidden' }}
+                            >
+                                <div className='bugtong_book_completed'>
+                                    <span>{booksSolved.length} / {totalBugtongBooks}</span>
+                                </div> 
                             </div>
                         </div>
                     </Html>
-                    /*
-                    <Html
-                        className='bugtong_book-wrapper center'
-                        key={i}
-                        position-x={x}
-                        position-y={y}
-                        position-z={z}
-                    >
-                        <p>Book of Bugtong</p>
-                        <img className='bugtong_book_image' src={BugtongBookClosed} />
-                        <p></p>
-                    </Html>
-                    */
                 )
             } else {
-                //console.log(Object.keys(books)[i])
                 bugtong_books.push(
                     <Html
                         className='center'
@@ -89,13 +79,13 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, level
                                 className='bugtong_book_image-wrapper center'
                                 onClick={(e) => {
                                     levelStarted()
-                                    handleCurrentItem(e);
+                                    handleCurrentBook(e);
                                 }}
                                 style={{ pointerEvents: books[`bugtongBook${i+1}`] === true ? 'none' : '' }}>
                                 <img
                                 id={Object.keys(books)[i]}
                                     className='bugtong_book_image'
-                                    src={books[`bugtongBook${i+1}`] === true ? BugtongBookClosed : BugtongBookOpen}
+                                    src={books[`bugtongBook${i+1}`] === true ? Book1Closed : Book1Open}
                                 />
                             </div>
                         </div>
@@ -105,7 +95,7 @@ const BugtongBooks = ({ numberOfBooks = 10, radius = 3, handleCurrentItem, level
         }
 
         return bugtong_books
-    }, [books, handleCurrentItem, levelStarted, currentItem])
+    }, [books, handleCurrentBook, levelStarted, currentBook])
     
     return (
         <>

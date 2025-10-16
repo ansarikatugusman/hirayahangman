@@ -1,6 +1,7 @@
 .end_game {
     width: 300px;
     height: 500px;
+    padding: 5px 0;
     border: 3px solid #333333;
     border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
     background: #f0f0f0;
@@ -33,7 +34,7 @@
 }
 
 .end_game_remarks-wrapper {
-    height: 70px;
+    height: 85px;
     font-size: 1.1rem;
 }
 
@@ -46,6 +47,23 @@
 .end_game_gold_icon {
     width: 60px;
     height: 60px;
+}
+
+.end_game_results_crown_penalty-wrapper {
+    gap: 5px;
+    font: 1.35rem 'Nunito-Bold', serif;
+    animation: scale 0.2s ease-in-out;
+}
+
+.end_game_results_crown_penalty-wrapper {
+    gap: 5px;
+    font: 1.35rem 'Nunito-Bold', serif;
+    animation: scale 0.2s ease-in-out;
+}
+
+.end_game_crown_icon {
+    width: 64px;
+    height: 64px;
 }
 
 .chest_wrapper {
@@ -72,12 +90,16 @@
     pointer-events: none;
 }
 
-.end_game_stats-wrapper {
-    height: 170px;
+.end_game_results-wrapper {
+    height: 155px;
 }
 
-.end_game_stats_chest_open-wrapper {
+.end_game_results_chest_open-wrapper {
     text-decoration: underline;
+}
+
+.end_game_remarks_chest_open-wrapper span {
+    font: 1.1rem 'Nunito-Bold', serif;
 }
 
 .end_game_exit_button-wrapper {

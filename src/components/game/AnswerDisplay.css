@@ -1,42 +1,77 @@
 .answer_display-container {
-    position: relative;
     width: 100%;
     height: 20%;
-    overflow: hidden ;
-    font: 3rem -apple-system, BlinkMacSystemFont, 'CabinSketch-Regular', serif;
+    position: relative;
+    background: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    overflow: hidden;
+    font: 1rem -apple-system, BlinkMacSystemFont, 'CabinSketch-Regular', serif;
+}
+
+.answer_display-container::before{
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 17.5px;
+    background: radial-gradient(#575450 4px, transparent 1px) repeat-y;
+    background-size: 15px 15px;
+    border-right: 2px solid #D44147;
+    box-sizing: border-box;
 }
 
 .answer_display-wrapper {
     position: absolute;
+    align-content:space-evenly;
+    padding-left: 5px;
+    padding-right: 7.5px;
+    top: 0px; right: 0; bottom: 0px; left: 17.5px;
+    background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
+    background-size: 30px 30px;
 }
 
-#parchment {
-    position: absolute;
-    min-width: 325px;
-    width: 50%;
-    height: 60%;
-	box-shadow: 2px 3px 20px black, 0 0 125px #8f5922 inset;
-	background: #fffef0;
-    filter: url(#wavy2);
+.answer_display-wrapper textarea {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
-#contain {
-    position: relative;
- 	display: flex;
-    flex-direction: column;
-	width: 50%;
-    height: auto;
-    margin: 0 auto;
+.word-container {
+    height: 3rem;
 }
 
-.answer_display {
+.word_space {
+    width: 1rem;
+    height: 2.5rem;
+}
+
+.letter_display {
     color: black;
-    border-bottom: 5px solid black;
     display: inline-flex;
     place-content: center;
-    margin: 0 7.5px;
-    height: 3.25rem;
-    width: 1.5rem;
-    text-align: justify;
+    align-items: start;
+    margin: 0 2.5px;
+    height: 1.775rem;
+    width: 0.5rem;
     z-index: 2;
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width: 800px ) {
+    .answer_display-container {
+        width: 100%;
+        height: 20%;
+        position: relative;
+        background: #fafafa;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.3);
+        overflow: hidden;
+        font: 2rem -apple-system, BlinkMacSystemFont, 'CabinSketch-Regular', serif;
+    }
+
+    .letter_display {
+        width: 1rem;
+    }
 }

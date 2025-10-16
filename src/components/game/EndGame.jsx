@@ -1,13 +1,14 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import SketchedButton from '../buttons/SketchedButton'
 import Gold from '../../assets/images/gold.png'
+import Crown from '../../assets/images/crown.png'
 import ChestClosed from '../../assets/images/chest_closed.png'
 import ChestOpen from '../../assets/images/chest_open.png'
 import ChestEmpty from '../../assets/images/chest_empty.png'
 
 import './EndGame.css'
 
-const EndGame = ({ answer, levelSolved, exitLevel, handlePuzzleEnded, levelEnded}) => {
+const EndGame = ({ answer, gameCompleted, onFailGame, crownsPenalty, goldReward, crownsReward, levelSolved, exitLevel, handlePuzzleEnded, levelEnded}) => {
     const [chestEmpty, setEmpty] = useState(false)
     const modal = useRef()
 
@@ -16,6 +17,14 @@ const EndGame = ({ answer, levelSolved, exitLevel, handlePuzzleEnded, levelEnded
         let player_gold = localStorage.getItem('gold')
         localStorage.setItem('gold', +player_gold + 100)
     }
+
+    useEffect(() => {
+        if (levelSolved) {
+            gameCompleted()
+        } else {
+            onFailGame()
+        }
+    }, [])
 
     const onExitHandler = () => {
         if (levelSolved) {
@@ -40,8 +49,11 @@ const EndGame = ({ answer, levelSolved, exitLevel, handlePuzzleEnded, levelEnded
                     <div className='chest_wrapper ohpw center'>
                         <img className='chest_empty' src={ChestClosed} onClick={collectChest} />
                     </div>
-                    <div className='end_game_stats-wrapper ohpw center' >
-
+                    <div className='end_game_results-wrapper ohpw center' >
+                        <div className='end_game_results_crown_penalty-wrapper ohpw center'>
+                            <img className='end_game_crown_icon' src={Crown}/>
+                            <p>{crownsPenalty()}</p>
+                        </div>
                     </div>
                     <div className='end_game_exit_button-wrapper ohpw center'>
                         <div className='end_game_exit_button wrapper center' onClick={onExitHandler}>
@@ -56,18 +68,22 @@ const EndGame = ({ answer, levelSolved, exitLevel, handlePuzzleEnded, levelEnded
                     </div>
                     <div className='end_game_remarks-wrapper ohpw center'>
                         <div className='end_game_remarks_chest_open-wrapper ohpw center' style={{ display: chestEmpty ? 'none' : 'flex' }}>
-                            <p>The answer is {answer}.</p>
+                            <p>The answer is <span>{answer}</span>.</p>
                         </div>
                         <div className='end_game_remarks_chest_empty-wrapper ohpw center' style={{ display: chestEmpty ? 'flex' : 'none' }}>
                             <img className='end_game_gold_icon' src={Gold}/>
-                            <p>100</p>
+                            <p>+{goldReward()}</p>
                         </div>
                     </div>
                     <div className='chest_wrapper ohpw center'>
                         <img className={`${chestEmpty ? 'chest_empty' : 'chest'}`} src={!chestEmpty ? ChestOpen : ChestEmpty} onClick={collectChest} />
                     </div>
-                    <div className='end_game_stats-wrapper ohpw center' >
-                        <div className='end_game_stats_chest_open-wrapper center' style={{ display: chestEmpty ? 'none' : 'flex' }}>
+                    <div className='end_game_results-wrapper ohpw center' >
+                         <div className='end_game_results_crown_penalty-wrapper ohpw center' style={{ display: chestEmpty ? 'flex' : 'none' }}>
+                            <img className='end_game_crown_icon' src={Crown}/>
+                            <p>+{crownsReward()}</p>
+                        </div>
+                        <div className='end_game_results_chest_open-wrapper center' style={{ display: chestEmpty ? 'none' : 'flex' }}>
                             <p>Click the chest to claim reward.</p>
                         </div>
 

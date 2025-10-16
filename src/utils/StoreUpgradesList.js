@@ -7,11 +7,11 @@ const StoreUpgradesList = {
         },
         2: {
             upgrade: 4,
-            price: 400
+            price: 500
         },
         3: {
             upgrade: 5,
-            price: 600
+            price: 800
         },
         4: {
             upgrade: 6,
@@ -21,15 +21,15 @@ const StoreUpgradesList = {
     upgrade2: {
         1: {
             upgrade: 60,
-            price: 175
+            price: 200
         },
         2: {
             upgrade: 65,
-            price: 350
+            price: 400
         },
         3: {
             upgrade: 70,
-            price: 525
+            price: 600
         },
         4: {
             upgrade: 75,

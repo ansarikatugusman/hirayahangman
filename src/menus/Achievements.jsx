@@ -86,7 +86,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
                         </div>
                     </div>
 
-                    <div className={`achievement6 achievement ${!playerAchievements.kolektor && 'achievement_incomplete'} center`}>
+                    <div className={`achievement6 achievement ${!playerAchievements.tagapagtipon && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
                             <img className='achievement_icon' src={Kolektor} />
                         </div>
@@ -118,7 +118,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
                             <img className='achievement_icon' src={Listo} />
                         </div>
                         <div className='achievement_description-wrapper center'>
-                            Have an average time of 10 seconds.
+                            Have an average time of 10 seconds or less.
                         </div>
                     </div>
 

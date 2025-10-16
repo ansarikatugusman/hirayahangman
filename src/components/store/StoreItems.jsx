@@ -28,9 +28,9 @@ const StoreItems = ({ setGold }) => {
                 Authorization: 'Bearer ' + auth.token 
             },
             JSON.stringify({
-                price: 75
+                price: 125
             }))
-            setGold(prevGold => prevGold - 75)
+            setGold(prevGold => prevGold - 125)
         } catch (err) {
             setShowError(true)
         }
@@ -45,9 +45,9 @@ const StoreItems = ({ setGold }) => {
                 Authorization: 'Bearer ' + auth.token 
             },
             JSON.stringify({
-                price: 125
+                price: 250
             }))
-            setGold(prevGold => prevGold - 125)
+            setGold(prevGold => prevGold - 250)
         } catch (err) {
             setShowError(true)
         }
@@ -62,9 +62,9 @@ const StoreItems = ({ setGold }) => {
                 Authorization: 'Bearer ' + auth.token 
             },
             JSON.stringify({
-                price: 100
+                price: 125
             }))
-            setGold(prevGold => prevGold - 100)
+            setGold(prevGold => prevGold - 125)
         } catch (err) {
             setShowError(true)
         }
@@ -79,9 +79,9 @@ const StoreItems = ({ setGold }) => {
                 Authorization: 'Bearer ' + auth.token 
             },
             JSON.stringify({
-                price: 50
+                price: 100
             }))
-            setGold(prevGold => prevGold - 50)
+            setGold(prevGold => prevGold - 100)
         } catch (err) {
             setShowError(true)
         }
@@ -96,9 +96,9 @@ const StoreItems = ({ setGold }) => {
                 Authorization: 'Bearer ' + auth.token 
             },
             JSON.stringify({
-                price: 50
+                price: 100
             }))
-            setGold(prevGold => prevGold - 50)
+            setGold(prevGold => prevGold - 100)
         } catch (err) {
             setShowError(true)
         }
