@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router'
 import { Loader } from '@react-three/drei'
 import AuthContext from './context/AuthContext'
@@ -66,7 +66,6 @@ const App = () => {
                 <div className='app'>
                     {routes}
                 </div>
-
                 <div className='app_parchment'>
                 </div>
                 <svg className='filter'>
