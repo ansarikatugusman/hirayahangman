@@ -9,7 +9,6 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Play from './pages/Play'
 import Testing from './pages/Testing'
-import { Analytics } from "@vercel/analytics/next"
 
 import './App.css'
 
@@ -66,7 +65,6 @@ const App = () => {
             <AuthContext.Provider value={{ id: id, token: token, login: login, logout: logout }}>
                 <div className='app'>
                     {routes}
-                    <Analytics />
                 </div>
                 <div className='app_parchment'>
                 </div>
