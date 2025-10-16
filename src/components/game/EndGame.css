@@ -98,6 +98,10 @@
     text-decoration: underline;
 }
 
+.end_game_remarks_chest_open-wrapper {
+    padding: 0px 2.5px;
+}
+
 .end_game_remarks_chest_open-wrapper span {
     font: 1.1rem 'Nunito-Bold', serif;
 }

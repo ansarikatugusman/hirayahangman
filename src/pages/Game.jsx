@@ -132,26 +132,40 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         let easyBugtong = BugtongWordBank.easy
         let mediumBugtong = BugtongWordBank.medium
         let hardBugtong = BugtongWordBank.hard
+        let allBugtong = [...easyBugtong, ...mediumBugtong, ...hardBugtong]
         const availableEasyBugtong = easyBugtong.filter(bugtong => !bugtongBooksSolved.includes(bugtong.item_code))
         const availableMediumBugtong = mediumBugtong.filter(bugtong => !bugtongBooksSolved.includes(bugtong.item_code))
         const availableHardBugtong = hardBugtong.filter(bugtong => !bugtongBooksSolved.includes(bugtong.item_code))
+        
         if (crowns < 149) {
-            if (availableEasyBugtong.length === 0) {
-                bugtong = BugtongWordBank.easy[Math.floor(Math.random() * BugtongWordBank.easy.length)]
-            } else {
+            if (availableEasyBugtong.length >= 1) {
                 bugtong = availableEasyBugtong[Math.floor(Math.random() * availableEasyBugtong.length)]
+            } else if (availableEasyBugtong.length <= 0 && availableMediumBugtong.length >= 1) {
+                bugtong = availableMediumBugtong[Math.floor(Math.random() * availableMediumBugtong.length)]
+            } else if (availableEasyBugtong.length <= 0 && availableMediumBugtong.length <= 0) {
+                bugtong = availableHardBugtong[Math.floor(Math.random() * availableHardBugtong.length)]
+            } else if (availableEasyBugtong.length <= 0 && availableMediumBugtong.length <= 0 && availableHardBugtong <= 0) {
+                bugtong = allBugtong[Math.floor(Math.random() * allBugtong.length)]   
             }
         } else if (crowns < 349) {
-            if (availableMediumBugtong.length === 0) {
-                bugtong = BugtongWordBank.medium[Math.floor(Math.random() * BugtongWordBank.medium.length)]
-            } else {
+            if (availableMediumBugtong.length >= 1) {
                 bugtong = availableMediumBugtong[Math.floor(Math.random() * availableMediumBugtong.length)]
+            } else if (availableMediumBugtong.length <= 0 && availableEasyBugtong.length >= 1) {
+                bugtong = availableEasyBugtong[Math.floor(Math.random() * availableEasyBugtong.length)]
+            } else if (availableMediumBugtong.length <= 0 && availableEasyBugtong.length <= 0) {
+                bugtong = availableHardBugtong[Math.floor(Math.random() * availableHardBugtong.length)]
+            } else if (availableMediumBugtong.length <= 0 && availableEasyBugtong.length <= 0 && availableHardBugtong.length <= 0) {
+                bugtong = allBugtong[Math.floor(Math.random() * allBugtong.length)]
             }
         } else {
-            if (availableHardBugtong.length === 0) {
-                bugtong = BugtongWordBank.hard[Math.floor(Math.random() * BugtongWordBank.hard.length)]
-            } else {
+            if (availableHardBugtong.length >= 1) {
                 bugtong = availableHardBugtong[Math.floor(Math.random() * availableHardBugtong.length)]
+            } else if (availableHardBugtong.length <= 0 && availableEasyBugtong.length >= 1) {
+                bugtong = availableEasyBugtong[Math.floor(Math.random() * availableEasyBugtong.length)]
+            } else if (availableHardBugtong.length <= 0 && availableEasyBugtong.length <= 0) {
+                bugtong = availableMediumBugtong[Math.floor(Math.random() * availableMediumBugtong.length)]
+            } else if (availableHardBugtong.length <= 0 && availableEasyBugtong.length <= 0 && availableMediumBugtong.length <= 0) {
+                bugtong = allBugtong[Math.floor(Math.random() * allBugtong.length)]
             }
         }
             
@@ -169,40 +183,35 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         const availableEasySawikain = easySawikain.filter(sawikain => !sawikainBooksSolved.includes(sawikain.item_code))
         const availableMediumSawikain = mediumSawikain.filter(sawikain => !sawikainBooksSolved.includes(sawikain.item_code))
         const availableHardSawikain = hardSawikain.filter(sawikain => !sawikainBooksSolved.includes(sawikain.item_code))
+
         if (crowns < 149) {
             if (availableEasySawikain.length >= 1) {
                 sawikain = availableEasySawikain[Math.floor(Math.random() * availableEasySawikain.length)]
-            } else if (availableEasySawikain.length <= 0) {
-                sawikain = SawikainWordBank.easy[Math.floor(Math.random() * SawikainWordBank.easy.length)]
-            } else if (availableMediumSawikain.length <= 0) {
-                sawikain = SawikainWordBank.medium[Math.floor(Math.random() * SawikainWordBank.medium.length)]
-            } else if (availableHardSawikain.length <= 0) {
-                sawikain = SawikainWordBank.hard[Math.floor(Math.random() * SawikainWordBank.hard.length)]
-            } else {
-                sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
+            } else if (availableEasySawikain.length <= 0 && availableMediumSawikain.length >= 1) {
+                sawikain = availableMediumSawikain[Math.floor(Math.random() * availableMediumSawikain.length)]
+            } else if (availableEasySawikain.length <= 0 && availableMediumSawikain.length <= 0) {
+                sawikain = availableHardSawikain[Math.floor(Math.random() * availableHardSawikain.length)]
+            } else if (availableEasySawikain.length <= 0 && availableMediumSawikain.length <= 0 && availableHardSawikain <= 0) {
+                sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]   
             }
         } else if (crowns < 349) {
             if (availableMediumSawikain.length >= 1) {
                 sawikain = availableMediumSawikain[Math.floor(Math.random() * availableMediumSawikain.length)]
-            } else if (availableMediumSawikain.length <= 0) {
-                sawikain = SawikainWordBank.medium[Math.floor(Math.random() * SawikainWordBank.medium.length)]
-            } else if (availableEasySawikain.length <= 0) {
-                sawikain = SawikainWordBank.easy[Math.floor(Math.random() * SawikainWordBank.easy.length)]
-            } else if (availableHardSawikain.length <= 0) {
-                sawikain = SawikainWordBank.hard[Math.floor(Math.random() * SawikainWordBank.hard.length)]
-            } else {
+            } else if (availableMediumSawikain.length <= 0 && availableEasySawikain.length >= 1) {
+                sawikain = availableEasySawikain[Math.floor(Math.random() * availableEasySawikain.length)]
+            } else if (availableMediumSawikain.length <= 0 && availableEasySawikain.length <= 0) {
+                sawikain = availableHardSawikain[Math.floor(Math.random() * availableHardSawikain.length)]
+            } else if (availableMediumSawikain.length <= 0 && availableEasySawikain.length <= 0 && availableHardSawikain.length <= 0) {
                 sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
             }
         } else {
             if (availableHardSawikain.length >= 1) {
                 sawikain = availableHardSawikain[Math.floor(Math.random() * availableHardSawikain.length)]
-            } else if (availableHardSawikain.length <= 0) {
-                sawikain = SawikainWordBank.hard[Math.floor(Math.random() * SawikainWordBank.hard.length)]
-            } else if (availableMediumSawikain.length <= 0) {
-                sawikain = SawikainWordBank.medium[Math.floor(Math.random() * SawikainWordBank.medium.length)]
-            } else if (availableEasySawikain.length <= 0) {
-                sawikain = SawikainWordBank.easy[Math.floor(Math.random() * SawikainWordBank.easy.length)]
-            } else {
+            } else if (availableHardSawikain.length <= 0 && availableEasySawikain.length >= 1) {
+                sawikain = availableEasySawikain[Math.floor(Math.random() * availableEasySawikain.length)]
+            } else if (availableHardSawikain.length <= 0 && availableEasySawikain.length <= 0) {
+                sawikain = availableMediumSawikain[Math.floor(Math.random() * availableMediumSawikain.length)]
+            } else if (availableHardSawikain.length <= 0 && availableEasySawikain.length <= 0 && availableMediumSawikain.length <= 0) {
                 sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
             }
         }
@@ -217,26 +226,40 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         let easySalawikain = SalawikainWordBank.easy
         let mediumSalawikain = SalawikainWordBank.medium
         let hardSalawikain = SalawikainWordBank.hard
+        let allSalawikain = [...easySalawikain, ...mediumSalawikain, ...hardSalawikain]
         const availableEasySalawikain = easySalawikain.filter(salawikain => !salawikainBooksSolved.includes(salawikain.item_code))
         const availableMediumSalawikain = mediumSalawikain.filter(salawikain => !salawikainBooksSolved.includes(salawikain.item_code))
         const availableHardSalawikain = hardSalawikain.filter(salawikain => !salawikainBooksSolved.includes(salawikain.item_code))
+
         if (crowns < 149) {
-            if (availableEasySalawikain.length === 0) {
-                salawikain = SalawikainWordBank.easy[Math.floor(Math.random() * SalawikainWordBank.easy.length)]
-            } else {
+            if (availableEasySalawikain.length >= 1) {
                 salawikain = availableEasySalawikain[Math.floor(Math.random() * availableEasySalawikain.length)]
+            } else if (availableEasySalawikain.length <= 0 && availableMediumSalawikain.length >= 1) {
+                salawikain = availableMediumSalawikain[Math.floor(Math.random() * availableMediumSalawikain.length)]
+            } else if (availableEasySalawikain.length <= 0 && availableMediumSalawikain.length <= 0) {
+                salawikain = availableHardSalawikain[Math.floor(Math.random() * availableHardSalawikain.length)]
+            } else if (availableEasySalawikain.length <= 0 && availableMediumSalawikain.length <= 0 && availableHardSalawikain <= 0) {
+                salawikain = allSalawikain[Math.floor(Math.random() * allSalawikain.length)]   
             }
         } else if (crowns < 349) {
-            if (availableMediumSalawikain.length === 0) {
-                salawikain = SalawikainWordBank.medium[Math.floor(Math.random() * SalawikainWordBank.medium.length)]
-            } else {
+            if (availableMediumSalawikain.length >= 1) {
                 salawikain = availableMediumSalawikain[Math.floor(Math.random() * availableMediumSalawikain.length)]
+            } else if (availableMediumSalawikain.length <= 0 && availableEasySalawikain.length >= 1) {
+                salawikain = availableEasySalawikain[Math.floor(Math.random() * availableEasySalawikain.length)]
+            } else if (availableMediumSalawikain.length <= 0 && availableEasySalawikain.length <= 0) {
+                salawikain = availableHardSalawikain[Math.floor(Math.random() * availableHardSalawikain.length)]
+            } else if (availableMediumSalawikain.length <= 0 && availableEasySalawikain.length <= 0 && availableHardSalawikain.length <= 0) {
+                salawikain = allSalawikain[Math.floor(Math.random() * allSalawikain.length)]
             }
         } else {
-            if (availableHardSalawikain.length === 0) {
-                salawikain = SalawikainWordBank.hard[Math.floor(Math.random() * SalawikainWordBank.hard.length)]
-            } else {
+            if (availableHardSalawikain.length >= 1) {
                 salawikain = availableHardSalawikain[Math.floor(Math.random() * availableHardSalawikain.length)]
+            } else if (availableHardSalawikain.length <= 0 && availableEasySalawikain.length >= 1) {
+                salawikain = availableEasySalawikain[Math.floor(Math.random() * availableEasySalawikain.length)]
+            } else if (availableHardSalawikain.length <= 0 && availableEasySalawikain.length <= 0) {
+                salawikain = availableMediumSalawikain[Math.floor(Math.random() * availableMediumSalawikain.length)]
+            } else if (availableHardSalawikain.length <= 0 && availableEasySalawikain.length <= 0 && availableMediumSalawikain.length <= 0) {
+                salawikain = allSalawikain[Math.floor(Math.random() * allSalawikain.length)]
             }
         }
 
@@ -410,8 +433,6 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
             }
         }
         window.addEventListener('keydown', handleKeydown)
-        console.log(correctLetters)
-        console.log(wrongLetters)
 
         return () => window.removeEventListener('keydown', handleKeydown)
     }, [answer, correctLetters, wrongLetters, startGame, puzzleEnded]);

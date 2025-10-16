@@ -278,9 +278,9 @@ const SawikainWordBank = {
             answer: 'MAGSUNOG NG KILAY',
             pictures: [
                 'sw-2-10-01',
-                'sw-2-10-02',
-                'sw-2-10-03',
-                'sw-2-10-04',
+                'sw-2-11-02',
+                'sw-2-11-03',
+                'sw-2-11-04',
             ]
         },
         {
@@ -288,10 +288,10 @@ const SawikainWordBank = {
             question: 'Nerbiyos',
             answer: 'DAGA SA DIBDIB',
             pictures: [
-                'sw-2-10-01',
-                'sw-2-10-02',
-                'sw-2-10-03',
-                'sw-2-10-04',
+                'sw-2-12-01',
+                'sw-2-12-02',
+                'sw-2-12-03',
+                'sw-2-12-04',
             ]
         }
     ],
@@ -362,7 +362,7 @@ const SawikainWordBank = {
         {
             item_code: 'sw-3-008',
             question: 'Taong sobra ang pagod',
-            answer: 'NAGLALAKAD DNA BANGKAY',       
+            answer: 'NAGLALAKAD NA BANGKAY',       
              pictures: [
                 'sw-3-8-01',
                 'sw-3-8-02',
