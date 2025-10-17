@@ -144,8 +144,6 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 bugtong = availableMediumBugtong[Math.floor(Math.random() * availableMediumBugtong.length)]
             } else if (availableEasyBugtong.length <= 0 && availableMediumBugtong.length <= 0) {
                 bugtong = availableHardBugtong[Math.floor(Math.random() * availableHardBugtong.length)]
-            } else if (availableEasyBugtong.length <= 0 && availableMediumBugtong.length <= 0 && availableHardBugtong <= 0) {
-                bugtong = allBugtong[Math.floor(Math.random() * allBugtong.length)]   
             }
         } else if (crowns < 349) {
             if (availableMediumBugtong.length >= 1) {
@@ -154,8 +152,6 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 bugtong = availableEasyBugtong[Math.floor(Math.random() * availableEasyBugtong.length)]
             } else if (availableMediumBugtong.length <= 0 && availableEasyBugtong.length <= 0) {
                 bugtong = availableHardBugtong[Math.floor(Math.random() * availableHardBugtong.length)]
-            } else if (availableMediumBugtong.length <= 0 && availableEasyBugtong.length <= 0 && availableHardBugtong.length <= 0) {
-                bugtong = allBugtong[Math.floor(Math.random() * allBugtong.length)]
             }
         } else {
             if (availableHardBugtong.length >= 1) {
@@ -164,11 +160,13 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 bugtong = availableEasyBugtong[Math.floor(Math.random() * availableEasyBugtong.length)]
             } else if (availableHardBugtong.length <= 0 && availableEasyBugtong.length <= 0) {
                 bugtong = availableMediumBugtong[Math.floor(Math.random() * availableMediumBugtong.length)]
-            } else if (availableHardBugtong.length <= 0 && availableEasyBugtong.length <= 0 && availableMediumBugtong.length <= 0) {
-                bugtong = allBugtong[Math.floor(Math.random() * allBugtong.length)]
-            }
+            } 
         }
-            
+
+        if (availableHardBugtong.length <= 0 && availableEasyBugtong.length <= 0 && availableMediumBugtong.length <= 0) {
+            bugtong = allBugtong[Math.floor(Math.random() * allBugtong.length)]
+        }
+
         setCover(BugtongWordBank.cover)
         setBack(BugtongWordBank.back)
         return bugtong
@@ -191,9 +189,8 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 sawikain = availableMediumSawikain[Math.floor(Math.random() * availableMediumSawikain.length)]
             } else if (availableEasySawikain.length <= 0 && availableMediumSawikain.length <= 0) {
                 sawikain = availableHardSawikain[Math.floor(Math.random() * availableHardSawikain.length)]
-            } else if (availableEasySawikain.length <= 0 && availableMediumSawikain.length <= 0 && availableHardSawikain <= 0) {
-                sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]   
-            }
+            }  
+            
         } else if (crowns < 349) {
             if (availableMediumSawikain.length >= 1) {
                 sawikain = availableMediumSawikain[Math.floor(Math.random() * availableMediumSawikain.length)]
@@ -201,9 +198,8 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 sawikain = availableEasySawikain[Math.floor(Math.random() * availableEasySawikain.length)]
             } else if (availableMediumSawikain.length <= 0 && availableEasySawikain.length <= 0) {
                 sawikain = availableHardSawikain[Math.floor(Math.random() * availableHardSawikain.length)]
-            } else if (availableMediumSawikain.length <= 0 && availableEasySawikain.length <= 0 && availableHardSawikain.length <= 0) {
-                sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
-            }
+            } 
+            
         } else {
             if (availableHardSawikain.length >= 1) {
                 sawikain = availableHardSawikain[Math.floor(Math.random() * availableHardSawikain.length)]
@@ -211,11 +207,13 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 sawikain = availableEasySawikain[Math.floor(Math.random() * availableEasySawikain.length)]
             } else if (availableHardSawikain.length <= 0 && availableEasySawikain.length <= 0) {
                 sawikain = availableMediumSawikain[Math.floor(Math.random() * availableMediumSawikain.length)]
-            } else if (availableHardSawikain.length <= 0 && availableEasySawikain.length <= 0 && availableMediumSawikain.length <= 0) {
-                sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
-            }
+            } 
         }
-            
+
+        if (availableHardSawikain.length <= 0 && availableEasySawikain.length <= 0 && availableMediumSawikain.length <= 0) {
+            sawikain = allSawikain[Math.floor(Math.random() * allSawikain.length)]
+        }
+
         setCover(SawikainWordBank.cover)
         setBack(SawikainWordBank.back)
         return sawikain
@@ -238,8 +236,6 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 salawikain = availableMediumSalawikain[Math.floor(Math.random() * availableMediumSalawikain.length)]
             } else if (availableEasySalawikain.length <= 0 && availableMediumSalawikain.length <= 0) {
                 salawikain = availableHardSalawikain[Math.floor(Math.random() * availableHardSalawikain.length)]
-            } else if (availableEasySalawikain.length <= 0 && availableMediumSalawikain.length <= 0 && availableHardSalawikain <= 0) {
-                salawikain = allSalawikain[Math.floor(Math.random() * allSalawikain.length)]   
             }
         } else if (crowns < 349) {
             if (availableMediumSalawikain.length >= 1) {
@@ -248,8 +244,6 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 salawikain = availableEasySalawikain[Math.floor(Math.random() * availableEasySalawikain.length)]
             } else if (availableMediumSalawikain.length <= 0 && availableEasySalawikain.length <= 0) {
                 salawikain = availableHardSalawikain[Math.floor(Math.random() * availableHardSalawikain.length)]
-            } else if (availableMediumSalawikain.length <= 0 && availableEasySalawikain.length <= 0 && availableHardSalawikain.length <= 0) {
-                salawikain = allSalawikain[Math.floor(Math.random() * allSalawikain.length)]
             }
         } else {
             if (availableHardSalawikain.length >= 1) {
@@ -258,9 +252,11 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 salawikain = availableEasySalawikain[Math.floor(Math.random() * availableEasySalawikain.length)]
             } else if (availableHardSalawikain.length <= 0 && availableEasySalawikain.length <= 0) {
                 salawikain = availableMediumSalawikain[Math.floor(Math.random() * availableMediumSalawikain.length)]
-            } else if (availableHardSalawikain.length <= 0 && availableEasySalawikain.length <= 0 && availableMediumSalawikain.length <= 0) {
-                salawikain = allSalawikain[Math.floor(Math.random() * allSalawikain.length)]
-            }
+            } 
+        }
+
+        if (availableHardSalawikain.length <= 0 && availableEasySalawikain.length <= 0 && availableMediumSalawikain.length <= 0) {
+            salawikain = allSalawikain[Math.floor(Math.random() * allSalawikain.length)]
         }
 
         return salawikain
@@ -326,13 +322,14 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
     const crownsPenalty = () => {
         let crownsPenalty
 
-        if (crowns < 149) crownsPenalty = -9
-        else if (crowns < 249) crownsPenalty = -12
-        else if (crowns < 349) crownsPenalty = -15
-        else if (crowns < 449) crownsPenalty = -21
-        else if (crowns < 549) crownsPenalty = -26
-        else if (crowns < 649) crownsPenalty = -30
-        else crownsPenalty = -35
+        if (crowns < 149) crownsPenalty = -5
+        else if (crowns < 249) crownsPenalty = -7
+        else if (crowns < 349) crownsPenalty = -10
+        else if (crowns < 449) crownsPenalty = -13
+        else if (crowns < 549) crownsPenalty = -17
+        else if (crowns < 649) crownsPenalty = -21
+        else if (crowns < 749) crownsPenalty = -25
+        else crownsPenalty = -30
 
         return crownsPenalty
     }
@@ -373,9 +370,9 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         else if (crowns < 549) baseReward = 17
         else if (crowns < 649) baseReward = 15
         else if (crowns < 749) baseReward = 13
-        else baseReward = 9
+        else baseReward = 9 - wrongLetters.length
 
-        return Math.round(baseReward - (timeUsed / 3) - itemsUsed)
+        return Math.round(baseReward - (timeUsed / 3.5) - itemsUsed)
     }
 
     const gameCompleted = async () => {
@@ -420,15 +417,21 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
     useEffect(() => {
         const handleKeydown = event => {
             const { key, keyCode } = event
-            if (keyCode >= 65 && keyCode <= 90 && !puzzleEnded && startGame) {
+            if (keyCode >= 65 && keyCode <= 89 && !puzzleEnded && startGame &&
+                keyCode != 67 && keyCode != 70 && keyCode != 74 && keyCode != 81 && keyCode != 86 && keyCode != 88
+            ) {
                 const letter = key.toUpperCase()
                 if (answer.includes(letter) && !puzzleEnded) {
-                    levelIsSolved()
-                    setCorrectLetters(correctLetters => [...correctLetters, letter])    
+                    levelIsSolved() 
+                    if (!correctLetters.includes(letter)) {
+                        setCorrectLetters(correctLetters => [...correctLetters, letter])    
+                    }
                 } else {
-                    setWrongLetters(wrongLetters => [...wrongLetters, letter])
                     levelIsNotSolved()
-                    if (lives >= 1) subtractLife()
+                    if (!wrongLetters.includes(letter)) {
+                        setWrongLetters(wrongLetters => [...wrongLetters, letter])
+                        subtractLife()
+                    }
                 }
             }
         }

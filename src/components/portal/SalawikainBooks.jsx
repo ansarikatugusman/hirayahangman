@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { Html } from '@react-three/drei'
 import SalawikainWordBank from '../../utils/SalawikainWordBank'
-import Book1Open from '../../assets/images/book1_open.png'
-import Book1Closed from '../../assets/images/book1_closed.png'
-import Book4Open from '../../assets/images/book4_open.png'
-import Book4Closed from '../../assets/images/book4_closed.png'
+import SlBookOpen from '../../assets/images/sl_book_open.png'
+import SlBookClosed from '../../assets/images/sl_book_closed.png'
+import SalawikainBookOpen from '../../assets/images/salawikain_book_open.png'
+import SalawikainBookClosed from '../../assets/images/salawikain_book_closed.png'
 
 import './SalawikainBooks.css'
 
@@ -30,9 +30,7 @@ const SalawikainBooks = ({ numberOfBooks = 16, radius = 3, handleCurrentBook, le
                         position-y={y}
                         position-z={z}
                     >
-                        <div className='salawikain_book-container center' 
-                            style={{ pointerEvents: booksSolved.length === totalSalawikainBooks ? 'none' : '' }}
-                        >
+                        <div className='salawikain_book-container center' >
                             <div
                                 className='salawikain_book_image-wrapper center'
                                 onClick={(e) => {
@@ -43,7 +41,7 @@ const SalawikainBooks = ({ numberOfBooks = 16, radius = 3, handleCurrentBook, le
                                 <img
                                 id='last_book'
                                     className='salawikain_book_image'
-                                    src={booksSolved.length >= 15 ? Book4Open : Book4Closed}
+                                    src={booksSolved.length >= 15 ? SalawikainBookOpen : SalawikainBookClosed}
                                 />
                             </div>
                             <div 
@@ -85,7 +83,7 @@ const SalawikainBooks = ({ numberOfBooks = 16, radius = 3, handleCurrentBook, le
                                 <img
                                 id={Object.keys(books)[i]}
                                     className='salawikain_book_image'
-                                    src={books[`salawikainBook${i+1}`] === true ? Book1Closed : Book1Open}
+                                    src={books[`salawikainBook${i+1}`] === true ? SlBookClosed : SlBookOpen}
                                 />
                             </div>
                         </div>

@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { Html } from '@react-three/drei'
 import SawikainWordBank from '../../utils/SawikainWordBank'
-import Book1Open from '../../assets/images/book1_open.png'
-import Book1Closed from '../../assets/images/book1_closed.png'
-import Book3Open from '../../assets/images/book3_open.png'
-import Book3Closed from '../../assets/images/book3_closed.png'
+import SwBookOpen from '../../assets/images/sw_book_open.png'
+import SwBookClosed from '../../assets/images/sw_book_closed.png'
+import SawikainBookOpen from '../../assets/images/sawikain_book_open.png'
+import SawikainBookClosed from '../../assets/images/sawikain_book_closed.png'
 
 import './SawikainBooks.css'
 
@@ -30,9 +30,7 @@ const SawikainBooks = ({ numberOfBooks = 13, radius = 3, handleCurrentBook, leve
                         position-y={y}
                         position-z={z}
                     >
-                        <div className='sawikain_book-container center' 
-                            style={{ pointerEvents: booksSolved.length === totalSawikainBooks ? 'none' : '' }}
-                        >
+                        <div className='sawikain_book-container center' >
                             <div
                                 className='sawikain_book_image-wrapper center'
                                 onClick={(e) => {
@@ -43,7 +41,7 @@ const SawikainBooks = ({ numberOfBooks = 13, radius = 3, handleCurrentBook, leve
                                 <img
                                 id='last_book'
                                     className='sawikain_book_image'
-                                    src={booksSolved.length >= 12 ? Book3Open : Book3Closed}
+                                    src={booksSolved.length >= 12 ? SawikainBookOpen : SawikainBookClosed}
                                 />
                             </div>
                             <div 
@@ -85,7 +83,7 @@ const SawikainBooks = ({ numberOfBooks = 13, radius = 3, handleCurrentBook, leve
                                 <img
                                 id={Object.keys(books)[i]}
                                     className='sawikain_book_image'
-                                    src={books[`sawikainBook${i+1}`] === true ? Book1Closed : Book1Open}
+                                    src={books[`sawikainBook${i+1}`] === true ? SwBookClosed : SwBookOpen}
                                 />
                             </div>
                         </div>

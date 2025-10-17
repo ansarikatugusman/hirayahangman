@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { Html } from '@react-three/drei'
 import BugtongWordBank from '../../utils/BugtongWordBank'
-import Book1Open from '../../assets/images/book1_open.png'
-import Book1Closed from '../../assets/images/book1_closed.png'
-import Book2Open from '../../assets/images/book2_open.png'
-import Book2Closed from '../../assets/images/book2_closed.png'
+import BgBookOpen from '../../assets/images/bg_book_open.png'
+import BgBookClosed from '../../assets/images/bg_book_closed.png'
+import BugtongBookOpen from '../../assets/images/bugtong_book_open.png'
+import BugtongBookClosed from '../../assets/images/bugtong_book_closed.png'
 
 import './BugtongBooks.css'
 
@@ -30,9 +30,7 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
                         position-y={y}
                         position-z={z}
                     >
-                        <div className='bugtong_book-container center' 
-                            style={{ pointerEvents: booksSolved.length === totalBugtongBooks ? 'none' : '' }}
-                        >
+                        <div className='bugtong_book-container center' >
                             <div
                                 className='bugtong_book_image-wrapper center'
                                 onClick={(e) => {
@@ -43,7 +41,7 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
                                 <img
                                 id='last_book'
                                     className='bugtong_book_image'
-                                    src={booksSolved.length >= 10 ? Book2Open : Book2Closed}
+                                    src={booksSolved.length >= 10 ? BugtongBookOpen : BugtongBookClosed}
                                 />
                             </div>
                             <div 
@@ -85,7 +83,7 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
                                 <img
                                 id={Object.keys(books)[i]}
                                     className='bugtong_book_image'
-                                    src={books[`bugtongBook${i+1}`] === true ? Book1Closed : Book1Open}
+                                    src={books[`bugtongBook${i+1}`] === true ? BgBookClosed : BgBookOpen}
                                 />
                             </div>
                         </div>
