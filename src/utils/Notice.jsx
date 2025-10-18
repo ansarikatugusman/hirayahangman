@@ -29,7 +29,7 @@ const Notice = ({ setNoticeRead }) => {
         if(!visible) return null;
 
     return (
-        <Dialogue minimized={true} dialogue={message} />  
+        <Dialogue dialogue={message} />  
     )
 }
 
