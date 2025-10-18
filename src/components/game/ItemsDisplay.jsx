@@ -1,7 +1,9 @@
 import { useState, useEffect, useContext } from 'react'
+import Tutorial5 from '../tutorials/Tutorial5'
 import AuthContext from '../../context/AuthContext'
 import useHttpRequest from '../../hooks/useHttpRequest'
 import ErrorMessage from '../../utils/ErrorMessage'
+import PointUp from '../../assets/images/icons/point_up.svg'
 import HealtPlus from '../../assets/images/items/health_plus-game.svg'
 import TimeShield from '../../assets/images/items/time_shield-game.svg'
 import MagnifyingGlass from '../../assets/images/items/magnifying_glass-game.svg'
@@ -10,7 +12,7 @@ import CrossMark from '../../assets/images/items/cross_mark-game.svg'
 
 import './ItemsDisplay.css'
 
-const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, setItem3, setItem4, setItem5, addLife, stopTime, timeIsPlaying, hint, generateGame, remove, openWrongLetters, onItemUse }) => {
+const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompletedTutorial, item1, item2, item3, item4, item5, setItem1, setItem2, setItem3, setItem4, setItem5, addLife, stopTime, timeIsPlaying, hint, generateGame, remove, openWrongLetters, onItemUse }) => {
     const [showError, setShowError] = useState(false)
     const {loading, error, fetchRequest} = useHttpRequest()
 
@@ -112,38 +114,63 @@ const ItemsDisplay = ({ item1, item2, item3, item4, item5, setItem1, setItem2, s
     }
 
     return (
-        <div className='items_display-container center'>
+        <div className='items_display-container center'> 
+            {tutorial5Active && <Tutorial5 setTutorial5Active={setTutorial5Active} setCompletedTutorial={setCompletedTutorial} />}
+
+			{tutorial5Active && <div className='items_display_cover ohp'></div>}
+
+            {tutorial5Active && 
+                <div className='tutorial5_hand'>
+                    <img className='tutorial5_hand_icon' src={PointUp} />
+                </div>
+            }
+
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            <div className='items_display-wrapper' onClick={useItem1} style={{ display: item1 ? 'block' : 'none' }} >
-                <img className='item' src={HealtPlus} />
-                <div className='item_quantity-wrapper center'>
-                    <p className='item_quantity'> {item1} </p>
+
+            {tutorial4 &&
+                <div className='items_display-wrapper' onClick={useItem1} style={{ display: item1 ? 'block' : 'none', zIndex: tutorial5Active && '20' }} >
+                    <img className='item' src={HealtPlus} />
+                    <div className='item_quantity-wrapper center'>
+                        <p className='item_quantity'> {item1} </p>
+                    </div>
                 </div>
-            </div>
-            <div className='items_display-wrapper' onClick={useItem2} style={{ display: item2 ? 'block' : 'none' }} >
-                <img className='item' src={TimeShield} />
-                <div className='item_quantity-wrapper center'>
-                    <p className='item_quantity'> {item2} </p>
+            }
+
+            {tutorial4 &&
+                <div className='items_display-wrapper' onClick={useItem2} style={{ display: item2 ? 'block' : 'none', zIndex: tutorial5Active && '20' }} >
+                    <img className='item' src={TimeShield} />
+                    <div className='item_quantity-wrapper center'>
+                        <p className='item_quantity'> {item2} </p>
+                    </div>
                 </div>
-            </div>
-            <div className='items_display-wrapper' onClick={useItem3} style={{ display: item3 ? 'block' : 'none' }}  >
-                <img className='item' src={MagnifyingGlass} />
-                <div className='item_quantity-wrapper center'>
-                    <p className='item_quantity'> {item3} </p>
+            }
+
+            {tutorial4 &&
+                <div className='items_display-wrapper' onClick={useItem3} style={{ display: item3 ? 'block' : 'none', zIndex: tutorial5Active && '20' }}  >
+                    <img className='item' src={MagnifyingGlass} />
+                    <div className='item_quantity-wrapper center'>
+                        <p className='item_quantity'> {item3} </p>
+                    </div>
                 </div>
-            </div>
-            <div className='items_display-wrapper' onClick={useItem4} style={{ display: item4 ? 'block' : 'none' }}  >
-                <img className='item' src={Randomizer} />
-                <div className='item_quantity-wrapper center'>
-                    <p className='item_quantity'> {item4} </p>
+            }
+
+            {tutorial4 &&
+                <div className='items_display-wrapper' onClick={useItem4} style={{ display: item4 ? 'block' : 'none', zIndex: tutorial5Active && '20' }}  >
+                    <img className='item' src={Randomizer} />
+                    <div className='item_quantity-wrapper center'>
+                        <p className='item_quantity'> {item4} </p>
+                    </div>
                 </div>
-            </div>
-            <div className='items_display-wrapper' onClick={useItem5} style={{ display: item5 ? 'block' : 'none' }}  >
-                <img className='item' src={CrossMark} />
-                <div className='item_quantity-wrapper center'>
-                    <p className='item_quantity'> {item5} </p>
+            }
+
+            {tutorial4 &&
+                <div className='items_display-wrapper' onClick={useItem5} style={{ display: item5 ? 'block' : 'none', zIndex: tutorial5Active && '20' }}  >
+                    <img className='item' src={CrossMark} />
+                    <div className='item_quantity-wrapper center'>
+                        <p className='item_quantity'> {item5} </p>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     )
 }

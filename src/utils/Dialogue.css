@@ -32,12 +32,32 @@
     height: 20%;
     margin-bottom: 10px;
     padding: 7.5px;
+    position: relative;
     background:#fff;
     border: solid black;
     border-width: 5px 3px 3px 5px;
     border-radius: 96% 0.5% 97% 1.5%/10% 94% 10% 95%;
     box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
     transform: rotate(1deg);
+    color: black;
+}
+
+.dialogue_text-wrapper-top {
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%) rotate(1deg);
+}
+
+.dialogue_text_icon-wrapper {
+    position: absolute;
+    top: -32.5px;
+    left: 0%;
+    z-index: 1;
+}
+
+.dialogue_text_icon {
+    width: 64px;
 }
 
 .dialogue_text {
@@ -61,10 +81,25 @@
         bottom: -10%;
     }
 
+    .dialogue_text-wrapper-top {
+        position: fixed;
+        top: 60px;
+        left: 50%;
+        transform: translate(-50%, 0%) rotate(1deg);
+    }
+
+    .dialogue_text_icon {
+        width: 96px;
+    }
+
+    .dialogue_text_icon-wrapper {
+        top: -47.5px;
+    }
+
     .dialogue_text-wrapper {
-        font: 1rem 'Nunito-Regular', serif;
-        width: 82.5%;
-        height: 20%;
+        font: 1.5rem 'Nunito-Regular', serif;
+        width: 80%;
+        height: 25%;
     }
 }
 

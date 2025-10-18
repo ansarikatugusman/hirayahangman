@@ -247,3 +247,39 @@ button {
     	transform: translate(0px, 0px) rotate(0deg);
   	}
 }
+
+@keyframes pointDownMoveUpAndDown {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-25px);
+	}
+}
+
+@keyframes pointRightMoveLeftAndRight {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-25px);
+	}
+}
+
+@keyframes pointLeftMoveRightAndLeft {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(25px);
+	}
+}
+
+@keyframes pointUpMoveDownAndUp {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(25px);
+	}
+}

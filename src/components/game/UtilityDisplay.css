@@ -3,6 +3,10 @@
     height: 10%;
 }
 
+.highlight_display {
+    z-index: 20;
+}
+
 .exit_button-wrapper {
     width: 33%;
     justify-content: flex-end;
@@ -19,6 +23,7 @@
 .time_left-wrapper {
     width: 100%;
     height: 100%;
+    position: relative;
     font: 1.5rem 'Nunito-Bold', serif;
 }
 
@@ -49,6 +54,28 @@
     font: 1rem 'Nunito-Bold', serif;
     position: absolute;
     top: 37.5%;
+}
+
+.tutorial2_hand {
+    position: absolute;
+    left: -50px;
+    z-index: 20;
+}
+
+.tutorial2_hand_icon {
+    width: 64px;
+    animation: pointRightMoveLeftAndRight 0.5s ease-in-out infinite alternate;
+}
+
+.tutorial3_hand {
+    position: absolute;
+    right: -50px;
+    z-index: 20;
+}
+
+.tutorial3_hand_icon {
+    width: 64px;
+    animation: pointLeftMoveRightAndLeft 0.5s ease-in-out infinite alternate;
 }
 
 @keyframes animateAddLife {

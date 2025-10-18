@@ -4,6 +4,29 @@
     height: auto;
     gap: 7px;
     align-content: flex-start;
+    position: relative;
+}
+
+.highlight_display {
+    z-index: 20;
+    pointer-events: none;
+}
+
+.tutorial1_hand {
+    position: absolute;
+    top: -50px;
+    left: 0%;
+    z-index: 20;
+}
+
+.tutorial1_hand_icon {
+    width: 64px;
+    animation: pointDownMoveUpAndDown 0.5s ease-in-out infinite alternate;
+}
+
+.letters_display_cover {
+    position: absolute;
+    z-index: 21;
 }
 
 .letters_display-wrapper {

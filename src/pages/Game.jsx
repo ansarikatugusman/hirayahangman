@@ -19,7 +19,7 @@ import SalawikainWordBank from '../utils/SalawikainWordBank'
 
 import './Game.css'
 
-const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainPortalActive, sawikainBooksSolved, salawikainPortalActive, salawikainBooksSolved, levelStart, levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved}) => {
+const Game = ({ crowns, bugtongPortalActive, bugtongBooksSolved, sawikainPortalActive, sawikainBooksSolved, salawikainPortalActive, salawikainBooksSolved, levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved}) => {
     const [item1, setItem1] = useState()
     const [item2, setItem2] = useState()
     const [item3, setItem3] = useState()
@@ -28,6 +28,18 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
     const [upgrade1, setUpgrade1] = useState()
     const [upgrade2, setUpgrade2] = useState()
     const [upgrade3, setUpgrade3] = useState()
+    const [tutorial1, setTutorial1] = useState()
+    const [tutorial2, setTutorial2] = useState()
+    const [tutorial3, setTutorial3] = useState()
+    const [tutorial4, setTutorial4] = useState()
+    const [tutorial5, setTutorial5] = useState()
+    const [tutorialFinished, setTutorialFinished] = useState()
+    const [tutorial1Active, setTutorial1Active] = useState()
+    const [tutorial2Active, setTutorial2Active] = useState()
+    const [tutorial3Active, setTutorial3Active] = useState()
+    const [tutorial4Active, setTutorial4Active] = useState()
+    const [tutorial5Active, setTutorial5Active] = useState()
+    const [completedTutorial, setCompletedTutorial] = useState('')
     const [startGame, setStartGame] = useState(false)
     const [timeIsPlaying, setTimeIsPlaying] = useState(true)
     const [timeDuration, setTimeDuration] = useState()
@@ -66,9 +78,14 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                 setUpgrade1(data.user.upgrade1)
                 setUpgrade2(data.user.upgrade2)
                 setUpgrade3(data.user.upgrade3)
+                setTutorial1(data.user.tutorial1)
+                setTutorial2(data.user.tutorial2)
+                setTutorial3(data.user.tutorial3)
+                setTutorial4(data.user.tutorial4)
+                setTutorial5(data.user.tutorial5)
+                setTutorialFinished(data.user.tutorialFinished)
                 setLives(prevLives => prevLives + data.user.upgrade1 - 1)
                 setTimeDuration(55 + (data.user.upgrade2 * 5))
-                
             } catch (err) {
                 setShowError(true)
             }
@@ -319,7 +336,79 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         setExitGame(false)
     }
 
+    const onTutorialExit = () => {
+        exitLevel()
+    }
+
+    const onItemUse = () => {
+        setItemsUsed((prevItemsUsed) => prevItemsUsed + 1)
+    }
+
+    const goldReward = () => {
+        if (!tutorialFinished) return 50
+
+        return Math.round(40 + (remainingTimeLeft / 6))
+    }
+
+    const crownsReward = () => {
+        if (!tutorialFinished) return 10
+
+        let baseReward
+        let timeUsed = (55 + (upgrade2 * 5)) - remainingTimeLeft
+        if (crowns < 149) baseReward = 35
+        else if (crowns < 249) baseReward = 29
+        else if (crowns < 349) baseReward = 24
+        else if (crowns < 449) baseReward = 20
+        else if (crowns < 549) baseReward = 17
+        else if (crowns < 649) baseReward = 15
+        else if (crowns < 749) baseReward = 13
+        else baseReward = 9 - wrongLetters.length
+
+        return Math.round(baseReward - (timeUsed / 3.5) - itemsUsed)
+    }
+
+    const tutorialCompleted = async () => {
+        try {
+            await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/tutorial/complete/${completedTutorial}`,
+            'PATCH',
+            {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + auth.token 
+            },
+            JSON.stringify({
+                currentItem: currentItem,
+            }))
+        } catch (err) {
+            setShowError(true)
+        }
+    }
+
+    const gameCompleted = async () => {
+        let book
+        if (bugtongPortalActive) book = 'bugtongBooksSolved'
+        if (sawikainPortalActive) book = 'sawikainBooksSolved'
+        if (salawikainPortalActive) book = 'salawikainBooksSolved'
+
+        try {
+            await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/game/complete/${book}`,
+            'PATCH',
+            {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + auth.token 
+            },
+            JSON.stringify({
+                currentItem: currentItem,
+                crownsReward: crownsReward(),
+                goldReward: goldReward(),
+                timeUsed: (55 + (upgrade2 * 5)) - remainingTimeLeft
+            }))
+        } catch (err) {
+            setShowError(true)
+        }
+    }
+
     const crownsPenalty = () => {
+        if (!tutorialFinished) return 0
         let crownsPenalty
 
         if (crowns < 149) crownsPenalty = -5
@@ -352,53 +441,6 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         }
     }
 
-    const onItemUse = () => {
-        setItemsUsed((prevItemsUsed) => prevItemsUsed + 1)
-    }
-
-    const goldReward = () => {
-        return Math.round(40 + (remainingTimeLeft / 6))
-    }
-
-    const crownsReward = () => {
-        let baseReward
-        let timeUsed = (55 + (upgrade2 * 5)) - remainingTimeLeft
-        if (crowns < 149) baseReward = 35
-        else if (crowns < 249) baseReward = 29
-        else if (crowns < 349) baseReward = 24
-        else if (crowns < 449) baseReward = 20
-        else if (crowns < 549) baseReward = 17
-        else if (crowns < 649) baseReward = 15
-        else if (crowns < 749) baseReward = 13
-        else baseReward = 9 - wrongLetters.length
-
-        return Math.round(baseReward - (timeUsed / 3.5) - itemsUsed)
-    }
-
-    const gameCompleted = async () => {
-        let book
-        if (bugtongPortalActive) book = 'bugtongBooksSolved'
-        if (sawikainPortalActive) book = 'sawikainBooksSolved'
-        if (salawikainPortalActive) book = 'salawikainBooksSolved'
-
-        try {
-            await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/game/complete/${book}`,
-            'PATCH',
-            {
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + auth.token 
-            },
-            JSON.stringify({
-                currentItem: currentItem,
-                crownsReward: crownsReward(),
-                goldReward: goldReward(),
-                timeUsed: (55 + (upgrade2 * 5)) - remainingTimeLeft
-            }))
-        } catch (err) {
-            setShowError(true)
-        }
-    }
-
     useEffect(generateGame, [])
 
     useEffect(() => {
@@ -415,9 +457,43 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
     }, [correctLetters, lives])
 
     useEffect(() => {
+        if (!tutorialFinished && !tutorial1 ) {  
+            setTutorial1Active(true)
+        } else {
+            setTutorial1Active(false)
+        }
+
+        if (!tutorialFinished && tutorial1 && !tutorial2 ) {  
+            setTutorial2Active(true)
+        } else {
+            setTutorial2Active(false)
+        }
+
+        if (!tutorialFinished && tutorial2 && !tutorial3) {     
+            setTutorial3Active(true)
+        } else {
+            setTutorial3Active(false)
+        }
+
+        if (!tutorialFinished && tutorial3 && !tutorial4) {     
+            setTutorial4Active(true)
+        } else {
+            setTutorial4Active(false)
+        }
+
+        if (!tutorialFinished && tutorial4 && !tutorial5) {     
+            setTutorial5Active(true)
+        } else {
+            setTutorial5Active(false)
+        }
+
+    }, [tutorialFinished, tutorial1, tutorial2, tutorial3, tutorial4, tutorial5])
+
+    useEffect(() => {
         const handleKeydown = event => {
             const { key, keyCode } = event
-            if (keyCode >= 65 && keyCode <= 89 && !puzzleEnded && startGame &&
+            if (keyCode >= 65 && keyCode <= 89 && !puzzleEnded && startGame && 
+                !tutorial1Active && !tutorial2Active && !tutorial3Active && !tutorial4Active && !tutorial5Active &&
                 keyCode != 67 && keyCode != 70 && keyCode != 74 && keyCode != 81 && keyCode != 86 && keyCode != 88
             ) {
                 const letter = key.toUpperCase()
@@ -430,7 +506,7 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
                     levelIsNotSolved()
                     if (!wrongLetters.includes(letter)) {
                         setWrongLetters(wrongLetters => [...wrongLetters, letter])
-                        subtractLife()
+                        if(tutorial1) subtractLife()
                     }
                 }
             }
@@ -438,7 +514,7 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
         window.addEventListener('keydown', handleKeydown)
 
         return () => window.removeEventListener('keydown', handleKeydown)
-    }, [answer, correctLetters, wrongLetters, startGame, puzzleEnded]);
+    }, [answer, correctLetters, wrongLetters, startGame, puzzleEnded, tutorial1Active, tutorial2Active, tutorial3Active, tutorial4Active, tutorial5Active])
 
     return (
         <div className='game center'>
@@ -446,21 +522,21 @@ const Game = ({ crowns, gold, bugtongPortalActive, bugtongBooksSolved, sawikainP
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             {!startGame && <StartGame onClickStart={onClickStart} exitLevel={exitLevel} />}
 
-            {startGame && <UtilityDisplay timeIsPlaying={timeIsPlaying} timeDuration={timeDuration} lives={lives} exitLevel={exitLevel} setRemainingTimeLeft={setRemainingTimeLeft} levelIsNotSolved={levelIsNotSolved} closeDisplayBook={closeDisplayBook} handlePuzzleEnded={handlePuzzleEnded} onClickExitGame={onClickExitGame}/>}
+            {startGame && <UtilityDisplay tutorial1={tutorial1} tutorial2={tutorial2} tutorial3={tutorial3} tutorialFinished={tutorialFinished} tutorial1Active={tutorial1Active} tutorial2Active={tutorial2Active} tutorial3Active={tutorial3Active} tutorial4Active={tutorial4Active} tutorial5Active={tutorial5Active} setTutorial2Active={setTutorial2Active} setTutorial3Active={setTutorial3Active} setCompletedTutorial={setCompletedTutorial} timeIsPlaying={timeIsPlaying} timeDuration={timeDuration} lives={lives} setRemainingTimeLeft={setRemainingTimeLeft} levelIsNotSolved={levelIsNotSolved} closeDisplayBook={closeDisplayBook} handlePuzzleEnded={handlePuzzleEnded} onClickExitGame={onClickExitGame}/>}
 
             {startGame && <AnswerDisplay answer={answer} correctLetters={correctLetters} />}
 
-            {startGame && <BookDisplay pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} salawikainPortalActive={salawikainPortalActive} />}
+            {startGame && <BookDisplay tutorial3={tutorial3} tutorial4={tutorial4} tutorialFinished={tutorialFinished} tutorial4Active={tutorial4Active} setTutorial4Active={setTutorial4Active} setCompletedTutorial={setCompletedTutorial} pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} salawikainPortalActive={salawikainPortalActive} />}
 
             {startGame && <QuestionDisplay question={question} />} 
 
-            {startGame && <ItemsDisplay item1={item1} item2={item2} item3={item3} item4={item4} item5={item5} setItem1={setItem1} setItem2={setItem2} setItem3={setItem3} setItem4={setItem4} setItem5={setItem5} addLife={addLife} stopTime={stopTime} timeIsPlaying={timeIsPlaying} hint={hint} generateGame={generateGame} remove={remove} openWrongLetters={openWrongLetters} onItemUse={onItemUse} />}
+            {startGame && <ItemsDisplay tutorial4={tutorial4} tutorialFinished={tutorialFinished} tutorial5Active={tutorial5Active} setTutorial5Active={setTutorial5Active} setCompletedTutorial={setCompletedTutorial} item1={item1} item2={item2} item3={item3} item4={item4} item5={item5} setItem1={setItem1} setItem2={setItem2} setItem3={setItem3} setItem4={setItem4} setItem5={setItem5} addLife={addLife} stopTime={stopTime} timeIsPlaying={timeIsPlaying} hint={hint} generateGame={generateGame} remove={remove} openWrongLetters={openWrongLetters} onItemUse={onItemUse} />}
 
-            {startGame && <LettersDisplay subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> }
+            {startGame && <LettersDisplay tutorial1={tutorial1} setCompletedTutorial={setCompletedTutorial} tutorial1Active={tutorial1Active} setTutorial1Active={setTutorial1Active} subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> }
 
-            {puzzleEnded && <EndGame answer={answer} currentItem={currentItem} gameCompleted={gameCompleted} onFailGame={onFailGame} crownsPenalty={crownsPenalty} goldReward={goldReward} crownsReward={crownsReward} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded} />}
+            {puzzleEnded && <EndGame tutorialFinished={tutorialFinished} tutorialCompleted={tutorialCompleted} answer={answer} currentItem={currentItem} gameCompleted={gameCompleted} onFailGame={onFailGame} crownsPenalty={crownsPenalty} goldReward={goldReward} crownsReward={crownsReward} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded} />}
 
-            {exitGame && <ExitPrompt onFailGame={onFailGame} onCancelExitGame={onCancelExitGame} />}
+            {exitGame && <ExitPrompt tutorialFinished={tutorialFinished} onTutorialExit={onTutorialExit} onFailGame={onFailGame} onCancelExitGame={onCancelExitGame} />}
         </ div>
     )
 }

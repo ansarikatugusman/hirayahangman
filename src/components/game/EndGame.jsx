@@ -8,7 +8,7 @@ import ChestEmpty from '../../assets/images/chest_empty.png'
 
 import './EndGame.css'
 
-const EndGame = ({ answer, gameCompleted, onFailGame, crownsPenalty, goldReward, crownsReward, levelSolved, exitLevel, handlePuzzleEnded, levelEnded}) => {
+const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, onFailGame, crownsPenalty, goldReward, crownsReward, levelSolved, exitLevel, handlePuzzleEnded, levelEnded}) => {
     const [chestEmpty, setEmpty] = useState(false)
     const modal = useRef()
 
@@ -17,11 +17,14 @@ const EndGame = ({ answer, gameCompleted, onFailGame, crownsPenalty, goldReward,
     }
 
     useEffect(() => {
-        if (levelSolved) {
+        if (levelSolved && !tutorialFinished) {
+            tutorialCompleted()
+        }
+        if (levelSolved && tutorialFinished) {
             gameCompleted()
         } else {
             onFailGame()
-        }
+        } 
     }, [])
 
     const onExitHandler = () => {
@@ -30,7 +33,7 @@ const EndGame = ({ answer, gameCompleted, onFailGame, crownsPenalty, goldReward,
             levelEnded()
         } else {
             exitLevel()
-            }
+        }
         modal.current.close()
     }
 
@@ -49,8 +52,9 @@ const EndGame = ({ answer, gameCompleted, onFailGame, crownsPenalty, goldReward,
                     </div>
                     <div className='end_game_results-wrapper ohpw center' >
                         <div className='end_game_results_crown_penalty-wrapper ohpw center'>
-                            <img className='end_game_crown_icon' src={Crown}/>
-                            <p>{crownsPenalty()}</p>
+                            {tutorialFinished && <img className='end_game_crown_icon' src={Crown}/>}
+                            {tutorialFinished && <p>{crownsPenalty()}</p>}
+                            {!tutorialFinished && <p>Try again. You can do it.</p>}
                         </div>
                     </div>
                     <div className='end_game_exit_button-wrapper ohpw center'>

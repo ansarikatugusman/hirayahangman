@@ -1,18 +1,37 @@
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Environment, Float, Html, OrbitControls } from '@react-three/drei'
+import { Environment, Float, OrbitControls } from '@react-three/drei'
+import Tutorial4 from '../tutorials/Tutorial4'
 import SketchedButton from '../buttons/SketchedButton'
 import Book from '../Book'
+import PointRight from '../../assets/images/icons/point_right.svg'
 
 import './BookDisplay.css'
 
-const BookDisplay = ({ pictures, cover, back, displayBook, openDisplayBook, closeDisplayBook, salawikainPortalActive }) => {
+const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setCompletedTutorial, pictures, cover, back, displayBook, openDisplayBook, closeDisplayBook, salawikainPortalActive }) => {
 
 	return (
 		<div className='book_display-container center' style={{visibility: salawikainPortalActive ? 'hidden' : 'visible'}} >
-			<div className='book_display-wrapper center' onClick={openDisplayBook}>
-				<SketchedButton text='HINT BOOK' width='150px' onClickHandler={openDisplayBook} />
+			{tutorial4Active && <Tutorial4 setTutorial4Active={setTutorial4Active} setCompletedTutorial={setCompletedTutorial} />}
+
+			{tutorial4Active && <div className='book_display_cover ohp'></div>}
+
+			<div 
+				className='book_display-wrapper center' 
+				onClick={openDisplayBook}
+				style={{ zIndex: tutorial4Active && '20' }}
+			>
+				{tutorial3 &&
+					<SketchedButton text='HINT BOOK' width='150px' onClickHandler={openDisplayBook} />
+				}
+
+				{tutorial4Active && 
+					<div className='tutorial4_hand'>
+						<img className='tutorial4_hand_icon' src={PointRight} />
+					</div>
+				}
 			</div>
+
 			<div className='modal' style={{ visibility: displayBook ? 'visible' : 'hidden' }}>
 			</div>
 			<div className='close' style={{ visibility: displayBook ? 'visible' : 'hidden' }} >

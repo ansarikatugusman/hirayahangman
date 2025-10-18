@@ -1,15 +1,14 @@
-import { useState } from 'react'
-import SketchedButton from '../buttons/SketchedButton'
+import {  useState } from 'react'
+import Tutorial1 from '../tutorials/Tutorial1'
+import PointDown from '../../assets/images/icons/point_down.svg'
 import Microphone from '../../assets/images/icons/microphone.svg'
 
 import './LettersDisplay.css'
 
 const alphabets = 'ABKDEGHILMNOPRSTUWY'
 
-const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetters, wrongLetters, setWrongLetters, levelIsSolved, levelIsNotSolved }) => {
-
+const LettersDisplay = ({ tutorial1, setCompletedTutorial, tutorial1Active, setTutorial1Active, subtractLife, answer, correctLetters, setCorrectLetters, wrongLetters, setWrongLetters, levelIsSolved, levelIsNotSolved }) => {
     const [microphoneActive, setMicrophoneActive] = useState (false)
-    
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     const recognition = new SpeechRecognition()
@@ -21,7 +20,9 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
         } else if (!answer.includes(letter) && !wrongLetters.includes(letter)) {
             setWrongLetters( wrongLetters => [...wrongLetters, letter] )
             levelIsNotSolved()
-            subtractLife()
+            if (tutorial1) {
+                subtractLife()
+            }
         }
     }
 
@@ -32,7 +33,9 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
         } else if (!answer.includes(e.target.id) && !wrongLetters.includes(e.target.id)) {
             setWrongLetters( wrongLetters => [...wrongLetters, e.target.id] )
             levelIsNotSolved()
-            subtractLife()
+            if (tutorial1) {
+                subtractLife()
+            }
         }
     }
 
@@ -43,7 +46,9 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
         } else if (!answer.includes(e.target.value) && !wrongLetters.includes(e.target.value)) {
             setWrongLetters( wrongLetters => [...wrongLetters, e.target.value] )
             levelIsNotSolved()
-            subtractLife()
+            if (tutorial1) {
+                subtractLife()
+            }
         }
     }
 
@@ -52,7 +57,7 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
 
         trancriptLetters.forEach(letter => {
             handleGuessLetter(letter)
-        }); 
+        })
     }
 
     const handleGuess = (e) => {
@@ -74,7 +79,6 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
 
         recognition.onresult = async(e) => {
             handleGuessVoiceSpeech(e.results[0][0].transcript)
-            console.log(e.results[0][0].transcript)
             setMicrophoneActive(false)
             recognition.abort()
         }
@@ -85,9 +89,16 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
     }
     
     return (
-        <div className='letters_display-container center'>
+        <div className='letters_display-container center' style={{ zIndex: tutorial1Active && '21' }}>
+            {tutorial1Active && <Tutorial1 setTutorial1Active={setTutorial1Active} setCompletedTutorial={setCompletedTutorial} />}
+            
             {alphabets.split('').map( letter => (
-                <div className='letters_display-wrapper center' key={letter} onClick={handleGuess}>
+                <div 
+                    className='letters_display-wrapper center' 
+                    key={letter} 
+                    onClick={handleGuess} 
+                    style={{ zIndex: tutorial1Active && '20' }}
+                >
                     <button 
                         className='letter_button'
                         value={letter}
@@ -103,7 +114,11 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
                 </div>    
             ))}
 
-            <div className='microphone_button center' onClick={handleOnRecord}>
+            <div 
+                className='microphone_button center' 
+                onClick={handleOnRecord} 
+                style={{ zIndex: tutorial1Active && '20' }}
+            >
                 <button className='microphone-wrapper center'>
                     <span className='center' style={{ background: microphoneActive ? '#00c763' : '#ff3636' }}>
                         <div className='microphone_icon-wrapper center'>
@@ -114,6 +129,14 @@ const LettersDisplay = ({ subtractLife, answer, correctLetters, setCorrectLetter
                     </span>
                 </button>
             </div>
+
+            {tutorial1Active && 
+                <div className='tutorial1_hand'>
+                    <img className='tutorial1_hand_icon' src={PointDown} />
+                </div>
+            }
+
+            {tutorial1Active && <div className='letters_display_cover ohp'></div>}
         </div>
     )
 }

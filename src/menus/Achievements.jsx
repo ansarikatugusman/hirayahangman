@@ -59,6 +59,15 @@ const Achievements = ({ closeAchievementsMenu }) => {
                         </div>
                     </div>
 
+                    <div className={`achievement1 achievement ${!playerAchievements.marunong && 'achievement_incomplete'} center`}>
+                        <div className='achievement_icon-wrapper center'>
+                            <img className='achievement_icon' src={Marunong} />
+                        </div>
+                        <div className='achievement_description-wrapper center'>
+                            Finish the tutorial.
+                        </div>
+                    </div>
+
                     <div className={`achievement3 achievement ${!playerAchievements.mayaman && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
                             <img className='achievement_icon' src={Mayaman} />

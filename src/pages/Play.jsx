@@ -135,7 +135,7 @@ const Play = () => {
             </Suspense>
         </Canvas>
 
-        {levelStart && <Game crowns={crowns} gold={gold} bugtongPortalActive={bugtongPortalActive} bugtongBooksSolved={bugtongBooksSolved} sawikainPortalActive={sawikainPortalActive} sawikainBooksSolved={sawikainBooksSolved} salawikainPortalActive={salawikainPortalActive} salawikainBooksSolved={salawikainBooksSolved} levelStart={levelStart} levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
+        {levelStart && <Game crowns={crowns} gold={gold} bugtongPortalActive={bugtongPortalActive} bugtongBooksSolved={bugtongBooksSolved} sawikainPortalActive={sawikainPortalActive} sawikainBooksSolved={sawikainBooksSolved} salawikainPortalActive={salawikainPortalActive} salawikainBooksSolved={salawikainBooksSolved} levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
         </> 
     )
 }
