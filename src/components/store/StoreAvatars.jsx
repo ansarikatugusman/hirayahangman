@@ -18,7 +18,7 @@ const StoreAvatars = ({ setGold, playerAvatars }) => {
         return (
             <div className={`avatar${index + 6}-container store_avatar`} key={avatar.name}>
                 <div className={`avatar${index + 6}_image-wrapper avatar_image-wrapper`}>
-                    <img className={`avatar${index + 6}_image avatar_image`} src={`./avatars/${avatar.icon}.svg`} alt='avatar' />
+                    <img className={`avatar${index + 6}_image avatar_image`} src={`./avatars/${avatar.icon}.${avatar.icon.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' />
                 </div>
                 <div className={`avatar${index + 6}_name-wrapper avatar_name-wrapper center`}>
                     <div className={`avatar${index + 6}_name avatar_name`}>

@@ -3,9 +3,14 @@
     flex-direction: column;
 }
 
-.bottom_menu_play_button-wrapper {
+.bottom_menu_play_button-container {
     padding: 1.5rem;
     height: 50%;
+}
+
+.bottom_menu_play_button-wrapper {
+    width: 226px;
+    height: 70px;
 }
 
 .bottom_menu_icons-wrapper {
@@ -22,7 +27,7 @@
         flex-direction: row-reverse;
     }
 
-    .bottom_menu_play_button-wrapper {
+    .bottom_menu_play_button-container {
         width: 50%;
         height: 100%;
         justify-content: right;

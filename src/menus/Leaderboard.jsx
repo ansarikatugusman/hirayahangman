@@ -114,10 +114,10 @@ const Leaderboard = ({ closeLeaderboardMenu }) => {
                     {index+4}
                 </div>
                 <div className='leaderboard_player_avatar-wrapper center'>
-                    <img className='leaderboard_player_avatar' src={`./avatars/${player.avatar}.svg`}></img>
+                    <img className='leaderboard_player_avatar' src={`./avatars/${player.avatar}.${player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />
                 </div>
-                <div className='leaderboard_player_name-wrapper'>
-                    <div className='leaderboard_player_name'>
+                <div className='leaderboard_player_name-wrapper ohp center'>
+                    <div className='leaderboard_player_name ohp center'>
                         {player.name}
                     </div>
                 </div>
@@ -143,7 +143,7 @@ const Leaderboard = ({ closeLeaderboardMenu }) => {
                             <div className='rank_2_player top_3_player ohph center'>
                                 <div className='top_player_details ohpw center'>
                                     <div className='leaderboard_player_avatar-wrapper center'>
-                                        {rank2Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank2Player.avatar}.svg`} />}
+                                        {rank2Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank2Player.avatar}.${rank2Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
                                     </div>
                                     <div className='leaderboard_top_player_name-wrapper ohpw'>
                                         <div className='leaderboard_player_name'>
@@ -162,7 +162,7 @@ const Leaderboard = ({ closeLeaderboardMenu }) => {
                             <div className='rank_1_player top_3_player ohph'>
                                 <div className='top_player_details ohpw center'>
                                     <div className='leaderboard_player_avatar-wrapper center'>
-                                        {rank1Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank1Player.avatar}.svg`} />}
+                                        {rank1Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank1Player.avatar}.${rank1Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
                                     </div>
                                     <div className='leaderboard_top_player_name-wrapper ohpw'>
                                         <div className='leaderboard_player_name'>
@@ -181,7 +181,7 @@ const Leaderboard = ({ closeLeaderboardMenu }) => {
                             <div className='rank_3_player top_3_player ohph'>
                                 <div className='top_player_details ohpw center'>
                                     <div className='leaderboard_player_avatar-wrapper center'>
-                                        {rank3Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank3Player.avatar}.svg`} />}
+                                        {rank3Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank3Player.avatar}.${rank3Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
                                     </div>
                                     <div className='leaderboard_top_player_name-wrapper ohpw'>
                                         <div className='leaderboard_player_name'>

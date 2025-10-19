@@ -1,6 +1,6 @@
 .sketchy_long {
-    width: 300px;
-    height: 500px;
+    width: 330px;
+    height: 520px;
     border: 3px solid #333333;
     border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
     background: #f0f0f0;
@@ -12,8 +12,8 @@
 }
 
 .sketchy_long-back {
-    width: 299px;
-    height: 499px;
+    width: 329px;
+    height: 519px;
     border: 3px solid black;
     position: absolute;
     top: 50%;

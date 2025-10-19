@@ -94,6 +94,7 @@
 
 .player_avatar-wrapper {
     width: 100px;
+    z-index: 1;
 }
 
 .player_avatar {

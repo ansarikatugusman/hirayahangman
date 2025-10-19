@@ -17,17 +17,17 @@
 }
 
 .top_3_players {
-    height: 250px;
-    gap: 5px;
+    height: 270px;
+    justify-content: space-evenly;
 }
 
 .top_3_player {
-    width: 90px;
+    width: 100px;
     align-content: end;
 }
 
 .top_player_details {
-    height: 125px;
+    height: 145px;
 }
 
 .leaderboard_player_avatar-wrapper {
@@ -41,16 +41,21 @@
 }
 
 .leaderboard_top_player_name-wrapper {
-    height: 22px;
-    overflow: hidden;
+    height: 42px;
+    overflow-wrap:break-word ;
+    position: relative;
 }
 
 .leaderboard_player_name {
+    position: absolute;
+    top: 50%;   
+    left: 50%;  
+    transform: translate(-50%, -50%);
     font: 1rem 'Nunito-Bold', serif;
 }
 
 .leaderboard_players {
-    height: 150px;
+    height: 130px;
 }
 
 .leaderboard_player_crowns-wrapper {

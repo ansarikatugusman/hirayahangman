@@ -15,7 +15,7 @@ const MenuIcons = ({ openProfileMenu, openStoreMenu, openAchievementsMenu, openL
                 </div>
                 <div className='menu_icon-wrapper center' onClick={openStoreMenu}>
                     <img className='menu_icon' src={Store} />
-                    <p>STORE</p>
+                    <p className='xxx'>STORE</p>
                 </div>
                 <div className='menu_icon-wrapper center' onClick={openAchievementsMenu}>
                     <img className='menu_icon' src={Achievements} />

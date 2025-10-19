@@ -63,7 +63,17 @@ const ShopAvatarsList = [
         name: 'Sherlock Holmes',
         icon: '0018_sherlock_holmes',
         price: 500
-    }
+    },
+    {
+        name: 'Maki-Atag',
+        icon: '0101_maki-atag',
+        price: 1000
+    },
+    {
+        name: 'Maki-Atag Special',
+        icon: '0102_maki-atag_special',
+        price: 1500
+    },
 ]
 
 export default ShopAvatarsList

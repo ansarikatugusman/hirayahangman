@@ -12,7 +12,7 @@ const PlayerInfo = ({ name, avatar, crowns, openEditProfileDialog, openLogoutDia
                 <div className='tape-section'></div>
                 <div className='player-wrapper ohp center'>
                     <div className='player_avatar-wrapper ohph center'>
-                        <img className='player_avatar' src={`./avatars/${avatar}.svg`} alt='avatar' />
+                        <img className='player_avatar' src={`./avatars/${avatar}.${avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' />
                     </div>
                     <div className='player_name_and_crowns-container ohph'>
                         <div className='player_name-wrapper'>
