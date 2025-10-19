@@ -3,10 +3,10 @@ import SketchedButton from '../buttons/SketchedButton'
 
 import './ExitPrompt.css'
 
-const ExitPrompt = ({ tutorialFinsihed, onTutorialExit, onFailGame, onCancelExitGame }) => {
+const ExitPrompt = ({ tutorialFinished, onTutorialExit, onFailGame, onCancelExitGame }) => {
     return (
         <SketchySmallWrapper>
-            { tutorialFinsihed ? 
+            { tutorialFinished ? 
                 'You already started the game, are you sure you want to exit? There is a penalty for exiting.' :
                 `You haven't finsihed the tutorial yet. Are you sure you want to exit?`
             }
@@ -14,7 +14,7 @@ const ExitPrompt = ({ tutorialFinsihed, onTutorialExit, onFailGame, onCancelExit
                     <SketchedButton 
                         text='YES' width='75px' 
                         onClickHandler={() => { 
-                            if (tutorialFinsihed) {
+                            if (tutorialFinished) {
                                 onFailGame(true) 
                             } else {
                                 onTutorialExit()
