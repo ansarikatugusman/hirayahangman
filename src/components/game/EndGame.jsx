@@ -38,7 +38,7 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
     }
 
     return (
-        <div className='end_game-container modal'>
+        <div className='end_game-container modal' onClick={collectChest}>
             <dialog className='end_game center' ref={modal}>
                 <div className='end_game_content-wrapper center ohp' style={{ display: levelSolved ? 'none' : 'flex' }}>
                     <div className='end_game_message-wrapper ohpw center'>
@@ -48,7 +48,7 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
                         <p>Solve the level to get the reward from the chest.</p>
                     </div>
                     <div className='chest_wrapper ohpw center'>
-                        <img className='chest_empty' src={ChestClosed} onClick={collectChest} />
+                        <img className='chest_empty' src={ChestClosed} />
                     </div>
                     <div className='end_game_results-wrapper ohpw center' >
                         <div className='end_game_results_crown_penalty-wrapper ohpw center'>
@@ -86,7 +86,7 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
                             <p>{crownsReward() > 0 ? `+${crownsReward()}`: crownsReward()}</p>
                         </div>
                         <div className='end_game_results_chest_open-wrapper center' style={{ display: chestEmpty ? 'none' : 'flex' }}>
-                            <p>Click the chest to claim reward.</p>
+                            <p>Click anywhere to claim reward.</p>
                         </div>
 
                         <div style={{ display: chestEmpty ? 'flex' : 'none' }}>

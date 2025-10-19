@@ -580,7 +580,7 @@ const BugtongWordBank = {
         },
         {
             item_code: 'bg-3-004',
-            question: "Ipinalilok ko at ipinalubbid. naghigpitan ng kapit.",
+            question: "Ipinalilok ko at ipinalubbid. Naghigpitan ng kapit.",
             answer: "SINTURON",
             pictures: [
                 'bg-3-4-01',
@@ -670,7 +670,7 @@ const BugtongWordBank = {
         },
         {
             item_code: 'bg-3-014',
-            question: "Nagtanim ako ng dayap Sa gitna ng dagat, Marami ang nagsihanap iisa lamang ang nagpapalakad.",
+            question: "Nagtanim ako ng dayap sa gitna ng dagat, marami ang nagsihanap iisa lamang ang nagpapalakad.",
             answer: "PAGLILIGAWAN",
             pictures: [
                 'bg-3-14-01',
@@ -679,7 +679,7 @@ const BugtongWordBank = {
         },
         {
             item_code: 'bg-3-015',
-            question: "Mukha ko'y tinikan, Busilak ang kalooban.",
+            question: "Mukha ko'y tinikan, busilak ang kalooban.",
             answer: "RAMBUTAN",
             pictures: [
                 'bg-3-15-01',

@@ -524,7 +524,7 @@ const Game = ({ crowns, bugtongPortalActive, bugtongBooksSolved, sawikainPortalA
 
             {startGame && <UtilityDisplay tutorial1={tutorial1} tutorial2={tutorial2} tutorial3={tutorial3} tutorialFinished={tutorialFinished} tutorial1Active={tutorial1Active} tutorial2Active={tutorial2Active} tutorial3Active={tutorial3Active} tutorial4Active={tutorial4Active} tutorial5Active={tutorial5Active} setTutorial2Active={setTutorial2Active} setTutorial3Active={setTutorial3Active} setCompletedTutorial={setCompletedTutorial} timeIsPlaying={timeIsPlaying} timeDuration={timeDuration} lives={lives} setRemainingTimeLeft={setRemainingTimeLeft} levelIsNotSolved={levelIsNotSolved} closeDisplayBook={closeDisplayBook} handlePuzzleEnded={handlePuzzleEnded} onClickExitGame={onClickExitGame}/>}
 
-            {startGame && <AnswerDisplay answer={answer} correctLetters={correctLetters} />}
+            {startGame && <AnswerDisplay answer={answer} correctLetters={correctLetters} bugtongPortalActive={bugtongPortalActive} sawikainPortalActive={sawikainPortalActive} salawikainPortalActive={salawikainPortalActive} />}
 
             {startGame && <BookDisplay tutorial3={tutorial3} tutorial4={tutorial4} tutorialFinished={tutorialFinished} tutorial4Active={tutorial4Active} setTutorial4Active={setTutorial4Active} setCompletedTutorial={setCompletedTutorial} pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} salawikainPortalActive={salawikainPortalActive} />}
 

@@ -136,7 +136,7 @@ const Leaderboard = ({ closeLeaderboardMenu }) => {
             <div className='leaderboard-container ohp center'>
                 <div className='leaderboard ohpw center'>
                     <div className='leaderboard_title-wrapper ohpw center'>
-                        LEADERBOARD
+                        LEADERBOARD (TOP 10)
                     </div>
                     <div className='leaderboard_players-wrapper ohp center'>
                         <div className='top_3_players ohpw center'>
