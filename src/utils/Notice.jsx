@@ -9,21 +9,23 @@ const Notice = ({ setNoticeRead }) => {
     const message = [
         {
             text: `Thank you for visiting Hiyas ng Salita. We're currently testing our web app, and we're excited to have you try things out.`,
-            emotion: 'excited'
+            emotion: 'excited',
+            character: 'maku-atag',
         },
         {
             text: `More contents will be implemented in the following weeks. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`,
-            emotion: 'smiling'
+            emotion: 'smiling',
+            character: 'maku-atag',
         }
     ]
 
     useEffect(()=>{
-            let pop2_status = localStorage.getItem('pop2_status');
-            if(!pop2_status){
+            let pop1_status = localStorage.getItem('pop1_status');
+            if(!pop1_status){
                 setVisible(true);
-                localStorage.setItem('pop2_status', 2);
+                localStorage.setItem('pop1_status', 2);
             }
-            localStorage.removeItem('pop1_status')
+            localStorage.removeItem('pop2_status')
         },[])
 
         if(!visible) return null;
