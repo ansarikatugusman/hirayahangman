@@ -21,7 +21,7 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
             const y = 0.5
             const z = Math.cos(angle) * radius
 
-            if (i === numberOfBooks - 1) {
+            if (i === numberOfBooks - 10) {
                 bugtong_books.push(
                     <Html
                         className='center'

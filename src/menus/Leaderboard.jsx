@@ -107,7 +107,7 @@ const Leaderboard = ({ closeLeaderboardMenu }) => {
         getLeaderboardRank()
     }, [])
 
-    const leaderboardTopPlayers = topPlayers.slice(3, 10).map((player, index) => {
+    const leaderboardTopPlayers = topPlayers.slice(3, 50).map((player, index) => {
         return (
             <div className='leaderboard_player center' key={player.name}>
                 <div className='leaderboard_player_rank center'>

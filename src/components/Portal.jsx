@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import ExitPortal from "./portal/ExitPortal";
 
-const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved }) => {
+const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved, chapterFinished }) => {
   	
   	const [hovered, setHovered] = useState(null);
   	useCursor(hovered);
@@ -25,7 +25,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
 
   	useFrame((_state, delta) => {
     	const worldOpen = active === name;
-    	easing.damp(portalMaterial.current, "blend", worldOpen ? 1 : 0, 0.2, delta);
+    	easing.damp(portalMaterial.current, "blend", worldOpen ? 1 : 0, 0.15, delta);
   	});
 
   	useEffect(() => {
@@ -33,9 +33,9 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
       		const targetPosition = new THREE.Vector3();
       		scene.getObjectByName(active).getWorldPosition(targetPosition);
       		controlsRef.current.setLookAt(
-        		-0.57,
         		0,
-        		2.5,
+        		0,
+        		2.75,
         		targetPosition.x,
         		targetPosition.y,
         		targetPosition.z,
@@ -61,6 +61,9 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
       			<Text
         			font="fonts/CabinSketch-Regular.ttf"
         			fontSize={0.3}
+					color={'white'}
+					outlineColor={'black'}
+					outlineWidth={0.0175}
         			position={[0, -1.3, 0.051]}
         			anchorY={"bottom"}
       			>		
@@ -70,7 +73,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
 
       			<RoundedBox
         			name={name}
-        			args={[2, 3, 0.1]}
+        			args={[2, 3.25, 0.1]}
         			onClick={() => {
 						if (!active) {
 							handleActivePortal(name)
@@ -88,7 +91,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
           				<ambientLight intensity={1} />
           				<Environment preset="sunset" />
           					<mesh>
-            					<sphereGeometry args={[10, 64, 64]} />
+            					<sphereGeometry args={[5, 64, 64]} />
             					<meshStandardMaterial map={map} side={THREE.BackSide} />
           					</mesh>
         			</MeshPortalMaterial>

@@ -6,10 +6,11 @@ import ErrorMessage from '../utils/ErrorMessage'
 import SketchyLongWrapper from '../components/wrappers/SketchyLongWrapper'
 import Manlalaro from '../assets/images/achievements/manlalaro.png'
 import Marunong from '../assets/images/achievements/marunong.png'
+import Tagapagsalaysay from '../assets/images/achievements/tagapagsalaysay.png'
 import Mayaman from '../assets/images/achievements/mayaman.png'
 import Bihasa from '../assets/images/achievements/bihasa.png'
 import Maabilidad from '../assets/images/achievements/maabilidad.png'
-import Kolektor from '../assets/images/achievements/kolektor.png'
+import Tagapagtipon from '../assets/images/achievements/tagapagtipon.png'
 import Napakagaling from '../assets/images/achievements/napakagaling.png'
 import Pinakamahusay from  '../assets/images/achievements/pinakamahusay.png'
 import Listo from '../assets/images/achievements/listo.png'
@@ -97,7 +98,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement6 achievement ${!playerAchievements.tagapagtipon && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Kolektor} />
+                            <img className='achievement_icon' src={Tagapagtipon} />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Own 15 avatars.
