@@ -9,6 +9,11 @@
 }
 
 @font-face {
+	font-family: 'Nunito-Italic';
+	src: url(/fonts/Nunito-Italic.ttf) format('truetype');
+}
+
+@font-face {
 	font-family: 'CabinSketch-Regular';
 	src: url(/fonts/CabinSketch-Regular.ttf) format('truetype');
 }

@@ -9,7 +9,7 @@ import Life from '../../assets/images/life.png'
 
 import './UtilityDisplay.css'
 
-const UtilityDisplay = ({ tutorial1, tutorial2, tutorial3, tutorialFinished, tutorial1Active, tutorial2Active, tutorial3Active, tutorial4Active, tutorial5Active, setTutorial2Active, setTutorial3Active, setCompletedTutorial, timeIsPlaying, timeDuration, lives, setRemainingTimeLeft, levelIsNotSolved, closeDisplayBook, handlePuzzleEnded, onClickExitGame }) => {
+const UtilityDisplay = ({ tutorial1, tutorial2, tutorial1Active, tutorial2Active, tutorial3Active, tutorial4Active, tutorial5Active, setTutorial2Active, setTutorial3Active, setCompletedTutorial, timeIsPlaying, timeDuration, lives, setRemainingTimeLeft, levelIsNotSolved, closeDisplayBook, handlePuzzleEnded, onClickExitGame }) => {
     const livesRef = useRef()
     
     const [pastLives, setPastLives] = useState(lives)

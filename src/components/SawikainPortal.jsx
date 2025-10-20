@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import ExitPortal from "./portal/ExitPortal";
 
-const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved }) => {
+const SawikainPortal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved, sawikainPortalActive }) => {
   	
   	const [hovered, setHovered] = useState(null);
   	useCursor(hovered);
@@ -31,7 +31,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
   	useEffect(() => {
     	if (active) {
       		const targetPosition = new THREE.Vector3();
-      		scene.getObjectByName(active).getWorldPosition(targetPosition);
+			scene.getObjectByName(active).getWorldPosition(targetPosition);
       		controlsRef.current.setLookAt(
         		-0.57,
         		0,
@@ -40,14 +40,14 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
         		targetPosition.y,
         		targetPosition.z,
         		true
-      		)
+      		);
     	} else {
       		controlsRef.current.setLookAt(0, 0, 10, 0, 0, 0, true);
     	}
   	}, [active]);
 
   	return (
-    	<>
+    	<group visible={sawikainPortalActive ? true : false}>
       		<ambientLight intensity={0.5} />
       		<Environment preset="sunset" />
       		<CameraControls 
@@ -56,8 +56,8 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
         		maxPolarAngle={Math.PI / 2}
         		minPolarAngle={Math.PI / 2}
       		/>
-			{active && !levelStart && <ExitPortal name={name} handleActivePortal={handleActivePortal} />}
-			{active && !levelStart && <BooksDisplay handleCurrentBook={handleCurrentBook} levelStarted={levelStarted} books={books} booksSolved={booksSolved} />}
+			{active && !levelStart && sawikainPortalActive && <ExitPortal name={name} handleActivePortal={handleActivePortal} />}
+			{active && !levelStart && sawikainPortalActive && <BooksDisplay handleCurrentBook={handleCurrentBook} levelStarted={levelStarted} books={books} booksSolved={booksSolved} />}
       			<Text
         			font="fonts/CabinSketch-Regular.ttf"
         			fontSize={0.3}
@@ -72,7 +72,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
         			name={name}
         			args={[2, 3, 0.1]}
         			onClick={() => {
-						if (!active) {
+						if (!active && sawikainPortalActive) {
 							handleActivePortal(name)
 						}
 					}}
@@ -82,7 +82,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
 						}
 					}}
         			onPointerLeave={() => setHovered(null)}
-					
+					visible={() => sawikainPortalActive}
       			>
         			<MeshPortalMaterial ref={portalMaterial} side={THREE.DoubleSide}>
           				<ambientLight intensity={1} />
@@ -93,8 +93,8 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
           					</mesh>
         			</MeshPortalMaterial>
         		</RoundedBox>
-    		</>
+    		</group>
   	);
 };
 
-export default Portal
+export default SawikainPortal

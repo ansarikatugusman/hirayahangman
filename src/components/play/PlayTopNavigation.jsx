@@ -5,7 +5,7 @@ import ArrowRight from '../../assets/images/icons/arrow_right.svg'
 
 import './PlayTopNavigation.css'
 
-const PlayTopNavigation = ({ bugtongPortalActive, sawikainPortalActive, salawikainPortalActive, handleBugtongPortalActive, handleSawikainPortalActive, handleSalawikainPortalActive }) => {
+const PlayTopNavigation = ({ bugtongPortalActive, handleBugtongPortalActive, sawikainUnlocked, sawikainPortalActive, handleSawikainPortalActive, salawikainUnlocked, salawikainPortalActive, handleSalawikainPortalActive }) => {
 
     const navigate = useNavigate()
 
@@ -17,8 +17,16 @@ const PlayTopNavigation = ({ bugtongPortalActive, sawikainPortalActive, salawika
     }
 
     const ArrowRightIcon = () => {
-        if (bugtongPortalActive || sawikainPortalActive) {
-            return <img className='menu_icon' src={ArrowRight} />
+        if (salawikainUnlocked) {
+            if (bugtongPortalActive || sawikainPortalActive) {
+                return <img className='menu_icon' src={ArrowRight} />
+            }
+        }
+
+        if (sawikainUnlocked) {
+            if (bugtongPortalActive) {
+                return <img className='menu_icon' src={ArrowRight} />
+            }
         }
         return <div className='arrow_inactive ohph'></div>
     }
@@ -31,8 +39,8 @@ const PlayTopNavigation = ({ bugtongPortalActive, sawikainPortalActive, salawika
     const onClickHome = () => navigate('/')
 
     const onClickArrowRight = () => {
-        if (bugtongPortalActive) handleSawikainPortalActive()
-        if (sawikainPortalActive) handleSalawikainPortalActive()
+        if (bugtongPortalActive && sawikainUnlocked) handleSawikainPortalActive()
+        if (sawikainPortalActive && salawikainUnlocked) handleSalawikainPortalActive()
     }
 
     return (
@@ -62,8 +70,8 @@ const PlayTopNavigation = ({ bugtongPortalActive, sawikainPortalActive, salawika
                     {ArrowRightIcon()}
                     <p>
                         { 
-                            bugtongPortalActive ? 'SAWIKAIN' :
-                            sawikainPortalActive ? 'SALAWIKAIN' :
+                            bugtongPortalActive && sawikainUnlocked ? 'SAWIKAIN' :
+                            sawikainPortalActive && salawikainUnlocked ? 'SALAWIKAIN' :
                             ''
                         }
                     </p>

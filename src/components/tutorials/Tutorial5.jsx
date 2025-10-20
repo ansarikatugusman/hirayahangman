@@ -1,4 +1,4 @@
-import Dialogue from "../../utils/Dialogue";
+import Dialogue from '../../utils/Dialogue'
 
 const Tutorial5 = ({ setTutorial5Active, setCompletedTutorial }) => {
 

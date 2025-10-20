@@ -65,13 +65,13 @@ const ShopAvatarsList = [
         price: 500
     },
     {
-        name: 'Maki-Atag',
-        icon: '0101_maki-atag',
+        name: 'Maku-Atag',
+        icon: '0101_maku-atag',
         price: 1000
     },
     {
-        name: 'Maki-Atag Special',
-        icon: '0102_maki-atag_special',
+        name: 'Maku-Atag Special',
+        icon: '0102_maku-atag_special',
         price: 1500
     },
 ]
