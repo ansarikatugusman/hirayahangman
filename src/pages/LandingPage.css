@@ -4,6 +4,10 @@
     scrollbar-width: none;
 }
 
+.landing_page_content-container {
+    gap: 2.5rem;
+}
+
 .landing_page_image-wrapper {
 }
 

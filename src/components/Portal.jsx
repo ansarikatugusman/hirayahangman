@@ -1,5 +1,6 @@
 import {
   	CameraControls,
+	CameraControlsImpl,
 	Environment,
   	MeshPortalMaterial,
   	RoundedBox,
@@ -14,7 +15,7 @@ import * as THREE from "three";
 import ExitPortal from "./portal/ExitPortal";
 
 const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved, chapterFinished }) => {
-  	
+  	const { ACTION } = CameraControlsImpl;
   	const [hovered, setHovered] = useState(null);
   	useCursor(hovered);
   	const controlsRef = useRef();
@@ -51,10 +52,20 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
       		<ambientLight intensity={0.5} />
       		<Environment preset="sunset" />
       		<CameraControls 
-				dollySpeed={0}
         		ref={controlsRef}
         		maxPolarAngle={Math.PI / 2}
         		minPolarAngle={Math.PI / 2}
+				mouseButtons={{
+					left: ACTION.ROTATE,
+					middle: ACTION.DOLLY,
+					right: ACTION.ROTATE,
+					wheel: ACTION.DOLLY,
+				}}
+				touches={{
+					one: ACTION.TOUCH_ROTATE,
+					two: ACTION.TOUCH_ROTATE,
+					three: ACTION.TOUCH_ROTATE,
+				}}
       		/>
 			{active && !levelStart && <ExitPortal name={name} handleActivePortal={handleActivePortal} />}
 			{active && !levelStart && <BooksDisplay handleCurrentBook={handleCurrentBook} levelStarted={levelStarted} books={books} booksSolved={booksSolved} />}
@@ -85,7 +96,6 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
 						}
 					}}
         			onPointerLeave={() => setHovered(null)}
-					
       			>
         			<MeshPortalMaterial ref={portalMaterial} side={THREE.DoubleSide}>
           				<ambientLight intensity={1} />

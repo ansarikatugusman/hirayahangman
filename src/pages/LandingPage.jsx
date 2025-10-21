@@ -14,9 +14,7 @@ const LandingPage = () => {
                     <img className='image_logo scale' src={logo} alt='logo' />
                 </div> 
                 <SignIn />
-                <div className='landing_page_image-wrapper ohpw center'>
-                    <img className='image_logo scale' src={logo} alt='logo' />
-                </div> 
+                
             </div>
         </div>
     )

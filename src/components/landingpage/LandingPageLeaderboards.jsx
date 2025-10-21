@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import useHttpRequest from '../../hooks/useHttpRequest'
 import Loading from '../../utils/Loading'
 import ErrorMessage from '../../utils/ErrorMessage'
-import SketchyLongWrapper from '../../components/wrappers/SketchyLongWrapper'
 import Crown from '../../assets/images/crown.png'
+
+import './LandingPageLeaderboards.css'
 
 const LandingPageLeaderboards = () => {
     const dummyPlayers = [
@@ -81,79 +82,86 @@ const LandingPageLeaderboards = () => {
     })
 
     return (
-        <div >
+        <div className='landing_page_leaderboards-container center'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            <div className='leaderboard-container ohp center'>
-                <div className='leaderboard ohpw center'>
-                    <div className='leaderboard_title-wrapper ohpw center'>
-                        LEADERBOARD (TOP 50)
-                    </div>
-                    <div className='leaderboard_players-wrapper ohp center'>
-                        <div className='top_3_players ohpw center'>
-                            <div className='rank_2_player top_3_player ohph center'>
-                                <div className='top_player_details ohpw center'>
-                                    <div className='leaderboard_player_avatar-wrapper center'>
-                                        {rank2Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank2Player.avatar}.${rank2Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
-                                    </div>
-                                    <div className='top3_players_name-wrapper ohpw'>
-                                        <div className='top3_players_name'>
-                                            {rank2Player && rank2Player.name}
+            <div className='landing_page_leaderboards_description center'>
+                Be part of the leaderboard
+            </div>
+            <div className='landing_page_leaderboards' >
+                <div className='leaderboard-container ohp center'>
+                    <div className='leaderboard ohpw center'>
+                        <div className='leaderboard_title-wrapper ohpw center'>
+                            LEADERBOARD
+                        </div>
+                        <div className='leaderboard_players-wrapper ohp center'>
+                            <div className='top_3_players ohpw center'>
+                                <div className='rank_2_player top_3_player ohph center'>
+                                    <div className='top_player_details ohpw center'>
+                                        <div className='leaderboard_player_avatar-wrapper center'>
+                                            {rank2Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank2Player.avatar}.${rank2Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
+                                        </div>
+                                        <div className='top3_players_name-wrapper ohpw'>
+                                            <div className='top3_players_name'>
+                                                {rank2Player && rank2Player.name}
+                                            </div>
+                                        </div>
+                                        <div className='leaderboard_player_crowns-wrapper ohpw center'>
+                                            {rank2Player && <img className='leaderboard_player_crowns_icon' src={Crown} /> }
+                                            {rank2Player && <div className='leaderboard_player_crowns'>{rank2Player.crowns}</div> }
                                         </div>
                                     </div>
-                                    <div className='leaderboard_player_crowns-wrapper ohpw center'>
-                                        {rank2Player && <img className='leaderboard_player_crowns_icon' src={Crown} /> }
-                                        {rank2Player && <div className='leaderboard_player_crowns'>{rank2Player.crowns}</div> }
+                                    <div className='top_player_rank_2 ohpw center'>
+                                        2
                                     </div>
                                 </div>
-                                <div className='top_player_rank_2 ohpw center'>
-                                    2
+                                <div className='rank_1_player top_3_player ohph'>
+                                    <div className='top_player_details ohpw center'>
+                                        <div className='leaderboard_player_avatar-wrapper center'>
+                                            {rank1Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank1Player.avatar}.${rank1Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
+                                        </div>
+                                        <div className='top3_players_name-wrapper ohpw'>
+                                            <div className='top3_players_name'>
+                                                {rank1Player && rank1Player.name}
+                                            </div>
+                                        </div>
+                                        <div className='leaderboard_player_crowns-wrapper ohpw center'>
+                                            {rank1Player && <img className='leaderboard_player_crowns_icon' src={Crown} />}
+                                            {rank1Player && <div className='leaderboard_player_crowns'>{rank1Player.crowns}</div>}
+                                        </div>
+                                    </div>
+                                    <div className='top_player_rank_1 ohpw center'>
+                                        1
+                                    </div>
+                                </div>
+                                <div className='rank_3_player top_3_player ohph'>
+                                    <div className='top_player_details ohpw center'>
+                                        <div className='leaderboard_player_avatar-wrapper center'>
+                                            {rank3Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank3Player.avatar}.${rank3Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
+                                        </div>
+                                        <div className='top3_players_name-wrapper ohpw'>
+                                            <div className='top3_players_name'>
+                                                {rank3Player && rank3Player.name}
+                                            </div>
+                                        </div>
+                                        <div className='leaderboard_player_crowns-wrapper ohpw center'>
+                                            {rank3Player && <img className='leaderboard_player_crowns_icon' src={Crown} />}
+                                            {rank3Player && <div className='leaderboard_player_crowns'>{rank3Player.crowns}</div>}
+                                        </div>
+                                    </div>
+                                    <div className='top_player_rank_3 ohpw center'>
+                                        3
+                                    </div>
                                 </div>
                             </div>
-                            <div className='rank_1_player top_3_player ohph'>
-                                <div className='top_player_details ohpw center'>
-                                    <div className='leaderboard_player_avatar-wrapper center'>
-                                        {rank1Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank1Player.avatar}.${rank1Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
-                                    </div>
-                                    <div className='top3_players_name-wrapper ohpw'>
-                                        <div className='top3_players_name'>
-                                            {rank1Player && rank1Player.name}
-                                        </div>
-                                    </div>
-                                    <div className='leaderboard_player_crowns-wrapper ohpw center'>
-                                        {rank1Player && <img className='leaderboard_player_crowns_icon' src={Crown} />}
-                                        {rank1Player && <div className='leaderboard_player_crowns'>{rank1Player.crowns}</div>}
-                                    </div>
-                                </div>
-                                <div className='top_player_rank_1 ohpw center'>
-                                    1
-                                </div>
-                            </div>
-                            <div className='rank_3_player top_3_player ohph'>
-                                <div className='top_player_details ohpw center'>
-                                    <div className='leaderboard_player_avatar-wrapper center'>
-                                        {rank3Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank3Player.avatar}.${rank3Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
-                                    </div>
-                                    <div className='top3_players_name-wrapper ohpw'>
-                                        <div className='top3_players_name'>
-                                            {rank3Player && rank3Player.name}
-                                        </div>
-                                    </div>
-                                    <div className='leaderboard_player_crowns-wrapper ohpw center'>
-                                        {rank3Player && <img className='leaderboard_player_crowns_icon' src={Crown} />}
-                                        {rank3Player && <div className='leaderboard_player_crowns'>{rank3Player.crowns}</div>}
-                                    </div>
-                                </div>
-                                <div className='top_player_rank_3 ohpw center'>
-                                    3
-                                </div>
+                            <div className='leaderboard_players ohpw center'>
+                                {topPlayers && leaderboardTopPlayers}
+                                <div className='ohpw' style={{height: '1px'}}></div>
                             </div>
                         </div>
-                        <div className='leaderboard_players ohpw center'>
-                            {topPlayers && leaderboardTopPlayers}
-                            <div className='ohpw' style={{height: '1px'}}></div>
-                        </div>
                     </div>
+                </div>
+                <div className='landing_page_leaderboards-back'>
                 </div>
             </div>
         </div>
