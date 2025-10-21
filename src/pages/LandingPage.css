@@ -1,6 +1,9 @@
 .landing_page-container {
-    height: auto;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
 .landing_page_image-wrapper {
 }
 
