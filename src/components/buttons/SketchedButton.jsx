@@ -1,6 +1,6 @@
 import './SketchedButton.css'
 
-const SketchedButton = ({ text, width, fontsize, scale, scale_after, onClickHandler}) => {
+const SketchedButton = ({ text, width, fontsize, scale, scale_after, onClickHandler }) => {
     return (
             <button
                 className={`sketch_button ${scale ? 'scale' : '' } ${scale_after ? 'scale_after' : '' }`}

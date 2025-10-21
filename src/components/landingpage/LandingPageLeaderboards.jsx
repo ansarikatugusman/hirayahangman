@@ -85,9 +85,18 @@ const LandingPageLeaderboards = () => {
         <div className='landing_page_leaderboards-container center'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            <div className='landing_page_leaderboards_description center'>
-                Be part of the leaderboard
+            <div className='about_game_title-wrapper center'>
+				<div className='about_game_title center'>
+					<p>LEADERBOARDS</p>
+				</div>
+			</div>
+
+            <div className='landing_page_book_description-wrapper'>
+                <div className='landing_page_book_description'>
+                    Enter the mystical library where each sacred book—Bugtong, Sawikain, and Salawikain—opens as a living 3D artifact. Watch the glowing covers animate as you restore their fading light through puzzle-solving.
+                </div>
             </div>
+
             <div className='landing_page_leaderboards' >
                 <div className='leaderboard-container ohp center'>
                     <div className='leaderboard ohpw center'>

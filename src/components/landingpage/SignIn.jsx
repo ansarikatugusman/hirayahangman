@@ -7,6 +7,8 @@ import useHttpRequest from '../../hooks/useHttpRequest'
 import Loading from '../../utils/Loading'
 import ErrorMessage from '../../utils/ErrorMessage'
 
+import './SignIn.css'
+
 const SignIn = () => {
     const [showError, setShowError] = useState(false)
     const { loading, error, fetchRequest} = useHttpRequest()
@@ -85,11 +87,20 @@ const SignIn = () => {
         <div className='signin-container center'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            <GoogleLogin 
-                onSuccess={credentialResponse => signIn(credentialResponse)}
-                useOneTap
-                shape='pill'
-            />
+            <div className='signin-wrapper center'>
+                <div className='signin_header center'>
+                    PLAY NOW
+                </div>
+                <GoogleLogin 
+                    onSuccess={credentialResponse => signIn(credentialResponse)}
+                    useOneTap
+                    shape='pill'
+                    theme='filled_black'
+                />
+                <div className='signin-wrapper-back'></div>
+            </div>
+            
+            
         </div>
     )
 }

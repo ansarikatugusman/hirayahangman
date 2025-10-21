@@ -5,10 +5,7 @@
 }
 
 .landing_page_content-container {
-    gap: 2.5rem;
-}
-
-.landing_page_image-wrapper {
+    gap: 3rem;
 }
 
 .image_logo {
@@ -16,5 +13,4 @@
 }
 
 @media screen and (min-width: 550px) {
-    
 }

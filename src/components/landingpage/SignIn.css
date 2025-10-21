@@ -1,4 +1,27 @@
-.signin-container {
-    width: 220px;
-    height: 40px;
+.signin-wrapper {
+    width: 300px;
+    height: 135px;
+    border: 3px solid #333333;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    background: #f0f0f0;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.signin-wrapper-back {
+    width: 287.5px;
+    height: 137px;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
+    border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+    background: #f0f0f0;
+    z-index: -1;
+}
+
+.signin_header {
+    font: 1.75rem 'Nunito-Bold', serif;
 }
