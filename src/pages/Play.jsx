@@ -274,10 +274,10 @@ const Play = () => {
 
     return (
         <>
-        {!loading && !active &&<audio src={PlayMusic} autoPlay loop />}
-        {!loading && active === 'BUGTONG' &&<audio src={BugtongMusic} autoPlay loop />}
-        {!loading && active === 'SAWIKAIN' &&<audio src={SawikainMusic} autoPlay loop />}
-        {!loading && active === 'SALAWIKAIN' &&<audio src={SalawikainMusic} autoPlay loop />}
+        {!loading && !active && <audio src={PlayMusic} autoPlay loop />}
+        {!loading && active === 'BUGTONG' && !levelStart && <audio src={BugtongMusic} autoPlay loop />}
+        {!loading && active === 'SAWIKAIN' && !levelStart && <audio src={SawikainMusic} autoPlay loop />}
+        {!loading && active === 'SALAWIKAIN' && !levelStart && <audio src={SalawikainMusic} autoPlay loop />}
         {loading && <Loading />}
         {showError && <ErrorMessage error={error} setShowError={setShowError} />}
         {!active && <PlayTopNavigation bugtongPortalActive={bugtongPortalActive} handleBugtongPortalActive={handleBugtongPortalActive} sawikainUnlocked={sawikainUnlocked} sawikainPortalActive={sawikainPortalActive} handleSawikainPortalActive={handleSawikainPortalActive} salawikainUnlocked={salawikainUnlocked} salawikainPortalActive={salawikainPortalActive} handleSalawikainPortalActive={handleSalawikainPortalActive} />}

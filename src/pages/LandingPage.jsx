@@ -2,9 +2,8 @@ import SignIn from '../components/landingpage/SignIn'
 import AboutGame from '../components/landingpage/AboutGame'
 import LandingPageBook from '../components/landingpage/LandingPageBook'
 import LandingPageLeaderboards from '../components/landingpage/LandingPageLeaderboards'
-import ScrollToTop from '../components/landingpage/ScrollToTop'
-import LandingPageMusic from '../assets/audios/landing_page_music.ogg'
 import logo from '../assets/images/hiyasngsalita_tagline-white-outline.png'
+import LandingPageMusic from '../assets/audios/landing_page_music.ogg'
 
 import './LandingPage.css'
 
