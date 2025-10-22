@@ -1,5 +1,5 @@
 .landing_page_book-container {
-    max-width: 2000px;
+    max-width: 1200px;
     flex-direction: column;
 }
 
@@ -44,7 +44,7 @@
 
 .landing_page_book_description-wrapper {
     margin-top: 1rem;
-    width: 80%;
+    width: 90%;
     background: #fff;
     border: solid black;
     border-color: black;

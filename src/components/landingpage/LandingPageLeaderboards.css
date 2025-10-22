@@ -1,6 +1,6 @@
 .landing_page_leaderboards-container {
+    max-width: 1200px;
     flex-direction: column;
-    gap: 1rem;
 }
 
 .about_game_title  {
@@ -13,18 +13,14 @@
     cursor: pointer;
 }
 
-.landing_page_book_display-wrapper {
-    
-}
-
 .landing_page_book_description-wrapper {
-    margin-top: 1rem;
-    width: 80%;
+    width: 90%;
     background: #fff;
     border: solid black;
     border-color: black;
     float: left;    
     padding: 15px 5px;
+    margin-bottom: 1rem;
     border-width: 3px 2.5px 4px 6px;
     border-radius: 95% 1.5% 97% 2.5%/1% 94% 10% 95%;
     box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);

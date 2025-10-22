@@ -1,5 +1,5 @@
 .about_game-container {
-    max-width: 2000px;
+    max-width: 1200px;
     flex-direction: column;
     margin-bottom: 1rem;
 }
@@ -42,7 +42,7 @@
 
 .about_game_description-wrapper {
     margin: 15px;
-    width: 80%;
+    width: 90%;
     background: #fff;
     border: solid black;
     border-color: black;
