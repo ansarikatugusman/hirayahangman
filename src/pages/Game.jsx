@@ -13,6 +13,8 @@ import LettersDisplay from '../components/game/LettersDisplay'
 import EndGame from '../components/game/EndGame'
 import ExitPrompt from '../components/game/ExitPrompt'
 
+import GameMusic from '../assets/audios/game_music.ogg'
+
 import BugtongWordBank from '../utils/BugtongWordBank'
 import SawikainWordBank from '../utils/SawikainWordBank'
 import SalawikainWordBank from '../utils/SalawikainWordBank'
@@ -518,6 +520,7 @@ const Game = ({ crowns, bugtongPortalActive, bugtongBooksSolved, sawikainPortalA
 
     return (
         <div className='game center'>
+            <audio src={GameMusic} autoPlay loop />
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             {!startGame && <StartGame onClickStart={onClickStart} exitLevel={exitLevel} />}

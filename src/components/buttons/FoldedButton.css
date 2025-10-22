@@ -1,7 +1,7 @@
 .folded_button{
     padding: 25px 25px;
     position: relative;
-    font: 'Nunito-Bold', serif;
+    font: -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
     background: #f8ea69;
     border: none;
     border-top-left-radius: 250px 15px;

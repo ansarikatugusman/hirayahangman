@@ -367,7 +367,7 @@ const Page = ({ number, front, back, pages, page, opened, bookClosed, ...props }
 				setHighlighted(false)
 
 				// Create an audio object for the page flip sound effect
-				const pageflip = new Audio("/src/assets/audios/page-flip-01a.mp3");
+				const pageflip = new Audio('/src/assets/audios/page-flip-01a.mp3');
 				pageflip.play();
 			}}
     	>

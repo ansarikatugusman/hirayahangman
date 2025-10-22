@@ -101,7 +101,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
           				<ambientLight intensity={1} />
           				<Environment preset="sunset" />
           					<mesh>
-            					<sphereGeometry args={[5, 64, 64]} />
+            					<sphereGeometry args={[4.5, 64, 64]} />
             					<meshStandardMaterial map={map} side={THREE.BackSide} />
           					</mesh>
         			</MeshPortalMaterial>

@@ -8,11 +8,11 @@ import Leaderboard from '../menus/Leaderboard'
 import ContactUs from '../menus/ContactUs'
 import Message from '../utils/Message'
 import Notice from '../utils/Notice'
-import AuthContext from '../context/AuthContext'
 import useHttpRequest from '../hooks/useHttpRequest'
 import Loading from '../utils/Loading'
 import ErrorMessage from '../utils/ErrorMessage'
 import logo from '../assets/images/hiyasngsalita_tagline-white-outline.png'
+import HomeMusic from '../assets/audios/home_music.ogg'
 
 import './Home.css'
 
@@ -54,6 +54,7 @@ const Home = () => {
         <div className='home-container ohp'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
+            <audio src={HomeMusic} autoPlay loop />
             <Notice />
             <TopMenuIcons 
                 openProfileMenu={openProfileMenu}
@@ -61,7 +62,9 @@ const Home = () => {
                 openAchievementsMenu={openAchievementsMenu}
                 openLeaderboardMenu={openLeaderboardMenu}
             />
-            <div className='logo-container ohpw center'>
+            <div className='logo-container ohpw center' onClick={() => {
+                music.unMuteMusic()
+            }}>
                 <img className='image_logo scale' src={logo} alt='logo' />
             </div>
             <BottomMenuIcons

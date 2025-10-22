@@ -10,6 +10,10 @@ import Portal from '../components/Portal'
 import BugtongBooks from '../components/portal/BugtongBooks'
 import SawikainBooks from '../components/portal/SawikainBooks'
 import SalawikainBooks from '../components/portal/SalawikainBooks'
+import PlayMusic from '../assets/audios/play_music.ogg'
+import BugtongMusic from '../assets/audios/bugtong_music.ogg'
+import SawikainMusic from '../assets/audios/sawikain_music.wav'
+import SalawikainMusic from '../assets/audios/salawikain_music.wav'
 
 import StoryPrologue from '../components/story/StoryPrologue'
 import StoryChapter1_1 from '../components/story/StoryChapter1_1'
@@ -270,6 +274,10 @@ const Play = () => {
 
     return (
         <>
+        {!loading && !active &&<audio src={PlayMusic} autoPlay loop />}
+        {!loading && active === 'BUGTONG' &&<audio src={BugtongMusic} autoPlay loop />}
+        {!loading && active === 'SAWIKAIN' &&<audio src={SawikainMusic} autoPlay loop />}
+        {!loading && active === 'SALAWIKAIN' &&<audio src={SalawikainMusic} autoPlay loop />}
         {loading && <Loading />}
         {showError && <ErrorMessage error={error} setShowError={setShowError} />}
         {!active && <PlayTopNavigation bugtongPortalActive={bugtongPortalActive} handleBugtongPortalActive={handleBugtongPortalActive} sawikainUnlocked={sawikainUnlocked} sawikainPortalActive={sawikainPortalActive} handleSawikainPortalActive={handleSawikainPortalActive} salawikainUnlocked={salawikainUnlocked} salawikainPortalActive={salawikainPortalActive} handleSalawikainPortalActive={handleSalawikainPortalActive} />}

@@ -18,7 +18,7 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
             const angle = Math.PI * 2 * i / numberOfBooks
 
             const x = Math.sin(angle) * radius
-            const y = 0.5
+            const y = 0.55
             const z = Math.cos(angle) * radius
 
             if (i === numberOfBooks - 1) {
