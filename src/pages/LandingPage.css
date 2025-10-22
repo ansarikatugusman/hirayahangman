@@ -5,6 +5,7 @@
 }
 
 .landing_page_content-container {
+    flex-direction: column;
     gap: 3rem;
 }
 
