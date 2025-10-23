@@ -39,7 +39,7 @@
     border-width: 5px 3px 3px 5px;
     border-radius: 96% 0.5% 97% 1.5%/10% 94% 10% 95%;
     box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
-    transform: rotate(1deg);
+    transform: rotate(0.5deg);
     color: black;
 }
 
@@ -47,7 +47,7 @@
     position: fixed;
     top: 5%;
     left: 50%;
-    transform: translate(-50%, 0%) rotate(1deg);
+    transform: translate(-50%, 0%) rotate(-0.5deg);
 }
 
 .dialogue_text_icon-wrapper {

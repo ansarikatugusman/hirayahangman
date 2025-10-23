@@ -1,7 +1,7 @@
 .about_game-container {
     max-width: 1200px;
     flex-direction: column;
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
 }
 
 .about_game_title, .about_game_title:before, .about_game_title:after  {
@@ -17,7 +17,6 @@
     text-align: center;
     font: 1.5rem 'Nunito-Bold', serif;
     gap: 7.5px;
-    cursor: pointer;
 }
 
 .about_game_title:before, .about_game_title:after  {
@@ -56,6 +55,6 @@
 
 .about_game_description {
     font: 1rem 'Nunito-Bold', serif;
-    margin:15px;
+    margin: 15px;
     transform: rotate(-1deg);
 }

@@ -52,6 +52,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
       		<ambientLight intensity={0.5} />
       		<Environment preset="sunset" />
       		<CameraControls 
+				
         		ref={controlsRef}
         		maxPolarAngle={Math.PI / 2}
         		minPolarAngle={Math.PI / 2}
@@ -59,7 +60,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
 					left: ACTION.ROTATE,
 					middle: ACTION.DOLLY,
 					right: ACTION.ROTATE,
-					wheel: ACTION.DOLLY,
+					wheel: ACTION.NONE,
 				}}
 				touches={{
 					one: ACTION.TOUCH_ROTATE,

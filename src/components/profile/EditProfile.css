@@ -2,6 +2,7 @@
     width: 100%;
     height: 160px;
     font: 1rem 'Nunito-Bold', serif;
+    flex-direction: column;
 }
 
 .edit_profile_details {

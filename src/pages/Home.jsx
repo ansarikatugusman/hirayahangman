@@ -65,7 +65,7 @@ const Home = () => {
             <div className='logo-container ohpw center' onClick={() => {
                 music.unMuteMusic()
             }}>
-                <img className='image_logo scale' src={logo} alt='logo' />
+                <img className='image_logo ' src={logo} alt='logo' />
             </div>
             <BottomMenuIcons
                 openContactUsMenu={openContactUsMenu}

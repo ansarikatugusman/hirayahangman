@@ -7,9 +7,9 @@ const AnswerDisplay = ({ answer, correctLetters, bugtongPortalActive, sawikainPo
         <div 
             className='answer_display-container center' 
             style={{ 
-                fontSize: bugtongPortalActive ? '3.25rem'
-                : sawikainPortalActive ? '2.4rem'
-                : '1.70rem', 
+                fontSize: bugtongPortalActive ? '3rem'
+                : sawikainPortalActive ? '2.25rem'
+                : '1.5rem', 
             }}
         >
             <div className='answer_display-wrapper center'>
@@ -24,11 +24,11 @@ const AnswerDisplay = ({ answer, correctLetters, bugtongPortalActive, sawikainPo
                                             key={index} 
                                             style={{
                                                 width: bugtongPortalActive && letter==='I' ? '1.8rem'
-                                                : bugtongPortalActive ? '2rem'
+                                                : bugtongPortalActive ? '1.8rem'
                                                 : sawikainPortalActive && letter==='I' ? '1.35rem'
-                                                : sawikainPortalActive ? '1.5rem'
+                                                : sawikainPortalActive ? '1.4rem'
                                                 : salawikainPortalActive && letter==='I' ? '0.8rem'
-                                                : salawikainPortalActive && '0.915rem'
+                                                : salawikainPortalActive && '0.9rem'
                                             }}
                                         >
                                             {correctLetters.includes(letter) ? letter : '_'}

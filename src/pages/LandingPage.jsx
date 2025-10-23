@@ -1,7 +1,10 @@
 import SignIn from '../components/landingpage/SignIn'
 import AboutGame from '../components/landingpage/AboutGame'
+import EngagingGameplay from '../components/landingpage/EngagingGameplay'
+import LandingPage3DPortal from '../components/landingpage/LandingPage3DPortal'
 import LandingPageBook from '../components/landingpage/LandingPageBook'
 import LandingPageLeaderboards from '../components/landingpage/LandingPageLeaderboards'
+import LandingPageAchievements from '../components/landingpage/LandingPageAchievements'
 import logo from '../assets/images/hiyasngsalita_tagline-white-outline.png'
 import LandingPageMusic from '../assets/audios/landing_page_music.ogg'
 
@@ -10,7 +13,7 @@ import './LandingPage.css'
 const LandingPage = () => {
 
     return (
-        <div className='landing_page-container ohp center' id='lpc'>
+        <div className='landing_page-container ohp ohv center' id='lpc'>
             <audio src={LandingPageMusic} autoPlay loop />
             <div className='landing_page_content-container ohpw center'>
                 <div className='landing_page_image-wrapper ohpw center'>
@@ -18,8 +21,23 @@ const LandingPage = () => {
                 </div> 
                 <SignIn />
                 <AboutGame />
+                <EngagingGameplay />
+                <LandingPage3DPortal />
                 <LandingPageBook />
                 <LandingPageLeaderboards />
+                <LandingPageAchievements />
+                <div className='landing_page_message-wrapper ohpw center'>
+                    <div className='landing_page_message ohpw center'>
+                        {`“Ang Kaalaman ay Kayamanan, at ang Karunungan ay Kapangyarihan. Hiyas ng Salita.”`}
+                    </div>
+                    <div className='landing_page_message_english ohpw center'>
+                        {`(Knowledge is treasure, and wisdom is power. Jewel of Words.)`}
+                    </div>
+                </div>
+
+                <div className='landing_page_copyright'>
+                    &#169; COPYRIGHT 2025 HIYAS NG SALITA ALL RIGHTS RESERVED
+                </div>
             </div>
         </div>
     )
