@@ -93,7 +93,7 @@ const LandingPageLeaderboards = () => {
 
             <div className='landing_page_leaderboards_description-wrapper'>
                 <div className='landing_page_leaderboards_description'>
-                    Enter the mystical library where each sacred book—Bugtong, Sawikain, and Salawikain—opens as a living 3D artifact. Watch the glowing covers animate as you restore their fading light through puzzle-solving.
+                    Compete with fellow players as you earn points and climb the leaderboard. Every solved puzzle strengthens your rank as a true Tagapangalaga ng Karunungan (Guardian of Wisdom).
                 </div>
             </div>
 

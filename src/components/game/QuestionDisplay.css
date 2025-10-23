@@ -2,11 +2,16 @@
     min-width: 325px;
     width: 50%;
     height: 15%;
+    flex-direction: column;
     padding: 0rem 0.5rem;
     background: #ede9e8;
     border: 5px double black;
     border-radius: 1rem;
     margin: 1% 0% 0% 0%;
+}
+
+.question_guide {
+    font: 0.85rem 'Nunito-Italic', serif;
 }
 
 .question_display {

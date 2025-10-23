@@ -531,7 +531,7 @@ const Game = ({ crowns, bugtongPortalActive, bugtongBooksSolved, sawikainPortalA
 
             {startGame && <BookDisplay tutorial3={tutorial3} tutorial4={tutorial4} tutorialFinished={tutorialFinished} tutorial4Active={tutorial4Active} setTutorial4Active={setTutorial4Active} setCompletedTutorial={setCompletedTutorial} pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} salawikainPortalActive={salawikainPortalActive} />}
 
-            {startGame && <QuestionDisplay question={question} />} 
+            {startGame && <QuestionDisplay question={question} sawikainPortalActive={sawikainPortalActive} salawikainPortalActive={salawikainPortalActive} />} 
 
             {startGame && <ItemsDisplay tutorial4={tutorial4} tutorialFinished={tutorialFinished} tutorial5Active={tutorial5Active} setTutorial5Active={setTutorial5Active} setCompletedTutorial={setCompletedTutorial} item1={item1} item2={item2} item3={item3} item4={item4} item5={item5} setItem1={setItem1} setItem2={setItem2} setItem3={setItem3} setItem4={setItem4} setItem5={setItem5} addLife={addLife} stopTime={stopTime} timeIsPlaying={timeIsPlaying} hint={hint} generateGame={generateGame} remove={remove} openWrongLetters={openWrongLetters} onItemUse={onItemUse} />}
 
