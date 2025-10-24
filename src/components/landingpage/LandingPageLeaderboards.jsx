@@ -108,7 +108,7 @@ const LandingPageLeaderboards = () => {
                                 <div className='rank_2_player top_3_player ohph center'>
                                     <div className='top_player_details ohpw center'>
                                         <div className='leaderboard_player_avatar-wrapper center'>
-                                            {rank2Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank2Player.avatar}.${rank2Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
+                                            {rank2Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank2Player.avatar}.${rank2Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar'/>}
                                         </div>
                                         <div className='top3_players_name-wrapper ohpw'>
                                             <div className='top3_players_name'>
@@ -116,7 +116,7 @@ const LandingPageLeaderboards = () => {
                                             </div>
                                         </div>
                                         <div className='leaderboard_player_crowns-wrapper ohpw center'>
-                                            {rank2Player && <img className='leaderboard_player_crowns_icon' src={Crown} /> }
+                                            {rank2Player && <img className='leaderboard_player_crowns_icon' src={Crown} alt='crown' /> }
                                             {rank2Player && <div className='leaderboard_player_crowns'>{rank2Player.crowns}</div> }
                                         </div>
                                     </div>
@@ -127,7 +127,7 @@ const LandingPageLeaderboards = () => {
                                 <div className='rank_1_player top_3_player ohph'>
                                     <div className='top_player_details ohpw center'>
                                         <div className='leaderboard_player_avatar-wrapper center'>
-                                            {rank1Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank1Player.avatar}.${rank1Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
+                                            {rank1Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank1Player.avatar}.${rank1Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' />}
                                         </div>
                                         <div className='top3_players_name-wrapper ohpw'>
                                             <div className='top3_players_name'>
@@ -135,7 +135,7 @@ const LandingPageLeaderboards = () => {
                                             </div>
                                         </div>
                                         <div className='leaderboard_player_crowns-wrapper ohpw center'>
-                                            {rank1Player && <img className='leaderboard_player_crowns_icon' src={Crown} />}
+                                            {rank1Player && <img className='leaderboard_player_crowns_icon' src={Crown} alt='crown' />}
                                             {rank1Player && <div className='leaderboard_player_crowns'>{rank1Player.crowns}</div>}
                                         </div>
                                     </div>
@@ -146,7 +146,7 @@ const LandingPageLeaderboards = () => {
                                 <div className='rank_3_player top_3_player ohph'>
                                     <div className='top_player_details ohpw center'>
                                         <div className='leaderboard_player_avatar-wrapper center'>
-                                            {rank3Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank3Player.avatar}.${rank3Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} />}
+                                            {rank3Player && <img className='leaderboard_player_avatar' src={`./avatars/${rank3Player.avatar}.${rank3Player.avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' />}
                                         </div>
                                         <div className='top3_players_name-wrapper ohpw'>
                                             <div className='top3_players_name'>
@@ -154,7 +154,7 @@ const LandingPageLeaderboards = () => {
                                             </div>
                                         </div>
                                         <div className='leaderboard_player_crowns-wrapper ohpw center'>
-                                            {rank3Player && <img className='leaderboard_player_crowns_icon' src={Crown} />}
+                                            {rank3Player && <img className='leaderboard_player_crowns_icon' src={Crown} alt='crown' />}
                                             {rank3Player && <div className='leaderboard_player_crowns'>{rank3Player.crowns}</div>}
                                         </div>
                                     </div>

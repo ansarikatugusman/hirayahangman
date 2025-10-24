@@ -16,7 +16,7 @@ const LandingPage3DPortal = () => {
                 </div>
             </div>
             <div className='landing_page_3d_world_portal_image-wrapper center'>
-                <img className='landing_page_3d_world_portal_image' src={WorldPortal} />
+                <img className='landing_page_3d_world_portal_image' src={WorldPortal} alt='image' />
             </div>
         </div>
     )

@@ -96,11 +96,6 @@ const SignIn = () => {
                     useOneTap
                     shape='pill'
                     theme='filled_black'
-                    containerProps={{
-                        style: {
-                            cursor: 'cell'
-                        },
-                    }}
                 />
                 <div className='signin-wrapper-back'></div>
             </div>
