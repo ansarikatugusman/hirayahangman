@@ -38,11 +38,11 @@ const App = () => {
     } else {
         routes = (
             <Routes>
-                <Route path='/' element={<LandingPage />} />
+                <Route path='/' element={<LandingPage musicMuted={musicMuted} />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/testing' element={<Testing />}/>
-                <Route path='*' element={<LandingPage />} />
+                <Route path='*' element={<LandingPage musicMuted={musicMuted} />} />
             </Routes>
         )
     }

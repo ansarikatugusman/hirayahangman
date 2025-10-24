@@ -14,7 +14,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import ExitPortal from "./portal/ExitPortal";
 
-const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved, chapterFinished }) => {
+const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved }) => {
   	const { ACTION } = CameraControlsImpl;
   	const [hovered, setHovered] = useState(null);
   	useCursor(hovered);

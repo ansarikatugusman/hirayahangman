@@ -10,11 +10,11 @@ import LandingPageMusic from '../assets/audios/landing_page_music.ogg'
 
 import './LandingPage.css'
 
-const LandingPage = () => {
+const LandingPage = ({ musicMuted }) => {
 
     return (
         <div className='landing_page-container ohp ohv center' id='lpc'>
-            <audio src={LandingPageMusic} autoPlay loop />
+            <audio src={LandingPageMusic} autoPlay loop muted={musicMuted} />
             <div className='landing_page_content-container ohpw center'>
                 <div className='landing_page_image-wrapper ohpw center'>
                     <img className='image_logo scale' src={logo} alt='logo' />

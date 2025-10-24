@@ -21,7 +21,7 @@ import SalawikainWordBank from '../utils/SalawikainWordBank'
 
 import './Game.css'
 
-const Game = ({ crowns, bugtongPortalActive, bugtongBooksSolved, sawikainPortalActive, sawikainBooksSolved, salawikainPortalActive, salawikainBooksSolved, levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved}) => {
+const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, sawikainPortalActive, sawikainBooksSolved, salawikainPortalActive, salawikainBooksSolved, levelEnded, levelSolved, levelIsSolved, levelIsNotSolved, handleLevelSolved}) => {
     const [item1, setItem1] = useState()
     const [item2, setItem2] = useState()
     const [item3, setItem3] = useState()
@@ -520,7 +520,7 @@ const Game = ({ crowns, bugtongPortalActive, bugtongBooksSolved, sawikainPortalA
 
     return (
         <div className='game center'>
-            <audio src={GameMusic} autoPlay loop />
+            <audio src={GameMusic} autoPlay loop muted={musicMuted} />
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             {!startGame && <StartGame onClickStart={onClickStart} exitLevel={exitLevel} />}

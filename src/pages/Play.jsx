@@ -34,7 +34,7 @@ import StoryEnd from '../components/story/StoryEnd'
 
 import './Play.css'
 
-const Play = () => {
+const Play = ({ musicMuted }) => {
     const [bugtongPortalActive, setBugtongPortalActive] = useState(true)
     const [sawikainPortalActive, setSawikainPortalActive] = useState(false)
     const [salawikainPortalActive, setSalawikainPortalActive] = useState(false)
@@ -274,10 +274,10 @@ const Play = () => {
 
     return (
         <>
-        {!loading && !active && <audio src={PlayMusic} autoPlay loop />}
-        {!loading && active === 'BUGTONG' && !levelStart && <audio src={BugtongMusic} autoPlay loop />}
-        {!loading && active === 'SAWIKAIN' && !levelStart && <audio src={SawikainMusic} autoPlay loop />}
-        {!loading && active === 'SALAWIKAIN' && !levelStart && <audio src={SalawikainMusic} autoPlay loop />}
+        {!loading && !active && <audio src={PlayMusic} autoPlay loop muted={musicMuted} />}
+        {!loading && active === 'BUGTONG' && !levelStart && <audio src={BugtongMusic} autoPlay loop muted={musicMuted} />}
+        {!loading && active === 'SAWIKAIN' && !levelStart && <audio src={SawikainMusic} autoPlay loop muted={musicMuted} />}
+        {!loading && active === 'SALAWIKAIN' && !levelStart && <audio src={SalawikainMusic} autoPlay loop muted={musicMuted} />}
         {loading && <Loading />}
         {showError && <ErrorMessage error={error} setShowError={setShowError} />}
         {!active && <PlayTopNavigation bugtongPortalActive={bugtongPortalActive} handleBugtongPortalActive={handleBugtongPortalActive} sawikainUnlocked={sawikainUnlocked} sawikainPortalActive={sawikainPortalActive} handleSawikainPortalActive={handleSawikainPortalActive} salawikainUnlocked={salawikainUnlocked} salawikainPortalActive={salawikainPortalActive} handleSalawikainPortalActive={handleSalawikainPortalActive} />}
@@ -292,7 +292,7 @@ const Play = () => {
             </Suspense>
         </Canvas>
 
-        {levelStart && <Game crowns={crowns} bugtongPortalActive={bugtongPortalActive} bugtongBooksSolved={bugtongBooksSolved} sawikainPortalActive={sawikainPortalActive} sawikainBooksSolved={sawikainBooksSolved} salawikainPortalActive={salawikainPortalActive} salawikainBooksSolved={salawikainBooksSolved} levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
+        {levelStart && <Game musicMuted={musicMuted} crowns={crowns} bugtongPortalActive={bugtongPortalActive} bugtongBooksSolved={bugtongBooksSolved} sawikainPortalActive={sawikainPortalActive} sawikainBooksSolved={sawikainBooksSolved} salawikainPortalActive={salawikainPortalActive} salawikainBooksSolved={salawikainBooksSolved} levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
 
         {storyPrologue && <StoryPrologue handleBugtongUnlocked={handleBugtongUnlocked} />}
         {storyChapter1_1 && <StoryChapter1_1 />}

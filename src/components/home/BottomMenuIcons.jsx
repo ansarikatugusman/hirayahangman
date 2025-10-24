@@ -20,8 +20,8 @@ const BottomMenuIcons = ({ openContactUsMenu, musicMuted, muteMusic, unmuteMusic
                 </div>
             </div>
             
-            <div className='bottom_menu_icons-wrapper center' >
-                <div className='menu_icon-wrapper center'>
+            <div className='bottom_menu_icons-wrapper center'>
+                <div className='menu_icon-wrapper center' style={{ display: 'none' }}>
                     <img className='menu_icon' src={Credits} alt='credits' />
                     <p>CREDITS</p>
                 </div>
