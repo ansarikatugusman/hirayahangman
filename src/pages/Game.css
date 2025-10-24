@@ -15,3 +15,9 @@
         width: 60vw;
     }
 }
+
+@media screen and (min-width: 600px) and (max-width: 1050px) and (min-height: 750px) and (max-height: 1400px) {
+    .game {
+        width: 90vw;
+    }
+}

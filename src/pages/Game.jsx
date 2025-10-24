@@ -58,6 +58,7 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
     const [openWrongLetters, setOpenWrongLetters] = useState([])
     const [remainingTimeLeft, setRemainingTimeLeft] = useState()
     const [itemsUsed, setItemsUsed] = useState(0)
+    const [timeStopUsed, setTimeStopUsed] = useState(false)
     const [puzzleEnded, setPuzzleEnded] = useState(false)
     const [exitGame, setExitGame] = useState(false)
     const [showError, setShowError] = useState(false)
@@ -101,6 +102,7 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
 
     const stopTime = () => {
         setTimeIsPlaying(false)
+        setTimeStopUsed(true)
     }
 
     const addLife = () => {
@@ -349,14 +351,16 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
     const goldReward = () => {
         if (!tutorialFinished) return 50
 
-        return Math.round(40 + (remainingTimeLeft / 6))
+        if(timeStopUsed) return 40
+        else return Math.round(40 + (remainingTimeLeft / 6))
     }
 
     const crownsReward = () => {
         if (!tutorialFinished) return 10
 
         let baseReward
-        let timeUsed = (55 + (upgrade2 * 5)) - remainingTimeLeft
+        let timeUsed
+
         if (crowns < 149) baseReward = 35
         else if (crowns < 249) baseReward = 29
         else if (crowns < 349) baseReward = 24
@@ -364,9 +368,20 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
         else if (crowns < 549) baseReward = 17
         else if (crowns < 649) baseReward = 15
         else if (crowns < 749) baseReward = 13
-        else baseReward = 9 - wrongLetters.length
+        else if (crowns < 849) baseReward = 11
+        else if (crowns < 949) baseReward = 9
+        else if (crowns < 1249) baseReward = 7
+        else if (crowns < 1449) baseReward = 5
+        else if (crowns < 1749) baseReward = 3
+        else baseReward = 2
 
-        return Math.round(baseReward - (timeUsed / 3.5) - itemsUsed)
+        if (timeStopUsed) {
+            timeUsed = 45
+        } else {
+            timeUsed = (55 + (upgrade2 * 5)) - remainingTimeLeft
+        }
+
+        return Math.round(baseReward - (timeUsed / 3.5) - itemsUsed - wrongLetters.length)
     }
 
     const tutorialCompleted = async () => {
@@ -411,16 +426,22 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
 
     const crownsPenalty = () => {
         if (!tutorialFinished) return 0
+
         let crownsPenalty
 
-        if (crowns < 149) crownsPenalty = -5
-        else if (crowns < 249) crownsPenalty = -7
-        else if (crowns < 349) crownsPenalty = -10
-        else if (crowns < 449) crownsPenalty = -13
-        else if (crowns < 549) crownsPenalty = -17
-        else if (crowns < 649) crownsPenalty = -21
-        else if (crowns < 749) crownsPenalty = -25
-        else crownsPenalty = -30
+        if (crowns < 149) crownsPenalty = -2
+        else if (crowns < 249) crownsPenalty = -3
+        else if (crowns < 349) crownsPenalty = -5
+        else if (crowns < 449) crownsPenalty = -7
+        else if (crowns < 549) crownsPenalty = -9
+        else if (crowns < 649) crownsPenalty = -11
+        else if (crowns < 749) crownsPenalty = -13
+        else if (crowns < 849) crownsPenalty = 15
+        else if (crowns < 949) crownsPenalty = 17
+        else if (crowns < 1249) crownsPenalty = 20
+        else if (crowns < 1449) crownsPenalty = 24
+        else if (crowns < 1749) crownsPenalty = 29
+        else crownsPenalty = -35
 
         return crownsPenalty
     }

@@ -15,7 +15,7 @@ const BottomMenuIcons = ({ openContactUsMenu, musicMuted, muteMusic, unmuteMusic
     return (
         <div className='bottom_menu_icons-container ohpw center scale_after'>
             <div className='bottom_menu_play_button-container center' >
-                <div className='bottom_menu_play_button-wrapper center' onClickHandler={onClickPlayHandler}>
+                <div className='bottom_menu_play_button-wrapper center' onClick={onClickPlayHandler}>
                     <SketchedButton text='PLAY' width='225px' fontsize='200%' onClickHandler={onClickPlayHandler} />
                 </div>
             </div>

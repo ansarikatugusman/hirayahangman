@@ -40,7 +40,6 @@
     padding: 5px;
     border-radius: 50%;
     border: 1px solid black;
-    cursor: pointer;
 }
 
 .letter_button:hover {
@@ -92,7 +91,6 @@
     flex-direction: row;
     border: 1px solid black;
     border-radius: 5px;
-    cursor: pointer;
     gap: 5px;
 }
 

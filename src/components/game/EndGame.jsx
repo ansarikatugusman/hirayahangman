@@ -14,6 +14,8 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
 
     const collectChest = () => {
         setEmpty(true)
+        const chestopen = new Audio('/src/assets/audios/chest_open.mp3')
+		chestopen.play()
     }
 
     useEffect(() => {
@@ -38,7 +40,7 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
     }
 
     return (
-        <div className='end_game-container modal' onClick={collectChest}>
+        <div className='end_game-container modal'>
             <dialog className='end_game center' ref={modal}>
                 <div className='end_game_content-wrapper center ohp' style={{ display: levelSolved ? 'none' : 'flex' }}>
                     <div className='end_game_message-wrapper ohpw center'>

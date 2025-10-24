@@ -20,6 +20,9 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
 
     const useItem1 = async () => {
         // Health Plus
+        addLife()
+        setItem1(prevItemQuantity => prevItemQuantity - 1 )
+
         if (item1 >= 1) {   
             try {
                 await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/useItem/item1`,
@@ -31,14 +34,16 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
             } catch (err) {
                 setShowError(true)
             }
-            addLife()
-            setItem1(prevItemQuantity => prevItemQuantity - 1 )
+
             onItemUse()
         }
     }
 
     const useItem2 = async () => {
         // Time Shield
+        stopTime()
+        setItem2(prevItemQuantity => prevItemQuantity - 1 )
+
         if (item2 >= 1 && timeIsPlaying === true) {
             try {
                 await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/useItem/item2`,
@@ -50,14 +55,16 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
             } catch (err) {
                 setShowError(true)
             }
-            stopTime()
-            setItem2(prevItemQuantity => prevItemQuantity - 1 )
+            
             onItemUse()
         }
     }
 
     const useItem3 = async () => {
         // Magnifying Glass
+        hint()
+        setItem3(prevItemQuantity => prevItemQuantity - 1 )
+
         if (item3 >= 1) {
             try {
                 await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/useItem/item3`,
@@ -69,14 +76,16 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
             } catch (err) {
                 setShowError(true)
             }
-            hint()
-            setItem3(prevItemQuantity => prevItemQuantity - 1 )
+            
             onItemUse()
         }
     }
 
     const useItem4 = async () => {
         // Randomizer
+        generateGame()
+        setItem4(prevItemQuantity => prevItemQuantity - 1 )
+
         if (item4 >= 1) {
             try {
                 await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/useItem/item4`,
@@ -88,14 +97,16 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
             } catch (err) {
                 setShowError(true)
             }
-            generateGame()
-            setItem4(prevItemQuantity => prevItemQuantity - 1 )
+            
             onItemUse()
         }
     }
 
     const useItem5 = async () => {
         // Cross Mark
+        remove()
+        setItem5(prevItemQuantity => prevItemQuantity - 1 )
+
         if (item5 >= 1 && openWrongLetters.length >= 2) {
             try {
                 await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/useItem/item5`,
@@ -107,8 +118,7 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
             } catch (err) {
                 setShowError(true)
             }
-            remove()
-            setItem5(prevItemQuantity => prevItemQuantity - 1 )
+            
             onItemUse()
         }
     }

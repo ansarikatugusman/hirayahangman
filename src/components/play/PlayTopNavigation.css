@@ -1,5 +1,5 @@
 .play_top_navigation-container {
-    height: 100px;
+    height: 200px;
     position: fixed;
     top: 10vh;
     left: 50vw;
@@ -26,5 +26,5 @@
 
 .arrow_inactive {
     width: 100px;
-    cursor: default;
+    cursor: none;
 }

@@ -13,7 +13,7 @@ import './LandingPage.css'
 const LandingPage = ({ musicMuted }) => {
 
     return (
-        <div className='landing_page-container ohp ohv center' id='lpc'>
+        <div className='landing_page-container ohp ohv center' id='lpc' style={{ cursor: 'default' }}>
             <audio src={LandingPageMusic} autoPlay loop muted={musicMuted} />
             <div className='landing_page_content-container ohpw center'>
                 <div className='landing_page_image-wrapper ohpw center'>

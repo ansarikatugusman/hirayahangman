@@ -14,7 +14,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import ExitPortal from "./portal/ExitPortal";
 
-const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved }) => {
+const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved, chapterFinished }) => {
   	const { ACTION } = CameraControlsImpl;
   	const [hovered, setHovered] = useState(null);
   	useCursor(hovered);
@@ -36,7 +36,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
       		controlsRef.current.setLookAt(
         		0,
         		0,
-        		2.75,
+        		3,
         		targetPosition.x,
         		targetPosition.y,
         		targetPosition.z,

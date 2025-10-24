@@ -65,7 +65,6 @@
 
 .sawikain_book_image {
     width: 250px;
-    cursor: pointer;
     animation: floating 5s ease-in-out infinite;
     will-change: transform;
     backface-visibility: hidden;

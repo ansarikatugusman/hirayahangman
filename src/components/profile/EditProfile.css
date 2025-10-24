@@ -63,7 +63,6 @@
     font-size: 0.9rem;
     gap: 5px;
     padding-top: 12.5px;
-    cursor: pointer;
 }
 
 .edit_profile_save_icon {
@@ -88,7 +87,6 @@
 .avatar_collection-wrapper {
     width: 70px;
     height: 70px;
-    cursor: pointer;
 }
 
 .edit_profile_collection_avatar {
