@@ -46,6 +46,7 @@ const LandingPageBook = () => {
 							<Book pictures={pictures} cover={'book-cover-maku'} back={'book-back-bugtong'} />
 							</Float>
 							<OrbitControls enableZoom={false} />
+							
 							<directionalLight
 								position={[2, 5, 2]}
 								intensity={1}

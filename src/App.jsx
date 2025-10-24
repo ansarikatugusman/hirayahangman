@@ -39,6 +39,7 @@ const App = () => {
     if (token) {
         routes = (
             <Routes>
+                
                 <Route index element={<Home musicMuted={musicMuted} muteMusic={muteMusic} unmuteMusic={unmuteMusic} />} />
                 <Route path='/testing' element={<Testing />}/>
                 <Route path='/play' element={<Play musicMuted={musicMuted} />}/>
@@ -94,13 +95,15 @@ const App = () => {
                     ref={cursor}
                     style={{ 
                         display: token ? 'block' : 'none',
-                        
                     }}
                 >
-                    <img className='cursor' src={Cursor} alt='cursor' 
+                    <img 
+                        className='cursor' 
+                        src={Cursor}
+                        alt='cursor'
                         style={{ 
-                            display: token ? 'block' : 'none',
-                        }} 
+                            display: !mobileCheck ? 'block' : 'none',
+                        }}
                     />
                 </div>
             </AuthContext.Provider>

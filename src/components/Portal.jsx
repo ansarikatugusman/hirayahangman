@@ -50,7 +50,6 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
   	return (
     	<>
       		<ambientLight intensity={0.5} />
-      		
       		<CameraControls 
 				
         		ref={controlsRef}
@@ -100,7 +99,6 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
       			>
         			<MeshPortalMaterial ref={portalMaterial} side={THREE.DoubleSide}>
           				<ambientLight intensity={1} />
-          				
           					<mesh>
             					<sphereGeometry args={[4.5, 64, 64]} />
             					<meshStandardMaterial map={map} side={THREE.BackSide} />
