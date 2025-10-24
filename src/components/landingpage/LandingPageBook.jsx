@@ -49,7 +49,7 @@ const LandingPageBook = () => {
 							
 							<directionalLight
 								position={[2, 5, 2]}
-								intensity={1}
+								intensity={5}
 								castShadow
 								shadow-mapSize-width={2048}
 								shadow-mapSize-height={2048}

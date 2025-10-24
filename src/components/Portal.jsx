@@ -98,7 +98,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
         			onPointerLeave={() => setHovered(null)}
       			>
         			<MeshPortalMaterial ref={portalMaterial} side={THREE.DoubleSide}>
-          				<ambientLight intensity={1} />
+          				<ambientLight intensity={4} />
           					<mesh>
             					<sphereGeometry args={[4.5, 64, 64]} />
             					<meshStandardMaterial map={map} side={THREE.BackSide} />
