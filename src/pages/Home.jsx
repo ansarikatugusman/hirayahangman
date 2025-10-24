@@ -1,5 +1,4 @@
 import { useState, useContext } from 'react'
-import MusicContext from '../context/MusicContext'
 import TopMenuIcons from '../components/home/TopMenuIcons'
 import BottomMenuIcons from '../components/home/BottomMenuIcons'
 import Profile from '../menus/Profile'
@@ -26,8 +25,6 @@ const Home = ({ musicMuted, muteMusic, unmuteMusic }) => {
     const [showMessage, setShowMessage] = useState(false)
     const [showError, setShowError] = useState(false)
     const {loading, error, fetchRequest} = useHttpRequest()
-
-    const music = useContext(MusicContext)
 
     const openProfileMenu = () => setProfileMenuOpen(true)
 
