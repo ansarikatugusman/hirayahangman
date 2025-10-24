@@ -52,7 +52,6 @@ const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setComplet
 						<Book pictures={pictures} cover={cover} back={back} />
 						</Float>
 						<OrbitControls enableZoom={false} />
-						<Environment preset="studio"></Environment>
 						<directionalLight
 							position={[2, 5, 2]}
 							intensity={1}

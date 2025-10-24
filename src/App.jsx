@@ -75,7 +75,7 @@ const App = () => {
                 }}
             />
             <AuthContext.Provider value={{ id: id, token: token, login: login, logout: logout }}>
-                <div className='app' onMouseMove={changePosition} style={{ cursor: token ? 'none' : 'pointer' }}>
+                <div className='app' onMouseMove={changePosition} style={{ cursor: token ? 'none' : 'default' }}>
                     {routes}
                     
                 </div>
@@ -94,10 +94,14 @@ const App = () => {
                     ref={cursor}
                     style={{ 
                         display: token ? 'block' : 'none',
-                        display: !mobileCheck ? 'block' : 'none',
+                        
                     }}
                 >
-                    <img className='cursor' src={Cursor} alt='cursor' />
+                    <img className='cursor' src={Cursor} alt='cursor' 
+                        style={{ 
+                            display: token ? 'block' : 'none',
+                        }} 
+                    />
                 </div>
             </AuthContext.Provider>
         </>
