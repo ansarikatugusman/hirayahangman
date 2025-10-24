@@ -24,11 +24,11 @@ const AnswerDisplay = ({ answer, correctLetters, bugtongPortalActive, sawikainPo
                                             key={index} 
                                             style={{
                                                 width: bugtongPortalActive && letter==='I' ? '1.8rem'
-                                                : bugtongPortalActive ? '1.8rem'
-                                                : sawikainPortalActive && letter==='I' ? '1.35rem'
-                                                : sawikainPortalActive ? '1.4rem'
+                                                : bugtongPortalActive ? '1.65rem'
+                                                : sawikainPortalActive && letter==='I' ? '1.3rem'
+                                                : sawikainPortalActive ? '1.25rem'
                                                 : salawikainPortalActive && letter==='I' ? '0.8rem'
-                                                : salawikainPortalActive && '0.9rem'
+                                                : salawikainPortalActive && '0.7rem'
                                             }}
                                         >
                                             {correctLetters.includes(letter) ? letter : '_'}

@@ -1,6 +1,5 @@
 const SawikainWordBank = {
     easy: [
-        /*
         {
             item_code: 'sw-1-001',
             question: 'Kaawa-awa',
@@ -79,7 +78,6 @@ const SawikainWordBank = {
                 'sw-1-6-06',
             ]
         },
-        */
         {
             item_code: 'sw-1-007',
             question: 'Madaldal',
@@ -160,7 +158,6 @@ const SawikainWordBank = {
         }
     ],
     medium: [
-        /*
         {
             item_code: 'sw-2-001',
             question: 'Hindi magkasundo',
@@ -205,6 +202,7 @@ const SawikainWordBank = {
                 'sw-2-4-04',
             ]
         },
+        /*
         {
             item_code: 'sw-2-005',
             question: 'Walang turing',
@@ -216,6 +214,7 @@ const SawikainWordBank = {
                 'sw-2-5-04',
             ]
         },
+        */
         {
             item_code: 'sw-2-006',
             question: 'Di mapaniwalaang balita',
@@ -227,7 +226,6 @@ const SawikainWordBank = {
                 'sw-2-6-04',
             ]
         },
-        */
         {
             item_code: 'sw-2-007',
             question: 'Walang pera',
