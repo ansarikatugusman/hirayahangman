@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react'
+import MusicContext from '../context/MusicContext'
 import TopMenuIcons from '../components/home/TopMenuIcons'
 import BottomMenuIcons from '../components/home/BottomMenuIcons'
 import Profile from '../menus/Profile'
@@ -16,7 +17,7 @@ import HomeMusic from '../assets/audios/home_music.ogg'
 
 import './Home.css'
 
-const Home = () => {
+const Home = ({ musicMuted, muteMusic, unmuteMusic }) => {
     const [profileMenuOpen, setProfileMenuOpen] = useState(false)
     const [storeMenuOpen, setStoreMenuOpen] = useState(false)
     const [achievementsMenuOpen, setAchievementsMenuOpen] = useState(false)
@@ -25,6 +26,8 @@ const Home = () => {
     const [showMessage, setShowMessage] = useState(false)
     const [showError, setShowError] = useState(false)
     const {loading, error, fetchRequest} = useHttpRequest()
+
+    const music = useContext(MusicContext)
 
     const openProfileMenu = () => setProfileMenuOpen(true)
 
@@ -54,7 +57,7 @@ const Home = () => {
         <div className='home-container ohp'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
-            <audio src={HomeMusic} autoPlay loop />
+            <audio src={HomeMusic} autoPlay loop muted={musicMuted} />
             <Notice />
             <TopMenuIcons 
                 openProfileMenu={openProfileMenu}
@@ -62,14 +65,14 @@ const Home = () => {
                 openAchievementsMenu={openAchievementsMenu}
                 openLeaderboardMenu={openLeaderboardMenu}
             />
-            <div className='logo-container ohpw center' onClick={() => {
-                music.unMuteMusic()
-            }}>
+            <div className='logo-container ohpw center'>
                 <img className='image_logo ' src={logo} alt='logo' />
             </div>
             <BottomMenuIcons
                 openContactUsMenu={openContactUsMenu}
-                openMessage={openMessage}
+                musicMuted={musicMuted}
+                muteMusic={muteMusic}
+                unmuteMusic={unmuteMusic}
             />
             {profileMenuOpen && <Profile closeProfileMenu={closeProfileMenu} />}
             {storeMenuOpen && <Store closeStoreMenu={closeStoreMenu} />}

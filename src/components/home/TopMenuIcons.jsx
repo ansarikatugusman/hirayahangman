@@ -10,19 +10,19 @@ const MenuIcons = ({ openProfileMenu, openStoreMenu, openAchievementsMenu, openL
         <div className='top_menu_icons-container ohpw center scale_after'>
             <div className='menu_icons-wrapper center'>
                 <div className='menu_icon-wrapper center' onClick={openProfileMenu}>
-                    <img className='menu_icon' src={Profile} />
+                    <img className='menu_icon' src={Profile} alt='profile' />
                     <p>PROFILE</p>
                 </div>
                 <div className='menu_icon-wrapper center' onClick={openStoreMenu}>
-                    <img className='menu_icon' src={Store} />
-                    <p className='xxx'>STORE</p>
+                    <img className='menu_icon' src={Store} alt='store' />
+                    <p>STORE</p>
                 </div>
                 <div className='menu_icon-wrapper center' onClick={openAchievementsMenu}>
-                    <img className='menu_icon' src={Achievements} />
+                    <img className='menu_icon' src={Achievements} alt='achievements' />
                     <p>ACHIEVEMENTS</p>
                 </div>
                 <div className='menu_icon-wrapper center' onClick={openLeaderboardMenu}>
-                    <img className='menu_icon' src={Leaderboard} />
+                    <img className='menu_icon' src={Leaderboard} alt='leaderboard' />
                     <p>LEADERBOARD</p>
                 </div>
             </div>

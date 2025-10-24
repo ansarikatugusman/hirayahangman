@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { Routes, Route } from 'react-router'
 import { Loader } from '@react-three/drei'
 import AuthContext from './context/AuthContext'
@@ -14,23 +14,25 @@ import './App.css'
 
 const App = () => {
     const { id, token, login, logout } = useAuth()
+    const [musicMuted, setMusicMuted] = useState(false)
 
-    useEffect(() => {
-        if (!localStorage.getItem('token1')) {
-            localStorage.removeItem('token0')
-            localStorage.setItem('token1', true)
-        }
-    }, [])
+    const muteMusic = () => {
+        setMusicMuted(true)
+    }
+
+    const unmuteMusic = () => {
+        setMusicMuted(false)
+    }
 
     let routes
 
     if (token) {
         routes = (
             <Routes>
-                <Route index element={<Home />} />
+                <Route index element={<Home musicMuted={musicMuted} muteMusic={muteMusic} unmuteMusic={unmuteMusic} />} />
                 <Route path='/testing' element={<Testing />}/>
-                <Route path='/play' element={<Play />}/>
-                <Route path='*' element={<Home />} />
+                <Route path='/play' element={<Play musicMuted={musicMuted} />}/>
+                <Route path='*' element={<Home musicMuted={musicMuted} muteMusic={muteMusic} unmuteMusic={unmuteMusic} />} />
             </Routes>
         )
     } else {
