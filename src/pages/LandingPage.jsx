@@ -23,7 +23,7 @@ const LandingPage = ({ musicMuted }) => {
                 <AboutGame />
                 <EngagingGameplay />
                 <LandingPage3DPortal />
-                
+                <LandingPageBook />
                 <LandingPageLeaderboards />
                 <LandingPageAchievements />
                 <div className='landing_page_message-wrapper ohpw center'>
