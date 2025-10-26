@@ -1,7 +1,7 @@
 {
-  "name": "hirayahangman",
+  "name": "hiyasngsalita",
   "private": true,
-  "version": "0.9.91",
+  "version": "0.9.95",
   "type": "module",
   "scripts": {
     "dev": "vite",
