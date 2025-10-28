@@ -63,7 +63,7 @@
 
 .dialogue_text {
     height: 85%;
-    transform: rotate(-1deg);
+    transform: rotate(-0.5deg);
 }
 
 .dialogue_continue-wrapper {
@@ -71,7 +71,7 @@
     font: 0.75rem 'Nunito-Italic', serif;
     margin-right: 1rem;
     justify-content: flex-end;
-    transform: rotate(-1deg);
+    transform: rotate(-0.5deg);
 }
 
 @media screen and (min-width: 550px) {
@@ -85,7 +85,7 @@
         position: fixed;
         top: 60px;
         left: 50%;
-        transform: translate(-50%, 0%) rotate(1deg);
+        transform: translate(-50%, 0%) rotate(0.5deg);
     }
 
     .dialogue_text_icon {

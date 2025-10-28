@@ -8,7 +8,7 @@ const Notice = () => {
     const [visible, setVisible] = useState(false)
     const message = [
         {
-            text: `The pilot testing for Hiyas ng Salita ended in a success. Feedbacks from our testers helped maked this website better.`,
+            text: `The pilot testing for Hiyas ng Salita ended in a success. Feedbacks from our dear testers helped maked the user experience better and smooth.`,
             emotion: 'excited',
             character: 'maku-atag',
         },
