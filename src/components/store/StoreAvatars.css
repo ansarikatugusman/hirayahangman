@@ -93,6 +93,7 @@
     padding: 0 5px;
     font-size: 0.75rem;
     transition: all 0.3s;
+    cursor: none;
 }
 
 .avatar_button:hover {

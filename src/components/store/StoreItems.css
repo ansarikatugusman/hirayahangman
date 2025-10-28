@@ -102,6 +102,7 @@
     padding: 0 15px;
     font-size: 1rem;
     transition: all 0.3s;
+    cursor: none;
 }
 
 .item_button:hover {

@@ -45,6 +45,7 @@
     padding: 0 3px;
     background: #e8e8e8;
     width: fit-content;
+    cursor: none;
 }
 
 .edit_profile_new_name-wrapper .edit_profile_new_name {
@@ -53,6 +54,7 @@
     border: 2px black solid;
     border-radius: 5px;
     background: #e8e8e8;
+    cursor: none;
 }
 
 .edit_profile_new_name-wrapper .edit_profile_new_name:focus {

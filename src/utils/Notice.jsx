@@ -4,28 +4,28 @@ import Dialogue from './Dialogue'
 
 import './Notice.css'
 
-const Notice = ({ setNoticeRead }) => {
+const Notice = () => {
     const [visible, setVisible] = useState(false)
     const message = [
         {
-            text: `Thank you for visiting Hiyas ng Salita. We're currently testing our web app, and we're excited to have you try things out.`,
+            text: `The pilot testing for Hiyas ng Salita ended in a success. Feedbacks from our testers helped maked this website better.`,
             emotion: 'excited',
             character: 'maku-atag',
         },
         {
-            text: `More contents will be implemented in the following weeks. Your feedback helps us make this website better, so feel free to look around and let us know what you think!`,
+            text: `More updates will be implemented in the following weeks. Feedbacks are still welcome and greatly appreciated. Thank you so much for visiting Hiyas ng Salita.`,
             emotion: 'smiling',
             character: 'maku-atag',
-        }
+        },
     ]
 
     useEffect(()=>{
-            let pop1_status = localStorage.getItem('pop1_status');
-            if(!pop1_status){
+            let pop2_status = localStorage.getItem('pop2_status');
+            if(!pop2_status){
                 setVisible(true);
-                localStorage.setItem('pop1_status', 2);
+                localStorage.setItem('pop2_status', 2);
             }
-            localStorage.removeItem('pop2_status')
+            localStorage.removeItem('pop1_status')
         },[])
 
         if(!visible) return null;
