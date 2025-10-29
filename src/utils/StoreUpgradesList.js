@@ -1,17 +1,16 @@
 const StoreUpgradesList = {
     upgrade1: {
-        name: 'asda',
         1: {
             upgrade: 3,
-            price: 200
+            price: 300
         },
         2: {
             upgrade: 4,
-            price: 500
+            price: 650
         },
         3: {
             upgrade: 5,
-            price: 800
+            price: 1000
         },
         4: {
             upgrade: 6,
@@ -20,16 +19,16 @@ const StoreUpgradesList = {
     },
     upgrade2: {
         1: {
-            upgrade: 60,
-            price: 200
+            upgrade: 5,
+            price: 300
         },
         2: {
-            upgrade: 65,
-            price: 400
+            upgrade: 10,
+            price: 650
         },
         3: {
-            upgrade: 70,
-            price: 600
+            upgrade: 15,
+            price: 1000
         },
         4: {
             upgrade: 75,
@@ -39,11 +38,11 @@ const StoreUpgradesList = {
     upgrade3: {
         1: {
             upgrade: 0,
-            price: 500
+            price: 1000
         },
         2: {
             upgrade: 1,
-            price: 1000
+            price: 2500
         },
         3: {
             upgrade: 2,

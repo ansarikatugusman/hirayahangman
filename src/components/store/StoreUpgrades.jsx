@@ -122,14 +122,14 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
                 </div>
                 <div className='upgrade2_description-wrapper upgrade_description-wrapper center'>
                     <div className='upgrade2_description upgrade_description'>
-                        Timer lasts <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade2[playerUpgrade2].upgrade}</span> seconds.
+                        Add <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade2[playerUpgrade2].upgrade}</span> seconds to the timer.
                     </div>
                 </div>
                 <div className='upgrade2_next-wrapper upgrade_next-wrapper center'>
                     <div className='upgrade2_next upgrade_next'>
                         {StoreUpgradesList.upgrade2[playerUpgrade2].price === 'Maxed' 
                             ? <span>NO UPGRADES AVAILABLE</span> 
-                            : <span>NEXT UPGRADE: Timer lasts <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade2[playerUpgrade2 + 1].upgrade}</span> seconds.</span>
+                            : <span>NEXT UPGRADE: Add <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade2[playerUpgrade2 + 1].upgrade}</span> seconds to the timer.</span>
                         }
                     </div>
                 </div>

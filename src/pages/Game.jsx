@@ -88,7 +88,10 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
                 setTutorial5(data.user.tutorial5)
                 setTutorialFinished(data.user.tutorialFinished)
                 setLives(prevLives => prevLives + data.user.upgrade1 - 1)
-                setTimeDuration(55 + (data.user.upgrade2 * 5))
+
+                if (bugtongPortalActive) setTimeDuration(45 + (data.user.upgrade2 * 5))
+                if (sawikainPortalActive) setTimeDuration(60 + (data.user.upgrade2 * 5))
+                if (salawikainPortalActive) setTimeDuration(75 + (data.user.upgrade2 * 5))
             } catch (err) {
                 setShowError(true)
             }
@@ -348,36 +351,6 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
         setItemsUsed((prevItemsUsed) => prevItemsUsed + 1)
     }
 
-    const goldReward = () => {
-        if (!tutorialFinished) return 50
-
-        if(timeStopUsed) return 40
-        else return Math.round(40 + (remainingTimeLeft / 6))
-    }
-
-    const crownsReward = () => {
-        if (!tutorialFinished) return 10
-
-        let baseReward
-        let timeUsed = (55 + (upgrade2 * 5)) - remainingTimeLeft
-
-        if (crowns < 149) baseReward = 35
-        else if (crowns < 249) baseReward = 29
-        else if (crowns < 349) baseReward = 24
-        else if (crowns < 449) baseReward = 20
-        else if (crowns < 549) baseReward = 17
-        else if (crowns < 649) baseReward = 15
-        else if (crowns < 749) baseReward = 13
-        else if (crowns < 849) baseReward = 11
-        else if (crowns < 949) baseReward = 9
-        else if (crowns < 1249) baseReward = 7
-        else if (crowns < 1449) baseReward = 5
-        else if (crowns < 1749) baseReward = 3
-        else baseReward = 2
-        
-        return Math.round(baseReward - (timeUsed / 3.5) - itemsUsed - wrongLetters.length)
-    }
-
     const tutorialCompleted = async () => {
         try {
             await fetchRequest(`${import.meta.env.VITE_BACKEND_URL}/tutorial/complete/${completedTutorial}`,
@@ -411,11 +384,44 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
                 currentItem: currentItem,
                 crownsReward: crownsReward(),
                 goldReward: goldReward(),
-                timeUsed: (55 + (upgrade2 * 5)) - remainingTimeLeft
+                timeUsed: timeDuration - remainingTimeLeft
             }))
         } catch (err) {
             setShowError(true)
         }
+    }
+
+    const goldReward = () => {
+        if (!tutorialFinished) return 50
+
+        if(timeStopUsed) return 40
+        else return Math.round(40 + (remainingTimeLeft / 5))
+    }
+
+    const crownsReward = () => {
+        if (!tutorialFinished) return 10
+
+        let baseReward
+        let timeUsed = timeDuration - remainingTimeLeft
+
+        if (crowns < 149) baseReward = 35
+        else if (crowns < 249) baseReward = 29
+        else if (crowns < 349) baseReward = 24
+        else if (crowns < 449) baseReward = 20
+        else if (crowns < 549) baseReward = 17
+        else if (crowns < 649) baseReward = 15
+        else if (crowns < 749) baseReward = 13
+        else if (crowns < 849) baseReward = 11
+        else if (crowns < 949) baseReward = 9
+        else if (crowns < 1249) baseReward = 7
+        else if (crowns < 1449) baseReward = 5
+        else if (crowns < 1749) baseReward = 3
+        else if (crowns < 2049) baseReward = 2
+        else baseReward = 1
+
+        if (timeStopUsed) timeUsed = 45
+        
+        return Math.round(baseReward - (timeUsed / 3.5) - itemsUsed - wrongLetters.length)
     }
 
     const crownsPenalty = () => {
@@ -423,18 +429,19 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
 
         let crownsPenalty
 
-        if (crowns < 149) crownsPenalty = -2
-        else if (crowns < 249) crownsPenalty = -3
-        else if (crowns < 349) crownsPenalty = -5
-        else if (crowns < 449) crownsPenalty = -7
-        else if (crowns < 549) crownsPenalty = -9
-        else if (crowns < 649) crownsPenalty = -11
-        else if (crowns < 749) crownsPenalty = -13
-        else if (crowns < 849) crownsPenalty = -15
-        else if (crowns < 949) crownsPenalty = -17
-        else if (crowns < 1249) crownsPenalty = -20
-        else if (crowns < 1449) crownsPenalty = -24
-        else if (crowns < 1749) crownsPenalty = -29
+        if (crowns < 149) crownsPenalty = -1
+        else if (crowns < 249) crownsPenalty = -2
+        else if (crowns < 349) crownsPenalty = -3
+        else if (crowns < 449) crownsPenalty = -5
+        else if (crowns < 549) crownsPenalty = -7
+        else if (crowns < 649) crownsPenalty = -9
+        else if (crowns < 749) crownsPenalty = -11
+        else if (crowns < 849) crownsPenalty = -13
+        else if (crowns < 949) crownsPenalty = -15
+        else if (crowns < 1249) crownsPenalty = -17
+        else if (crowns < 1449) crownsPenalty = -20
+        else if (crowns < 1749) crownsPenalty = -24
+        else if (crowns < 2049) baseReward = -29
         else crownsPenalty = -35
 
         return crownsPenalty
