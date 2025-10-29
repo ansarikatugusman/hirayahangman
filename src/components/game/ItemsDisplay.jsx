@@ -124,7 +124,7 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
     }
 
     return (
-        <div className='items_display-container center'> 
+        <div className='items_display-container center' style={{ overflow: tutorial5Active ? 'visible' : 'auto' }}> 
             {tutorial5Active && <Tutorial5 setTutorial5Active={setTutorial5Active} setCompletedTutorial={setCompletedTutorial} />}
 
 			{tutorial5Active && <div className='items_display_cover ohp'></div>}

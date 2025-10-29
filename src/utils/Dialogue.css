@@ -47,7 +47,7 @@
     position: fixed;
     top: 5%;
     left: 50%;
-    transform: translate(-50%, 0%) rotate(-0.5deg);
+    transform: translate(-50%, 0%) rotate(0.5deg);
 }
 
 .dialogue_text_icon-wrapper {
