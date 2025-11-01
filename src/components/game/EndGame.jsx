@@ -8,14 +8,17 @@ import ChestEmpty from '../../assets/images/chest_empty.png'
 
 import './EndGame.css'
 
-const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, onFailGame, crownsPenalty, goldReward, crownsReward, levelSolved, exitLevel, handlePuzzleEnded, levelEnded}) => {
-    const [chestEmpty, setEmpty] = useState(false)
+const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, onFailGame, crownsPenalty, goldReward, crownsReward, levelSolved, exitLevel, handlePuzzleEnded, levelEnded, musicMuted}) => {
+    const [chestEmpty, setChestEmpty] = useState(false)
     const modal = useRef()
 
     const collectChest = () => {
-        setEmpty(true)
-        const chestopen = new Audio('/src/assets/audios/chest_open.mp3')
-		chestopen.play()
+        setChestEmpty(true)
+        
+        if (!musicMuted) {
+            const chestopen = new Audio('/src/assets/audios/chest_open.mp3')
+		    chestopen.play()
+        }
     }
 
     useEffect(() => {
@@ -40,7 +43,12 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
     }
 
     return (
-        <div className='end_game-container modal'>
+        <div 
+            className='end_game-container modal' 
+            onClick={() => {
+                if (levelSolved && !chestEmpty) collectChest()
+            }}
+        >
             <dialog className='end_game center' ref={modal}>
                 <div className='end_game_content-wrapper center ohp' style={{ display: levelSolved ? 'none' : 'flex' }}>
                     <div className='end_game_message-wrapper ohpw center'>
@@ -80,7 +88,7 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
                         </div>
                     </div>
                     <div className='chest_wrapper ohpw center'>
-                        <img className={`${chestEmpty ? 'chest_empty' : 'chest'}`} src={!chestEmpty ? ChestOpen : ChestEmpty} onClick={collectChest} />
+                        <img className={`${chestEmpty ? 'chest_empty' : 'chest'}`} src={!chestEmpty ? ChestOpen : ChestEmpty} />
                     </div>
                     <div className='end_game_results-wrapper ohpw center' >
                          <div className='end_game_results_crown_penalty-wrapper ohpw center' style={{ display: chestEmpty ? 'flex' : 'none' }}>

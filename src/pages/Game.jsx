@@ -551,7 +551,7 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
 
             {startGame && <AnswerDisplay answer={answer} correctLetters={correctLetters} bugtongPortalActive={bugtongPortalActive} sawikainPortalActive={sawikainPortalActive} salawikainPortalActive={salawikainPortalActive} />}
 
-            {startGame && <BookDisplay tutorial3={tutorial3} tutorial4={tutorial4} tutorialFinished={tutorialFinished} tutorial4Active={tutorial4Active} setTutorial4Active={setTutorial4Active} setCompletedTutorial={setCompletedTutorial} pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} salawikainPortalActive={salawikainPortalActive} />}
+            {startGame && <BookDisplay tutorial3={tutorial3} tutorial4={tutorial4} tutorialFinished={tutorialFinished} tutorial4Active={tutorial4Active} setTutorial4Active={setTutorial4Active} setCompletedTutorial={setCompletedTutorial} pictures={pictures} cover={cover} back={back} displayBook={displayBook} openDisplayBook={openDisplayBook} closeDisplayBook={closeDisplayBook} salawikainPortalActive={salawikainPortalActive} musicMuted={musicMuted} />}
 
             {startGame && <QuestionDisplay question={question} sawikainPortalActive={sawikainPortalActive} salawikainPortalActive={salawikainPortalActive} />} 
 
@@ -559,7 +559,7 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
 
             {startGame && <LettersDisplay tutorial1={tutorial1} setCompletedTutorial={setCompletedTutorial} tutorial1Active={tutorial1Active} setTutorial1Active={setTutorial1Active} subtractLife={subtractLife} answer={answer} correctLetters={correctLetters} setCorrectLetters={setCorrectLetters} wrongLetters={wrongLetters} setWrongLetters={setWrongLetters} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} /> }
 
-            {puzzleEnded && <EndGame tutorialFinished={tutorialFinished} tutorialCompleted={tutorialCompleted} answer={answer} currentItem={currentItem} gameCompleted={gameCompleted} onFailGame={onFailGame} crownsPenalty={crownsPenalty} goldReward={goldReward} crownsReward={crownsReward} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded} />}
+            {puzzleEnded && <EndGame tutorialFinished={tutorialFinished} tutorialCompleted={tutorialCompleted} answer={answer} currentItem={currentItem} gameCompleted={gameCompleted} onFailGame={onFailGame} crownsPenalty={crownsPenalty} goldReward={goldReward} crownsReward={crownsReward} levelSolved={levelSolved} exitLevel={exitLevel} handlePuzzleEnded={handlePuzzleEnded} levelEnded={levelEnded} musicMuted={musicMuted} />}
 
             {exitGame && <ExitPrompt tutorialFinished={tutorialFinished} onTutorialExit={onTutorialExit} onFailGame={onFailGame} onCancelExitGame={onCancelExitGame} />}
         </ div>

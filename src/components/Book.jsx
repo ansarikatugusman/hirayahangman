@@ -127,7 +127,7 @@ const pageMaterials = [
 	})
 ]
 
-const Page = ({ number, front, back, pages, page, opened, bookClosed, ...props }) => {
+const Page = ({ number, front, back, pages, page, opened, bookClosed, musicMuted, ...props }) => {
 
 	/* Declare the texture for the front and back values. 
 	   The variables picture is the front texture, picture2 is the back texture
@@ -367,8 +367,10 @@ const Page = ({ number, front, back, pages, page, opened, bookClosed, ...props }
 				setHighlighted(false)
 
 				// Create an audio object for the page flip sound effect
-				const pageflip = new Audio('/src/assets/audios/page_flip.mp3')
-				pageflip.play()
+				if (!musicMuted) {
+					const pageflip = new Audio('/src/assets/audios/page_flip.mp3')
+					pageflip.play()
+				}
 			}}
     	>
       		<primitive
@@ -381,7 +383,7 @@ const Page = ({ number, front, back, pages, page, opened, bookClosed, ...props }
   	)
 }
 
-const Book = ({ pictures, cover, back, ...props }) => {
+const Book = ({ pictures, cover, back, musicMuted, ...props }) => {
   	const [page, setPage] = useAtom(pageAtom)
   	const [delayedPage, setDelayedPage] = useState(page)
 
@@ -455,6 +457,7 @@ const Book = ({ pictures, cover, back, ...props }) => {
           			opened={delayedPage > index}
           			bookClosed={delayedPage === 0 || delayedPage === pages.length}
           			{...pageData}
+					musicMuted={musicMuted}
         		/>
       		))}
     	</group>

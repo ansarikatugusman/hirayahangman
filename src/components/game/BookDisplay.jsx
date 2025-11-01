@@ -8,7 +8,7 @@ import PointRight from '../../assets/images/icons/point_right.svg'
 
 import './BookDisplay.css'
 
-const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setCompletedTutorial, pictures, cover, back, displayBook, openDisplayBook, closeDisplayBook, salawikainPortalActive }) => {
+const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setCompletedTutorial, pictures, cover, back, displayBook, openDisplayBook, closeDisplayBook, salawikainPortalActive, musicMuted }) => {
 
 	return (
 		<div className='book_display-container center' style={{visibility: salawikainPortalActive ? 'hidden' : 'visible'}} >
@@ -49,7 +49,7 @@ const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setComplet
 							speed={2}
 							rotationIntensity={0.5}
 						>
-						<Book pictures={pictures} cover={cover} back={back} />
+						<Book pictures={pictures} cover={cover} back={back} musicMuted={musicMuted} />
 						</Float>
 						<OrbitControls enableZoom={false} />
 						<directionalLight
