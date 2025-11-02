@@ -6,10 +6,12 @@ import AuthContext from '../../context/AuthContext'
 import useHttpRequest from '../../hooks/useHttpRequest'
 import Loading from '../../utils/Loading'
 import ErrorMessage from '../../utils/ErrorMessage'
+import SketchySmallWrapper from '../wrappers/SketchySmallWrapper'
 
 import './SignIn.css'
 
 const SignIn = () => {
+    const [signInModalActive, setSignInModalActive] = useState(false)
     const [showError, setShowError] = useState(false)
     const { loading, error, fetchRequest} = useHttpRequest()
 
@@ -83,24 +85,36 @@ const SignIn = () => {
         }
     }
 
+    const openSignInModal = () => setSignInModalActive(true)
+    const closeSignInModal = () => setSignInModalActive(false)
+
     return(
         <div className='signin-container center'>
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             <div className='signin-wrapper center'>
-                <div className='signin_header center'>
-                    PLAY NOW
+                <div className='play_now_button_wrapper'>
+                    <button
+                        className='play_now_button'
+                        onClick={openSignInModal}
+                    >
+                        <span className='play_now_button_span'>PLAY NOW</span>
+                    </button>
                 </div>
-                <GoogleLogin 
-                    onSuccess={credentialResponse => signIn(credentialResponse)}
-                    useOneTap
-                    shape='pill'
-                    theme='filled_black'
-                />
+                
                 <div className='signin-wrapper-back'></div>
             </div>
-            
-            
+
+            {signInModalActive &&
+                <SketchySmallWrapper showCloseButton={true} onCloseHandler={closeSignInModal} closeButtonPointerCursor={true}>
+                    <div className='ohpw' style={{ fontSize: '1.5rem' }}>SIGN IN</div>
+                    <GoogleLogin 
+                        onSuccess={credentialResponse => signIn(credentialResponse)}
+                        useOneTap
+                        theme='filled_black'
+                    />
+                </SketchySmallWrapper>
+            }
         </div>
     )
 }

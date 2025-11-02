@@ -21,19 +21,19 @@
         <div class="center" id="root"></div>
         
         <script>
-        const element = document.documentElement;
+            const element = document.documentElement;
 
-        const fullscreen = () => {
-            if (element.requestFullscreen) {
-            element.requestFullscreen();
-            } else if (element.webkitRequestFullscreen) {
-            element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) { 
-            element.msRequestFullscreen();
+            const fullscreen = () => {
+                if (element.requestFullscreen) {
+                element.requestFullscreen();
+                } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) { 
+                element.msRequestFullscreen();
+                }
             }
-        }
 
-        element.addEventListener('click', fullscreen)
+            element.addEventListener('click', fullscreen)
         </script>
 
         <script type="module" src="/src/main.jsx"></script>
