@@ -128,7 +128,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
                             <img className='achievement_icon' src={Listo} />
                         </div>
                         <div className='achievement_description-wrapper center'>
-                            Have an average time of 10 seconds or less.
+                            Have an average time of 8 seconds or less.
                         </div>
                     </div>
 
