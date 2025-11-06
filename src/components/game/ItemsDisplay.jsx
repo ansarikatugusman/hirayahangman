@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useContext } from 'react'
 import Tutorial5 from '../tutorials/Tutorial5'
 import AuthContext from '../../context/AuthContext'
 import useHttpRequest from '../../hooks/useHttpRequest'

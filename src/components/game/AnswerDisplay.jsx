@@ -1,6 +1,5 @@
 import './AnswerDisplay.css'
 
-// Display the letter if the guess is correct.
 const AnswerDisplay = ({ answer, correctLetters, bugtongPortalActive, sawikainPortalActive, salawikainPortalActive }) => {
 
     return (

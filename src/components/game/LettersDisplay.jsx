@@ -1,4 +1,4 @@
-import {  useState } from 'react'
+import { useState } from 'react'
 import Tutorial1 from '../tutorials/Tutorial1'
 import PointDown from '../../assets/images/icons/point_down.svg'
 import Microphone from '../../assets/images/icons/microphone.svg'

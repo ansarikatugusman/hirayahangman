@@ -34,6 +34,6 @@ const handleOnRecord = () => {
       <button onClick={resetTranscript}>Reset</button>
       <p>{transcript}</p>
     </div>
-  );
-};
-export default Testing;
+  )
+}
+export default Testing
