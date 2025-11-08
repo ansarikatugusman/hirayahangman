@@ -2,7 +2,7 @@ import SketchySmallWrapper from '../components/wrappers/SketchySmallWrapper'
 import SketchedButton from '../components/buttons/SketchedButton'
 import './ErrorMessage.css'
 
-const ErrorMessage = ({ error, setShowError }) => {
+const ErrorMessage = ({ error, setShowError, pointerCursor }) => {
 
     const onOkayHandler = () => {
         setShowError(false)
@@ -14,7 +14,7 @@ const ErrorMessage = ({ error, setShowError }) => {
                 {error}
             </div>
             <div className='error_okay center' onClick={onOkayHandler}>
-                <SketchedButton width='78px' text='OKAY' />
+                <SketchedButton width='78px' text='OKAY' pointerCursor={pointerCursor} />
             </div>
         </SketchySmallWrapper>
     )

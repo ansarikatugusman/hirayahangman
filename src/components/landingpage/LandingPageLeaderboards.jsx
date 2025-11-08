@@ -84,7 +84,7 @@ const LandingPageLeaderboards = () => {
     return (
         <div className='landing_page_leaderboards-container center'>
             {loading && <Loading />}
-            {showError && <ErrorMessage error={error} setShowError={setShowError} />}
+            {showError && <ErrorMessage error={error} setShowError={setShowError} pointerCursor={true} />}
             <div className='landing_page_leaderboards_title-wrapper center'>
 				<div className='landing_page_leaderboards_title center'>
 					<p>Leaderboard</p>
