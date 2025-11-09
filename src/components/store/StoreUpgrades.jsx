@@ -122,7 +122,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
                 </div>
                 <div className='upgrade2_description-wrapper upgrade_description-wrapper center'>
                     <div className='upgrade2_description upgrade_description'>
-                        Add <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade2[playerUpgrade2].upgrade}</span> seconds to the timer.
+                        Add <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade2[playerUpgrade2].upgrade}</span> {`second${playerUpgrade2 >= 2 ? 's' : ''}`} to the timer.
                     </div>
                 </div>
                 <div className='upgrade2_next-wrapper upgrade_next-wrapper center'>
@@ -165,14 +165,14 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
                 </div>
                 <div className='upgrade3_description-wrapper upgrade_description-wrapper center'>
                     <div className='upgrade3_description upgrade_description'>
-                        Start with <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade3[playerUpgrade3].upgrade}</span> wrong letters disabled.
+                        Start with <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade3[playerUpgrade3].upgrade}</span> wrong {`letter${playerUpgrade3 >= 3 ? 's' : ''}`} disabled.
                     </div>
                 </div>
                 <div className='upgrade3_next-wrapper upgrade_next-wrapper center'>
                     <div className='upgrade3_next upgrade_next'>
                         {StoreUpgradesList.upgrade3[playerUpgrade3].price === 'Maxed' 
                             ? <span>NO UPGRADES AVAILABLE</span> 
-                            : <span>NEXT UPGRADE: Start with <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade3[playerUpgrade3 + 1].upgrade}</span> wrong letters disabled.</span>
+                            : <span>NEXT UPGRADE: Start with <span className='upgrade_description_highlight'>{StoreUpgradesList.upgrade3[playerUpgrade3 + 1].upgrade}</span> wrong {`letter${playerUpgrade3 + 1 >= 3 ? 's' : ''}`} disabled.</span>
                         }
                     </div>
                 </div>

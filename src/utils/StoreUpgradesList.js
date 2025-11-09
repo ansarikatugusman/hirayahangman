@@ -19,19 +19,19 @@ const StoreUpgradesList = {
     },
     upgrade2: {
         1: {
-            upgrade: 5,
+            upgrade: 0,
             price: 300
         },
         2: {
-            upgrade: 10,
+            upgrade: 5,
             price: 650
         },
         3: {
-            upgrade: 15,
+            upgrade: 10,
             price: 1000
         },
         4: {
-            upgrade: 75,
+            upgrade: 15,
             price: 'Maxed'
         },
     },

@@ -46,10 +46,12 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
                             </div>
                             <div 
                                 className='bugtong_book_completed-wrapper center'
-                                style={{ visibility: booksSolved.length >= 10 ? 'visible' : 'hidden' }}
                             >
                                 <div className='bugtong_book_completed'>
-                                    <span>{booksSolved.length} / {totalBugtongBooks}</span>
+                                    { booksSolved.length >= 10 
+                                        ? <span>{booksSolved.length} / {totalBugtongBooks}</span>
+                                        : <span>{booksSolved.length} / 10</span>
+                                    }
                                 </div> 
                             </div>
                         </div>

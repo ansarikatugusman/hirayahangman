@@ -46,10 +46,12 @@ const SalawikainBooks = ({ numberOfBooks = 16, radius = 3, handleCurrentBook, le
                             </div>
                             <div 
                                 className='salawikain_book_completed-wrapper center'
-                                style={{ visibility: booksSolved.length >= 15 ? 'visible' : 'hidden' }}
                             >
                                 <div className='salawikain_book_completed'>
-                                    <span>{booksSolved.length} / {totalSalawikainBooks}</span>
+                                    { booksSolved.length >= 15
+                                        ? <span>{booksSolved.length} / {totalSalawikainBooks}</span>
+                                        : <span>{booksSolved.length} / 15</span>
+                                    }
                                 </div> 
                             </div>
                         </div>
