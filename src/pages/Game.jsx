@@ -89,9 +89,9 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
                 setTutorialFinished(data.user.tutorialFinished)
                 setLives(prevLives => prevLives + data.user.upgrade1 - 1)
 
-                if (bugtongPortalActive) setTimeDuration(45 + (data.user.upgrade2 * 5))
-                if (sawikainPortalActive) setTimeDuration(60 + (data.user.upgrade2 * 5))
-                if (salawikainPortalActive) setTimeDuration(75 + (data.user.upgrade2 * 5))
+                if (bugtongPortalActive) setTimeDuration(45 + ((data.user.upgrade2 - 1) * 5))
+                if (sawikainPortalActive) setTimeDuration(60 + ((data.user.upgrade2 - 1) * 5))
+                if (salawikainPortalActive) setTimeDuration(75 + ((data.user.upgrade2 - 1) * 5))
             } catch (err) {
                 setShowError(true)
             }

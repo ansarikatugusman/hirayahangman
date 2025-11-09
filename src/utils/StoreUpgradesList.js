@@ -38,11 +38,11 @@ const StoreUpgradesList = {
     upgrade3: {
         1: {
             upgrade: 0,
-            price: 1000
+            price: 1500
         },
         2: {
             upgrade: 1,
-            price: 2500
+            price: 3500
         },
         3: {
             upgrade: 2,
