@@ -5,6 +5,7 @@ import BgBookOpen from '../../assets/images/bg_book_open.png'
 import BgBookClosed from '../../assets/images/bg_book_closed.png'
 import BugtongBookOpen from '../../assets/images/bugtong_book_open.png'
 import BugtongBookClosed from '../../assets/images/bugtong_book_closed.png'
+import Ribbon from '../../assets/images/ribbon.png'
 
 import './BugtongBooks.css'
 
@@ -67,14 +68,6 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
                         position-z={z}
                     >
                         <div className='bugtong_book-container center'>
-                            <div 
-                                className='bugtong_book_completed-wrapper center'
-                                style={{ visibility: books[`bugtongBook${i+1}`] === true ? 'visible' : 'hidden' }}
-                            >
-                                <div className='bugtong_book_completed'>
-                                    <span>COMPLETED</span>
-                                </div> 
-                            </div>
                             <div
                                 className='bugtong_book_image-wrapper center'
                                 onClick={(e) => {
@@ -83,9 +76,15 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
                                 }}
                                 style={{ pointerEvents: books[`bugtongBook${i+1}`] === true ? 'none' : '' }}>
                                 <img
-                                id={Object.keys(books)[i]}
+                                    id={Object.keys(books)[i]}
                                     className='bugtong_book_image'
                                     src={books[`bugtongBook${i+1}`] === true ? BgBookClosed : BgBookOpen}
+                                />
+                                
+                                <img
+                                    className='bugtong_book_ribbon'
+                                    src={Ribbon}
+                                    style={{ display: books[`bugtongBook${i+1}`] === true ? 'block' : 'none' }}
                                 />
                             </div>
                         </div>

@@ -394,7 +394,6 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
     const goldReward = () => {
         if (!tutorialFinished) return 50
 
-        if(timeStopUsed) return 40
         else return Math.round(40 + (remainingTimeLeft / 5))
     }
 
@@ -418,8 +417,6 @@ const Game = ({ musicMuted, crowns, bugtongPortalActive, bugtongBooksSolved, saw
         else if (crowns < 1749) baseReward = 3
         else if (crowns < 2049) baseReward = 2
         else baseReward = 1
-
-        if (timeStopUsed) timeUsed = 45
         
         return Math.round(baseReward - (timeUsed / 3.5) - itemsUsed - wrongLetters.length)
     }

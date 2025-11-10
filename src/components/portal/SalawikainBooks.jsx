@@ -5,6 +5,7 @@ import SlBookOpen from '../../assets/images/sl_book_open.png'
 import SlBookClosed from '../../assets/images/sl_book_closed.png'
 import SalawikainBookOpen from '../../assets/images/salawikain_book_open.png'
 import SalawikainBookClosed from '../../assets/images/salawikain_book_closed.png'
+import Ribbon from '../../assets/images/ribbon.png'
 
 import './SalawikainBooks.css'
 
@@ -67,14 +68,6 @@ const SalawikainBooks = ({ numberOfBooks = 16, radius = 3, handleCurrentBook, le
                         position-z={z}
                     >
                         <div className='salawikain_book-container center'>
-                            <div 
-                                className='salawikain_book_completed-wrapper center'
-                                style={{ visibility: books[`salawikainBook${i+1}`] === true ? 'visible' : 'hidden' }}
-                            >
-                                <div className='salawikain_book_completed'>
-                                    <span>COMPLETED</span>
-                                </div> 
-                            </div>
                             <div
                                 className='salawikain_book_image-wrapper center'
                                 onClick={(e) => {
@@ -83,9 +76,15 @@ const SalawikainBooks = ({ numberOfBooks = 16, radius = 3, handleCurrentBook, le
                                 }}
                                 style={{ pointerEvents: books[`salawikainBook${i+1}`] === true ? 'none' : '' }}>
                                 <img
-                                id={Object.keys(books)[i]}
+                                    id={Object.keys(books)[i]}
                                     className='salawikain_book_image'
                                     src={books[`salawikainBook${i+1}`] === true ? SlBookClosed : SlBookOpen}
+                                />
+                                
+                                <img
+                                    className='salawikain_book_ribbon'
+                                    src={Ribbon}
+                                    style={{ display: books[`salawikainBook${i+1}`] === true ? 'block' : 'none' }}
                                 />
                             </div>
                         </div>

@@ -5,6 +5,7 @@ import SwBookOpen from '../../assets/images/sw_book_open.png'
 import SwBookClosed from '../../assets/images/sw_book_closed.png'
 import SawikainBookOpen from '../../assets/images/sawikain_book_open.png'
 import SawikainBookClosed from '../../assets/images/sawikain_book_closed.png'
+import Ribbon from '../../assets/images/ribbon.png'
 
 import './SawikainBooks.css'
 
@@ -67,14 +68,6 @@ const SawikainBooks = ({ numberOfBooks = 13, radius = 3, handleCurrentBook, leve
                         position-z={z}
                     >
                         <div className='sawikain_book-container center'>
-                            <div 
-                                className='sawikain_book_completed-wrapper center'
-                                style={{ visibility: books[`sawikainBook${i+1}`] === true ? 'visible' : 'hidden' }}
-                            >
-                                <div className='sawikain_book_completed'>
-                                    <span>COMPLETED</span>
-                                </div> 
-                            </div>
                             <div
                                 className='sawikain_book_image-wrapper center'
                                 onClick={(e) => {
@@ -86,6 +79,12 @@ const SawikainBooks = ({ numberOfBooks = 13, radius = 3, handleCurrentBook, leve
                                 id={Object.keys(books)[i]}
                                     className='sawikain_book_image'
                                     src={books[`sawikainBook${i+1}`] === true ? SwBookClosed : SwBookOpen}
+                                />
+
+                                <img
+                                    className='sawikain_book_ribbon'
+                                    src={Ribbon}
+                                    style={{ display: books[`sawikainBook${i+1}`] === true ? 'block' : 'none' }}
                                 />
                             </div>
                         </div>

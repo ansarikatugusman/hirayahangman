@@ -63,9 +63,12 @@
 	text-shadow: 1px 1px 0 #444;
 }
 
+.sawikain_book_image-wrapper {
+	animation: floating 5s ease-in-out infinite;
+}
+
 .sawikain_book_image {
     width: 250px;
-    animation: floating 5s ease-in-out infinite;
     will-change: transform;
     backface-visibility: hidden;
 	filter: drop-shadow(5px 5px 5px #222);
@@ -74,4 +77,12 @@
 .sawikain_book_image:hover {
     animation-play-state: paused;
 	scale: 1.2;
+}
+
+.sawikain_book_ribbon {
+	width: 96px;
+	position: absolute;
+	top: 125px;
+	left: 45px;
+	rotate: 35deg;
 }
