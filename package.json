@@ -1,7 +1,7 @@
 {
   "name": "hiyasngsalita",
   "private": true,
-  "version": "0.9.985",
+  "version": "0.9.987",
   "type": "module",
   "scripts": {
     "dev": "vite",

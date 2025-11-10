@@ -234,40 +234,40 @@ const Play = ({ musicMuted }) => {
         if (!loading && !levelStart && levelSolved && bugtongBooksSolved.length === 7) setStoryChapter1_3(true)
         else setStoryChapter1_3(false)
 
-        if (!levelStart && levelSolved && bugtongBooksSolved.length === 10 &&!sawikainUnlocked) setStoryChapter1_4(true)
+        if (!levelStart && levelSolved && bugtongBooksSolved.length === 10 && !sawikainUnlocked) setStoryChapter1_4(true)
         else setStoryChapter1_4(false)
 
         if (active==='SAWIKAIN' && sawikainBooksSolved.length === 0 && sawikainUnlocked) setStoryChapter2_1(true)
         else setStoryChapter2_1(false)
 
-        if (!loading && !levelStart && levelSolved && sawikainBooksSolved.length === 3) setStoryChapter2_2(true)
+        if (active==='SAWIKAIN' && !loading && !levelStart && levelSolved && sawikainBooksSolved.length === 3) setStoryChapter2_2(true)
         else setStoryChapter2_2(false)
 
-        if (!loading && !levelStart && levelSolved && sawikainBooksSolved.length === 6) setStoryChapter2_3(true)
+        if (active==='SAWIKAIN' && !loading && !levelStart && levelSolved && sawikainBooksSolved.length === 6) setStoryChapter2_3(true)
         else setStoryChapter2_3(false)
 
-        if (!loading && !levelStart && levelSolved && sawikainBooksSolved.length === 9) setStoryChapter2_4(true)
+        if (active==='SAWIKAIN' && !loading && !levelStart && levelSolved && sawikainBooksSolved.length === 9) setStoryChapter2_4(true)
         else setStoryChapter2_4(false)
 
-        if (!levelStart && levelSolved && !salawikainUnlocked && sawikainBooksSolved.length === 12) setStoryChapter2_5(true)
+        if (active==='SAWIKAIN' && !levelStart && levelSolved && sawikainBooksSolved.length === 12 && !salawikainUnlocked) setStoryChapter2_5(true)
         else setStoryChapter2_5(false)
 
         if (active==='SALAWIKAIN' && salawikainBooksSolved.length === 0 && salawikainUnlocked) setStoryChapter3_1(true)
         else setStoryChapter3_1(false)
 
-        if (!loading && !levelStart && levelSolved && salawikainBooksSolved.length === 4) setStoryChapter3_2(true)
+        if (active==='SALAWIKAIN' && !loading && !levelStart && levelSolved && salawikainBooksSolved.length === 4) setStoryChapter3_2(true)
         else setStoryChapter3_2(false)
 
-        if (!loading && !levelStart && levelSolved && salawikainBooksSolved.length === 8) setStoryChapter3_3(true)
+        if (active==='SALAWIKAIN' && !loading && !levelStart && levelSolved && salawikainBooksSolved.length === 8) setStoryChapter3_3(true)
         else setStoryChapter3_3(false)
 
-        if (!loading && !levelStart && levelSolved && salawikainBooksSolved.length === 12) setStoryChapter3_4(true)
+        if (active==='SALAWIKAIN' && !loading && !levelStart && levelSolved && salawikainBooksSolved.length === 12) setStoryChapter3_4(true)
         else setStoryChapter3_4(false)
 
-        if (!levelStart && levelSolved && salawikainBooksSolved.length === 15) setStoryChapter3_5(true)
+        if (active==='SALAWIKAIN' && !levelStart && levelSolved && salawikainBooksSolved.length === 15) setStoryChapter3_5(true)
         else setStoryChapter3_5(false)
 
-        if (active == null && salawikainBooksSolved.length === 15) setStoryEnd(true)
+        if (active == null && salawikainBooksSolved.length === 15 && !storyFinished) setStoryEnd(true)
         else setStoryEnd(false)
     
     }, [loading, active, levelStart, levelSolved, bugtongBooksSolved, sawikainBooksSolved, salawikainBooksSolved, salawikainUnlocked])
@@ -294,22 +294,22 @@ const Play = ({ musicMuted }) => {
 
         {levelStart && <Game musicMuted={musicMuted} crowns={crowns} bugtongPortalActive={bugtongPortalActive} bugtongBooksSolved={bugtongBooksSolved} sawikainPortalActive={sawikainPortalActive} sawikainBooksSolved={sawikainBooksSolved} salawikainPortalActive={salawikainPortalActive} salawikainBooksSolved={salawikainBooksSolved} levelEnded={levelEnded} levelSolved={levelSolved} levelIsSolved={levelIsSolved} levelIsNotSolved={levelIsNotSolved} handleLevelSolved={handleLevelSolved} />}
 
-        {storyPrologue && <StoryPrologue handleBugtongUnlocked={handleBugtongUnlocked} />}
+        {!loading && storyPrologue && <StoryPrologue handleBugtongUnlocked={handleBugtongUnlocked} />}
         {storyChapter1_1 && <StoryChapter1_1 />}
-        {!loading && storyChapter1_2 && <StoryChapter1_2 />}
-        {!loading && storyChapter1_3 && <StoryChapter1_3 />}
-        {!loading && storyChapter1_4 && <StoryChapter1_4 handleSawikainUnlocked={handleSawikainUnlocked} handleSawikainPortalActive={handleSawikainPortalActive} setActive={setActive}/>}
+        {!loading && storyChapter1_2 && bugtongPortalActive && <StoryChapter1_2 />}
+        {!loading && storyChapter1_3 && bugtongPortalActive && <StoryChapter1_3 />}
+        {!loading && storyChapter1_4 && bugtongPortalActive && <StoryChapter1_4 handleSawikainUnlocked={handleSawikainUnlocked} handleSawikainPortalActive={handleSawikainPortalActive} setActive={setActive}/>}
         {storyChapter2_1 && <StoryChapter2_1 />}
-        {!loading && storyChapter2_2 && <StoryChapter2_2 />}
-        {!loading && storyChapter2_3 && <StoryChapter2_3 />}
-        {!loading && storyChapter2_4 && <StoryChapter2_4 />}
-        {!loading && storyChapter2_5 && <StoryChapter2_5 handleSalawikainUnlocked={handleSalawikainUnlocked} handleSalawikainPortalActive={handleSalawikainPortalActive} setActive={setActive} />}
+        {!loading && storyChapter2_2 && sawikainPortalActive && <StoryChapter2_2 />}
+        {!loading && storyChapter2_3 && sawikainPortalActive && <StoryChapter2_3 />}
+        {!loading && storyChapter2_4 && sawikainPortalActive && <StoryChapter2_4 />}
+        {!loading && storyChapter2_5 && sawikainPortalActive && <StoryChapter2_5 handleSalawikainUnlocked={handleSalawikainUnlocked} handleSalawikainPortalActive={handleSalawikainPortalActive} setActive={setActive} />}
         {storyChapter3_1 && <StoryChapter3_1 />}
-        {!loading && storyChapter3_2 && <StoryChapter3_2 />}
-        {!loading && storyChapter3_3 && <StoryChapter3_3 />}
-        {!loading && storyChapter3_4 && <StoryChapter3_4 />}
-        {!loading && storyChapter3_5 && <StoryChapter3_5 setActive={setActive} />}
-        {!storyFinished && storyEnd && <StoryEnd handleStoryFinished={handleStoryFinished}  />}
+        {!loading && storyChapter3_2 && salawikainPortalActive && <StoryChapter3_2 />}
+        {!loading && storyChapter3_3 && salawikainPortalActive && <StoryChapter3_3 />}
+        {!loading && storyChapter3_4 && salawikainPortalActive && <StoryChapter3_4 />}
+        {!loading && storyChapter3_5 && salawikainPortalActive && <StoryChapter3_5 setActive={setActive} />}
+        {!storyFinished && storyEnd && <StoryEnd handleStoryFinished={handleStoryFinished} />}
         </> 
     )
 }
