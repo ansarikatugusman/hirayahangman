@@ -34,8 +34,8 @@ const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setComplet
 
 			<div className='modal' style={{ visibility: displayBook ? 'visible' : 'hidden' }}>
 			</div>
-			<div className='close' style={{ visibility: displayBook ? 'visible' : 'hidden' }} >
-				<SketchedButton text='CLOSE' width='120px' onClickHandler={closeDisplayBook} />
+			<div className='close' style={{ visibility: displayBook ? 'visible' : 'hidden' }} onClick={closeDisplayBook} >
+				<SketchedButton text='CLOSE' width='120px' />
 			</div>
       		{displayBook && <Canvas style={{ width: '100vw',  height: '100vh', position: 'absolute', zIndex:'12',  }} shadows camera={{
           		position: [-0.5, 1.5, window.innerWidth > 550 ? 6.25 : 9.5],

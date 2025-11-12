@@ -24,7 +24,7 @@
 
 .play_now_button_wrapper {
     width: 206px;
-    height: 60px;
+    height: 61px;
 }
 
 .play_now_button .play_now_button_span {
@@ -46,6 +46,7 @@
 }
 
 .play_now_button {
+    width: 206px;
     border: 0.5px solid black;
     position: relative;
     font: 2rem -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;

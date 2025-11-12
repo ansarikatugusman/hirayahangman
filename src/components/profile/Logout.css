@@ -7,7 +7,7 @@
     gap: 2rem;
 }
 
-.logout_dialog_button {
+.logout_dialog_button-wrapper {
     width: 71px;
     height: 38px;
 }

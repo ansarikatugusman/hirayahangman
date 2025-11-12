@@ -21,10 +21,10 @@ const Logout = ({ closeLogoutDialog }) => {
                 Are you sure you want to log out?
             </div>
             <div className='logout_dialog_buttons center'>
-                <div className='logout_dialog_button center' onClick={confirmLogout}>
+                <div className='logout_dialog_button-wrapper center' onClick={confirmLogout}>
                     <SketchedButton width='71px' text='YES' />
                 </div>
-                <div className='logout_dialog_buttons center' onClick={cancelLogout}>
+                <div className='logout_dialog_button-wrapper center' onClick={cancelLogout}>
                     <SketchedButton width='71px' text='NO' />
                 </div>
             </div>

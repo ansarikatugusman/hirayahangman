@@ -11,17 +11,25 @@ const ExitPrompt = ({ tutorialFinished, onTutorialExit, onFailGame, onCancelExit
                 `You haven't finsihed the tutorial yet. Are you sure you want to exit?`
             }
                 <div className='exit_game_buttons center'>
-                    <SketchedButton 
-                        text='YES' width='75px' 
-                        onClickHandler={() => { 
-                            if (tutorialFinished) {
-                                onFailGame(true) 
-                            } else {
-                                onTutorialExit()
-                            }
-                        }}
-                    />
-                    <SketchedButton text='NO' width='75px' onClickHandler={onCancelExitGame}  />
+                    <div 
+                        className='exit_game_button-wrapper'
+                        onClick={() => { 
+                                if (tutorialFinished) {
+                                    onFailGame(true) 
+                                } else {
+                                    onTutorialExit()
+                                }
+                            }}
+                    >
+                        <SketchedButton
+                            text='YES'
+                            width='75px' 
+                        />
+                    </div>
+                    
+                    <div className='exit_game_button-wrapper' onClick={onCancelExitGame} > 
+                        <SketchedButton text='NO' width='75px'/>
+                    </div>
                 </div>
         </SketchySmallWrapper>
     )

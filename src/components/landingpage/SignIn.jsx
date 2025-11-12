@@ -93,10 +93,9 @@ const SignIn = () => {
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             <div className='signin-wrapper center'>
-                <div className='play_now_button_wrapper'>
+                <div className='play_now_button_wrapper' onClick={openSignInModal}>
                     <button
                         className='play_now_button'
-                        onClick={openSignInModal}
                     >
                         <span className='play_now_button_span'>PLAY NOW</span>
                     </button>

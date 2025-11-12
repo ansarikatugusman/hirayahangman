@@ -1,3 +1,7 @@
 .exit_game_buttons {
     gap: 15px;
 }
+
+.exit_game_button-wrapper {
+    height: 38px;
+}
