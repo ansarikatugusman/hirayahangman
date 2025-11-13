@@ -122,7 +122,7 @@ const LettersDisplay = ({ tutorial1, setCompletedTutorial, tutorial1Active, setT
                 <button className='microphone-wrapper center'>
                     <span className='center' style={{ background: microphoneActive ? '#00c763' : '#ff3636' }}>
                         <div className='microphone_icon-wrapper center'>
-                            <img className='microphone_icon' src={Microphone} />
+                            <img className='microphone_icon' src={Microphone} draggable='false' />
                         </div>
                         
                         <p className='microphone_indicator'>{microphoneActive ? 'ON' : 'OFF'}</p>
@@ -132,7 +132,7 @@ const LettersDisplay = ({ tutorial1, setCompletedTutorial, tutorial1Active, setT
 
             {tutorial1Active && 
                 <div className='tutorial1_hand'>
-                    <img className='tutorial1_hand_icon' src={PointDown} />
+                    <img className='tutorial1_hand_icon' src={PointDown} draggable='false' />
                 </div>
             }
 

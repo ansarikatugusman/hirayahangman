@@ -22,11 +22,11 @@ const BottomMenuIcons = ({ openContactUsMenu, musicMuted, muteMusic, unmuteMusic
             
             <div className='bottom_menu_icons-wrapper center'>
                 <div className='menu_icon-wrapper center' style={{ display: 'none' }}>
-                    <img className='menu_icon' src={Credits} alt='credits' />
+                    <img className='menu_icon' src={Credits} alt='credits' draggable='false' />
                     <p>CREDITS</p>
                 </div>
                 <div className='menu_icon-wrapper center' onClick={openContactUsMenu}>
-                    <img className='menu_icon' src={ContactUs} alt='contact_us' />
+                    <img className='menu_icon' src={ContactUs} alt='contact_us' draggable='false' />
                     <p>CONTACT US</p>
                 </div>
                 <div 
@@ -36,7 +36,7 @@ const BottomMenuIcons = ({ openContactUsMenu, musicMuted, muteMusic, unmuteMusic
                         else muteMusic()
                     }}
                 >
-                    <img className='menu_icon' src={musicMuted ? MusicOff : MusicOn} alt='music' />
+                    <img className='menu_icon' src={musicMuted ? MusicOff : MusicOn} alt='music' draggable='false' />
                     <p>{musicMuted ? 'Music OFF' : 'Music ON'}</p>
                 </div>
             </div>

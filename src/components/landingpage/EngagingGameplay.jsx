@@ -16,7 +16,7 @@ const EngagingGameplay = () => {
                 </div>
             </div>
             <div className='landing_page_engaging_gameplay_image-wrapper center'>
-                <img className='landing_page_engaging_gameplay_image' src={EngagingGameplayImage} alt='image' />
+                <img className='landing_page_engaging_gameplay_image' src={EngagingGameplayImage} alt='image' draggable='false' />
             </div>
         </div>
     )

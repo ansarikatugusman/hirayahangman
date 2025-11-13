@@ -75,7 +75,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
 
             <div className='upgrade1-container store_upgrade'>
                 <div className='upgrade1_image-wrapper upgrade_image-wrapper'>
-                    <img className='upgrade1_image upgrade_image' src={HeartCherish} />
+                    <img className='upgrade1_image upgrade_image' src={HeartCherish} draggable='false' />
                 </div>
                 <div className='upgrade1_description-wrapper upgrade_description-wrapper center'>
                     <div className='upgrade1_description upgrade_description'>
@@ -97,7 +97,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
                     }
                     {StoreUpgradesList.upgrade1[playerUpgrade1].price !== 'Maxed' && 
                         <div className='upgrade1_price-wrapper upgrade_price-wrapper center'>
-                            <img className='gold_icon' src={Gold}  />
+                            <img className='gold_icon' src={Gold} draggable='false' />
                             <div className='upgrade1_price upgrade_price'>
                                 {StoreUpgradesList.upgrade1[playerUpgrade1].price}
                             </div>
@@ -118,7 +118,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
 
             <div className='upgrade2-container store_upgrade'>
                 <div className='upgrade2_image-wrapper upgrade_image-wrapper'>
-                    <img className='upgrade2_image upgrade_image' src={Stopwatch} />
+                    <img className='upgrade2_image upgrade_image' src={Stopwatch} draggable='false' />
                 </div>
                 <div className='upgrade2_description-wrapper upgrade_description-wrapper center'>
                     <div className='upgrade2_description upgrade_description'>
@@ -140,7 +140,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
                     }
                     {StoreUpgradesList.upgrade2[playerUpgrade2].price !== 'Maxed' && 
                         <div className='upgrade2_price-wrapper upgrade_price-wrapper center'>
-                            <img className='gold_icon' src={Gold}  />
+                            <img className='gold_icon' src={Gold} draggable='false' />
                             <div className='upgrade2_price upgrade_price'>
                                 {StoreUpgradesList.upgrade2[playerUpgrade2].price}
                             </div>
@@ -161,7 +161,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
 
             <div className='upgrade3-container store_upgrade'>
                 <div className='upgrade3_image-wrapper upgrade_image-wrapper'>
-                    <img className='upgrade3_image upgrade_image' src={SplitCross} />
+                    <img className='upgrade3_image upgrade_image' src={SplitCross} draggable='false' />
                 </div>
                 <div className='upgrade3_description-wrapper upgrade_description-wrapper center'>
                     <div className='upgrade3_description upgrade_description'>
@@ -183,7 +183,7 @@ const StoreUpgrades = ({ setGold, playerUpgrade1, playerUpgrade2, playerUpgrade3
                     }
                     {StoreUpgradesList.upgrade3[playerUpgrade3].price !== 'Maxed' && 
                         <div className='upgrade3_price-wrapper upgrade_price-wrapper center'>
-                            <img className='gold_icon' src={Gold}  />
+                            <img className='gold_icon' src={Gold} draggable='false' />
                             <div className='upgrade3_price upgrade_price'>
                                 {StoreUpgradesList.upgrade3[playerUpgrade3].price}
                             </div>

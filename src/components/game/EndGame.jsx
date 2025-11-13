@@ -58,11 +58,11 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
                         <p>Solve the level to get the reward from the chest.</p>
                     </div>
                     <div className='chest_wrapper ohpw center'>
-                        <img className='chest_empty' src={ChestClosed} />
+                        <img className='chest_empty' src={ChestClosed} draggable='false' />
                     </div>
                     <div className='end_game_results-wrapper ohpw center' >
                         <div className='end_game_results_crown_penalty-wrapper ohpw center'>
-                            {tutorialFinished && <img className='end_game_crown_icon' src={Crown}/>}
+                            {tutorialFinished && <img className='end_game_crown_icon' src={Crown} draggable='false'/>}
                             {tutorialFinished && <p>{crownsPenalty()}</p>}
                             {!tutorialFinished && <p>Try again. You can do it.</p>}
                         </div>
@@ -83,16 +83,16 @@ const EndGame = ({ tutorialFinished, tutorialCompleted, answer, gameCompleted, o
                             <p>The answer is <span>{answer}</span>.</p>
                         </div>
                         <div className='end_game_remarks_chest_empty-wrapper ohpw center' style={{ display: chestEmpty ? 'flex' : 'none' }}>
-                            <img className='end_game_gold_icon' src={Gold}/>
+                            <img className='end_game_gold_icon' src={Gold} draggable='false' />
                             <p>+{goldReward()}</p>
                         </div>
                     </div>
                     <div className='chest_wrapper ohpw center'>
-                        <img className={`${chestEmpty ? 'chest_empty' : 'chest'}`} src={!chestEmpty ? ChestOpen : ChestEmpty} />
+                        <img className={`${chestEmpty ? 'chest_empty' : 'chest'}`} src={!chestEmpty ? ChestOpen : ChestEmpty} draggable='false' />
                     </div>
                     <div className='end_game_results-wrapper ohpw center' >
                          <div className='end_game_results_crown_penalty-wrapper ohpw center' style={{ display: chestEmpty ? 'flex' : 'none' }}>
-                            <img className='end_game_crown_icon' src={Crown}/>
+                            <img className='end_game_crown_icon' src={Crown} draggable='false' />
                             <p>{crownsReward() > 0 ? `+${crownsReward()}`: crownsReward()}</p>
                         </div>
                         <div className='end_game_results_chest_open-wrapper center' style={{ display: chestEmpty ? 'none' : 'flex' }}>

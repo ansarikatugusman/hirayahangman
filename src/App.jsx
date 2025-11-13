@@ -39,7 +39,6 @@ const App = () => {
     if (token) {
         routes = (
             <Routes>
-                
                 <Route index element={<Home musicMuted={musicMuted} muteMusic={muteMusic} unmuteMusic={unmuteMusic} />} />
                 <Route path='/testing' element={<Testing />}/>
                 <Route path='/play' element={<Play musicMuted={musicMuted} />}/>
@@ -78,7 +77,6 @@ const App = () => {
             <AuthContext.Provider value={{ id: id, token: token, login: login, logout: logout }}>
                 <div className='app' onMouseMove={changePosition} style={{ cursor: token ? 'none' : 'default' }}>
                     {routes}
-                    
                 </div>
                 <div className='app_parchment'>
                 </div>

@@ -110,7 +110,7 @@ const StoreItems = ({ setGold }) => {
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             <div className='item1-container store_item'>
                 <div className='item1_image-wrapper item_image-wrapper'>
-                    <img className='item1_image item_image' src={HealthPlus} />
+                    <img className='item1_image item_image' src={HealthPlus} draggable='false' />
                 </div>
                 <div className='item1_name-wrapper item_name-wrapper center'>
                     <div className='item1_name item_name'>
@@ -125,7 +125,7 @@ const StoreItems = ({ setGold }) => {
                 <hr className='item_divider' ></hr>
                 <div className='item1_price-container item_price-container center'>
                     <div className='item1_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
+                        <img className='gold_icon' src={Gold} draggable='false' />
                         <div className='item1_price item_price'>
                             {Items.item01.price}
                         </div>
@@ -138,7 +138,7 @@ const StoreItems = ({ setGold }) => {
 
             <div className='item2-container store_item'>
                 <div className='item2_image-wrapper item_image-wrapper'>
-                    <img className='item2_image item_image' src={TimeShield} />
+                    <img className='item2_image item_image' src={TimeShield} draggable='false' />
                 </div>
                 <div className='item2_name-wrapper item_name-wrapper center'>
                     <div className='item2_name item_name'>
@@ -153,7 +153,7 @@ const StoreItems = ({ setGold }) => {
                 <hr className='item_divider' ></hr>
                 <div className='item2_price-container item_price-container center'>
                     <div className='item2_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
+                        <img className='gold_icon' src={Gold} draggable='false' />
                         <div className='item2_price item_price'>
                             {Items.item02.price}
                         </div>
@@ -166,7 +166,7 @@ const StoreItems = ({ setGold }) => {
 
             <div className='item3-container store_item'>
                 <div className='item3_image-wrapper item_image-wrapper'>
-                    <img className='item3_image item_image' src={MagnifyingGlass} />
+                    <img className='item3_image item_image' src={MagnifyingGlass} draggable='false' />
                 </div>
                 <div className='item3_name-wrapper item_name-wrapper center'>
                     <div className='item3_name item_name'>
@@ -181,7 +181,7 @@ const StoreItems = ({ setGold }) => {
                 <hr className='item_divider' ></hr>
                 <div className='item3_price-container item_price-container center'>
                     <div className='item3_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
+                        <img className='gold_icon' src={Gold} draggable='false' />
                         <div className='item3_price item_price'>
                             {Items.item03.price}
                         </div>
@@ -194,7 +194,7 @@ const StoreItems = ({ setGold }) => {
 
             <div className='item4-container store_item'>
                 <div className='item4_image-wrapper item_image-wrapper'>
-                    <img className='item4_image item_image' src={Randomizer} />
+                    <img className='item4_image item_image' src={Randomizer} draggable='false' />
                 </div>
                 <div className='item4_name-wrapper item_name-wrapper center'>
                     <div className='item4_name item_name'>
@@ -209,7 +209,7 @@ const StoreItems = ({ setGold }) => {
                 <hr className='item_divider' ></hr>
                 <div className='item4_price-container item_price-container center'>
                     <div className='item4_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
+                        <img className='gold_icon' src={Gold} draggable='false' />
                         <div className='item4_price item_price'>
                             {Items.item04.price}
                         </div>
@@ -222,7 +222,7 @@ const StoreItems = ({ setGold }) => {
 
             <div className='item5-container store_item'>
                 <div className='item5_image-wrapper item_image-wrapper'>
-                    <img className='item5_image item_image' src={CrossMark} />
+                    <img className='item5_image item_image' src={CrossMark} draggable='false' />
                 </div>
                 <div className='item5_name-wrapper item_name-wrapper center'>
                     <div className='item5_name item_name'>
@@ -237,7 +237,7 @@ const StoreItems = ({ setGold }) => {
                 <hr className='item_divider' ></hr>
                 <div className='item5_price-container item_price-container center'>
                     <div className='item5_price-wrapper item_price-wrapper center'>
-                        <img className='gold_icon' src={Gold}  />
+                        <img className='gold_icon' src={Gold} draggable='false' />
                         <div className='item5_price item_price'>
                             {Items.item05.price}
                         </div>

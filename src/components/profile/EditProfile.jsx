@@ -22,7 +22,7 @@ const EditProfile = ({ name, avatar, avatars, setName, setAvatar, closeEditProfi
 
     const avatarCollection = avatars.map( avatar =>
         <div className='avatar_collection-wrapper center' key={avatar}>
-            <img className='edit_profile_collection_avatar' src={`./avatars/${avatar}.${avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' onClick={() => onAvatarChange(avatar)} />
+            <img className='edit_profile_collection_avatar' src={`./avatars/${avatar}.${avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' onClick={() => onAvatarChange(avatar)} draggable='false' />
         </div>
     )
 
@@ -54,7 +54,7 @@ const EditProfile = ({ name, avatar, avatars, setName, setAvatar, closeEditProfi
                 <div className='edit_profile_details-wrapper center'>
                     <div className='edit_profile_details center'>
                         <div className='edit_profile_avatar-wrapper center'>
-                            <img className='edit_profile_avatar' src={`./avatars/${newAvatar}.${newAvatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} ></img>
+                            <img className='edit_profile_avatar' src={`./avatars/${newAvatar}.${newAvatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} draggable='false' />
                         </div>
                         <div className='edit_profile_name-wrapper'>
                             <p className='edit_profile_name'>
@@ -68,7 +68,7 @@ const EditProfile = ({ name, avatar, avatars, setName, setAvatar, closeEditProfi
                             <input className='edit_profile_new_name' type='text' name='new_name' placeholder='Enter new name...' minLength={1} value={newName} onChange={onNameChange} />
                         </div>
                         <div title='Save Profile' className='edit_profile_save center' onClick={onSave}>
-                            <img className='edit_profile_save_icon' src={Save} />
+                            <img className='edit_profile_save_icon' src={Save} draggable='false' />
                             <p>SAVE</p>
                         </div>
                     </div>

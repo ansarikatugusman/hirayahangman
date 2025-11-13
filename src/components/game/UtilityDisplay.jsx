@@ -23,7 +23,7 @@ const UtilityDisplay = ({ tutorial1, tutorial2, tutorial1Active, tutorial2Active
                 <div className='time_left center'>{remainingTime}</div>
                 {tutorial3Active &&
                     <div className='tutorial3_hand'>
-                        <img className='tutorial3_hand_icon' src={PointLeft} />
+                        <img className='tutorial3_hand_icon' src={PointLeft} draggable='false'/>
                     </div>
                 }
             </div>
@@ -84,12 +84,12 @@ const UtilityDisplay = ({ tutorial1, tutorial2, tutorial1Active, tutorial2Active
                         ref={livesRef}
                         style={{ zIndex: tutorial2Active && '20' }}
                     >
-                        <img className='life' src={Life} />
+                        <img className='life' src={Life} draggable='false' />
                         <p className='lives_left'>{lives}</p>
 
                         {tutorial2Active &&
                             <div className='tutorial2_hand'>
-                                <img className='tutorial2_hand_icon' src={PointRight} />
+                                <img className='tutorial2_hand_icon' src={PointRight} draggable='false' />
                             </div>
                         }
                     </div>

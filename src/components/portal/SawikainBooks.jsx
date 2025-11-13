@@ -40,9 +40,10 @@ const SawikainBooks = ({ numberOfBooks = 13, radius = 3, handleCurrentBook, leve
                                 }}
                                 style={{ pointerEvents: booksSolved.length >= 12 ? '' : 'none' }}>
                                 <img
-                                id='last_book'
+                                    id='last_book'
                                     className='sawikain_book_image'
                                     src={booksSolved.length >= 12 ? SawikainBookOpen : SawikainBookClosed}
+                                    draggable='false'
                                 />
                             </div>
                             <div 
@@ -76,15 +77,17 @@ const SawikainBooks = ({ numberOfBooks = 13, radius = 3, handleCurrentBook, leve
                                 }}
                                 style={{ pointerEvents: books[`sawikainBook${i+1}`] === true ? 'none' : '' }}>
                                 <img
-                                id={Object.keys(books)[i]}
+                                    id={Object.keys(books)[i]}
                                     className='sawikain_book_image'
                                     src={books[`sawikainBook${i+1}`] === true ? SwBookClosed : SwBookOpen}
+                                    draggable='false'
                                 />
 
                                 <img
                                     className='sawikain_book_ribbon'
                                     src={Ribbon}
                                     style={{ display: books[`sawikainBook${i+1}`] === true ? 'block' : 'none' }}
+                                    draggable='false'
                                 />
                             </div>
                         </div>

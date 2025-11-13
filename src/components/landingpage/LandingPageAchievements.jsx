@@ -19,19 +19,19 @@ const LandingPageAchievements = () => {
     const [achievementIcon, setAchievementIcon] = useState(<img className='landing_page_achievements_icon' src={Manlalaro} alt='achievement' />)
 
     const landingPageAchievements = [
-        <img className='landing_page_achievements_icon' src={Manlalaro} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Marunong} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Tagapagsalaysay} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Mayaman} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Bihasa} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Maabilidad} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Tagapagtipon} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Napakagaling} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Pinakamahusay} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Listo} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Maalam} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Matalino} alt='achievement' />,
-        <img className='landing_page_achievements_icon' src={Paham} alt='achievement' />,
+        <img className='landing_page_achievements_icon' src={Manlalaro} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Marunong} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Tagapagsalaysay} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Mayaman} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Bihasa} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Maabilidad} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Tagapagtipon} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Napakagaling} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Pinakamahusay} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Listo} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Maalam} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Matalino} alt='achievement' draggable='false' />,
+        <img className='landing_page_achievements_icon' src={Paham} alt='achievement' draggable='false' />,
     ]
 
     useEffect(() => {

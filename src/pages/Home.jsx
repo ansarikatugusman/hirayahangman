@@ -63,7 +63,7 @@ const Home = ({ musicMuted, muteMusic, unmuteMusic }) => {
                 openLeaderboardMenu={openLeaderboardMenu}
             />
             <div className='logo-container ohpw center'>
-                <img className='image_logo ' src={logo} alt='logo' />
+                <img className='image_logo ' src={logo} alt='logo' draggable='false' />
             </div>
             <BottomMenuIcons
                 openContactUsMenu={openContactUsMenu}

@@ -11,7 +11,7 @@ const ContactUs = ({ closeContactUsMenu }) => {
                     We'd love to hear from you.
                 </div>
                 <div className='contact_us_email-wrapper ohpw center'>
-                    <img className='contact_us_email_icon' src={Mail} />
+                    <img className='contact_us_email_icon' src={Mail} draggable='false' />
                     <p className='contact_us_email'>hiyasngsalita@gmail.com</p>
                 </div>
             </div>

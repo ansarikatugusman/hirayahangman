@@ -18,7 +18,7 @@ const StoreAvatars = ({ setGold, playerAvatars }) => {
         return (
             <div className={`avatar${index + 6}-container store_avatar`} key={avatar.name}>
                 <div className={`avatar${index + 6}_image-wrapper avatar_image-wrapper`}>
-                    <img className={`avatar${index + 6}_image avatar_image`} src={`./avatars/${avatar.icon}.${avatar.icon.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' />
+                    <img className={`avatar${index + 6}_image avatar_image`} src={`./avatars/${avatar.icon}.${avatar.icon.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' draggable='false' />
                 </div>
                 <div className={`avatar${index + 6}_name-wrapper avatar_name-wrapper center`}>
                     <div className={`avatar${index + 6}_name avatar_name`}>
@@ -30,7 +30,7 @@ const StoreAvatars = ({ setGold, playerAvatars }) => {
                     {playerAvatars.includes(avatar.icon) && <div className='avatar_owned ohpw center'>OWNED</div>}
                     {!playerAvatars.includes(avatar.icon) && 
                         <div className={`avatar${index + 6}_price-wrapper avatar_price-wrapper center`}>
-                            <img className='gold_icon' src={Gold}/>
+                            <img className='gold_icon' src={Gold} draggable='false' />
                             <div className={`avatar${index + 6}_price avatar_price`}>
                                 {avatar.price}
                             </div>

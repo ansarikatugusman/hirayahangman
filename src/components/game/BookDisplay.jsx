@@ -27,7 +27,7 @@ const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setComplet
 
 				{tutorial4Active && 
 					<div className='tutorial4_hand'>
-						<img className='tutorial4_hand_icon' src={PointRight} />
+						<img className='tutorial4_hand_icon' src={PointRight} draggable='false' />
 					</div>
 				}
 			</div>

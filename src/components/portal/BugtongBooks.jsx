@@ -40,9 +40,10 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
                                 }}
                                 style={{ pointerEvents: booksSolved.length >= 10 ? '' : 'none' }}>
                                 <img
-                                id='last_book'
+                                    id='last_book'
                                     className='bugtong_book_image'
                                     src={booksSolved.length >= 10 ? BugtongBookOpen : BugtongBookClosed}
+                                    draggable='false'
                                 />
                             </div>
                             <div 
@@ -79,12 +80,14 @@ const BugtongBooks = ({ numberOfBooks = 11, radius = 3, handleCurrentBook, level
                                     id={Object.keys(books)[i]}
                                     className='bugtong_book_image'
                                     src={books[`bugtongBook${i+1}`] === true ? BgBookClosed : BgBookOpen}
+                                    draggable='false'
                                 />
                                 
                                 <img
                                     className='bugtong_book_ribbon'
                                     src={Ribbon}
                                     style={{ display: books[`bugtongBook${i+1}`] === true ? 'block' : 'none' }}
+                                    draggable='false'
                                 />
                             </div>
                         </div>

@@ -53,7 +53,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
                 <div className='achievements-wrapper ohpw center'>
                     <div className={`achievement1 achievement ${!playerAchievements.manlalaro && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Manlalaro} />
+                            <img className='achievement_icon' src={Manlalaro} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Be a player of Hiyas ng Salita.
@@ -62,7 +62,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement1 achievement ${!playerAchievements.marunong && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Marunong} />
+                            <img className='achievement_icon' src={Marunong} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Finish the tutorial.
@@ -71,7 +71,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement3 achievement ${!playerAchievements.mayaman && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Mayaman} />
+                            <img className='achievement_icon' src={Mayaman} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Spend 5,000 gold or more.
@@ -80,7 +80,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement4 achievement ${!playerAchievements.bihasa && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Bihasa} />
+                            <img className='achievement_icon' src={Bihasa} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Use any items 50 times.
@@ -89,7 +89,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement5 achievement ${!playerAchievements.maabilidad && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Maabilidad} />
+                            <img className='achievement_icon' src={Maabilidad} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Max out at least 1 upgrade in the shop.
@@ -98,7 +98,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement6 achievement ${!playerAchievements.tagapagtipon && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Tagapagtipon} />
+                            <img className='achievement_icon' src={Tagapagtipon} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Own 15 avatars.
@@ -107,7 +107,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement7 achievement ${!playerAchievements.napakagaling && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Napakagaling} />
+                            <img className='achievement_icon' src={Napakagaling} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Reach 500 Crowns.
@@ -116,7 +116,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement8 achievement ${!playerAchievements.pinakamahusay && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Pinakamahusay} />
+                            <img className='achievement_icon' src={Pinakamahusay} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Achieve top 10 in the leaderboard.
@@ -125,7 +125,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement9 achievement ${!playerAchievements.listo && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Listo} />
+                            <img className='achievement_icon' src={Listo} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Have an average time of 8 seconds or less.
@@ -134,7 +134,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement10 achievement ${!playerAchievements.maalam && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Maalam} />
+                            <img className='achievement_icon' src={Maalam} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Answer all bugtong.
@@ -143,7 +143,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement11 achievement ${!playerAchievements.matalino && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Matalino} />
+                            <img className='achievement_icon' src={Matalino} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Answer all sawikain.
@@ -152,7 +152,7 @@ const Achievements = ({ closeAchievementsMenu }) => {
 
                     <div className={`achievement12 achievement ${!playerAchievements.paham && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
-                            <img className='achievement_icon' src={Paham} />
+                            <img className='achievement_icon' src={Paham} draggable='false' />
                         </div>
                         <div className='achievement_description-wrapper center'>
                             Answer all salawikain.

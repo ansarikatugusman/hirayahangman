@@ -69,14 +69,14 @@ const Store = ({ closeStoreMenu }) => {
             {loading && <Loading />}
             {showError && <ErrorMessage error={error} setShowError={setShowError} />}
             <div className='store-wrapper menu scale center'>
-                <img className='close_button_menu icon' src={Close} onClick={closeStoreMenu} />
+                <img className='close_button_menu icon' src={Close} onClick={closeStoreMenu} draggable='false' />
                 <div className='store menu_content center'>
                     <div className='store_navigation ohpw center'>
                         <div className='store_navigation_gold-container ohpw center'>
                             <div className='player_gold-container center'>
                                 <div className='top-tape'></div>
                                 <div className='player_gold-wrapper ohp center'>
-                                    <img className='player_gold_icon' src={Gold} />
+                                    <img className='player_gold_icon' src={Gold} draggable='false' />
                                     <div className='player_gold ohph center'>
                                         <p>{gold}</p>
                                     </div>

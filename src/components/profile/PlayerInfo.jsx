@@ -12,14 +12,14 @@ const PlayerInfo = ({ name, avatar, crowns, openEditProfileDialog, openLogoutDia
                 <div className='tape-section'></div>
                 <div className='player-wrapper ohp center'>
                     <div className='player_avatar-wrapper ohph center'>
-                        <img className='player_avatar' src={`./avatars/${avatar}.${avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' />
+                        <img className='player_avatar' src={`./avatars/${avatar}.${avatar.substring(0, 2) == '01' ? 'png' : 'svg'}`} alt='avatar' draggable='false' />
                     </div>
                     <div className='player_name_and_crowns-container ohph'>
                         <div className='player_name-wrapper'>
                             <p>{name}</p>
                         </div>
                         <div className='player_crowns-wrapper center'>
-                            <img className='player_crowns' src={Crown} />
+                            <img className='player_crowns' src={Crown} draggable='false' />
                             <p>{crowns}</p>
                         </div>
                     </div>
@@ -28,11 +28,11 @@ const PlayerInfo = ({ name, avatar, crowns, openEditProfileDialog, openLogoutDia
             </div>
             <div className='player_info_options center'>
                 <div title='Edit Profile' className='player_info_option center' onClick={openEditProfileDialog}>
-                    <img className='edit_icon' src={Edit} />
+                    <img className='edit_icon' src={Edit} draggable='false' />
                     <p>EDIT</p>
                 </div>
                 <div title='Logout' className='player_info_option center' onClick={openLogoutDialog}>
-                    <img className='logout_icon' src={Logout} />
+                    <img className='logout_icon' src={Logout} draggable='false' />
                     <p>LOGOUT</p>
                 </div>
             </div>

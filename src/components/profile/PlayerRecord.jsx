@@ -18,7 +18,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
             <div className='player_record ohpw center'>
                 <div className='personal_record center'>
                     <div className='personal_record_icon-wrapper center'>
-                        <img className='personal_record_icon' src={Bill} />
+                        <img className='personal_record_icon' src={Bill} draggable='false' />
                     </div>
                     <div className='personal_record_title-wrapper center'>
                         <div className='personal_record_title'>
@@ -35,7 +35,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
 
                 <div className='personal_record center'>
                     <div className='personal_record_icon-wrapper center'>
-                        <img className='personal_record_icon' src={Bag} />
+                        <img className='personal_record_icon' src={Bag} draggable='false' />
                     </div>
                     <div className='personal_record_title-wrapper center'>
                         <div className='personal_record_title'>
@@ -52,7 +52,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
 
                 <div className='personal_record center'>
                     <div className='personal_record_icon-wrapper center'>
-                        <img className='personal_record_icon' src={Crown} />
+                        <img className='personal_record_icon' src={Crown} draggable='false' />
                     </div>
                     <div className='personal_record_title-wrapper center'>
                         <div className='personal_record_title'>
@@ -69,7 +69,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
 
                 <div className='personal_record center'>
                     <div className='personal_record_icon-wrapper center'>
-                        <img className='personal_record_icon' src={Trophy} />
+                        <img className='personal_record_icon' src={Trophy} draggable='false' />
                     </div>
                     <div className='personal_record_title-wrapper center'>
                         <div className='personal_record_title'>
@@ -86,7 +86,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
 
                 <div className='personal_record center'>
                     <div className='personal_record_icon-wrapper center'>
-                        <img className='personal_record_icon' src={StopWatch} />
+                        <img className='personal_record_icon' src={StopWatch} draggable='false' />
                     </div>
                     <div className='personal_record_title-wrapper center'>
                         <div className='personal_record_title'>
@@ -103,7 +103,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
 
                 <div className='personal_record center'>
                     <div className='personal_record_icon-wrapper center'>
-                        <img className='personal_record_icon_book' src={Bugtong} />
+                        <img className='personal_record_icon_book' src={Bugtong} draggable='false' />
                     </div>
                     <div className='personal_record_title-wrapper center'>
                         <div className='personal_record_title'>
@@ -120,7 +120,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
 
                 <div className='personal_record center'>
                     <div className='personal_record_icon-wrapper center'>
-                        <img className='personal_record_icon_book' src={Sawikain} />
+                        <img className='personal_record_icon_book' src={Sawikain} draggable='false' />
                     </div>
                     <div className='personal_record_title-wrapper center'>
                         <div className='personal_record_title'>
@@ -137,7 +137,7 @@ const PlayerRecord = ({ crowns, totalGoldSpent, totalItemsUsed, highestCrown, le
 
                 <div className='personal_record center'>
                     <div className='personal_record_icon-wrapper center'>
-                        <img className='personal_record_icon_book' src={Salawikain} />
+                        <img className='personal_record_icon_book' src={Salawikain} draggable='false' />
                     </div>
                     <div className='personal_record_title-wrapper center'>
                         <div className='personal_record_title'>

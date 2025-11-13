@@ -131,7 +131,7 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
 
             {tutorial5Active && 
                 <div className='tutorial5_hand'>
-                    <img className='tutorial5_hand_icon' src={PointUp} />
+                    <img className='tutorial5_hand_icon' src={PointUp} draggable='false'/>
                 </div>
             }
 
@@ -139,7 +139,7 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
 
             {tutorial4 &&
                 <div className='items_display-wrapper' onClick={useItem1} style={{ display: item1 ? 'block' : 'none', zIndex: tutorial5Active && '20' }} >
-                    <img className='item' src={HealtPlus} />
+                    <img className='item' src={HealtPlus} draggable='false' />
                     <div className='item_quantity-wrapper center'>
                         <p className='item_quantity'> {item1} </p>
                     </div>
@@ -148,7 +148,7 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
 
             {tutorial4 &&
                 <div className='items_display-wrapper' onClick={useItem2} style={{ display: item2 ? 'block' : 'none', zIndex: tutorial5Active && '20' }} >
-                    <img className='item' src={TimeShield} />
+                    <img className='item' src={TimeShield} draggable='false' />
                     <div className='item_quantity-wrapper center'>
                         <p className='item_quantity'> {item2} </p>
                     </div>
@@ -157,7 +157,7 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
 
             {tutorial4 &&
                 <div className='items_display-wrapper' onClick={useItem3} style={{ display: item3 ? 'block' : 'none', zIndex: tutorial5Active && '20' }}  >
-                    <img className='item' src={MagnifyingGlass} />
+                    <img className='item' src={MagnifyingGlass} draggable='false' />
                     <div className='item_quantity-wrapper center'>
                         <p className='item_quantity'> {item3} </p>
                     </div>
@@ -166,7 +166,7 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
 
             {tutorial4 &&
                 <div className='items_display-wrapper' onClick={useItem4} style={{ display: item4 ? 'block' : 'none', zIndex: tutorial5Active && '20' }}  >
-                    <img className='item' src={Randomizer} />
+                    <img className='item' src={Randomizer} draggable='false' />
                     <div className='item_quantity-wrapper center'>
                         <p className='item_quantity'> {item4} </p>
                     </div>
@@ -175,7 +175,7 @@ const ItemsDisplay = ({ tutorial4, tutorial5Active, setTutorial5Active, setCompl
 
             {tutorial4 &&
                 <div className='items_display-wrapper' onClick={useItem5} style={{ display: item5 ? 'block' : 'none', zIndex: tutorial5Active && '20' }}  >
-                    <img className='item' src={CrossMark} />
+                    <img className='item' src={CrossMark} draggable='false' />
                     <div className='item_quantity-wrapper center'>
                         <p className='item_quantity'> {item5} </p>
                     </div>

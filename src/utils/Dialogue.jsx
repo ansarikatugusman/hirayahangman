@@ -52,13 +52,14 @@ const Dialogue = ({ minimized, top, dialogue, onDialogueFinish }) => {
                                 : dialogue[dialoguePage].emotion === 'book_glowing' ? CharacterBookGlowing
                                 : Character
                             } 
+                        draggable='false'
                     />}
                 </div>
             }
             <div className={`dialogue_text-wrapper ohpw center ${top && 'dialogue_text-wrapper-top'}`} >
                 {minimized &&
                     <div className='dialogue_text_icon-wrapper'>
-                        <img className='dialogue_text_icon ' src={CharacterHead} />
+                        <img className='dialogue_text_icon ' src={CharacterHead} draggable='false' />
                     </div>
                 }
                 <div className='dialogue_text ohpw center'>

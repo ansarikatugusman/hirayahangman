@@ -14,7 +14,7 @@ const PlayerId = () => {
             <div className='player_id-wrapper center'>
                 <div className='player_id center' onClick={copyId}>
                     <p>{auth.id}</p>
-                    <img title='Copy to Clipboard' className='player_id_copy' src={Copy} />
+                    <img title='Copy to Clipboard' className='player_id_copy' src={Copy} draggable='false' />
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ const PlayTopNavigation = ({ bugtongPortalActive, handleBugtongPortalActive, saw
 
     const ArrowLeftIcon = () => {
         if (sawikainPortalActive || salawikainPortalActive) {
-            return <img className='menu_icon' src={ArrowLeft} />
+            return <img className='menu_icon' src={ArrowLeft} draggable='false' />
         }
         return <div className='arrow_inactive ohph'></div>
     }
@@ -19,13 +19,13 @@ const PlayTopNavigation = ({ bugtongPortalActive, handleBugtongPortalActive, saw
     const ArrowRightIcon = () => {
         if (salawikainUnlocked) {
             if (bugtongPortalActive || sawikainPortalActive) {
-                return <img className='menu_icon' src={ArrowRight} />
+                return <img className='menu_icon' src={ArrowRight} draggable='false' />
             }
         }
 
         if (sawikainUnlocked) {
             if (bugtongPortalActive) {
-                return <img className='menu_icon' src={ArrowRight} />
+                return <img className='menu_icon' src={ArrowRight} draggable='false' />
             }
         }
         return <div className='arrow_inactive ohph'></div>
@@ -60,7 +60,7 @@ const PlayTopNavigation = ({ bugtongPortalActive, handleBugtongPortalActive, saw
                     </p>
                 </div>
                 <div className='home-wrapper menu_icon-wrapper ohph center' onClick={onClickHome} >
-                    <img className='menu_icon' src={Home} />
+                    <img className='menu_icon' src={Home} draggable='false' />
                     <p>HOME</p>
                 </div>
                 {<div 
