@@ -7,12 +7,12 @@ import {
   	Text,
   	useCursor,
   	useTexture,
-} from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
-import { easing } from "maath";
-import { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
-import ExitPortal from "./portal/ExitPortal";
+} from '@react-three/drei';
+import { useFrame, useThree } from '@react-three/fiber';
+import { easing } from 'maath';
+import { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
+import ExitPortal from './portal/ExitPortal';
 
 const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, levelStart, levelStarted, BooksDisplay, books, booksSolved, chapterFinished }) => {
   	const { ACTION } = CameraControlsImpl;
@@ -26,7 +26,7 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
 
   	useFrame((_state, delta) => {
     	const worldOpen = active === name;
-    	easing.damp(portalMaterial.current, "blend", worldOpen ? 1 : 0, 0.15, delta);
+    	easing.damp(portalMaterial.current, 'blend', worldOpen ? 1 : 0, 0.15, delta);
   	});
 
   	useEffect(() => {
@@ -51,13 +51,12 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
     	<>
       		<ambientLight intensity={0.5} />
       		<CameraControls 
-				
         		ref={controlsRef}
         		maxPolarAngle={Math.PI / 2}
         		minPolarAngle={Math.PI / 2}
 				mouseButtons={{
 					left: ACTION.ROTATE,
-					middle: ACTION.DOLLY,
+					middle: ACTION.NONE,
 					right: ACTION.ROTATE,
 					wheel: ACTION.NONE,
 				}}
@@ -70,13 +69,13 @@ const Portal = ({ name, texture, active, handleActivePortal, handleCurrentBook, 
 			{active && !levelStart && <ExitPortal name={name} handleActivePortal={handleActivePortal} />}
 			{active && !levelStart && <BooksDisplay handleCurrentBook={handleCurrentBook} levelStarted={levelStarted} books={books} booksSolved={booksSolved} />}
       			<Text
-        			font="fonts/CabinSketch-Regular.ttf"
+        			font='fonts/CabinSketch-Regular.ttf'
         			fontSize={0.3}
 					color={'white'}
 					outlineColor={'black'}
 					outlineWidth={0.0175}
         			position={[0, -1.3, 0.051]}
-        			anchorY={"bottom"}
+        			anchorY={'bottom'}
       			>		
         			{name}
         			<meshBasicMaterial color={'white'} toneMapped={false} />

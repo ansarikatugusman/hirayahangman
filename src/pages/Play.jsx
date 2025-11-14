@@ -282,7 +282,7 @@ const Play = ({ musicMuted }) => {
         {showError && <ErrorMessage error={error} setShowError={setShowError} />}
         {!active && <PlayTopNavigation bugtongPortalActive={bugtongPortalActive} handleBugtongPortalActive={handleBugtongPortalActive} sawikainUnlocked={sawikainUnlocked} sawikainPortalActive={sawikainPortalActive} handleSawikainPortalActive={handleSawikainPortalActive} salawikainUnlocked={salawikainUnlocked} salawikainPortalActive={salawikainPortalActive} handleSalawikainPortalActive={handleSalawikainPortalActive} />}
 
-        <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} shadows camera={{ position: [0, 0, 10], fov: 30 }}>
+        <Canvas style={{position: 'fixed', width:'100vw', height:'100vh', top:'0', left:'0', zIndex:'0'}} camera={{ position: [0, 0, 10], fov: 30 }}>
             <Suspense fallback={null}>
                 {bugtongPortalActive && <Portal className='center' name='BUGTONG' texture='textures/bugtong_bg.jpg' active={active} handleActivePortal={handleActivePortal} handleCurrentBook={handleCurrentBook} levelStart={levelStart} levelStarted={levelStarted} BooksDisplay={BugtongBooks} books={bugtongBooks} booksSolved={bugtongBooksSolved} />}
 
