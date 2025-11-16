@@ -5,7 +5,7 @@ import SwBookOpen from '../../assets/images/sw_book_open.png'
 import SwBookClosed from '../../assets/images/sw_book_closed.png'
 import SawikainBookOpen from '../../assets/images/sawikain_book_open.png'
 import SawikainBookClosed from '../../assets/images/sawikain_book_closed.png'
-import Ribbon from '../../assets/images/ribbon.png'
+import Ribbon from '../../assets/images/ribbon2.png'
 
 import './SawikainBooks.css'
 

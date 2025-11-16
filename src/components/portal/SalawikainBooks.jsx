@@ -5,7 +5,7 @@ import SlBookOpen from '../../assets/images/sl_book_open.png'
 import SlBookClosed from '../../assets/images/sl_book_closed.png'
 import SalawikainBookOpen from '../../assets/images/salawikain_book_open.png'
 import SalawikainBookClosed from '../../assets/images/salawikain_book_closed.png'
-import Ribbon from '../../assets/images/ribbon.png'
+import Ribbon from '../../assets/images/ribbon3.png'
 
 import './SalawikainBooks.css'
 

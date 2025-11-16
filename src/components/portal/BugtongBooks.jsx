@@ -5,7 +5,7 @@ import BgBookOpen from '../../assets/images/bg_book_open.png'
 import BgBookClosed from '../../assets/images/bg_book_closed.png'
 import BugtongBookOpen from '../../assets/images/bugtong_book_open.png'
 import BugtongBookClosed from '../../assets/images/bugtong_book_closed.png'
-import Ribbon from '../../assets/images/ribbon.png'
+import Ribbon from '../../assets/images/ribbon1.png'
 
 import './BugtongBooks.css'
 
