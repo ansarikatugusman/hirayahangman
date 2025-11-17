@@ -11,7 +11,7 @@ import './BookDisplay.css'
 const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setCompletedTutorial, pictures, cover, back, displayBook, openDisplayBook, closeDisplayBook, salawikainPortalActive, musicMuted }) => {
 
 	return (
-		<div className='book_display-container center' style={{visibility: salawikainPortalActive ? 'hidden' : 'visible'}} >
+		<div className='book_display-container center' style={{display: salawikainPortalActive ? 'none' : 'flex'}} >
 			{tutorial4Active && <Tutorial4 setTutorial4Active={setTutorial4Active} setCompletedTutorial={setCompletedTutorial} />}
 
 			{tutorial4Active && <div className='book_display_cover ohp'></div>}
@@ -32,12 +32,14 @@ const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setComplet
 				}
 			</div>
 
-			<div className='modal' style={{ visibility: displayBook ? 'visible' : 'hidden' }}>
+			<div className='modal' style={{ display: displayBook ? 'block' : 'none' }}>
 			</div>
-			<div className='close' style={{ visibility: displayBook ? 'visible' : 'hidden' }} onClick={closeDisplayBook} >
+			
+			<div className='close' style={{ display: displayBook ? 'block' : 'none' }} onClick={closeDisplayBook} >
 				<SketchedButton text='CLOSE' width='120px' />
 			</div>
-      		{displayBook && <Canvas style={{ width: '100vw',  height: '100vh', position: 'absolute', zIndex:'12',  }} shadows camera={{
+
+      		{displayBook && <Canvas style={{ width: '100vw',  height: '100vh', position: 'absolute', zIndex:'12', visibility: displayBook ? 'visible' : 'hidden' }} shadows camera={{
           		position: [-0.5, 1.5, window.innerWidth > 550 ? 6.25 : 9.5],
           		fov: 35,
         	}}>
