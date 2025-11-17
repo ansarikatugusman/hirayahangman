@@ -7,7 +7,7 @@ import MusicOff from '../../assets/images/icons/music_off.png'
 
 import './BottomMenuIcons.css'
 
-const BottomMenuIcons = ({ openContactUsMenu, musicMuted, muteMusic, unmuteMusic }) => {
+const BottomMenuIcons = ({ openCreditsMenu, openContactUsMenu, musicMuted, muteMusic, unmuteMusic }) => {
     const navigate = useNavigate()
 
     const onClickPlayHandler = () => navigate('/play')
@@ -20,8 +20,8 @@ const BottomMenuIcons = ({ openContactUsMenu, musicMuted, muteMusic, unmuteMusic
                 </div>
             </div>
             
-            <div className='bottom_menu_icons-wrapper center'>
-                <div className='menu_icon-wrapper center' style={{ display: 'none' }}>
+            <div className='bottom_menu_icons-wrapper center' onClick={openCreditsMenu}>
+                <div className='menu_icon-wrapper center'>
                     <img className='menu_icon' src={Credits} alt='credits' draggable='false' />
                     <p>CREDITS</p>
                 </div>

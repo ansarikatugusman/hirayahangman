@@ -1,0 +1,29 @@
+.credits_title-wrapper {
+    height: 50px;
+    font: 1.25rem 'Nunito-Bold', serif;
+}
+
+.credits-wrapper {
+    height: 445px;
+    gap: 15px;
+    padding-bottom: 10px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.credit-wrapper {
+    width: 90%;
+    height: 80px;
+    background: #FBFBF9;
+    border: 2px solid #323232;
+    box-shadow: 4px 4px #323232;
+    border-radius: 5px;
+    flex-direction: column;
+    gap: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
+}
+
+.credit {
+    font-family: -apple-system, BlinkMacSystemFont, 'Nunito-Italic', serif;
+}

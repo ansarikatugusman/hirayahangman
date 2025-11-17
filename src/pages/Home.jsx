@@ -5,6 +5,7 @@ import Profile from '../menus/Profile'
 import Store from '../menus/Store'
 import Achievements from '../menus/Achievements'
 import Leaderboard from '../menus/Leaderboard'
+import Credits from '../menus/Credits'
 import ContactUs from '../menus/ContactUs'
 import Message from '../utils/Message'
 import Notice from '../utils/Notice'
@@ -21,6 +22,7 @@ const Home = ({ musicMuted, muteMusic, unmuteMusic }) => {
     const [storeMenuOpen, setStoreMenuOpen] = useState(false)
     const [achievementsMenuOpen, setAchievementsMenuOpen] = useState(false)
     const [leaderboardMenuOpen, setLeaderboardMenuOpen] = useState(false)
+    const [creditsMenuOpen, setCreditsMenuOpen] = useState(false)
     const [contactUsMenuOpen, setContactUsMenuOpen] = useState(false)
     const [showMessage, setShowMessage] = useState(false)
     const [showError, setShowError] = useState(false)
@@ -41,6 +43,10 @@ const Home = ({ musicMuted, muteMusic, unmuteMusic }) => {
     const openLeaderboardMenu = () => setLeaderboardMenuOpen(true)
 
     const closeLeaderboardMenu = () => setLeaderboardMenuOpen(false)
+
+    const openCreditsMenu = () => setCreditsMenuOpen(true)
+
+    const closeCreditsMenu = () => setCreditsMenuOpen(false)
 
     const openContactUsMenu = () => setContactUsMenuOpen(true)
 
@@ -66,6 +72,7 @@ const Home = ({ musicMuted, muteMusic, unmuteMusic }) => {
                 <img className='image_logo ' src={logo} alt='logo' draggable='false' />
             </div>
             <BottomMenuIcons
+                openCreditsMenu={openCreditsMenu}
                 openContactUsMenu={openContactUsMenu}
                 musicMuted={musicMuted}
                 muteMusic={muteMusic}
@@ -75,6 +82,7 @@ const Home = ({ musicMuted, muteMusic, unmuteMusic }) => {
             {storeMenuOpen && <Store closeStoreMenu={closeStoreMenu} />}
             {achievementsMenuOpen && <Achievements closeAchievementsMenu={closeAchievementsMenu} />}
             {leaderboardMenuOpen && <Leaderboard closeLeaderboardMenu={closeLeaderboardMenu} />}
+            {creditsMenuOpen && <Credits closeCreditsMenu={closeCreditsMenu} />}
             {contactUsMenuOpen && <ContactUs closeContactUsMenu={closeContactUsMenu} />}
             {showMessage && <Message closeMessage={closeMessage} />}
         </div>
