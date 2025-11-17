@@ -20,8 +20,8 @@ const BottomMenuIcons = ({ openCreditsMenu, openContactUsMenu, musicMuted, muteM
                 </div>
             </div>
             
-            <div className='bottom_menu_icons-wrapper center' onClick={openCreditsMenu}>
-                <div className='menu_icon-wrapper center'>
+            <div className='bottom_menu_icons-wrapper center'>
+                <div className='menu_icon-wrapper center' onClick={openCreditsMenu}>
                     <img className='menu_icon' src={Credits} alt='credits' draggable='false' />
                     <p>CREDITS</p>
                 </div>
