@@ -12,9 +12,8 @@
     scrollbar-width: none;
 }
 
-.credit-wrapper {
+.credit_single-wrapper, .credit_multiple-wrapper {
     width: 90%;
-    height: 80px;
     background: #FBFBF9;
     border: 2px solid #323232;
     box-shadow: 4px 4px #323232;
@@ -22,6 +21,14 @@
     flex-direction: column;
     gap: 5px;
     font-family: -apple-system, BlinkMacSystemFont, 'Nunito-Bold', serif;
+}
+
+.credit_single-wrapper {
+    height: 80px; 
+}
+
+.credit_multiple-wrapper {
+    padding: 15px 0px;
 }
 
 .credit {
