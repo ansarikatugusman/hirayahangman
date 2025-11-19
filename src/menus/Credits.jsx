@@ -338,6 +338,198 @@ const Credits = ({ closeCreditsMenu }) => {
                         <div className='credit_name center'>
                             BRYAN MCWHORTER
                         </div>
+                        <div className='credit_name center'>
+                            FRISKYSLOTHS
+                        </div>
+                        <div className='credit_name center'>
+                            ANDREW RYBALKO
+                        </div>
+                        <div className='credit_name center'>
+                            UNCLEFREDDESIGN
+                        </div>
+                        <div className='credit_name center'>
+                            SIRA ANAMWONG
+                        </div>
+                        <div className='credit_name center'>
+                            GETHSEMANE
+                        </div>
+                        <div className='credit_name center'>
+                            JANE PALACIO
+                        </div>
+                        <div className='credit_name center'>
+                            GEMMA GARCIA
+                        </div>
+                        <div className='credit_name center'>
+                            BLUEASTRO
+                        </div>
+                        <div className='credit_name center'>
+                            CAROLE BANKS
+                        </div>
+                        <div className='credit_name center'>
+                            PRIHANTO EDI
+                        </div>
+                        <div className='credit_name center'>
+                            ZETWE
+                        </div>
+                        <div className='credit_name center'>
+                            JESADAPHORN
+                        </div>
+                        <div className='credit_name center'>
+                            YAEL WEISS
+                        </div>
+                        <div className='credit_name center'>
+                            MEL CASIPIT
+                        </div>
+                        <div className='credit_name center'>
+                            NICOLETA IONESCU
+                        </div>
+                        <div className='credit_name center'>
+                            SARAROOM DESIGN
+                        </div>
+                        <div className='credit_name center'>
+                            DZIANIS VASILYEU
+                        </div>
+                        <div className='credit_name center'>
+                            KIDMASTERMIND
+                        </div>
+                        <div className='credit_name center'>
+                            POOSAN
+                        </div>
+                        <div className='credit_name center'>
+                            NATAN LAWRENCE
+                        </div>
+                        <div className='credit_name center'>
+                            RUDI KURNIAWAN
+                        </div>
+                        <div className='credit_name center'>
+                            ANTONIO GUILLEM
+                        </div>
+                        <div className='credit_name center'>
+                            COLORFUELSTUDIO
+                        </div>
+                        <div className='credit_name center'>
+                            CATOCALA7
+                        </div>
+                        <div className='credit_name center'>
+                            WANG SUIW TONG
+                        </div>
+                        <div className='credit_name center'>
+                            JAIEM MARANAN
+                        </div>
+                        <div className='credit_name center'>
+                            JOY CANTOS
+                        </div>
+                        <div className='credit_name center'>
+                            AMY MCKENNA
+                        </div>
+                        <div className='credit_name center'>
+                            SERGIO PARRA
+                        </div>
+                        <div className='credit_name center'>
+                            DRAWLAB19
+                        </div>
+                        <div className='credit_name center'>
+                            EVELEEN007
+                        </div>
+                        <div className='credit_name center'>
+                            PEWARA NICROPITHAK
+                        </div>
+                        <div className='credit_name center'>
+                            BNP DESIGN STUDIO
+                        </div>
+                        <div className='credit_name center'>
+                            TOMOKA.M
+                        </div>
+                        <div className='credit_name center'>
+                            KAKIGORI
+                        </div>
+                        <div className='credit_name center'>
+                            AZMEYART
+                        </div>
+                        <div className='credit_name center'>
+                            VICTOR BRAVE
+                        </div>
+                        <div className='credit_name center'>
+                            WAT CARTOON
+                        </div>
+                        <div className='credit_name center'>
+                            KANKHEM
+                        </div>
+                        <div className='credit_name center'>
+                            NIWATSINGSAMARN
+                        </div>
+                        <div className='credit_name center'>
+                            TENSTUDIO
+                        </div>
+                        <div className='credit_name center'>
+                            SAMAN HUDI
+                        </div>
+                        <div className='credit_name center'>
+                            FANELIE ROSIER
+                        </div>
+                        <div className='credit_name center'>
+                            KNIAZEV
+                        </div>
+                        <div className='credit_name center'>
+                            EVGENIIAND
+                        </div>
+                        <div className='credit_name center'>
+                            RODNEY SAVELY
+                        </div>
+                        <div className='credit_name center'>
+                            INUENG
+                        </div>
+                        <div className='credit_name center'>
+                            DENISKOT
+                        </div>
+                        <div className='credit_name center'>
+                            ANIMOUSING82
+                        </div>
+                        <div className='credit_name center'>
+                            FAIRMACY
+                        </div>
+                        <div className='credit_name center'>
+                            LIO PUTRA
+                        </div>
+                        <div className='credit_name center'>
+                            THIDARAT SUTEERATAT
+                        </div>
+                        <div className='credit_name center'>
+                            MAIA3000
+                        </div>
+                        <div className='credit_name center'>
+                            ALEXANDER POKUSAY
+                        </div>
+                        <div className='credit_name center'>
+                            ERIEK
+                        </div>
+                        <div className='credit_name center'>
+                            LEMANNA
+                        </div>
+                        <div className='credit_name center'>
+                            SERKANAVCI81
+                        </div>
+                        <div className='credit_name center'>
+                            BLUERINGMEDIA
+                        </div>
+                        <div className='credit_name center'>
+                            PIKISUPERSTAR
+                        </div>
+                        <div className='credit_name center'>
+                            PAPER TRIDENT
+                        </div>
+                        <div className='credit_name center'>
+                            EMRAH_AVCI
+                        </div>
+                        <div className='credit_name center'>
+                            AYAKONO
+                        </div>
+                        <div className='credit_name center'>
+                            PALLAVI
+                        </div>
+                        <div className='credit_name center'>
+                            MANZON
+                        </div>
                     </div>
                 </div>
             </div>
