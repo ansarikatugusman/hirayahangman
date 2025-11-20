@@ -9,6 +9,11 @@ const AchievementsList = {
         icon: 'marunong.png',
         description: 'Finish the tutorial.'
     },
+    tagapagsalaysay: {
+        name: 'Tagapagsalaysay',
+        icon: 'tagapagsalaysay.png',
+        description: 'Finish the story of Hiyas ng Salita.'
+    },
     mayaman: {
         name: 'Mayaman',
         icon: 'mayaman.png',

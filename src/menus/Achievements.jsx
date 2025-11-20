@@ -69,6 +69,15 @@ const Achievements = ({ closeAchievementsMenu }) => {
                         </div>
                     </div>
 
+                    <div className={`achievement1 achievement ${!playerAchievements.tagapagsalaysay && 'achievement_incomplete'} center`}>
+                        <div className='achievement_icon-wrapper center'>
+                            <img className='achievement_icon' src={Tagapagsalaysay} draggable='false' />
+                        </div>
+                        <div className='achievement_description-wrapper center'>
+                            Finish the story of Hiyas ng Salita.
+                        </div>
+                    </div>
+
                     <div className={`achievement3 achievement ${!playerAchievements.mayaman && 'achievement_incomplete'} center`}>
                         <div className='achievement_icon-wrapper center'>
                             <img className='achievement_icon' src={Mayaman} draggable='false' />
