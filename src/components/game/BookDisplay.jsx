@@ -54,9 +54,10 @@ const BookDisplay = ({tutorial3, tutorial4Active, setTutorial4Active, setComplet
 						<Book pictures={pictures} cover={cover} back={back} musicMuted={musicMuted} />
 						</Float>
 						<OrbitControls enableZoom={false} />
+						<Environment preset='studio' />
 						<directionalLight
 							position={[2, 5, 2]}
-							intensity={5}
+							intensity={0.5}
 							castShadow
 							shadow-mapSize-width={2048}
 							shadow-mapSize-height={2048}
